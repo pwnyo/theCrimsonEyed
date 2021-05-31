@@ -1,10 +1,18 @@
 {
-"crimsonEyed:CommonPower": {
-        "NAME": "Placeholder Power",
-        "DESCRIPTIONS": ["You applied #b", " keyword.", " keywords."]
-},
-"crimsonEyed:RarePower": {
-        "NAME": "Placeholder Power",
-        "DESCRIPTIONS": ["At the start of your turn, TOUCH #b", " enemy." , " enemies."]
-}
+        "crimsonEyed:CommonPower": {
+                "NAME": "Placeholder Power",
+                "DESCRIPTIONS": ["You applied #b", " keyword.", " keywords."]
+        },
+        "crimsonEyed:RarePower": {
+                "NAME": "Placeholder Power",
+                "DESCRIPTIONS": ["At the start of your turn, TOUCH #b", " enemy." , " enemies."]
+        },
+        "crimsonEyed:LoseFocusPower": {
+                "NAME": "Lose Focus",
+                "DESCRIPTIONS": ["At the end of your turn, lose #b", " Focus."]
+        },
+        "crimsonEyed:ElectrifyPower": {
+                "NAME": "Electrify",
+                "DESCRIPTIONS": ["Lightning hits ALL enemies for the next ", " turns."]
+        }
 }

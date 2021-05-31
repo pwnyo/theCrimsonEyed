@@ -1,5 +1,6 @@
 package crimsonEyed.cards;
 
+import basemod.AutoAdd;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -13,6 +14,7 @@ import crimsonEyed.orbs.DefaultOrb;
 
 import static crimsonEyed.DefaultMod.makeCardPath;
 
+@AutoAdd.Ignore
 public class OrbSkill extends AbstractDynamicCard {
 
     /*

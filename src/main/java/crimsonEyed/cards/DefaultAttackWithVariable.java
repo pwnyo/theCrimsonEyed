@@ -1,5 +1,6 @@
 package crimsonEyed.cards;
 
+import basemod.AutoAdd;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -14,6 +15,7 @@ import crimsonEyed.characters.TheDefault;
 
 import static crimsonEyed.DefaultMod.makeCardPath;
 
+@AutoAdd.Ignore
 public class DefaultAttackWithVariable extends AbstractDynamicCard {
 
     /*

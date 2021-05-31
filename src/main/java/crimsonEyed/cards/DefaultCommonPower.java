@@ -1,5 +1,6 @@
 package crimsonEyed.cards;
 
+import basemod.AutoAdd;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -13,6 +14,8 @@ import crimsonEyed.powers.CommonPower;
 
 import static crimsonEyed.DefaultMod.makeCardPath;
 
+
+@AutoAdd.Ignore
 public class DefaultCommonPower extends AbstractDynamicCard {
 
     /*

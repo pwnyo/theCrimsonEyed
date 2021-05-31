@@ -1,5 +1,6 @@
 package crimsonEyed.cards;
 
+import basemod.AutoAdd;
 import basemod.abstracts.CustomCard;
 import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -13,6 +14,7 @@ import crimsonEyed.characters.TheDefault;
 
 import static crimsonEyed.DefaultMod.makeCardPath;
 
+@AutoAdd.Ignore
 public class DefaultCommonSkill extends AbstractDynamicCard {
 
     /*

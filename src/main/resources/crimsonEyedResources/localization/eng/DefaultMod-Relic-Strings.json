@@ -30,5 +30,12 @@
       ".",
       "Select a card to bottle for "
     ]
+  },
+  "crimsonEyed:CrimsonEye": {
+    "NAME": "Crimson Eye",
+    "FLAVOR": "A single eye. Its iris glows a faint red.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, apply 1 Lock-On to ALL enemies."
+    ]
   }
 }

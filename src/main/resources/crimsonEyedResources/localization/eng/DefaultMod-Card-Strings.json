@@ -49,5 +49,74 @@
   "crimsonEyed:OrbSkill": {
     "NAME": "Get Orb",
     "DESCRIPTION": "Channel 1 Default Orb."
+  },
+  "crimsonEyed:Sharingan": {
+    "NAME": "Sharingan",
+    "DESCRIPTION": "Gain !M! temporary Focus."
+  },
+  "crimsonEyed:Chidori": {
+    "NAME": "Chidori",
+    "DESCRIPTION": "Deal !D! damage. NL Channel 1 Lightning."
+  },
+  "crimsonEyed:Hatred": {
+    "NAME": "Hatred",
+    "DESCRIPTION": "Unplayable. NL Retain. NL At the end of your turn, lose 1 HP."
+  },
+  "crimsonEyed:Amaterasu": {
+    "NAME": "Amaterasu",
+    "DESCRIPTION": "Deal !D! damage. NL Channel 1 Dark."
+  },
+  "crimsonEyed:Fireball": {
+    "NAME": "Fireball Jutsu",
+    "DESCRIPTION": "Deal !D! damage. NL Exhaust a random card.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Exhaust 1 card."
+  },
+  "crimsonEyed:Genjutsu": {
+    "NAME": "Genjutsu",
+    "DESCRIPTION": "Apply !M! Weak and Vulnerable. NL Exhaust."
+  },
+  "crimsonEyed:Tomoe": {
+    "NAME": "Tomoe",
+    "DESCRIPTION": "Apply 1 Lock-On to random enemies !M! times."
+  },
+  "crimsonEyed:Gaze": {
+    "NAME": "Gaze",
+    "DESCRIPTION": "Gain !B! Block. NL Apply !M! Lock-On."
+  },
+  "crimsonEyed:Anticipate": {
+    "NAME": "Anticipate",
+    "DESCRIPTION": "Gain !B! Block. NL Next turn, gain !M! Block."
+  },
+  "crimsonEyed:SnakeHands": {
+    "NAME": "Snake Hands",
+    "DESCRIPTION": "Deal !D! to ALL enemies. NL If a Status or Curse card is in your hand, deal !D! additional damage."
+  },
+  "crimsonEyed:VengefulStrike": {
+    "NAME": "Vengeful Strike",
+    "DESCRIPTION": "Deal !D! damage. NL Add 1 Hatred into your hand."
+  },
+  "crimsonEyed:ChidoriKatana": {
+    "NAME": "Chidori Katana",
+    "DESCRIPTION": "Deal !D! damage. NL Trigger the passive ability of your next Orb."
+  },
+  "crimsonEyed:ChidoriSenbon": {
+    "NAME": "Chidori Senbon",
+    "DESCRIPTION": "Channel !M! Lightning. NL Draw 1 card."
+  },
+  "crimsonEyed:ChidoriCurrent": {
+    "NAME": "Chidori Stream",
+    "DESCRIPTION": "Gain !B! Block. NL Trigger the passive ability of all Lightning."
+  },
+  "crimsonEyed:ChidoriSpear": {
+    "NAME": "Chidori Sharp Spear",
+    "DESCRIPTION": "Deal !D! damage. NL This turn, Lightning hits ALL enemies."
+  },
+  "crimsonEyed:Bolt": {
+    "NAME": "Bolt",
+    "DESCRIPTION": "Deal !D! damage. NL Evoke your next Orb. NL Draw 1 card."
+  },
+  "crimsonEyed:Susanoo": {
+    "NAME": "Susanoo - Armor",
+    "DESCRIPTION": "Costs 1 less [B] for each time you lose HP this combat. NL Gain !M! Plated Armor."
   }
 }
