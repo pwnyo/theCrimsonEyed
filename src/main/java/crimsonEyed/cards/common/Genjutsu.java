@@ -36,15 +36,15 @@ public class Genjutsu extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
-    private static final int COST = 0;  // COST = 0
-    private static final int UPGRADE_MAGIC = 1;
+    private static final int COST = 1;  // COST = 0
+    private static final int UPGRADE_MAGIC = 2;
 
     // /STAT DECLARATION/
 
 
     public Genjutsu() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = 1;
+        baseMagicNumber = magicNumber = 2;
         exhaust = true;
     }
 
@@ -52,7 +52,7 @@ public class Genjutsu extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false)));
+        //addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false)));
         addToBot(new ApplyPowerAction(m, p, new WeakPower(m, magicNumber, false)));
     }
 

@@ -14,5 +14,9 @@
         "crimsonEyed:ElectrifyPower": {
                 "NAME": "Electrify",
                 "DESCRIPTIONS": ["Lightning hits ALL enemies for the next ", " turns."]
+        },
+        "crimsonEyed:ExhaustPower": {
+                "NAME": "Grudge",
+                "DESCRIPTIONS": ["At the end of your turn, Exhaust up to ", " card.", " cards."]
         }
 }

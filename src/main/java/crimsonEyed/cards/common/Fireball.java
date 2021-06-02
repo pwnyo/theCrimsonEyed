@@ -5,10 +5,12 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.defect.EvokeAllOrbsAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.red.TrueGrit;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import crimsonEyed.DefaultMod;
 import crimsonEyed.cards.AbstractDynamicCard;
@@ -22,6 +24,9 @@ public class Fireball extends AbstractDynamicCard {
 
     public static final String ID = DefaultMod.makeID(Fireball.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
     public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("Fireball Jutsu.png");
+
+    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
 
@@ -58,7 +63,8 @@ public class Fireball extends AbstractDynamicCard {
             this.addToBot(new ExhaustAction(1, false));// 34
         } else {
             this.addToBot(new ExhaustAction(1, true, false, false));// 36
-        }}
+        }
+    }
 
 
     // Upgraded stats.
@@ -67,6 +73,7 @@ public class Fireball extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
+            rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

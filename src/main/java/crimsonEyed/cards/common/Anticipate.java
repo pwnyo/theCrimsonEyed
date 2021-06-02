@@ -1,15 +1,15 @@
 package crimsonEyed.cards.common;
 
-import basemod.AutoAdd;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.actions.unique.SpotWeaknessAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.NextTurnBlockPower;
+import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import crimsonEyed.DefaultMod;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheDefault;
@@ -25,9 +25,7 @@ public class Anticipate extends AbstractDynamicCard {
     public static final String IMG = makeCardPath("Skill.png");// "public static final String IMG = makeCardPath("Anticipate.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
-
     // /TEXT DECLARATION/
-
 
     // STAT DECLARATION
 
@@ -37,17 +35,16 @@ public class Anticipate extends AbstractDynamicCard {
     public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
     private static final int COST = 1;  // COST = 1
-    private static final int UPGRADED_COST = 1; // UPGRADED_COST = 1
     private static final int BLOCK = 3;
-    private static final int NEXT_TURN_BLOCK = 6;
-    private static final int UPGRADE_PLUS_BLOCK = 3;
+    private static final int UPGRADE_PLUS_BLOCK = 1;
+    private static final int MAGIC = BLOCK * 2;
     // /STAT DECLARATION/
 
 
     public Anticipate() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = block = BLOCK;
-        baseMagicNumber = magicNumber = NEXT_TURN_BLOCK;
+        baseMagicNumber = magicNumber = MAGIC;
     }
 
 
@@ -55,15 +52,22 @@ public class Anticipate extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, block));
-        addToBot(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, magicNumber)));
-    }
 
+        if (m != null && m.getIntentBaseDmg() >= 0) {
+            addToBot(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, block * 2)));
+        }
+        else {
+            AbstractDungeon.effectList.add(
+                    new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, "That enemy does not intend to Attack!", true));
+        }
+    }
 
     // Upgraded stats.
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            upgradeBlock(UPGRADE_PLUS_BLOCK);
             upgradeMagicNumber(UPGRADE_PLUS_BLOCK);
             initializeDescription();
         }

@@ -38,7 +38,7 @@ public class Sharingan extends AbstractDynamicCard {
 
     private static final int COST = 1;  // COST = 1
     private static final int FOCUS = 2;
-    private static final int UPGRADED_FOCUS = 3;
+    private static final int UPGRADE_PLUS_FOCUS = 1;
 
     // /STAT DECLARATION/
 
@@ -63,7 +63,7 @@ public class Sharingan extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADED_FOCUS);
+            upgradeMagicNumber(1);
             initializeDescription();
         }
     }

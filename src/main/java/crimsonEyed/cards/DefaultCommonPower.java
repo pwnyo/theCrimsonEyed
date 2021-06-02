@@ -14,7 +14,6 @@ import crimsonEyed.powers.CommonPower;
 
 import static crimsonEyed.DefaultMod.makeCardPath;
 
-
 @AutoAdd.Ignore
 public class DefaultCommonPower extends AbstractDynamicCard {
 

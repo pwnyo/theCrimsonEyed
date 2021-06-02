@@ -18,27 +18,27 @@ import java.util.Iterator;
 
 public class LightningImpulseAction extends AbstractGameAction {
     public LightningImpulseAction() {
-        this.duration = Settings.ACTION_DUR_FAST;// 14
-    }// 15
+        this.duration = Settings.ACTION_DUR_FAST;
+    }
 
     public void update() {
-        if (this.duration == Settings.ACTION_DUR_FAST && !AbstractDungeon.player.orbs.isEmpty()) {// 19 20
-            Iterator var1 = AbstractDungeon.player.orbs.iterator();// 21
+        if (this.duration == Settings.ACTION_DUR_FAST && !AbstractDungeon.player.orbs.isEmpty()) {
+            Iterator var1 = AbstractDungeon.player.orbs.iterator();
 
             while(var1.hasNext()) {
                 AbstractOrb o = (AbstractOrb)var1.next();
-                if (o instanceof Lightning) {// 22
-                    o.onStartOfTurn();// 23
-                    o.onEndOfTurn();// 24
+                if (o instanceof Lightning) {
+                    o.onStartOfTurn();
+                    o.onEndOfTurn();
                 }
             }
 
             if (AbstractDungeon.player.hasRelic("Cables") && !(AbstractDungeon.player.orbs.get(0) instanceof EmptyOrbSlot) && AbstractDungeon.player.orbs.get(0) instanceof Lightning) {// 28 30
-                ((AbstractOrb)AbstractDungeon.player.orbs.get(0)).onStartOfTurn();// 31
-                ((AbstractOrb)AbstractDungeon.player.orbs.get(0)).onEndOfTurn();// 32
+                ((AbstractOrb)AbstractDungeon.player.orbs.get(0)).onStartOfTurn();
+                ((AbstractOrb)AbstractDungeon.player.orbs.get(0)).onEndOfTurn();
             }
         }
 
-        this.tickDuration();// 38
-    }// 39
+        this.tickDuration();
+    }
 }

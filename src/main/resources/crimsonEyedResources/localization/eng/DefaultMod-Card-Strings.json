@@ -71,33 +71,58 @@
     "DESCRIPTION": "Deal !D! damage. NL Exhaust a random card.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Exhaust 1 card."
   },
+  "crimsonEyed:PhoenixFlower": {
+    "NAME": "Phoenix Flower",
+    "DESCRIPTION": "Deal !M! damage to ALL enemies for each card in your Exhaust pile.",
+    "EXTENDED_DESCRIPTION": [
+      " (Deals !D! damage.)"
+    ]
+  },
+  "crimsonEyed:SureFire": {
+    "NAME": "Sure-Fire",
+    "DESCRIPTION": "Deal !D! damage. NL If the enemy has Lock-On, gain [B] and draw 1 card."
+  },
   "crimsonEyed:Genjutsu": {
     "NAME": "Genjutsu",
-    "DESCRIPTION": "Apply !M! Weak and Vulnerable. NL Exhaust."
+    "DESCRIPTION": "Apply !M! Weak. NL Exhaust."
   },
-  "crimsonEyed:Tomoe": {
-    "NAME": "Tomoe",
+  "crimsonEyed:Observe": {
+    "NAME": "Observation",
     "DESCRIPTION": "Apply 1 Lock-On to random enemies !M! times."
   },
-  "crimsonEyed:Gaze": {
-    "NAME": "Gaze",
+  "crimsonEyed:Parry": {
+    "NAME": "Parry",
+    "DESCRIPTION": "Gain !B! Block. NL Apply !M! Vulnerable."
+  },
+  "crimsonEyed:CloseWatch": {
+    "NAME": "Close Watch",
     "DESCRIPTION": "Gain !B! Block. NL Apply !M! Lock-On."
   },
   "crimsonEyed:Anticipate": {
     "NAME": "Anticipate",
-    "DESCRIPTION": "Gain !B! Block. NL Next turn, gain !M! Block."
+    "DESCRIPTION": "Gain !B! Block. NL If the enemy intends to Attack, gain !M! Block next turn."
+  },
+  "crimsonEyed:Vantage": {
+    "NAME": "Vantage",
+    "DESCRIPTION": "Gain !B! Block for each enemy in combat. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Gain !B! Block for each enemy in combat. NL Exhaust."
   },
   "crimsonEyed:SnakeHands": {
     "NAME": "Snake Hands",
-    "DESCRIPTION": "Deal !D! to ALL enemies. NL If a Status or Curse card is in your hand, deal !D! additional damage."
+    "DESCRIPTION": "Deal !D! damage. NL Deal !M! additional damage for ALL of your Status and Curse cards."
   },
   "crimsonEyed:VengefulStrike": {
     "NAME": "Vengeful Strike",
     "DESCRIPTION": "Deal !D! damage. NL Add 1 Hatred into your hand."
   },
+  "crimsonEyed:Grudge": {
+    "NAME": "Grudge",
+    "DESCRIPTION": "At the end of your turn, Exhaust up to 1 card."
+  },
   "crimsonEyed:ChidoriKatana": {
     "NAME": "Chidori Katana",
-    "DESCRIPTION": "Deal !D! damage. NL Trigger the passive ability of your next Orb."
+    "DESCRIPTION": "Deal !D! damage. NL Channel 1 Lightning.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Channel 1 Lightning. NL Trigger the passive ability of your next Orb."
   },
   "crimsonEyed:ChidoriSenbon": {
     "NAME": "Chidori Senbon",
@@ -111,12 +136,28 @@
     "NAME": "Chidori Sharp Spear",
     "DESCRIPTION": "Deal !D! damage. NL This turn, Lightning hits ALL enemies."
   },
-  "crimsonEyed:Bolt": {
-    "NAME": "Bolt",
+  "crimsonEyed:KagutsuchiChidori": {
+    "NAME": "Kagutsuchi Chidori",
+    "DESCRIPTION": "Deal !D! damage. NL Channel 1 Lightning. NL Channel 1 Dark. NL Exhaust."
+  },
+  "crimsonEyed:Jolt": {
+    "NAME": "Jolt",
     "DESCRIPTION": "Deal !D! damage. NL Evoke your next Orb. NL Draw 1 card."
+  },
+  "crimsonEyed:Perception": {
+    "NAME": "Perception",
+    "DESCRIPTION": "At the start of each turn, draw !M! cards and discard !M! cards."
+  },
+  "crimsonEyed:Amenotejikara": {
+    "NAME": "Amenotejikara",
+    "DESCRIPTION": "Put 1 card from your draw pile into your hand. NL Shuffle this card into your draw pile."
   },
   "crimsonEyed:Susanoo": {
     "NAME": "Susanoo - Armor",
     "DESCRIPTION": "Costs 1 less [B] for each time you lose HP this combat. NL Gain !M! Plated Armor."
+  },
+  "crimsonEyed:IndraForm": {
+    "NAME": "Indra Form",
+    "DESCRIPTION": "Channel !M! Lightning. NL Gain !M! Strength. NL Gain !M! Dexterity."
   }
 }

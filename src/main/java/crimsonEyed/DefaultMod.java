@@ -84,9 +84,9 @@ public class DefaultMod implements
     public static boolean enablePlaceholder = true; // The boolean we'll be setting on/off (true/false)
 
     //This is for the in-game mod settings panel.
-    private static final String MODNAME = "Default Mod";
-    private static final String AUTHOR = "Gremious"; // And pretty soon - You!
-    private static final String DESCRIPTION = "A base for Slay the Spire to start your own mod from, feat. the Default.";
+    private static final String MODNAME = "The Crimson-Eyed";
+    private static final String AUTHOR = "Pwnyo"; // And pretty soon - You!
+    private static final String DESCRIPTION = "Adds Sasuke to the game.";
     
     // =============== INPUT TEXTURE LOCATION =================
     
@@ -390,9 +390,6 @@ public class DefaultMod implements
         // in order to automatically differentiate which pool to add the relic too.
 
         // This adds a character specific relic. Only when you play with the mentioned color, will you get this relic.
-        //BaseMod.addRelicToCustomPool(new PlaceholderRelic(), TheDefault.Enums.COLOR_GRAY);
-        //BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), TheDefault.Enums.COLOR_GRAY);
-        //BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), TheDefault.Enums.COLOR_GRAY);
         BaseMod.addRelicToCustomPool(new CrimsonEye(), TheDefault.Enums.COLOR_GRAY);
 
         // This adds a relic to the Shared pool. Every character can find this relic.
@@ -401,7 +398,7 @@ public class DefaultMod implements
         // Mark relics as seen - makes it visible in the compendium immediately
         // If you don't have this it won't be visible in the compendium until you see them in game
         // (the others are all starters so they're marked as seen in the character file)
-        //UnlockTracker.markRelicAsSeen(BottledPlaceholderRelic.ID);
+
         logger.info("Done adding relics!");
     }
     
