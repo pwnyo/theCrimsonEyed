@@ -20,9 +20,6 @@ public class Perception extends AbstractDynamicCard {
     public static final String ID = DefaultMod.makeID(Perception.class.getSimpleName());
     public static final String IMG = makeCardPath("Power.png");
 
-    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-
     // /TEXT DECLARATION/
 
 
@@ -58,7 +55,6 @@ public class Perception extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeBaseCost(UPGRADE_COST);
-            rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

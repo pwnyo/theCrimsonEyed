@@ -1,22 +1,29 @@
 package crimsonEyed.cards.common;
 
+import basemod.AutoAdd;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import crimsonEyed.DefaultMod;
-import crimsonEyed.actions.RandomLockOnAction;
 import crimsonEyed.cards.AbstractDynamicCard;
+import crimsonEyed.cards.Hatred;
 import crimsonEyed.characters.TheDefault;
 
 import static crimsonEyed.DefaultMod.makeCardPath;
 
-public class Observe extends AbstractDynamicCard {
+public class Slither extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(Observe.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
+    public static final String ID = DefaultMod.makeID(Slither.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
     //public static final String ID = DefaultMod.makeID("DefaultCommonAttack"); // DELETE THIS ONE.
-    public static final String IMG = makeCardPath("Skill.png");// "public static final String IMG = makeCardPath("Tomoe.png");
+    public static final String IMG = makeCardPath("Skill.png");// "public static final String IMG = makeCardPath("Slither.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
 
@@ -26,29 +33,30 @@ public class Observe extends AbstractDynamicCard {
     // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
-    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;  //   since they don't change much.
+    private static final CardTarget TARGET = CardTarget.SELF;  //   since they don't change much.
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
-    private static final int COST = 0;  // COST = 0
+    private static final int COST = 1;  // COST = 1
+    private static final int UPGRADED_COST = 1; // UPGRADED_COST = 1
     private static final int MAGIC = 2;
-    private static final int UPGRADE_MAGIC_PLUS = 1;
+    private static final int UPGRADE_PLUS_MAGIC = 1;
 
     // /STAT DECLARATION/
 
 
-    public Observe() {
+    public Slither() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
+        exhaust = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractMonster randomMonster = AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng);// 35
-
-        this.addToBot(new RandomLockOnAction(randomMonster, magicNumber, this.magicNumber));// 43
+        addToBot(new MakeTempCardInDiscardAction(new Hatred(), 2));
+        addToBot(new DrawCardAction(magicNumber));
     }
 
 
@@ -57,7 +65,8 @@ public class Observe extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_MAGIC_PLUS);
+            upgradeBaseCost(UPGRADED_COST);
+            upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             initializeDescription();
         }
     }

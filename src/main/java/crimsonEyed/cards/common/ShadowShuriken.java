@@ -3,27 +3,32 @@ package crimsonEyed.cards.common;
 import basemod.AutoAdd;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.unique.DiscardPileToTopOfDeckAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.red.PowerThrough;
-import com.megacrit.cardcrawl.cards.red.WildStrike;
-import com.megacrit.cardcrawl.cards.status.Wound;
+import com.megacrit.cardcrawl.cards.blue.Hologram;
+import com.megacrit.cardcrawl.cards.green.BladeDance;
+import com.megacrit.cardcrawl.cards.red.Cleave;
+import com.megacrit.cardcrawl.cards.red.Whirlwind;
+import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import crimsonEyed.DefaultMod;
+import crimsonEyed.actions.DrawPileToTopOfDeckAction;
 import crimsonEyed.cards.AbstractDynamicCard;
-import crimsonEyed.cards.Hatred;
 import crimsonEyed.characters.TheDefault;
 
 import static crimsonEyed.DefaultMod.makeCardPath;
 
-public class VengefulStrike extends AbstractDynamicCard {
+public class ShadowShuriken extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(VengefulStrike.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
-    public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("VengefulStrike.png");
+    public static final String ID = DefaultMod.makeID(ShadowShuriken.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
+    //public static final String ID = DefaultMod.makeID("DefaultCommonAttack"); // DELETE THIS ONE.
+    public static final String IMG = makeCardPath("Skill.png");// "public static final String IMG = makeCardPath("ShadowShuriken.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
 
@@ -33,32 +38,31 @@ public class VengefulStrike extends AbstractDynamicCard {
     // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
-    private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
+    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
     private static final int COST = 1;  // COST = 1
-    private static final int UPGRADED_COST = 1; // UPGRADED_COST = 1
-
-    private static final int DAMAGE = 10;
-    private static final int UPGRADE_PLUS_DMG = 5;  // UPGRADE_PLUS_DMG = 5
+    private static final int DAMAGE = 6;
+    private static final int UPGRADE_PLUS_DAMAGE = 3;
+    private static final int MAGIC = 1;
+    private static final int UPGRADE_PLUS_MAGIC = 1;
 
     // /STAT DECLARATION/
 
 
-    public VengefulStrike() {
+    public ShadowShuriken() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
-        cardsToPreview = new Hatred();
+        baseMagicNumber = magicNumber = MAGIC;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(
-                new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-        this.addToBot(new MakeTempCardInHandAction(new Hatred()));
+        addToBot(new MakeTempCardInHandAction(new Shiv(), magicNumber));
+        addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
     }
 
 
@@ -67,8 +71,8 @@ public class VengefulStrike extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_PLUS_DMG);
-            upgradeBaseCost(UPGRADED_COST);
+            upgradeDamage(UPGRADE_PLUS_DAMAGE);
+            upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             initializeDescription();
         }
     }

@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.EndTurnAction;
 import com.megacrit.cardcrawl.actions.defect.EvokeAllOrbsAction;
+import com.megacrit.cardcrawl.actions.watcher.PressEndTurnButtonAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
@@ -19,12 +20,16 @@ public class KirinAction extends AbstractGameAction {
 
     public void update() {
         AbstractPlayer p = AbstractDungeon.player;
-        this.addToTop(new ApplyPowerAction(p, p, new FocusPower(p, amount)));
-        this.addToTop(new ApplyPowerAction(p, p, new LoseFocusPower(p, amount)));
+
+        this.addToTop(new PressEndTurnButtonAction());
         if (this.duration == Settings.ACTION_DUR_XFAST && !AbstractDungeon.player.orbs.isEmpty()) {
             this.addToTop(new EvokeAllOrbsAction());
         }
-        this.addToTop(new EndTurnAction());
+        if (amount > 0) {
+            this.addToTop(new ApplyPowerAction(p, p, new LoseFocusPower(p, amount)));
+            this.addToTop(new ApplyPowerAction(p, p, new FocusPower(p, amount)));
+        }
+
         this.tickDuration();// 31
     }
 }

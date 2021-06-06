@@ -38,7 +38,7 @@ public class CrimsonEye extends CustomRelic {
         while(var1.hasNext()) {
             AbstractMonster mo = (AbstractMonster)var1.next();
             this.addToBot(new RelicAboveCreatureAction(mo, this));// 27
-            this.addToBot(new ApplyPowerAction(mo, AbstractDungeon.player, new LockOnPower(mo, 1), 1, true));// 28
+            this.addToBot(new ApplyPowerAction(mo, AbstractDungeon.player, new LockOnPower(mo, 2), 1, true));// 28
         }
     }
 

@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.curses.Decay;
 import com.megacrit.cardcrawl.cards.curses.Pain;
 import com.megacrit.cardcrawl.cards.curses.Writhe;
+import com.megacrit.cardcrawl.cards.purple.Perseverance;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -34,17 +35,18 @@ public class Hatred extends AbstractDynamicCard {
 
     public Hatred() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-
+        selfRetain = true;
     }
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        if (this.dontTriggerOnUseCard) {// 34
-            this.addToTop(new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, damage));// 35
+        if (this.dontTriggerOnUseCard) {
+            this.addToTop(new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, DAMAGE));
         }
     }
+    @Override
     public void triggerOnEndOfTurnForPlayingCard() {
-        this.dontTriggerOnUseCard = true;// 45
-        AbstractDungeon.actionManager.cardQueue.add(new CardQueueItem(this, true));// 46
+        this.dontTriggerOnUseCard = true;
+        AbstractDungeon.actionManager.cardQueue.add(new CardQueueItem(this, true));
     }
     public void upgrade() {
     }

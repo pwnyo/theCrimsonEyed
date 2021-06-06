@@ -3,18 +3,26 @@ package crimsonEyed.powers;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.defect.ChannelAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.orbs.Dark;
+import com.megacrit.cardcrawl.orbs.Lightning;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.StaticDischargePower;
 import crimsonEyed.DefaultMod;
 import crimsonEyed.util.TextureLoader;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import static crimsonEyed.DefaultMod.makePowerPath;
 
-public class ElectrifyPower extends AbstractPower implements CloneablePowerInterface {
+public class AmaterasuBarrierPower extends AbstractPower implements CloneablePowerInterface {
+    private static final Logger logger = LogManager.getLogger(SpitePower.class.getName());
     public static final String POWER_ID = DefaultMod.makeID("ElectrifyPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
@@ -23,7 +31,7 @@ public class ElectrifyPower extends AbstractPower implements CloneablePowerInter
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("placeholder_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("placeholder_power32.png"));
 
-    public ElectrifyPower(AbstractCreature owner, int amount) {
+    public AmaterasuBarrierPower(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
@@ -36,16 +44,25 @@ public class ElectrifyPower extends AbstractPower implements CloneablePowerInter
         this.updateDescription();
     }
 
-    public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+
+    public int onAttacked(DamageInfo info, int damageAmount) {
+        if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != this.owner && damageAmount > 0) {// 44
+            this.flash();// 46
+
+            for(int i = 0; i < this.amount; ++i) {// 29
+                this.addToTop(new ChannelAction(new Dark()));// 30
+            }
+        }
+
+        return damageAmount;// 49
     }
 
-    public void atEndOfRound() {
-        if (this.amount == 0) {// 36
-            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));// 37
-        } else {
-            this.addToBot(new ReducePowerAction(this.owner, this.owner, "ElectrifyPower", 1));// 39
-        }
+    public void atStartOfTurn() {
+        this.addToBot(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, "Flame Barrier"));// 54
+    }// 55
+
+    public void updateDescription() {
+        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     }
 
     @Override

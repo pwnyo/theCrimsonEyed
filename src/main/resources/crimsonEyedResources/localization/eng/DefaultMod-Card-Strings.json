@@ -50,13 +50,35 @@
     "NAME": "Get Orb",
     "DESCRIPTION": "Channel 1 Default Orb."
   },
+  "crimsonEyed:Chidori": {
+    "NAME": "Chidori",
+    "DESCRIPTION": "Deal !D! damage. NL Channel !M! Lightning."
+  },
   "crimsonEyed:Sharingan": {
     "NAME": "Sharingan",
     "DESCRIPTION": "Gain !M! temporary Focus."
   },
-  "crimsonEyed:Chidori": {
-    "NAME": "Chidori",
-    "DESCRIPTION": "Deal !D! damage. NL Channel 1 Lightning."
+  "crimsonEyed:ChidoriBlade": {
+    "NAME": "Chidori Blade",
+    "DESCRIPTION": "Deal !D! damage. NL Evoke your next Orb."
+  },
+  "crimsonEyed:ChidoriSenbon": {
+    "NAME": "Chidori Senbon",
+    "DESCRIPTION": "Channel !M! Lightning. NL Draw 1 card."
+  },
+  "crimsonEyed:ChidoriStream": {
+    "NAME": "Chidori Stream",
+    "DESCRIPTION": "Channel 1 Lightning. NL Trigger the passive ability of all Lightning.",
+    "UPGRADE_DESCRIPTION": "Channel 1 Lightning. NL Trigger the passive ability of all Lightning twice."
+  },
+  "crimsonEyed:Jolt": {
+    "NAME": "Jolt",
+    "DESCRIPTION": "Deal !D! damage. NL Trigger the passive ability of your next Orb. NL Draw 1 card.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Trigger the passive ability of your next Orb twice. NL Draw 1 card."
+  },
+  "crimsonEyed:Shock Block": {
+    "NAME": "Shock Block",
+    "DESCRIPTION": "Gain !B! Block. NL Channel 1 Lightning."
   },
   "crimsonEyed:Hatred": {
     "NAME": "Hatred",
@@ -64,7 +86,17 @@
   },
   "crimsonEyed:Amaterasu": {
     "NAME": "Amaterasu",
-    "DESCRIPTION": "Deal !D! damage. NL Channel 1 Dark."
+    "DESCRIPTION": "Deal !D! damage. NL Channel 1 Dark. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Channel 1 Dark."
+  },
+  "crimsonEyed:AmaterasuBarrier": {
+    "NAME": "Amaterasu Barrier",
+    "DESCRIPTION": "Gain !B! Block. NL Whenever you take unblocked attack damage this turn, Channel 1 Dark."
+  },
+  "crimsonEyed:Kagutsuchi": {
+    "NAME": "Kagutsuchi",
+    "DESCRIPTION": "Trigger the passive ability of ALL Dark. NL Evoke your next Orb.",
+    "UPGRADE_DESCRIPTION": "Trigger the passive ability of ALL Dark. NL Evoke your next Orb twice."
   },
   "crimsonEyed:Fireball": {
     "NAME": "Fireball Jutsu",
@@ -84,7 +116,19 @@
   },
   "crimsonEyed:Genjutsu": {
     "NAME": "Genjutsu",
-    "DESCRIPTION": "Apply !M! Weak. NL Exhaust."
+    "DESCRIPTION": "Enemy loses !M! Strength. NL Apply !M! Vulnerable. NL Exhaust."
+  },
+  "crimsonEyed:PullWires": {
+    "NAME": "Pull Wires",
+    "DESCRIPTION": "Add !M! Shiv to your hand. NL Put a card from your draw pile on top of your draw pile."
+  },
+  "crimsonEyed:ShadowShuriken": {
+    "NAME": "Shadow Shuriken",
+    "DESCRIPTION": "Add !M! Shiv to your hand. NL Deal !D! damage to ALL enemies."
+  },
+  "crimsonEyed:LionsBarrage": {
+    "NAME": "Lion's Barrage",
+    "DESCRIPTION": "Deal !D! damage 3 times."
   },
   "crimsonEyed:Observe": {
     "NAME": "Observation",
@@ -92,24 +136,31 @@
   },
   "crimsonEyed:Parry": {
     "NAME": "Parry",
-    "DESCRIPTION": "Gain !B! Block. NL Apply !M! Vulnerable."
+    "DESCRIPTION": "Gain !B! Block. NL Apply !M! Weak."
   },
   "crimsonEyed:CloseWatch": {
-    "NAME": "Close Watch",
+    "NAME": "Watch Closely",
     "DESCRIPTION": "Gain !B! Block. NL Apply !M! Lock-On."
   },
   "crimsonEyed:Anticipate": {
     "NAME": "Anticipate",
-    "DESCRIPTION": "Gain !B! Block. NL If the enemy intends to Attack, gain !M! Block next turn."
+    "DESCRIPTION": "Draw 1 card, NL Next turn, gain !B! Block."
   },
   "crimsonEyed:Vantage": {
     "NAME": "Vantage",
-    "DESCRIPTION": "Gain !B! Block for each enemy in combat. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Gain !B! Block for each enemy in combat. NL Exhaust."
+    "DESCRIPTION": "Innate. NL Gain !B! Block for each enemy in combat. NL Exhaust."
   },
   "crimsonEyed:SnakeHands": {
     "NAME": "Snake Hands",
     "DESCRIPTION": "Deal !D! damage. NL Deal !M! additional damage for ALL of your Status and Curse cards."
+  },
+  "crimsonEyed:Slither": {
+    "NAME": "Slither",
+    "DESCRIPTION": "Add 2 Hatreds to your discard pile. NL Draw !M! cards. NL Exhaust."
+  },
+  "crimsonEyed:CutDown": {
+    "NAME": "Cut Down",
+    "DESCRIPTION": "Deal !D! damage. NL If this kills an enemy, gain 1 [B] and Strength."
   },
   "crimsonEyed:VengefulStrike": {
     "NAME": "Vengeful Strike",
@@ -119,18 +170,9 @@
     "NAME": "Grudge",
     "DESCRIPTION": "At the end of your turn, Exhaust up to 1 card."
   },
-  "crimsonEyed:ChidoriKatana": {
-    "NAME": "Chidori Katana",
-    "DESCRIPTION": "Deal !D! damage. NL Channel 1 Lightning.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Channel 1 Lightning. NL Trigger the passive ability of your next Orb."
-  },
-  "crimsonEyed:ChidoriSenbon": {
-    "NAME": "Chidori Senbon",
-    "DESCRIPTION": "Channel !M! Lightning. NL Draw 1 card."
-  },
-  "crimsonEyed:ChidoriCurrent": {
-    "NAME": "Chidori Stream",
-    "DESCRIPTION": "Gain !B! Block. NL Trigger the passive ability of all Lightning."
+  "crimsonEyed:Spite": {
+    "NAME": "Spite",
+    "DESCRIPTION": "Whenever you deal Fatal damage, heal !M! HP."
   },
   "crimsonEyed:ChidoriSpear": {
     "NAME": "Chidori Sharp Spear",
@@ -140,20 +182,32 @@
     "NAME": "Kagutsuchi Chidori",
     "DESCRIPTION": "Deal !D! damage. NL Channel 1 Lightning. NL Channel 1 Dark. NL Exhaust."
   },
-  "crimsonEyed:Jolt": {
-    "NAME": "Jolt",
-    "DESCRIPTION": "Deal !D! damage. NL Evoke your next Orb. NL Draw 1 card."
+  "crimsonEyed:Tomoe": {
+    "NAME": "Tomoe",
+    "DESCRIPTION": "Lose 1 HP. NL Gain !M! Orb slots."
+  },
+  "crimsonEyed:MangekyouSharingan": {
+    "NAME": "Mangekyou Sharingan",
+    "DESCRIPTION": "Lose 3 HP. NL Gain !M! Focus."
+  },
+  "crimsonEyed:HandEyeCoordination": {
+    "NAME": "Hand-Eye Coordination",
+    "DESCRIPTION": "Gain !M! Strength. NL Gain !M! Focus."
   },
   "crimsonEyed:Perception": {
     "NAME": "Perception",
     "DESCRIPTION": "At the start of each turn, draw !M! cards and discard !M! cards."
   },
+  "crimsonEyed:Kirin": {
+    "NAME": "Kirin",
+    "DESCRIPTION": "Gain !M! temporary Focus. NL Evoke all your Orbs. NL End your turn."
+  },
   "crimsonEyed:Amenotejikara": {
     "NAME": "Amenotejikara",
-    "DESCRIPTION": "Put 1 card from your draw pile into your hand. NL Shuffle this card into your draw pile."
+    "DESCRIPTION": "Put 1 card from your discard pile into your hand."
   },
   "crimsonEyed:Susanoo": {
-    "NAME": "Susanoo - Armor",
+    "NAME": "Susanoo",
     "DESCRIPTION": "Costs 1 less [B] for each time you lose HP this combat. NL Gain !M! Plated Armor."
   },
   "crimsonEyed:IndraForm": {

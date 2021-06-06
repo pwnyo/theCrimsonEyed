@@ -1,8 +1,11 @@
 package crimsonEyed.cards.common;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.defect.ReprieveAction;
 import com.megacrit.cardcrawl.actions.unique.SpotWeaknessAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -30,7 +33,7 @@ public class Anticipate extends AbstractDynamicCard {
     // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
-    private static final CardTarget TARGET = CardTarget.SELF;  //   since they don't change much.
+    private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
@@ -51,15 +54,24 @@ public class Anticipate extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new GainBlockAction(p, block));
+        addToBot(new DrawCardAction(1));
+        addToBot(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, block)));
 
-        if (m != null && m.getIntentBaseDmg() >= 0) {
+        /*
+        addToBot(new GainBlockAction(p, block));
+        if (m != null && m.intent != AbstractMonster.Intent.ATTACK && m.intent != AbstractMonster.Intent.ATTACK_BUFF &&
+                m.intent != AbstractMonster.Intent.ATTACK_DEBUFF && m.intent != AbstractMonster.Intent.ATTACK_DEFEND) {
             addToBot(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, block * 2)));
         }
         else {
             AbstractDungeon.effectList.add(
-                    new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, "That enemy does not intend to Attack!", true));
-        }
+                    new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, "That enemy intends to Attack!", true));
+        }*/
+    }
+    @Override
+    public void applyPowersToBlock() {
+        super.applyPowersToBlock();
+        magicNumber = block * 2;
     }
 
     // Upgraded stats.
@@ -68,7 +80,7 @@ public class Anticipate extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeBlock(UPGRADE_PLUS_BLOCK);
-            upgradeMagicNumber(UPGRADE_PLUS_BLOCK);
+            //upgradeMagicNumber(UPGRADE_PLUS_BLOCK * 2);
             initializeDescription();
         }
     }

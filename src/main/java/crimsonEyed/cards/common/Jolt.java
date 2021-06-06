@@ -1,5 +1,6 @@
 package crimsonEyed.cards.common;
 
+import com.evacipated.cardcrawl.mod.stslib.actions.defect.TriggerPassiveAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
@@ -33,7 +34,6 @@ public class Jolt extends AbstractDynamicCard {
     public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
     private static final int COST = 1;  // COST = 1
-    private static final int UPGRADED_COST = 1; // UPGRADED_COST = 1
 
     private static final int DAMAGE = 6;    // DAMAGE = 6
     private static final int UPGRADE_PLUS_DMG = 3;  // UPGRADE_PLUS_DMG = 3
@@ -51,7 +51,7 @@ public class Jolt extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.LIGHTNING));
-        addToBot(new EvokeOrbAction(1));
+        addToBot(new TriggerPassiveAction());
         addToBot(new DrawCardAction(1));
     }
 

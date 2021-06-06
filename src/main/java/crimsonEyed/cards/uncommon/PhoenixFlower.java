@@ -3,9 +3,11 @@ package crimsonEyed.cards.uncommon;
 import basemod.AutoAdd;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.blue.Blizzard;
 import com.megacrit.cardcrawl.cards.colorless.MindBlast;
+import com.megacrit.cardcrawl.cards.red.Cleave;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -17,6 +19,7 @@ import crimsonEyed.characters.TheDefault;
 
 import static crimsonEyed.DefaultMod.makeCardPath;
 
+//TODO: Definitely doesn't work as intended (card strings too)
 public class PhoenixFlower extends AbstractDynamicCard {
 
     // TEXT DECLARATION
@@ -33,7 +36,7 @@ public class PhoenixFlower extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
+    private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
@@ -41,23 +44,23 @@ public class PhoenixFlower extends AbstractDynamicCard {
     private static final int COST = 2;  // COST = 2
     private static final int UPGRADED_COST = 2; // UPGRADED_COST = 2
 
-    private static final int DAMAGE = 5;    // DAMAGE = 5
-    private static final int UPGRADE_PLUS_DMG = 2;  // UPGRADE_PLUS_DMG = 2
+    private static final int MAGIC = 5;
+    private static final int UPGRADE_PLUS_MAGIC = 2;
 
     // /STAT DECLARATION/
 
 
     public PhoenixFlower() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = damage = DAMAGE;
+        baseDamage = damage = 0;
+        baseMagicNumber = magicNumber = MAGIC;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(
-                new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
+        this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
         this.rawDescription = cardStrings.DESCRIPTION;
         this.initializeDescription();
     }
@@ -88,7 +91,7 @@ public class PhoenixFlower extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_PLUS_DMG);
+            upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             upgradeBaseCost(UPGRADED_COST);
             initializeDescription();
         }

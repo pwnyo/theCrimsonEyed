@@ -7,7 +7,9 @@ import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.red.Impervious;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.Dark;
 import crimsonEyed.DefaultMod;
@@ -24,6 +26,8 @@ public class Amaterasu extends AbstractDynamicCard {
     public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("Amaterasu.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
+    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 
     // /TEXT DECLARATION/
 
@@ -38,8 +42,8 @@ public class Amaterasu extends AbstractDynamicCard {
     private static final int COST = 1;  // COST = 1
     private static final int UPGRADED_COST = 1; // UPGRADED_COST = 1
 
-    private static final int DAMAGE = 5;    // DAMAGE = 6
-    private static final int UPGRADE_PLUS_DMG = 3;  // UPGRADE_PLUS_DMG = 3
+    private static final int DAMAGE = 8;
+    private static final int UPGRADE_PLUS_DMG = 3;
 
     // /STAT DECLARATION/
 
@@ -47,6 +51,7 @@ public class Amaterasu extends AbstractDynamicCard {
     public Amaterasu() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
+        exhaust = true;
     }
 
 
@@ -62,9 +67,11 @@ public class Amaterasu extends AbstractDynamicCard {
     @Override
     public void upgrade() {
         if (!upgraded) {
+            exhaust = false;
             upgradeName();
-            upgradeDamage(UPGRADE_PLUS_DMG);
-            upgradeBaseCost(UPGRADED_COST);
+            upgradeBaseCost(UPGRADED_COST);;
+            //upgradeDamage(UPGRADE_PLUS_DMG);
+            rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

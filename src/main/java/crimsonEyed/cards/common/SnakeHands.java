@@ -32,17 +32,18 @@ public class SnakeHands extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
-    private static final int COST = 1;
-    private static final int UPGRADED_COST = 1;
+    private static final int COST = 0;
+    private static final int UPGRADED_COST = 0;
 
-    private static final int DAMAGE = 5;
-    private static final int UPGRADE_PLUS_DMG = 3;
-
+    private static final int DAMAGE = 4;
+    private static final int MAGIC = 2;
+    private static final int UPGRADE_PLUS_MAGIC = 2;
 
     public SnakeHands() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
-        this.isMultiDamage = true;
+        baseMagicNumber = magicNumber = MAGIC;
+        isMultiDamage = true;
     }
 
     @Override
@@ -111,7 +112,7 @@ public class SnakeHands extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_PLUS_DMG);
+            upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             initializeDescription();
         }
     }

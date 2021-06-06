@@ -1,19 +1,16 @@
 package crimsonEyed.cards.uncommon;
 
-import basemod.AutoAdd;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.orbs.Lightning;
-import com.megacrit.cardcrawl.powers.ElectroPower;
 import crimsonEyed.DefaultMod;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheDefault;
 import crimsonEyed.powers.ElectrifyPower;
+import crimsonEyed.powers.SpitePower;
 
 import static crimsonEyed.DefaultMod.makeCardPath;
 
@@ -39,8 +36,8 @@ public class ChidoriSpear extends AbstractDynamicCard {
     private static final int COST = 2;  // COST = 2
     private static final int UPGRADED_COST = 2; // UPGRADED_COST = 2
 
-    private static final int DAMAGE = 12;    // DAMAGE = 12
-    private static final int UPGRADE_PLUS_DMG = 4;  // UPGRADE_PLUS_DMG = 4
+    private static final int DAMAGE = 15;
+    private static final int UPGRADE_PLUS_DMG = 5;
 
     // /STAT DECLARATION/
 

@@ -57,10 +57,6 @@ public class IndraForm extends AbstractDynamicCard {
         addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber)));
         addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber)));
     }
-    @Override
-    public void tookDamage() {
-        updateCost(-1);
-    }
 
     //Upgraded stats.
     @Override

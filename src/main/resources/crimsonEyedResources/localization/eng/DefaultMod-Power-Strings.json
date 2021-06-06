@@ -18,5 +18,13 @@
         "crimsonEyed:ExhaustPower": {
                 "NAME": "Grudge",
                 "DESCRIPTIONS": ["At the end of your turn, Exhaust up to ", " card.", " cards."]
+        },
+        "crimsonEyed:AmaterasuBarrierPower": {
+                "NAME": "Amaterasu Barrier",
+                "DESCRIPTIONS": ["Whenever you take unblocked Attack damage, Channel ", " Dark. (Wears off at the end of your turn.)"]
+        },
+        "crimsonEyed:SpitePower": {
+                "NAME": "Spite",
+                "DESCRIPTIONS": ["Whenever you deal Fatal damage, heal ", " HP."]
         }
 }

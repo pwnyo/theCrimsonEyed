@@ -32,27 +32,27 @@ public class AmenotejikaraAction extends AbstractGameAction {
             if (AbstractDungeon.player.hand.size() == 10) {
                 AbstractDungeon.player.createHandIsFullDialog();
                 this.isDone = true;
-            } else if (this.p.drawPile.isEmpty()) {
+            } else if (this.p.discardPile.isEmpty()) {
                 this.isDone = true;
-            } else if (this.p.drawPile.size() == 1) {
-                if (((AbstractCard)this.p.drawPile.group.get(0)).cardID.equals("Exhume")) {
+            } else if (this.p.discardPile.size() == 1) {
+                if (((AbstractCard)this.p.discardPile.group.get(0)).cardID.equals("Exhume")) {
                     this.isDone = true;
                 } else {
-                    AbstractCard c = this.p.drawPile.getTopCard();
+                    AbstractCard c = this.p.discardPile.getTopCard();
                     c.unfadeOut();
                     this.p.hand.addToHand(c);
                     if (AbstractDungeon.player.hasPower("Corruption") && c.type == AbstractCard.CardType.SKILL) {
                         c.setCostForTurn(-9);
                     }
 
-                    this.p.drawPile.removeCard(c);
+                    this.p.discardPile.removeCard(c);
 
                     c.unhover();
                     c.fadingOut = false;
                     this.isDone = true;
                 }
             } else {
-                iterator = this.p.drawPile.group.iterator();
+                iterator = this.p.discardPile.group.iterator();
 
                 while(iterator.hasNext()) {
                     derp = (AbstractCard)iterator.next();
@@ -61,7 +61,7 @@ public class AmenotejikaraAction extends AbstractGameAction {
                     derp.unfadeOut();
                 }
 
-                iterator = this.p.drawPile.group.iterator();
+                iterator = this.p.discardPile.group.iterator();
 
                 while(iterator.hasNext()) {
                     derp = (AbstractCard)iterator.next();
@@ -71,12 +71,12 @@ public class AmenotejikaraAction extends AbstractGameAction {
                     }
                 }
 
-                if (this.p.drawPile.isEmpty()) {
-                    this.p.drawPile.group.addAll(this.finds);
+                if (this.p.discardPile.isEmpty()) {
+                    this.p.discardPile.group.addAll(this.finds);
                     this.finds.clear();
                     this.isDone = true;
                 } else {
-                    AbstractDungeon.gridSelectScreen.open(this.p.drawPile, 1, TEXT[0], false);
+                    AbstractDungeon.gridSelectScreen.open(this.p.discardPile, 1, TEXT[0], false);
                     this.tickDuration();
                 }
             }
@@ -89,15 +89,15 @@ public class AmenotejikaraAction extends AbstractGameAction {
                         derp.setCostForTurn(-9);
                     }
 
-                    this.p.drawPile.removeCard(derp);
+                    this.p.discardPile.removeCard(derp);
                 }
 
                 AbstractDungeon.gridSelectScreen.selectedCards.clear();
                 this.p.hand.refreshHandLayout();
-                this.p.drawPile.group.addAll(this.finds);
+                this.p.discardPile.group.addAll(this.finds);
                 this.finds.clear();
 
-                for(iterator = this.p.drawPile.group.iterator(); iterator.hasNext(); derp.target_y = 0.0F) {
+                for(iterator = this.p.discardPile.group.iterator(); iterator.hasNext(); derp.target_y = 0.0F) {
                     derp = (AbstractCard)iterator.next();
                     derp.unhover();
                     derp.target_x = (float) CardGroup.DISCARD_PILE_X;

@@ -36,7 +36,7 @@ public class Sharingan extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
-    private static final int COST = 1;  // COST = 1
+    private static final int COST = 0;
     private static final int FOCUS = 2;
     private static final int UPGRADE_PLUS_FOCUS = 1;
 
@@ -63,7 +63,7 @@ public class Sharingan extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
+            upgradeMagicNumber(UPGRADE_PLUS_FOCUS);
             initializeDescription();
         }
     }
