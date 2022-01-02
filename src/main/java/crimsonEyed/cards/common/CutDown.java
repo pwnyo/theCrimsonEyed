@@ -1,28 +1,21 @@
 package crimsonEyed.cards.common;
 
-import basemod.AutoAdd;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.blue.Sunder;
-import com.megacrit.cardcrawl.cards.colorless.RitualDagger;
-import com.megacrit.cardcrawl.cards.curses.Regret;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import crimsonEyed.DefaultMod;
-import crimsonEyed.actions.CutDownAction;
+import crimsonEyed.SasukeMod;
+import crimsonEyed.actions.unique.CutDownAction;
 import crimsonEyed.cards.AbstractDynamicCard;
-import crimsonEyed.characters.TheDefault;
+import crimsonEyed.characters.TheCrimsonEyed;
 
-import static crimsonEyed.DefaultMod.makeCardPath;
+import static crimsonEyed.SasukeMod.makeCardPath;
 
 public class CutDown extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(CutDown.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
-    public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("CutDown.png");
+    public static final String ID = SasukeMod.makeID(CutDown.class.getSimpleName());
+    public static final String IMG = makeCardPath("CutDown.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
 
@@ -34,13 +27,13 @@ public class CutDown extends AbstractDynamicCard {
     private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.ATTACK;       //
-    public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 2;  // COST = 1
-    private static final int UPGRADED_COST = 1; // UPGRADED_COST = 1
 
-    private static final int DAMAGE = 13;
-    private static final int MAGIC = 1;
+    private static final int DAMAGE = 12;
+    private static final int MAGIC = 2;
+    private static final int UPGRADE_MAGIC = 1;
 
     // /STAT DECLARATION/
 
@@ -64,7 +57,8 @@ public class CutDown extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
+            upgradeDamage(3);
+            upgradeMagicNumber(UPGRADE_MAGIC);
             initializeDescription();
         }
     }

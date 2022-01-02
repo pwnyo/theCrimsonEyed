@@ -1,5 +1,4 @@
 package crimsonEyed.cards;
-import basemod.AutoAdd;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 

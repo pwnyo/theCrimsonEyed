@@ -5,20 +5,20 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.PlatedArmorPower;
-import com.megacrit.cardcrawl.powers.ToolsOfTheTradePower;
-import crimsonEyed.DefaultMod;
+import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
-import crimsonEyed.characters.TheDefault;
+import crimsonEyed.characters.TheCrimsonEyed;
+import crimsonEyed.powers.PerceptionPower;
 
-import static crimsonEyed.DefaultMod.makeCardPath;
+import static crimsonEyed.SasukeMod.makeCardPath;
 
 public class Perception extends AbstractDynamicCard {
 
     // TEXT DECLARATION 
 
-    public static final String ID = DefaultMod.makeID(Perception.class.getSimpleName());
+    public static final String ID = SasukeMod.makeID(Perception.class.getSimpleName());
     public static final String IMG = makeCardPath("Power.png");
+    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     // /TEXT DECLARATION/
 
@@ -28,11 +28,10 @@ public class Perception extends AbstractDynamicCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
-    public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 2;
-    private static final int UPGRADE_COST = 1;
-    private static final int MAGIC = 2;
+    private static final int COST = 1;
+    private static final int MAGIC = 1;
 
     // /STAT DECLARATION/
 
@@ -40,13 +39,14 @@ public class Perception extends AbstractDynamicCard {
     public Perception() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = MAGIC;
+        isInnate = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new ToolsOfTheTradePower(p, magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new PerceptionPower(p, magicNumber)));
     }
 
     //Upgraded stats.
@@ -54,7 +54,8 @@ public class Perception extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADE_COST);
+            upgradeMagicNumber(1);
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

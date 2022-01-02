@@ -1,57 +1,56 @@
 package crimsonEyed.cards.common;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.blue.ThunderStrike;
-import com.megacrit.cardcrawl.cards.red.PerfectedStrike;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.orbs.AbstractOrb;
-import com.megacrit.cardcrawl.orbs.Lightning;
-import com.megacrit.cardcrawl.powers.FireBreathingPower;
-import crimsonEyed.DefaultMod;
+import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
-import crimsonEyed.characters.TheDefault;
+import crimsonEyed.characters.TheCrimsonEyed;
 
 import java.util.Iterator;
 
-import static crimsonEyed.DefaultMod.makeCardPath;
+import static crimsonEyed.SasukeMod.makeCardPath;
 
 public class SnakeHands extends AbstractDynamicCard {
 
-    public static final String ID = DefaultMod.makeID(SnakeHands.class.getSimpleName());
-    public static final String IMG = makeCardPath("Attack.png");
+    public static final String ID = SasukeMod.makeID(SnakeHands.class.getSimpleName());
+    public static final String IMG = makeCardPath("SnakeHands.png");
 
+    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     private static final CardRarity RARITY = CardRarity.COMMON;
-    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
+    private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;       //
-    public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 0;
-    private static final int UPGRADED_COST = 0;
+    private static final int COST = 1;
 
     private static final int DAMAGE = 4;
-    private static final int MAGIC = 2;
-    private static final int UPGRADE_PLUS_MAGIC = 2;
+    private static final int MAGIC = 1;
 
     public SnakeHands() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC;
-        isMultiDamage = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.POISON));
+        int badCount = countCards();
+        if (badCount > 0) {
+            for (int i = 0; i < badCount; i++) {
+                addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.POISON));
+            }
+        }
     }
 
-    public static int countCards() {
+    int countCards() {
         int count = 0;
         Iterator var1 = AbstractDungeon.player.hand.group.iterator();
 
@@ -83,36 +82,47 @@ public class SnakeHands extends AbstractDynamicCard {
 
         return count;
     }
-
-    public static boolean isStatusOrCurse(AbstractCard c) {
-        return c.type == CardType.STATUS || c.type == CardType.CURSE;
-    }
-
     public void applyPowers() {
         super.applyPowers();
+        int count = countCards();
 
-        int realBaseDamage = this.baseDamage;// 85
-        this.baseDamage += this.magicNumber * countCards();// 86
-        super.applyPowers();// 88
-        this.baseDamage = realBaseDamage;// 90
-        this.isDamageModified = this.damage != this.baseDamage;// 93
+        this.baseMagicNumber = count;
+        magicNumber = baseMagicNumber;
+
+        if (count == 1) {
+            this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+        }
+        else {
+            this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[1];
+        }
+        this.initializeDescription();
     }
 
     public void calculateCardDamage(AbstractMonster mo) {
         super.calculateCardDamage(mo);
+        int count = countCards();
 
-        int realBaseDamage = this.baseDamage;// 70
-        this.baseDamage += this.magicNumber * countCards();// 71
-        super.calculateCardDamage(mo);// 73
-        this.baseDamage = realBaseDamage;// 75
-        this.isDamageModified = this.damage != this.baseDamage;// 78
+        this.baseMagicNumber = count;
+        magicNumber = baseMagicNumber;
+
+        if (count == 1) {
+            this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+        }
+        else {
+            this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[1];
+        }
+        this.initializeDescription();
+    }
+
+    public static boolean isStatusOrCurse(AbstractCard c) {
+        return c.type == CardType.STATUS || c.type == CardType.CURSE;
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
+            upgradeDamage(2);
             initializeDescription();
         }
     }

@@ -1,0 +1,22 @@
+{
+
+        "crimsonEyed:ParalysisPotion": {
+                "NAME": "Paralysis Potion",
+                "DESCRIPTIONS": ["Enemy loses #b", " Strength."]
+        },
+        "crimsonEyed:PlaceholderPotion": {
+                "NAME": "Placeholder Potion",
+                "DESCRIPTIONS": ["Gain ", " At the end of your turn, lose ", " Strength."]
+        },
+        "crimsonEyed:ScryPotion": {
+                "NAME": "Scry Potion",
+                "DESCRIPTIONS": ["#yScry #b", ". Draw 1 additional card next turn."]
+        },
+        "crimsonEyed:YinVessel": {
+                "NAME": "Yin Vessel",
+                "DESCRIPTIONS": [
+                        "Choose #b1 of #b5 random rare cards (1 of each other color) to add to your hand, it costs #b0 this turn.",
+                        "Choose #b1 of #b5 random rare cards (1 of each other color) and add #b2 copies to your hand, they cost #b0 this turn."
+                ]
+        }
+}

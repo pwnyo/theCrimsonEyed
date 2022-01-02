@@ -1,19 +1,16 @@
 package crimsonEyed.cards;
 
 import basemod.AutoAdd;
-import basemod.abstracts.CustomCard;
 import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import crimsonEyed.DefaultMod;
-import crimsonEyed.characters.TheDefault;
+import crimsonEyed.SasukeMod;
+import crimsonEyed.characters.TheCrimsonEyed;
 import crimsonEyed.powers.RarePower;
 
-import static crimsonEyed.DefaultMod.makeCardPath;
+import static crimsonEyed.SasukeMod.makeCardPath;
 
 @AutoAdd.Ignore
 public class DefaultRarePower extends AbstractDynamicCard {
@@ -26,7 +23,7 @@ public class DefaultRarePower extends AbstractDynamicCard {
 
     // TEXT DECLARATION 
 
-    public static final String ID = DefaultMod.makeID(DefaultRarePower.class.getSimpleName());
+    public static final String ID = SasukeMod.makeID(DefaultRarePower.class.getSimpleName());
     public static final String IMG = makeCardPath("Power.png");
 
     // /TEXT DECLARATION/
@@ -37,7 +34,7 @@ public class DefaultRarePower extends AbstractDynamicCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
-    public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 3;
     private static final int UPGRADE_COST = 2;

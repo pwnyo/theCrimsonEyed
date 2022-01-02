@@ -1,0 +1,62 @@
+[
+  {
+    "NAMES": [
+      "keyword",
+      "keywords"
+    ],
+    "DESCRIPTION": "Whenever you play a card, gain 1 dexterity this turn only."
+  },
+  {
+    "PROPER_NAME": "Multiword Keyword",
+    "NAMES": [
+      "Multiword Keyword",
+      "multiword_keyword",
+      "multiword_keywords",
+      "multikey",
+      "multikeyword"
+    ],
+    "DESCRIPTION": "Make sure the first element in the NAMES is the same as your PROPER_NAME. The rest is to match keywords like the single word keyword."
+  },
+  {
+    "PROPER_NAME": "Explosive",
+    "NAMES": [
+      "explosive",
+      "Explosive"
+    ],
+    "DESCRIPTION": "The next time you #yExhaust a card, enemy takes damage."
+  },
+  {
+    "PROPER_NAME": "Hatred",
+    "NAMES": [
+      "hatred",
+      "Hatred",
+      "Hatreds"
+    ],
+    "DESCRIPTION": "Hatred is a temporary #yCurse that #yRetains, causing #b1 HP loss every turn."
+  },
+  {
+    "PROPER_NAME": "Fate",
+    "NAMES": [
+      "fate",
+      "Fate"
+    ],
+    "DESCRIPTION": "Negates the next buff. Applied through #yArtifact."
+  },
+  {
+    "PROPER_NAME": "Flame Barrier",
+    "NAMES": [
+      "Flame Barrier",
+      "flame_barrier",
+      "Flame_Barrier"
+    ],
+    "DESCRIPTION": "Whenever you are attacked this turn, deal damage back."
+  },
+  {
+    "PROPER_NAME": "Intensify",
+    "NAMES": [
+      "intensify",
+      "Intensify"
+    ],
+    "DESCRIPTION": "Put ALL #yHatred cards into your hand and Upgrade them. If you have none, add 1 into your hand."
+  }
+]

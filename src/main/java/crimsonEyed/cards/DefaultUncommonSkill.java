@@ -6,10 +6,10 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.PlatedArmorPower;
-import crimsonEyed.DefaultMod;
-import crimsonEyed.characters.TheDefault;
+import crimsonEyed.SasukeMod;
+import crimsonEyed.characters.TheCrimsonEyed;
 
-import static crimsonEyed.DefaultMod.makeCardPath;
+import static crimsonEyed.SasukeMod.makeCardPath;
 
 @AutoAdd.Ignore
 public class DefaultUncommonSkill extends AbstractDynamicCard {
@@ -22,7 +22,7 @@ public class DefaultUncommonSkill extends AbstractDynamicCard {
 
     // TEXT DECLARATION 
 
-    public static final String ID = DefaultMod.makeID(DefaultUncommonSkill.class.getSimpleName());
+    public static final String ID = SasukeMod.makeID(DefaultUncommonSkill.class.getSimpleName());
     public static final String IMG = makeCardPath("Skill.png");
 
     // /TEXT DECLARATION/
@@ -32,7 +32,7 @@ public class DefaultUncommonSkill extends AbstractDynamicCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 1;
     private static final int UPGRADE_REDUCED_COST = 0;

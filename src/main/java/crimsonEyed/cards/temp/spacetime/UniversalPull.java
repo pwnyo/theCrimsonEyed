@@ -1,0 +1,76 @@
+package crimsonEyed.cards.temp.spacetime;
+
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.watcher.ChooseOneAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import crimsonEyed.SasukeMod;
+import crimsonEyed.cards.AbstractDynamicCard;
+
+import java.util.ArrayList;
+
+import static crimsonEyed.SasukeMod.makeCardPath;
+
+public class UniversalPull extends AbstractDynamicCard {
+
+    // TEXT DECLARATION
+
+    public static final String ID = SasukeMod.makeID(UniversalPull.class.getSimpleName());
+    public static final String IMG = makeCardPath("UniversalPull.png");
+
+    // /TEXT DECLARATION/
+
+
+    // STAT DECLARATION
+
+    private static final CardRarity RARITY = CardRarity.SPECIAL; //  Up to you, I like auto-complete on these
+    private static final CardTarget TARGET = CardTarget.SELF;  //   since they don't change much.
+    private static final CardType TYPE = CardType.SKILL;       //
+    public static final CardColor COLOR = CardColor.COLORLESS;
+
+    private static final int COST = 1;  // COST = 1
+    private static final int MAGIC = 1;
+
+    // /STAT DECLARATION/
+
+
+    public UniversalPull() {
+        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        baseMagicNumber = magicNumber = MAGIC;
+        purgeOnUse = true;
+    }
+
+
+    // Actions the card should do.
+    @Override
+    public void use(AbstractPlayer p, AbstractMonster m) {
+        ArrayList<AbstractCard> stanceChoices = new ArrayList();
+        stanceChoices.add(new FromDrawPile());
+        stanceChoices.add(new FromDiscardPile());
+        stanceChoices.add(new FromExhaustPile());
+        if (this.upgraded) {
+            for (AbstractCard c : stanceChoices) {
+                c.upgrade();
+            }
+        }
+
+        this.addToBot(new ChooseOneAction(stanceChoices));
+        //addToBot(new AnywhereToHandAction(magicNumber));
+    }
+
+    @Override
+    public void onChoseThisOption() {
+        addToBot(new MakeTempCardInHandAction(this));
+    }
+
+    // Upgraded stats.
+    @Override
+    public void upgrade() {
+        if (!upgraded) {
+            upgradeName();
+            upgradeMagicNumber(1);
+            initializeDescription();
+        }
+    }
+}

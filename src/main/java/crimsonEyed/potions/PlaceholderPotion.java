@@ -1,5 +1,6 @@
 package crimsonEyed.potions;
 
+import basemod.abstracts.CustomPotion;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -10,12 +11,11 @@ import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-
-import basemod.abstracts.CustomPotion;
+import crimsonEyed.SasukeMod;
 
 public class PlaceholderPotion extends CustomPotion {
 
-    public static final String POTION_ID = crimsonEyed.DefaultMod.makeID("PlaceholderPotion");
+    public static final String POTION_ID = SasukeMod.makeID("PlaceholderPotion");
     private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(POTION_ID);
     
     public static final String NAME = potionStrings.NAME;

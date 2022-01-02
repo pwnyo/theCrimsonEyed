@@ -1,0 +1,189 @@
+{
+        "crimsonEyed:AmaterasuBarrierPower": {
+                "NAME": "Amaterasu Barrier",
+                "DESCRIPTIONS": [
+                        "Whenever you take unblocked Attack damage, #yChannel #b",
+                        " #yDark. (Wears off at the end of your turn.)"
+                ]
+        },
+        "crimsonEyed:BlazeBarrierPower": {
+                "NAME": "Blaze Barrier",
+                "DESCRIPTIONS": [
+                        "Whenever a #yDark Orb triggers its passive ability, gain #b",
+                        " #yFlame #yBarrier."
+                ]
+        },
+        "crimsonEyed:CommonPower": {
+                "NAME": "Placeholder Power",
+                "DESCRIPTIONS": [
+                        "You applied #b",
+                        " keyword.",
+                        " keywords."
+                ]
+        },
+        "crimsonEyed:ElectrifyPower": {
+                "NAME": "Electrify",
+                "DESCRIPTIONS": [
+                        "#yLightning hits ALL enemies for the next #b",
+                        " turns.",
+                        "#yLightning hits ALL enemies this turn."
+                ]
+        },
+        "crimsonEyed:ExplosivePower": {
+                "NAME": "Explosive",
+                "DESCRIPTIONS": [
+                        "The next time you #yExhaust a card, enemy takes #b",
+                        " damage."
+                ]
+        },
+        "crimsonEyed:ExhaustDamagePower": {
+                "NAME": "Phoenix Flower",
+                "DESCRIPTIONS": [
+                        "Whenever you #yExhaust a card, deal #b",
+                        " damage to a random enemy."
+                ]
+        },
+        "crimsonEyed:FatePower": {
+                "NAME": "Fate",
+                "DESCRIPTIONS": [
+                        "Negates #b",
+                        " buff.",
+                        " buffs."
+                ]
+        },
+        "crimsonEyed:GradualFocusLossPower": {
+                "NAME": "Strain",
+                "DESCRIPTIONS": [
+                        "At the end of your turn, lose #b1 #yFocus and reduce #yStrain by #b1."
+                ]
+        },
+        "crimsonEyed:GrudgePower": {
+                "NAME": "Grudge",
+                "DESCRIPTIONS": [
+                        "At the end of your turn, lose #b",
+                        " HP and #yExhaust up to #b",
+                        " card.",
+                        " cards."
+                ]
+        },
+        "crimsonEyed:IndraFormPower": {
+                "NAME": "Indra Form",
+                "DESCRIPTIONS": [
+                        "At the start of your turn, #yChannel #b",
+                        " #yLightning."
+                ]
+        },
+        "crimsonEyed:KagutsuchiPower": {
+                "NAME": "Kagutsuchi",
+                "DESCRIPTIONS": [
+                        "Whenever you play an #yAttack this turn, trigger the passive ability of your next Orb #b",
+                        " time.",
+                        " times."
+                ]
+        },
+        "crimsonEyed:LightningSpeedPower": {
+                "NAME": "Lightning",
+                "DESCRIPTIONS": [
+                        "If you play #b",
+                        " more #yAttacks this turn, #yChannel #b",
+                        " #yLightning.",
+                        " more #yAttack this turn, #yChannel #b"
+                ]
+        },
+        "crimsonEyed:LoseFocusPower": {
+                "NAME": "Lose Focus",
+                "DESCRIPTIONS": [
+                        "At the end of your turn, lose #b",
+                        " #yFocus."
+                ]
+        },
+        "crimsonEyed:MandaPower": {
+                "NAME": "Manda",
+                "DESCRIPTIONS": [
+                        "The next #b",
+                        " times you would die this combat, heal to #b20% HP instead and lose #b1 Manda."
+                ]
+        },
+        "crimsonEyed:MangekyouPower": {
+                "NAME": "Mangekyou",
+                "DESCRIPTIONS": [
+                        "At the end of your turn, lose #b",
+                        " HP and gain #b",
+                        " #yFocus."
+                ]
+        },
+        "crimsonEyed:MangekyouPower2": {
+                "NAME": "Mangekyou",
+                "DESCRIPTIONS": [
+                        "Whenever you lose HP from a card, gain #b",
+                        " #yFocus"
+                ]
+        },
+        "crimsonEyed:OneStepAheadPower": {
+                "NAME": "One Step Ahead",
+                "DESCRIPTIONS": [
+                        "At the end of your next #b",
+                        " turns, #yRetain up to #b1 card.",
+                        "At the end of this turn, #yRetain up to #b1 card."
+                ]
+        },
+        "crimsonEyed:PerceptionPower": {
+                "NAME": "Perception",
+                "DESCRIPTIONS": [
+                        "Whenever you #yScry, draw #b",
+                        " card.",
+                        " cards."
+                ]
+        },
+        "crimsonEyed:PunishmentPower": {
+                "NAME": "Tsukuyomi",
+                "DESCRIPTIONS": [
+                        "At the start of its turn, loses #b",
+                        " HP for each of its debuffs."
+                ]
+        },
+        "crimsonEyed:RarePower": {
+                "NAME": "Placeholder Power",
+                "DESCRIPTIONS": [
+                        "At the start of your turn, TOUCH #b",
+                        " enemy.",
+                        " enemies."
+                ]
+        },
+        "crimsonEyed:ResentmentPower": {
+                "NAME": "Resentment",
+                "DESCRIPTIONS": [
+                        "Whenever you lose HP, gain #b",
+                        " #yBlock next turn."
+                ]
+        },
+        "crimsonEyed:RevolutionPower": {
+                "NAME": "Revolution",
+                "DESCRIPTIONS": [
+                        "Whenever you draw a #yStatus or #yCurse card, gain #b",
+                        " #yStrength."
+                ]
+        },
+        "crimsonEyed:SeverThePastPower": {
+                "NAME": "Sever the Past",
+                "DESCRIPTIONS": [
+                        "Exhaust any card that enters your discard pile. At the start of your turn, gain #yBlock equal to the number of cards in your #yExhaust pile."
+                ]
+        },
+        "crimsonEyed:SpitePower": {
+                "NAME": "Spite",
+                "DESCRIPTIONS": [
+                        "Whenever you deal #yFatal damage, heal #b",
+                        " HP."
+                ]
+        },
+        "crimsonEyed:UniversalPullPower": {
+                "NAME": "Universal Pull",
+                "DESCRIPTIONS": [
+                        "In #b",
+                        " turn, add ",
+                        " into your hand.",
+                        " turns, add "
+                ]
+        }
+}

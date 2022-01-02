@@ -3,11 +3,11 @@ package crimsonEyed.relics;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import crimsonEyed.DefaultMod;
+import crimsonEyed.SasukeMod;
 import crimsonEyed.util.TextureLoader;
 
-import static crimsonEyed.DefaultMod.makeRelicOutlinePath;
-import static crimsonEyed.DefaultMod.makeRelicPath;
+import static crimsonEyed.SasukeMod.makeRelicOutlinePath;
+import static crimsonEyed.SasukeMod.makeRelicPath;
 
 public class PlaceholderRelic extends CustomRelic {
 
@@ -18,7 +18,7 @@ public class PlaceholderRelic extends CustomRelic {
      */
 
     // ID, images, text.
-    public static final String ID = DefaultMod.makeID("PlaceholderRelic");
+    public static final String ID = SasukeMod.makeID("PlaceholderRelic");
 
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("placeholder_relic.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("placeholder_relic.png"));

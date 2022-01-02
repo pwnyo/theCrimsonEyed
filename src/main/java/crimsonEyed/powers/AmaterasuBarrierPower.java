@@ -11,19 +11,14 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.orbs.Dark;
-import com.megacrit.cardcrawl.orbs.Lightning;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.StaticDischargePower;
-import crimsonEyed.DefaultMod;
+import crimsonEyed.SasukeMod;
 import crimsonEyed.util.TextureLoader;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
-import static crimsonEyed.DefaultMod.makePowerPath;
+import static crimsonEyed.SasukeMod.makePowerPath;
 
 public class AmaterasuBarrierPower extends AbstractPower implements CloneablePowerInterface {
-    private static final Logger logger = LogManager.getLogger(SpitePower.class.getName());
-    public static final String POWER_ID = DefaultMod.makeID("ElectrifyPower");
+    public static final String POWER_ID = SasukeMod.makeID("AmaterasuBarrierPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
@@ -58,8 +53,8 @@ public class AmaterasuBarrierPower extends AbstractPower implements CloneablePow
     }
 
     public void atStartOfTurn() {
-        this.addToBot(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, "Flame Barrier"));// 54
-    }// 55
+        this.addToBot(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, POWER_ID));
+    }
 
     public void updateDescription() {
         this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
@@ -67,6 +62,6 @@ public class AmaterasuBarrierPower extends AbstractPower implements CloneablePow
 
     @Override
     public AbstractPower makeCopy() {
-        return new SpitePower(owner, amount);
+        return new AmaterasuBarrierPower(owner, amount);
     }
 }

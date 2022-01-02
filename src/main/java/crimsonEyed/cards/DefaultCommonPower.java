@@ -1,18 +1,17 @@
 package crimsonEyed.cards;
 
 import basemod.AutoAdd;
-import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import crimsonEyed.DefaultMod;
-import crimsonEyed.characters.TheDefault;
+import crimsonEyed.SasukeMod;
+import crimsonEyed.characters.TheCrimsonEyed;
 import crimsonEyed.powers.CommonPower;
 
-import static crimsonEyed.DefaultMod.makeCardPath;
+import static crimsonEyed.SasukeMod.makeCardPath;
 
 @AutoAdd.Ignore
 public class DefaultCommonPower extends AbstractDynamicCard {
@@ -26,7 +25,7 @@ public class DefaultCommonPower extends AbstractDynamicCard {
 
     // TEXT DECLARATION 
 
-    public static final String ID = DefaultMod.makeID(DefaultCommonPower.class.getSimpleName());
+    public static final String ID = SasukeMod.makeID(DefaultCommonPower.class.getSimpleName());
     public static final String IMG = makeCardPath("Power.png");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -40,7 +39,7 @@ public class DefaultCommonPower extends AbstractDynamicCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
-    public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 1;
     private static final int MAGIC = 1;
