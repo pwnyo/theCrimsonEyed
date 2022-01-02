@@ -1,0 +1,34 @@
+
+sasuke-big.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+s-3
+  rotate: false
+  xy: 427, 1
+  size: 140, 308
+  orig: 140, 308
+  offset: 0, 0
+  index: -1
+s-2
+  rotate: false
+  xy: 143, 1
+  size: 140, 308
+  orig: 140, 308
+  offset: 0, 0
+  index: -1
+s-4
+  rotate: false
+  xy: 1, 1
+  size: 140, 308
+  orig: 140, 308
+  offset: 0, 0
+  index: -1
+s-1
+  rotate: false
+  xy: 285, 1
+  size: 140, 308
+  orig: 140, 308
+  offset: 0, 0
+  index: -1
