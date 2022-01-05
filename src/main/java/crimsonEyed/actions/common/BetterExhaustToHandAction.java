@@ -96,42 +96,42 @@ public class BetterExhaustToHandAction extends AbstractGameAction {
         } else {
             Iterator var1;
             AbstractCard c;
-            if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {// 104
-                var1 = AbstractDungeon.gridSelectScreen.selectedCards.iterator();// 105
+            if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
+                var1 = AbstractDungeon.gridSelectScreen.selectedCards.iterator();
 
                 while(var1.hasNext()) {
                     c = (AbstractCard)var1.next();
-                    if (this.player.hand.size() < 10) {// 106
-                        this.player.hand.addToHand(c);// 107
-                        if (this.setCost) {// 108
-                            c.setCostForTurn(this.newCost);// 109
+                    if (this.player.hand.size() < 10) {
+                        this.player.hand.addToHand(c);
+                        if (this.setCost) {
+                            c.setCostForTurn(this.newCost);
                         }
 
-                        this.player.exhaustPile.removeCard(c);// 111
+                        this.player.exhaustPile.removeCard(c);
                     }
 
-                    c.lighten(false);// 113
-                    c.unhover();// 114
-                    c.applyPowers();// 115
+                    c.lighten(false);
+                    c.unhover();
+                    c.applyPowers();
                 }
 
                 for(var1 = this.player.exhaustPile.group.iterator(); var1.hasNext(); c.target_y = 0.0F) {// 117 120
                     c = (AbstractCard)var1.next();
-                    c.unhover();// 118
-                    c.target_x = (float)CardGroup.DISCARD_PILE_X;// 119
+                    c.unhover();
+                    c.target_x = (float)CardGroup.DISCARD_PILE_X;
                 }
 
-                AbstractDungeon.gridSelectScreen.selectedCards.clear();// 122
-                AbstractDungeon.player.hand.refreshHandLayout();// 123
+                AbstractDungeon.gridSelectScreen.selectedCards.clear();
+                AbstractDungeon.player.hand.refreshHandLayout();
             }
 
-            this.tickDuration();// 125
-            if (this.isDone) {// 127
-                var1 = this.player.hand.group.iterator();// 128
+            this.tickDuration();
+            if (this.isDone) {
+                var1 = this.player.hand.group.iterator();
 
                 while(var1.hasNext()) {
                     c = (AbstractCard)var1.next();
-                    c.applyPowers();// 129
+                    c.applyPowers();
                 }
             }
 

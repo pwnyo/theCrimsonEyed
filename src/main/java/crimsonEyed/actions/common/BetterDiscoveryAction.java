@@ -18,37 +18,37 @@ public class BetterDiscoveryAction extends AbstractGameAction {
     private int choices;
 
     public BetterDiscoveryAction(int amount, int choices) {
-        this.actionType = ActionType.CARD_MANIPULATION;// 20
-        this.duration = Settings.ACTION_DUR_FAST;// 21
-        this.amount = amount;// 22
+        this.actionType = ActionType.CARD_MANIPULATION;
+        this.duration = Settings.ACTION_DUR_FAST;
+        this.amount = amount;
         if (choices > 0)
             this.choices = choices;
         else
             this.choices = 3;
     }
     public BetterDiscoveryAction(boolean oneOfEach) {
-        this.actionType = ActionType.CARD_MANIPULATION;// 20
-        this.duration = Settings.ACTION_DUR_FAST;// 21
+        this.actionType = ActionType.CARD_MANIPULATION;
+        this.duration = Settings.ACTION_DUR_FAST;
         this.amount = 5;
     }
 
     public void update() {
         ArrayList generatedCards;
-        if (this.returnColorless) {// 42
-            generatedCards = this.generateColorlessCardChoices();// 43
+        if (this.returnColorless) {
+            generatedCards = this.generateColorlessCardChoices();
         } else {
-            generatedCards = this.generateCardChoices(this.cardType);// 45
+            generatedCards = this.generateCardChoices(this.cardType);
         }
 
-        if (this.duration == Settings.ACTION_DUR_FAST) {// 48
-            AbstractDungeon.cardRewardScreen.customCombatOpen(generatedCards, CardRewardScreen.TEXT[1], this.cardType != null);// 49
-            this.tickDuration();// 53
+        if (this.duration == Settings.ACTION_DUR_FAST) {
+            AbstractDungeon.cardRewardScreen.customCombatOpen(generatedCards, CardRewardScreen.TEXT[1], this.cardType != null);
+            this.tickDuration();
         } else {
-            if (!this.retrieveCard) {// 57
-                if (AbstractDungeon.cardRewardScreen.discoveryCard != null) {// 58
-                    AbstractCard disCard = AbstractDungeon.cardRewardScreen.discoveryCard.makeStatEquivalentCopy();// 59
-                    AbstractCard disCard2 = AbstractDungeon.cardRewardScreen.discoveryCard.makeStatEquivalentCopy();// 60
-                    if (AbstractDungeon.player.hasPower("MasterRealityPower")) {// 62
+            if (!this.retrieveCard) {
+                if (AbstractDungeon.cardRewardScreen.discoveryCard != null) {
+                    AbstractCard disCard = AbstractDungeon.cardRewardScreen.discoveryCard.makeStatEquivalentCopy();
+                    AbstractCard disCard2 = AbstractDungeon.cardRewardScreen.discoveryCard.makeStatEquivalentCopy();
+                    if (AbstractDungeon.player.hasPower("MasterRealityPower")) {
                         disCard.upgrade();// 63
                         disCard2.upgrade();// 64
                     }
@@ -70,73 +70,73 @@ public class BetterDiscoveryAction extends AbstractGameAction {
                         AbstractDungeon.effectList.add(new ShowCardAndAddToHandEffect(disCard2, (float)Settings.WIDTH / 2.0F + AbstractCard.IMG_WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));// 89
                     } else if (AbstractDungeon.player.hand.size() == 9) {// 95
                         AbstractDungeon.effectList.add(new ShowCardAndAddToHandEffect(disCard, (float)Settings.WIDTH / 2.0F - AbstractCard.IMG_WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));// 96
-                        AbstractDungeon.effectList.add(new ShowCardAndAddToDiscardEffect(disCard2, (float)Settings.WIDTH / 2.0F + AbstractCard.IMG_WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));// 101
+                        AbstractDungeon.effectList.add(new ShowCardAndAddToDiscardEffect(disCard2, (float)Settings.WIDTH / 2.0F + AbstractCard.IMG_WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
                     } else {
-                        AbstractDungeon.effectList.add(new ShowCardAndAddToDiscardEffect(disCard, (float)Settings.WIDTH / 2.0F - AbstractCard.IMG_WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));// 107
-                        AbstractDungeon.effectList.add(new ShowCardAndAddToDiscardEffect(disCard2, (float)Settings.WIDTH / 2.0F + AbstractCard.IMG_WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));// 112
+                        AbstractDungeon.effectList.add(new ShowCardAndAddToDiscardEffect(disCard, (float)Settings.WIDTH / 2.0F - AbstractCard.IMG_WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
+                        AbstractDungeon.effectList.add(new ShowCardAndAddToDiscardEffect(disCard2, (float)Settings.WIDTH / 2.0F + AbstractCard.IMG_WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
                     }
 
-                    AbstractDungeon.cardRewardScreen.discoveryCard = null;// 121
+                    AbstractDungeon.cardRewardScreen.discoveryCard = null;
                 }
 
-                this.retrieveCard = true;// 123
+                this.retrieveCard = true;
             }
 
-            this.tickDuration();// 126
+            this.tickDuration();
         }
     }// 54 127
 
     private ArrayList<AbstractCard> generateColorlessCardChoices() {
-        ArrayList derp = new ArrayList();// 130
+        ArrayList derp = new ArrayList();
 
-        while(derp.size() != 3) {// 132
-            boolean dupe = false;// 133
-            AbstractCard tmp = AbstractDungeon.returnTrulyRandomColorlessCardInCombat();// 135
-            Iterator var4 = derp.iterator();// 136
+        while(derp.size() != 3) {
+            boolean dupe = false;
+            AbstractCard tmp = AbstractDungeon.returnTrulyRandomColorlessCardInCombat();
+            Iterator var4 = derp.iterator();
 
             while(var4.hasNext()) {
                 AbstractCard c = (AbstractCard)var4.next();
-                if (c.cardID.equals(tmp.cardID)) {// 137
-                    dupe = true;// 138
-                    break;// 139
+                if (c.cardID.equals(tmp.cardID)) {
+                    dupe = true;
+                    break;
                 }
             }
 
-            if (!dupe) {// 142
-                derp.add(tmp.makeCopy());// 143
+            if (!dupe) {
+                derp.add(tmp.makeCopy());
             }
         }
 
-        return derp;// 147
+        return derp;
     }
 
     private ArrayList<AbstractCard> generateCardChoices(AbstractCard.CardType type) {
-        ArrayList derp = new ArrayList();// 151
+        ArrayList derp = new ArrayList();
 
-        while(derp.size() != choices) {// 153
-            boolean dupe = false;// 154
-            AbstractCard tmp = null;// 155
-            if (type == null) {// 156
-                tmp = AbstractDungeon.returnTrulyRandomCardInCombat();// 157
+        while(derp.size() != choices) {
+            boolean dupe = false;
+            AbstractCard tmp = null;
+            if (type == null) {
+                tmp = AbstractDungeon.returnTrulyRandomCardInCombat();
             } else {
-                tmp = AbstractDungeon.returnTrulyRandomCardInCombat(type);// 159
+                tmp = AbstractDungeon.returnTrulyRandomCardInCombat(type);
             }
 
             Iterator var5 = derp.iterator();
 
             while(var5.hasNext()) {
-                AbstractCard c = (AbstractCard)var5.next();// 161
-                if (c.cardID.equals(tmp.cardID)) {// 162
-                    dupe = true;// 163
-                    break;// 164
+                AbstractCard c = (AbstractCard)var5.next();
+                if (c.cardID.equals(tmp.cardID)) {
+                    dupe = true;
+                    break;
                 }
             }
 
-            if (!dupe) {// 167
-                derp.add(tmp.makeCopy());// 168
+            if (!dupe) {
+                derp.add(tmp.makeCopy());
             }
         }
 
-        return derp;// 172
+        return derp;
     }
 }

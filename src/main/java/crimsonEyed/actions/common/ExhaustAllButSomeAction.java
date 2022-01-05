@@ -16,24 +16,24 @@ public class ExhaustAllButSomeAction extends AbstractGameAction {
     private ArrayList<AbstractCard> keep = new ArrayList();
 
     public ExhaustAllButSomeAction(int amount) {
-        this.actionType = ActionType.EXHAUST;// 24
-        this.duration = Settings.ACTION_DUR_FAST;// 25
-        this.p = AbstractDungeon.player;// 26
+        this.actionType = ActionType.EXHAUST;
+        this.duration = Settings.ACTION_DUR_FAST;
+        this.p = AbstractDungeon.player;
         this.amount = amount;
-    }// 27
+    }
 
     public void update() {
         if (this.duration == Settings.ACTION_DUR_FAST) {
 
-            if (this.p.hand.isEmpty()) {// 32
-                this.isDone = true;// 33
+            if (this.p.hand.isEmpty()) {
+                this.isDone = true;
             } else if (this.p.hand.size() == 1) {
                 this.uuid = this.p.hand.getTopCard().uuid;
                 returnCards();
                 this.isDone = true;
             } else {
-                AbstractDungeon.handCardSelectScreen.open(TEXT[0], this.amount, false, false);// 40
-                this.tickDuration();// 41
+                AbstractDungeon.handCardSelectScreen.open(TEXT[0], this.amount, false, false);
+                this.tickDuration();
             }
         } else {
             if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
@@ -51,8 +51,8 @@ public class ExhaustAllButSomeAction extends AbstractGameAction {
                     p.hand.moveToExhaustPile(exhaust.get(i));
                 }
                 returnCards();
-                AbstractDungeon.handCardSelectScreen.selectedCards.clear();// 52
-                AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;// 53
+                AbstractDungeon.handCardSelectScreen.selectedCards.clear();
+                AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
             }
 
         }
@@ -63,7 +63,7 @@ public class ExhaustAllButSomeAction extends AbstractGameAction {
             p.hand.addToTop(c);
         }
 
-        p.hand.refreshHandLayout();// 108
+        p.hand.refreshHandLayout();
     }
 
     static {

@@ -117,7 +117,11 @@ public class SnakeHands extends AbstractDynamicCard {
     public static boolean isStatusOrCurse(AbstractCard c) {
         return c.type == CardType.STATUS || c.type == CardType.CURSE;
     }
-
+    @Override
+    public void onMoveToDiscard() {
+        this.rawDescription = cardStrings.DESCRIPTION;// 80
+        this.initializeDescription();
+    }
     @Override
     public void upgrade() {
         if (!upgraded) {

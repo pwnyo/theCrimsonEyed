@@ -18,7 +18,6 @@ public class Copycat extends AbstractDynamicCard {
 
     public static final String ID = SasukeMod.makeID(Copycat.class.getSimpleName());
     public static final String IMG = makeCardPath("Skill.png");// "public static final String IMG = makeCardPath("Copycat.png");
-    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     // /TEXT DECLARATION/
 
@@ -54,7 +53,7 @@ public class Copycat extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            upgradeBaseCost(0);
             initializeDescription();
         }
     }

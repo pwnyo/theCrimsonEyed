@@ -31,8 +31,8 @@ public class SkeletonShield extends AbstractDynamicCard {
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 2;  // COST = 2
-    private static final int BLOCK = 10;
-    private static final int UPGRADE_BLOCK = 3;
+    private static final int BLOCK = 11;
+    private static final int UPGRADE_BLOCK = 2;
     private static final int MAGIC = 2;
 
     // /STAT DECLARATION/

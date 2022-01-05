@@ -292,7 +292,7 @@ public class SasukeMod implements
     public void receiveEditCharacters() {
         logger.info("Beginning to edit characters. " + "Add " + TheCrimsonEyed.Enums.SASUKE.toString());
         
-        BaseMod.addCharacter(new TheCrimsonEyed("the Default", TheCrimsonEyed.Enums.SASUKE),
+        BaseMod.addCharacter(new TheCrimsonEyed("Uchiha Sasuke", TheCrimsonEyed.Enums.SASUKE),
                 THE_DEFAULT_BUTTON, THE_DEFAULT_PORTRAIT, TheCrimsonEyed.Enums.SASUKE);
         
         receiveEditPotions();

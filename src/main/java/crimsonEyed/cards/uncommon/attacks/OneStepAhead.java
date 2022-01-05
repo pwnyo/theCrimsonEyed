@@ -5,6 +5,8 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
@@ -17,7 +19,9 @@ public class OneStepAhead extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = SasukeMod.makeID(OneStepAhead.class.getSimpleName());public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("OneStepAhead.png");
+    public static final String ID = SasukeMod.makeID(OneStepAhead.class.getSimpleName());
+    public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("OneStepAhead.png");
+    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     // /TEXT DECLARATION/
 
@@ -32,7 +36,7 @@ public class OneStepAhead extends AbstractDynamicCard {
     private static final int COST = 1;  // COST = 1
 
     private static final int DAMAGE = 7;
-    private static final int UPGRADE_DAMAGE = 3;
+    private static final int UPGRADE_DAMAGE = 2;
     private static final int MAGIC = 1;
 
     // /STAT DECLARATION/
@@ -59,6 +63,8 @@ public class OneStepAhead extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_DAMAGE);
+            upgradeMagicNumber(1);
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

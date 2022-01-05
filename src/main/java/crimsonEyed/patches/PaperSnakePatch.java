@@ -54,11 +54,11 @@ public class PaperSnakePatch {
     @SpirePatch(clz = LockOnPower.class, method = "updateDescription")
     public static class ChangeLockOnDesc {
         public static void Postfix(LockOnPower __power) {
-            if (__power.owner != null) {// 39
-                if (__power.amount == 1) {// 40
-                    __power.description = __power.DESCRIPTIONS[0] + 75 + __power.DESCRIPTIONS[1] + __power.amount + __power.DESCRIPTIONS[2];// 41
+            if (__power.owner != null) {
+                if (__power.amount == 1) {
+                    __power.description = __power.DESCRIPTIONS[0] + 75 + __power.DESCRIPTIONS[1] + __power.amount + __power.DESCRIPTIONS[2];
                 } else {
-                    __power.description = __power.DESCRIPTIONS[0] + 75 + __power.DESCRIPTIONS[1] + __power.amount + __power.DESCRIPTIONS[3];// 43
+                    __power.description = __power.DESCRIPTIONS[0] + 75 + __power.DESCRIPTIONS[1] + __power.amount + __power.DESCRIPTIONS[3];
                 }
             }
         }

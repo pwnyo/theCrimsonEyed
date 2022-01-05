@@ -40,7 +40,7 @@
   },
   "crimsonEyed:CrimsonEye2": {
     "NAME": "Crimson Eye",
-    "FLAVOR": "A single eye. Its iris pulses a faint red.",
+    "FLAVOR": "Your eye, steeped in Hatred. Perceives the truth and fabricates illusion.",
     "DESCRIPTIONS": [
       "While your HP is at or below #b50%, you have #b",
       " additional #yFocus."
@@ -48,7 +48,7 @@
   },
   "crimsonEyed:CrowFeather": {
     "NAME": "CrowFeather",
-    "FLAVOR": "The feather is midnight black. You feel an odd sensation emanating from it.",
+    "FLAVOR": "You can feel it in the palm of your hand, yet cannot be certain it's really there.",
     "DESCRIPTIONS": [
       "Whenever you apply a debuff to an enemy, gain #b",
       " #yBlock."
@@ -56,7 +56,7 @@
   },
   "crimsonEyed:EternalEye": {
     "NAME": "Eternal Eye",
-    "FLAVOR": "A single eye. It stares back at you.",
+    "FLAVOR": "Awakened from out of darkness.",
     "DESCRIPTIONS": [
       "Replaces #yCrimson #yEye. Start combats with #b",
       " #yFocus."
@@ -64,10 +64,10 @@
   },
   "crimsonEyed:BlueScale": {
     "NAME": "Blue Scale",
-    "FLAVOR": "An azure snake scale.",
+    "FLAVOR": "A blue snake's scale. Its rouses some part of you otherwise kept shut away.",
     "DESCRIPTIONS": [
       "If you have #b",
-      " or more Curses in your deck (except #yAscender's #yBane), gain [E] at the start of your turn."
+      " or more Curses in your deck, gain [E] at the start of your turn."
     ]
   },
   "crimsonEyed:CherryBlossom": {
@@ -80,14 +80,14 @@
   },
   "crimsonEyed:NohMask": {
     "NAME": "Noh Mask",
-    "FLAVOR": "PLACEHOLDER.",
+    "FLAVOR": "The mask of the Shinigami. Wearing it places one at the crossroads of life and death.",
     "DESCRIPTIONS": [
       "Your 'Choose one' cards have at least #b3 choices."
     ]
   },
   "crimsonEyed:PaperSnek": {
     "NAME": "Paper Snek",
-    "FLAVOR": "Coiled.",
+    "FLAVOR": "Creased curves outline the figure of some writhing creature.",
     "DESCRIPTIONS": [
       "Enemies with #yLock-On take #b75% more damage rather than #b50%."
     ]
@@ -102,14 +102,14 @@
   },
   "crimsonEyed:ScratchedHeadband": {
     "NAME": "Scratched Headband",
-    "FLAVOR": "Symbol of separation and reunion.",
+    "FLAVOR": "Memento of bonds once twisted and bent, but never broken. You hold it tight, like a prayer.",
     "DESCRIPTIONS": [
-      "Transform your #yHatred into #yEnduring #yFlame. #yIntensify affects #yEnduring #Flame instead."
+      "Transform your #yHatred into #yEnduring #yFlame. #yIntensify affects #yEnduring #yFlame instead."
     ]
   },
   "crimsonEyed:StoneTablet": {
     "NAME": "Stone Tablet",
-    "FLAVOR": "A prophecy is inscribed in a language you've never seen before. Somehow, you can read it.",
+    "FLAVOR": "A prophecy is inscribed in a language you've never seen before. Somehow, you can understand the words....",
     "DESCRIPTIONS": [
       "If you lost HP during the previous turn, #yScry #b",
       " at the start of your turn."
@@ -126,7 +126,7 @@
   },
   "crimsonEyed:Uchiwa": {
     "NAME": "Uchiwa",
-    "FLAVOR": "PLACEHOLDER.",
+    "FLAVOR": "A paper fan. It may have been used to lead soldiers in battle.",
     "DESCRIPTIONS": [
       "At the start of each combat, draw #b1 card for each #yInnate card in your hand."
     ]

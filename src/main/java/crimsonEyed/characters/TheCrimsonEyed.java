@@ -103,12 +103,7 @@ public class TheCrimsonEyed extends CustomPlayer {
     // =============== CHARACTER CLASS START =================
 
     public TheCrimsonEyed(String name, PlayerClass setClass) {
-        /*
-        super(name, setClass, orbTextures,
-                "crimsonEyedResources/images/char/defaultCharacter/orb/vfx.png", null,
-                new SpriterAnimation(
-                        "crimsonEyedResources/images/char/defaultCharacter/Spriter/theDefaultAnimation.scml"));
-        */
+
         super(name, setClass, orbTextures,
                 "crimsonEyedResources/images/char/defaultCharacter/orb/vfx.png", null,
                 new SpineAnimation(THE_DEFAULT_SKELETON_ATLAS, THE_DEFAULT_SKELETON_JSON, 1f));
@@ -311,18 +306,18 @@ public class TheCrimsonEyed extends CustomPlayer {
                         do {
                             do {
                                 if (!var2.hasNext()) {
-                                    anyCard.shuffle(AbstractDungeon.cardRng);// 1157
-                                    return anyCard.getRandomCard(true).makeCopy();// 1158
+                                    anyCard.shuffle(AbstractDungeon.cardRng);
+                                    return anyCard.getRandomCard(true).makeCopy();
                                 }
 
                                 c = (Map.Entry) var2.next();
                             } while (((AbstractCard)c.getValue()).color != color);
                         } while(((AbstractCard)c.getValue()).rarity != rarity);
-                    } while(((AbstractCard)c.getValue()).type == AbstractCard.CardType.CURSE);// 1150
-                } while(((AbstractCard)c.getValue()).type == AbstractCard.CardType.STATUS);// 1151
-            } while(UnlockTracker.isCardLocked((String)c.getKey()) && !Settings.treatEverythingAsUnlocked());// 1152
+                    } while(((AbstractCard)c.getValue()).type == AbstractCard.CardType.CURSE);
+                } while(((AbstractCard)c.getValue()).type == AbstractCard.CardType.STATUS);
+            } while(UnlockTracker.isCardLocked((String)c.getKey()) && !Settings.treatEverythingAsUnlocked());
 
-            anyCard.addToBottom((AbstractCard)c.getValue());// 1153
+            anyCard.addToBottom((AbstractCard)c.getValue());
         }
     }
 }

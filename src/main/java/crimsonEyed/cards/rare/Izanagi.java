@@ -21,9 +21,6 @@ public class Izanagi extends AbstractDynamicCard {
     public static final String IMG = makeCardPath("Izanagi.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
-    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-
     // /TEXT DECLARATION/
 
 
@@ -43,6 +40,7 @@ public class Izanagi extends AbstractDynamicCard {
     public Izanagi() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
+        selfRetain = true;
     }
 
 

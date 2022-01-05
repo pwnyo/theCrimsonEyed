@@ -43,7 +43,7 @@ public class FireballAction extends AbstractGameAction {
                 this.p.hand.moveToExhaustPile(this.p.hand.getBottomCard());// 36
                 this.tickDuration();// 37
             } else {
-                if (!this.isRandom) {// 100
+                if (!this.isRandom) {
                     AbstractDungeon.handCardSelectScreen.open("Exhaust", 1, false);
                 }
                 else {

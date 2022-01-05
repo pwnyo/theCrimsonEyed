@@ -37,9 +37,7 @@ public class BlueScale extends CustomRelic {
     boolean hasEnoughCurses() {
         int count = 0;
         for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
-            if (c.type == AbstractCard.CardType.CURSE && !(c instanceof AscendersBane)) {
-                count++;
-            }
+            count++;
         }
         return (count >= CURSES);
     }

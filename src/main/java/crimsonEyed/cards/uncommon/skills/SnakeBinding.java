@@ -50,6 +50,7 @@ public class SnakeBinding extends AbstractDynamicCard {
     public SnakeBinding() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
+        baseMagicNumber2 = magicNumber2 = 0;
         selfRetain = true;
         exhaust = true;
     }
@@ -65,28 +66,39 @@ public class SnakeBinding extends AbstractDynamicCard {
         } else {
             this.addToBot(new VFXAction(p, new ShockWaveEffect(p.hb.cX, p.hb.cY, Settings.GREEN_TEXT_COLOR, ShockWaveEffect.ShockWaveType.CHAOTIC), 1.5F));// 51
         }
+        int badCount = countCards();
 
-        Iterator var3 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();// 58
-
-        AbstractMonster mo;
-        while (var3.hasNext()) {
-            mo = (AbstractMonster) var3.next();
-            this.addToBot(new ApplyPowerAction(mo, p, new StrengthPower(mo, -this.magicNumber * countCards()), -this.magicNumber * countCards(), true, AbstractGameAction.AttackEffect.NONE));// 59
-        }
-
-        var3 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();// 69
-
-        while (var3.hasNext()) {
-            mo = (AbstractMonster) var3.next();
-            if (!mo.hasPower("Artifact")) {// 70
-                this.addToBot(new ApplyPowerAction(mo, p, new GainStrengthPower(mo, this.magicNumber * countCards()), this.magicNumber * countCards(), true, AbstractGameAction.AttackEffect.NONE));// 71
-            }
+        for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            addToBot(new ApplyPowerAction(mo, p, new StrengthPower(mo, -this.magicNumber * badCount), -this.magicNumber * countCards(), true, AbstractGameAction.AttackEffect.NONE));
+            addToBot(new ApplyPowerAction(mo, p, new GainStrengthPower(mo, this.magicNumber * badCount), this.magicNumber * countCards(), true, AbstractGameAction.AttackEffect.NONE));
         }
     }
 
-    public static int countCards() {
+    int countCards() {
         int count = 0;
-        for (AbstractCard c : AbstractDungeon.player.hand.group) {
+        Iterator var1 = AbstractDungeon.player.hand.group.iterator();
+
+        AbstractCard c;
+        while(var1.hasNext()) {
+            c = (AbstractCard)var1.next();
+            if (isStatusOrCurse(c)) {
+                ++count;
+            }
+        }
+
+        var1 = AbstractDungeon.player.drawPile.group.iterator();
+
+        while(var1.hasNext()) {
+            c = (AbstractCard)var1.next();
+            if (isStatusOrCurse(c)) {
+                ++count;
+            }
+        }
+
+        var1 = AbstractDungeon.player.discardPile.group.iterator();
+
+        while(var1.hasNext()) {
+            c = (AbstractCard)var1.next();
             if (isStatusOrCurse(c)) {
                 ++count;
             }
@@ -94,28 +106,30 @@ public class SnakeBinding extends AbstractDynamicCard {
 
         return count;
     }
+    public void applyPowers() {
+        super.applyPowers();
+        int count = countCards();
+
+        this.baseMagicNumber = count;
+        magicNumber = baseMagicNumber;
+
+        rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+        this.initializeDescription();
+    }
+
+    public void calculateCardDamage(AbstractMonster mo) {
+        super.calculateCardDamage(mo);
+        int count = countCards();
+
+        this.baseMagicNumber = count;
+        magicNumber = baseMagicNumber;
+
+        rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+        this.initializeDescription();
+    }
 
     public static boolean isStatusOrCurse(AbstractCard c) {
         return c.type == CardType.STATUS || c.type == CardType.CURSE;
-    }
-    @Override
-    public void applyPowers() {
-        super.applyPowers();// 48
-        magicNumber2 = countCards() * magicNumber;
-        this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];// 49
-        this.initializeDescription();// 50
-    }// 51
-    @Override
-    public void onMoveToDiscard() {
-        this.rawDescription = cardStrings.DESCRIPTION;// 80
-        this.initializeDescription();
-    }
-    @Override
-    public void calculateCardDamage(AbstractMonster mo) {
-        super.calculateCardDamage(mo);// 55
-        magicNumber2 = countCards() * magicNumber;
-        this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];// 56
-        this.initializeDescription();// 57
     }
 
     // Upgraded stats.

@@ -9,29 +9,29 @@ public class DrawToHandAction extends AbstractGameAction {
     private AbstractCard card;
 
     public DrawToHandAction(AbstractCard card) {
-        this.actionType = ActionType.CARD_MANIPULATION;// 12
-        this.card = card;// 13
-        this.duration = Settings.ACTION_DUR_FAST;// 14
-    }// 15
+        this.actionType = ActionType.CARD_MANIPULATION;
+        this.card = card;
+        this.duration = Settings.ACTION_DUR_FAST;
+    }
 
     public void update() {
-        if (this.duration == Settings.ACTION_DUR_FAST) {// 19
-            if (AbstractDungeon.player.drawPile.contains(this.card) && AbstractDungeon.player.hand.size() < 10) {// 20 21
-                AbstractDungeon.player.hand.addToHand(this.card);// 22
-                this.card.unhover();// 23
-                this.card.setAngle(0.0F, true);// 24
-                this.card.lighten(false);// 25
-                this.card.drawScale = 0.12F;// 26
-                this.card.targetDrawScale = 0.75F;// 27
-                this.card.applyPowers();// 28
-                AbstractDungeon.player.drawPile.removeCard(this.card);// 29
+        if (this.duration == Settings.ACTION_DUR_FAST) {
+            if (AbstractDungeon.player.drawPile.contains(this.card) && AbstractDungeon.player.hand.size() < 10) {
+                AbstractDungeon.player.hand.addToHand(this.card);
+                this.card.unhover();
+                this.card.setAngle(0.0F, true);
+                this.card.lighten(false);
+                this.card.drawScale = 0.12F;
+                this.card.targetDrawScale = 0.75F;
+                this.card.applyPowers();
+                AbstractDungeon.player.drawPile.removeCard(this.card);
             }
 
-            AbstractDungeon.player.hand.refreshHandLayout();// 32
-            AbstractDungeon.player.hand.glowCheck();// 33
+            AbstractDungeon.player.hand.refreshHandLayout();
+            AbstractDungeon.player.hand.glowCheck();
         }
 
-        this.tickDuration();// 36
-        this.isDone = true;// 37
-    }// 38
+        this.tickDuration();
+        this.isDone = true;
+    }
 }

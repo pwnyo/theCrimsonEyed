@@ -39,8 +39,8 @@ public class Hand extends AbstractDynamicCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.onChoseThisOption();// 35
-    }// 36
+        this.onChoseThisOption();
+    }
 
     public void onChoseThisOption() {
         AbstractPlayer p = AbstractDungeon.player;

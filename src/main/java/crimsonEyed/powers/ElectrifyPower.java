@@ -27,7 +27,7 @@ public class ElectrifyPower extends AbstractPower implements CloneablePowerInter
     }
 
     public void updateDescription() {
-        if (this.amount == 1) {// 27
+        if (this.amount == 1) {
             this.description = DESCRIPTIONS[2];
         } else {
             this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
@@ -35,10 +35,10 @@ public class ElectrifyPower extends AbstractPower implements CloneablePowerInter
     }
 
     public void atEndOfRound() {
-        if (this.amount == 0) {// 36
-            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));// 37
+        if (this.amount == 0) {
+            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
         } else {
-            this.addToBot(new ReducePowerAction(this.owner, this.owner, POWER_ID, 1));// 39
+            this.addToBot(new ReducePowerAction(this.owner, this.owner, POWER_ID, 1));
         }
     }
 

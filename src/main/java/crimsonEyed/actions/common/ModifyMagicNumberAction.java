@@ -11,22 +11,22 @@ public class ModifyMagicNumberAction extends AbstractGameAction {
     UUID uuid;
 
     public ModifyMagicNumberAction(UUID targetUUID, int amount) {
-        this.setValues(this.target, this.source, amount);// 13
-        this.actionType = ActionType.CARD_MANIPULATION;// 14
-        this.uuid = targetUUID;// 15
-    }// 16
+        this.setValues(this.target, this.source, amount);
+        this.actionType = ActionType.CARD_MANIPULATION;
+        this.uuid = targetUUID;
+    }
 
     public void update() {
-        Iterator var1 = GetAllInBattleInstances.get(this.uuid).iterator();// 20
+        Iterator var1 = GetAllInBattleInstances.get(this.uuid).iterator();
 
         while(var1.hasNext()) {
             AbstractCard c = (AbstractCard)var1.next();
-            c.baseMagicNumber += this.amount;// 21
-            if (c.baseDamage < 0) {// 22
-                c.baseDamage = 0;// 23
+            c.baseMagicNumber += this.amount;
+            if (c.baseDamage < 0) {
+                c.baseDamage = 0;
             }
         }
 
-        this.isDone = true;// 26
-    }// 27
+        this.isDone = true;
+    }
 }

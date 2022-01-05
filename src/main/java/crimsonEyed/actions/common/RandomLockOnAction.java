@@ -15,24 +15,24 @@ public class RandomLockOnAction extends AbstractGameAction {
     private int amount;
 
     public RandomLockOnAction(AbstractCreature target, int amount, int numTimes) {
-        this.target = target;// 19
-        this.actionType = ActionType.DEBUFF;// 20
-        this.duration = 0.01F;// 21
-        this.numTimes = numTimes;// 22
-        this.amount = amount;// 23
-    }// 24
+        this.target = target;
+        this.actionType = ActionType.DEBUFF;
+        this.duration = 0.01F;
+        this.numTimes = numTimes;
+        this.amount = amount;
+    }
 
     public void update() {
-        if (this.target == null) {// 28
-            this.isDone = true;// 29
-        } else if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {// 33
-            AbstractDungeon.actionManager.clearPostCombatActions();// 34
-            this.isDone = true;// 35
+        if (this.target == null) {
+            this.isDone = true;
+        } else if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
+            AbstractDungeon.actionManager.clearPostCombatActions();
+            this.isDone = true;
         } else {
-            if (this.numTimes > 1 && !AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {// 40
-                --this.numTimes;// 41
-                AbstractMonster randomMonster = AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng);// 42
-                this.addToTop(new RandomLockOnAction(randomMonster, this.amount, this.numTimes));// 46
+            if (this.numTimes > 1 && !AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
+                --this.numTimes;
+                AbstractMonster randomMonster = AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng);
+                this.addToTop(new RandomLockOnAction(randomMonster, this.amount, this.numTimes));
             }
 
             if (this.target.currentHealth > 0) {// 53

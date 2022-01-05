@@ -56,10 +56,13 @@ public class SeverThePast extends AbstractDynamicCard {
 
         super.applyPowers();
 
-        this.rawDescription = this.rawDescription + cardStrings.EXTENDED_DESCRIPTION[0];// 55
+        this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
         this.initializeDescription();
     }
-
+    public void onMoveToDiscard() {
+        this.rawDescription = cardStrings.DESCRIPTION;
+        this.initializeDescription();
+    }
 
     // Upgraded stats.
     @Override

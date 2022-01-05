@@ -1,5 +1,6 @@
 package crimsonEyed.cards.basic;
 
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.SoulboundField;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -28,6 +29,7 @@ public class Hatred extends AbstractDynamicCard {
     public Hatred() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
+        SoulboundField.soulbound.set(this, true);
     }
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {

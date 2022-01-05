@@ -10,10 +10,10 @@ public class ExhaustFromDiscardTopAction extends AbstractGameAction {
     private AbstractPlayer p;
 
     public ExhaustFromDiscardTopAction(int count) {
-        this.p = AbstractDungeon.player;// 18
-        this.setValues(p, p, count);// 19
-        this.actionType = ActionType.CARD_MANIPULATION;// 20
-        this.duration = Settings.ACTION_DUR_FASTER;// 21
+        this.p = AbstractDungeon.player;
+        this.setValues(p, p, count);
+        this.actionType = ActionType.CARD_MANIPULATION;
+        this.duration = Settings.ACTION_DUR_FASTER;
     }
 
     public void update() {

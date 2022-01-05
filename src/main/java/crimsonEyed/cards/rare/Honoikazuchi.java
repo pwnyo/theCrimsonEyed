@@ -64,10 +64,10 @@ public class Honoikazuchi extends AbstractDynamicCard {
     }
     public void applyPowers() {
         if (!AbstractDungeon.player.orbs.isEmpty() && !(AbstractDungeon.player.orbs.get(0) instanceof EmptyOrbSlot)) {
-            this.baseDamage = AbstractDungeon.player.orbs.get(0).evokeAmount;// 71
-            super.applyPowers();// 72
-            this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];// 73
-            this.initializeDescription();// 74
+            this.baseDamage = AbstractDungeon.player.orbs.get(0).evokeAmount;
+            super.applyPowers();
+            this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+            this.initializeDescription();
         }
 
     }

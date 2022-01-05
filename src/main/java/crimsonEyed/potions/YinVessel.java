@@ -28,10 +28,10 @@ public class YinVessel extends CustomPotion {
 
     @Override
     public void initializeData() {
-        if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic("SacredBark")) {// 27
-            this.description = potionStrings.DESCRIPTIONS[1];// 30
+        if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic("SacredBark")) {
+            this.description = potionStrings.DESCRIPTIONS[1];
         } else {
-            this.description = potionStrings.DESCRIPTIONS[0];// 28
+            this.description = potionStrings.DESCRIPTIONS[0];
         }
 
         tips.clear();

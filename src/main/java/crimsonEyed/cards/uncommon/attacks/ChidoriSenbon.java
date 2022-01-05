@@ -1,6 +1,8 @@
 package crimsonEyed.cards.uncommon.attacks;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.actions.unique.SenbonAction;
@@ -15,7 +17,7 @@ public class ChidoriSenbon extends AbstractDynamicCard {
 
     public static final String ID = SasukeMod.makeID(ChidoriSenbon.class.getSimpleName());
     public static final String IMG = makeCardPath("ChidoriSenbon.png");
-    // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
+    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
 
     // /TEXT DECLARATION/
@@ -29,8 +31,8 @@ public class ChidoriSenbon extends AbstractDynamicCard {
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = -1;
-    private static final int DAMAGE = 4;
-    private static final int UPGRADE_PLUS_DAMAGE = 3;
+    private static final int DAMAGE = 5;
+    private static final int UPGRADE_PLUS_DAMAGE = 2;
 
     // /STAT DECLARATION/
 
@@ -46,7 +48,7 @@ public class ChidoriSenbon extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new SenbonAction(p, multiDamage, damageTypeForTurn, freeToPlayOnce, energyOnUse));
+        addToBot(new SenbonAction(p, multiDamage, damageTypeForTurn, freeToPlayOnce, energyOnUse, upgraded));
     }
 
 
@@ -56,6 +58,7 @@ public class ChidoriSenbon extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DAMAGE);
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

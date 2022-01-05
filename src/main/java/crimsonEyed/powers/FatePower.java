@@ -30,18 +30,18 @@ public class FatePower extends AbstractPower implements CloneablePowerInterface,
 
     public void onSpecificTrigger() {
         SasukeMod.logger.info("fate triggered");
-        if (this.amount <= 0) {// 27
-            this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));// 28
+        if (this.amount <= 0) {
+            this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
         } else {
-            this.addToTop(new ReducePowerAction(this.owner, this.owner, POWER_ID, 1));// 30
+            this.addToTop(new ReducePowerAction(this.owner, this.owner, POWER_ID, 1));
         }
     }
 
     public void updateDescription() {
-        if (this.amount == 1) {// 36
-            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];// 37
+        if (this.amount == 1) {
+            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
         } else {
-            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[2];// 39
+            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[2];
         }
     }
 

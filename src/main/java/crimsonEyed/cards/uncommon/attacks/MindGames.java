@@ -58,9 +58,7 @@ MindGames extends AbstractDynamicCard {
 
     @Override
     public void triggerOnScry() {
-        if (upgraded) {
-            addToBot(new DiscardToHandAction(this));
-        }
+        addToBot(new DiscardToHandAction(this));
     }
 
     // Upgraded stats.
@@ -68,7 +66,7 @@ MindGames extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            upgradeBaseCost(0);
             initializeDescription();
         }
     }

@@ -1,12 +1,15 @@
 package crimsonEyed.cards.uncommon.skills;
 
+import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.watcher.ChooseOneAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.green.Eviscerate;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.cards.temp.anticipate.Condition;
@@ -88,7 +91,7 @@ public class Anticipate extends AbstractDynamicCard {
 
     void checkMaskDesc() {
         if (AbstractDungeon.player.hasRelic(NohMask.ID)) {
-            rawDescription = upgraded ? cardStrings.EXTENDED_DESCRIPTION[0] : cardStrings.EXTENDED_DESCRIPTION[1];
+            rawDescription = upgraded ? cardStrings.EXTENDED_DESCRIPTION[1] : cardStrings.EXTENDED_DESCRIPTION[0];
         }
         else {
             rawDescription = cardStrings.DESCRIPTION;
@@ -104,5 +107,15 @@ public class Anticipate extends AbstractDynamicCard {
             upgradeMagicNumber(UPGRADE_PLUS_BLOCK);
             initializeDescription();
         }
+    }
+
+    @Override
+    public AbstractCard makeCopy() {
+        Anticipate tmp = new Anticipate();
+        if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && AbstractDungeon.player.hasRelic(NohMask.ID)) {
+            tmp.checkMaskDesc();
+        }
+
+        return tmp;
     }
 }

@@ -69,8 +69,8 @@
         "crimsonEyed:IndraFormPower": {
                 "NAME": "Indra Form",
                 "DESCRIPTIONS": [
-                        "At the start of your turn, #yChannel #b",
-                        " #yLightning."
+                        "At the end of your turn, #yChannel #b",
+                        " #yLightning for each Orb slot."
                 ]
         },
         "crimsonEyed:KagutsuchiPower": {

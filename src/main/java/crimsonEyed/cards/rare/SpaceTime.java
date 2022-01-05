@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.cards.temp.spacetime.Amenotejikara;
@@ -54,31 +55,31 @@ public class SpaceTime extends AbstractDynamicCard {
     @Override
     public void renderCardPreviewInSingleView(SpriteBatch sb) {
         super.renderCardPreviewInSingleView(sb);
-        this.cardsToPreview2.current_x = 490.0F * Settings.scale;// 2983
-        this.cardsToPreview2.current_y = 290.0F * Settings.scale;// 2984
-        this.cardsToPreview2.drawScale = 0.8F;// 2985
-        this.cardsToPreview2.render(sb);// 2986
+        this.cardsToPreview2.current_x = 490.0F * Settings.scale;
+        this.cardsToPreview2.current_y = 290.0F * Settings.scale;
+        this.cardsToPreview2.drawScale = 0.8F;
+        this.cardsToPreview2.render(sb);
     }
 
     @Override
     public void renderCardPreview(SpriteBatch sb) {
-        if (AbstractDungeon.player == null || !AbstractDungeon.player.isDraggingCard) {// 2990
-            float tmpScale = this.drawScale * 0.5F;// 2994
+        if (AbstractDungeon.player == null || !AbstractDungeon.player.isDraggingCard) {
+            float tmpScale = this.drawScale * 0.5F;
 
-            if (this.current_x > (float)Settings.WIDTH * 0.75F) {// 2996
-                this.cardsToPreview.current_x = this.current_x + (IMG_WIDTH / 2.0F + IMG_WIDTH / 2.0F * 0.5F + 16.0F) * this.drawScale;// 2997
-                this.cardsToPreview2.current_x = this.current_x + (IMG_WIDTH / 2.0F + IMG_WIDTH / 2.0F * 0.5F + 16.0F) * this.drawScale;// 2997
+            if (this.current_x > (float)Settings.WIDTH * 0.75F) {
+                this.cardsToPreview.current_x = this.current_x + (IMG_WIDTH / 2.0F + IMG_WIDTH / 2.0F * 0.5F + 16.0F) * this.drawScale;
+                this.cardsToPreview2.current_x = this.current_x + (IMG_WIDTH / 2.0F + IMG_WIDTH / 2.0F * 0.5F + 16.0F) * this.drawScale;
             } else {
-                this.cardsToPreview.current_x = this.current_x - (IMG_WIDTH / 2.0F + IMG_WIDTH / 2.0F * 0.5F + 16.0F) * this.drawScale;// 3000
-                this.cardsToPreview2.current_x = this.current_x - (IMG_WIDTH / 2.0F + IMG_WIDTH / 2.0F * 0.5F + 16.0F) * this.drawScale;// 3000
+                this.cardsToPreview.current_x = this.current_x - (IMG_WIDTH / 2.0F + IMG_WIDTH / 2.0F * 0.5F + 16.0F) * this.drawScale;
+                this.cardsToPreview2.current_x = this.current_x - (IMG_WIDTH / 2.0F + IMG_WIDTH / 2.0F * 0.5F + 16.0F) * this.drawScale;
             }
 
-            this.cardsToPreview.current_y = this.current_y + (IMG_HEIGHT / 2.0F - IMG_HEIGHT / 2.0F * 0.5F) * this.drawScale;// 3004
-            this.cardsToPreview.drawScale = tmpScale;// 3007
-            this.cardsToPreview.render(sb);// 3008
-            this.cardsToPreview2.current_y = this.current_y - (IMG_HEIGHT / 2.0F - IMG_HEIGHT / 2.0F * 0.5F) * this.drawScale;// 3004
-            this.cardsToPreview2.drawScale = tmpScale;// 3007
-            this.cardsToPreview2.render(sb);// 3008
+            this.cardsToPreview.current_y = this.current_y + (IMG_HEIGHT / 2.0F - IMG_HEIGHT / 2.0F * 0.5F) * this.drawScale;
+            this.cardsToPreview.drawScale = tmpScale;
+            this.cardsToPreview.render(sb);
+            this.cardsToPreview2.current_y = this.current_y - (IMG_HEIGHT / 2.0F - IMG_HEIGHT / 2.0F * 0.5F) * this.drawScale;
+            this.cardsToPreview2.drawScale = tmpScale;
+            this.cardsToPreview2.render(sb);
         }
     }
 
@@ -124,5 +125,14 @@ public class SpaceTime extends AbstractDynamicCard {
 
             initializeDescription();
         }
+    }
+    @Override
+    public AbstractCard makeCopy() {
+        SpaceTime tmp = new SpaceTime();
+        if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && AbstractDungeon.player.hasRelic(NohMask.ID)) {
+            tmp.checkMaskDesc();
+        }
+
+        return tmp;
     }
 }

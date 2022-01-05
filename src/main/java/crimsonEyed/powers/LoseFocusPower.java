@@ -33,8 +33,8 @@ public class LoseFocusPower extends AbstractPower implements CloneablePowerInter
 
     public void atEndOfTurn(boolean isPlayer) {
         this.flash();
-        this.addToBot(new ApplyPowerAction(this.owner, this.owner, new FocusPower(this.owner, -this.amount), -this.amount));// 33
-        this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, SasukeMod.makeID("LoseFocusPower")));// 34
+        this.addToBot(new ApplyPowerAction(this.owner, this.owner, new FocusPower(this.owner, -this.amount), -this.amount));
+        this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, SasukeMod.makeID("LoseFocusPower")));
     }
 
     @Override

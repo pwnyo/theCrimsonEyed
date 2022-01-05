@@ -30,11 +30,11 @@ public class CrimsonEye2 extends CustomRelic {
 
     public void atBattleStart() {
         this.isActive = false;
-        this.addToBot(new AbstractGameAction() {// 29
+        this.addToBot(new AbstractGameAction() {
             public void update() {
                 if (!CrimsonEye2.this.isActive && AbstractDungeon.player.isBloodied) {
-                    CrimsonEye2.this.flash();// 33
-                    CrimsonEye2.this.pulse = true;// 34
+                    CrimsonEye2.this.flash();
+                    CrimsonEye2.this.pulse = true;
                     AbstractDungeon.player.addPower(new FocusPower(AbstractDungeon.player, FOCUS_AMT));
                     this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, CrimsonEye2.this));
                     CrimsonEye2.this.isActive = true;
@@ -42,13 +42,13 @@ public class CrimsonEye2 extends CustomRelic {
                 }
 
                 this.isDone = true;
-            }// 41
+            }
         });
-    }// 44
+    }
 
     public void onBloodied() {
-        this.flash();// 48
-        this.pulse = true;// 49
+        this.flash();
+        this.pulse = true;
         if (!this.isActive && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
             AbstractPlayer p = AbstractDungeon.player;
             this.addToTop(new ApplyPowerAction(p, p, new FocusPower(p, FOCUS_AMT)));
@@ -57,21 +57,21 @@ public class CrimsonEye2 extends CustomRelic {
             AbstractDungeon.player.hand.applyPowers();
         }
 
-    }// 57
+    }
 
     public void onNotBloodied() {
-        if (this.isActive && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {// 61
-            AbstractPlayer p = AbstractDungeon.player;// 62
-            this.addToTop(new ApplyPowerAction(p, p, new FocusPower(p, -FOCUS_AMT)));// 63
+        if (this.isActive && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+            AbstractPlayer p = AbstractDungeon.player;
+            this.addToTop(new ApplyPowerAction(p, p, new FocusPower(p, -FOCUS_AMT)));
         }
 
-        this.stopPulse();// 65
-        this.isActive = false;// 66
-        AbstractDungeon.player.hand.applyPowers();// 67
-    }// 68
+        this.stopPulse();
+        this.isActive = false;
+        AbstractDungeon.player.hand.applyPowers();
+    }
 
     public void onVictory() {
-        this.pulse = false;// 72
+        this.pulse = false;
         this.isActive = false;// 73
     }
 

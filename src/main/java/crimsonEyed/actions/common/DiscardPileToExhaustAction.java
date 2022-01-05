@@ -21,7 +21,7 @@ public class DiscardPileToExhaustAction extends AbstractGameAction {
         this.p = AbstractDungeon.player;
         this.amount = amount;
         this.optional = optional;
-    }// 18
+    }
 
     public void update() {
         if (this.duration == Settings.ACTION_DUR_FAST) {// 46

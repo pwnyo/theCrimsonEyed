@@ -19,8 +19,9 @@ public class SenbonAction extends AbstractGameAction {
     private DamageType damageType;
     private AbstractPlayer p;
     private int energyOnUse = -1;
+    private boolean upgraded;
 
-    public SenbonAction(AbstractPlayer p, int[] multiDamage, DamageType damageType, boolean freeToPlayOnce, int energyOnUse) {
+    public SenbonAction(AbstractPlayer p, int[] multiDamage, DamageType damageType, boolean freeToPlayOnce, int energyOnUse, boolean upgraded) {
         this.multiDamage = multiDamage;// 28
         this.damageType = damageType;// 29
         this.p = p;// 30
@@ -28,6 +29,7 @@ public class SenbonAction extends AbstractGameAction {
         this.duration = Settings.ACTION_DUR_XFAST;// 32
         this.actionType = ActionType.SPECIAL;// 33
         this.energyOnUse = energyOnUse;// 34
+        this.upgraded = upgraded;
     }// 35
 
     public void update() {
@@ -49,7 +51,7 @@ public class SenbonAction extends AbstractGameAction {
                 this.addToBot(new DamageAllEnemiesAction(this.p, multiDamage, this.damageType, AttackEffect.NONE, true));
             }
 
-            for (int i = 0; i < effect - 1; i++) {
+            for (int i = 0; i < (upgraded ? effect : effect - 1); i++) {
                 this.addToBot(new ChannelAction(new Lightning()));
             }
 

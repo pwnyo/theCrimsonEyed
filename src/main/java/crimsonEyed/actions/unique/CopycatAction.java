@@ -82,21 +82,21 @@ public class CopycatAction extends AbstractGameAction {
 
                 for(var1 = this.player.discardPile.group.iterator(); var1.hasNext(); c.target_y = 0.0F) {// 117 120
                     c = (AbstractCard)var1.next();
-                    c.unhover();// 118
-                    c.target_x = (float) CardGroup.DISCARD_PILE_X;// 119
+                    c.unhover();
+                    c.target_x = (float) CardGroup.DISCARD_PILE_X;
                 }
 
-                AbstractDungeon.gridSelectScreen.selectedCards.clear();// 122
-                AbstractDungeon.player.hand.refreshHandLayout();// 123
+                AbstractDungeon.gridSelectScreen.selectedCards.clear();
+                AbstractDungeon.player.hand.refreshHandLayout();
             }
 
-            this.tickDuration();// 125
-            if (this.isDone) {// 127
-                var1 = this.player.hand.group.iterator();// 128
+            this.tickDuration();
+            if (this.isDone) {
+                var1 = this.player.hand.group.iterator();
 
                 while(var1.hasNext()) {
                     c = (AbstractCard)var1.next();
-                    c.applyPowers();// 129
+                    c.applyPowers();
                 }
             }
 

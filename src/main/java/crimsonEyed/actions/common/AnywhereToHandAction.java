@@ -22,15 +22,15 @@ public class AnywhereToHandAction extends AbstractGameAction {
     private int drawCount, discardCount, exhaustCount;
 
     public AnywhereToHandAction(int amount) {
-        this.p = AbstractDungeon.player;// 18
+        this.p = AbstractDungeon.player;
         this.amount = amount;
-        this.actionType = ActionType.CARD_MANIPULATION;// 20
-        this.duration = Settings.ACTION_DUR_MED;// 21
-    }// 22
+        this.actionType = ActionType.CARD_MANIPULATION;
+        this.duration = Settings.ACTION_DUR_MED;
+    }
 
     public void update() {
         AbstractCard card;
-        if (this.duration == Settings.ACTION_DUR_MED) {// 29
+        if (this.duration == Settings.ACTION_DUR_MED) {
             CardGroup draw = new CardGroup(p.drawPile, CardGroup.CardGroupType.UNSPECIFIED);
             CardGroup discard = new CardGroup(p.discardPile, CardGroup.CardGroupType.UNSPECIFIED);
             CardGroup exhaust = new CardGroup(p.exhaustPile, CardGroup.CardGroupType.UNSPECIFIED);
@@ -54,25 +54,25 @@ public class AnywhereToHandAction extends AbstractGameAction {
                 tmp.addToTop(c);
             }
 
-            if (tmp.size() == 0) {// 37
-                this.isDone = true;// 38
-            } else if (tmp.size() == 1) {// 40
-                card = tmp.getTopCard();// 41
-                if (this.p.hand.size() == 10) {// 43
+            if (tmp.size() == 0) {
+                this.isDone = true;
+            } else if (tmp.size() == 1) {
+                card = tmp.getTopCard();
+                if (this.p.hand.size() == 10) {
                     findAndMoveToDiscard(card);
-                    this.p.createHandIsFullDialog();// 45
+                    this.p.createHandIsFullDialog();
                 } else {
                     findAndMoveToHand(card);
-                    AbstractDungeon.player.hand.refreshHandLayout();// 56
-                    AbstractDungeon.player.hand.applyPowers();// 57
+                    AbstractDungeon.player.hand.refreshHandLayout();
+                    AbstractDungeon.player.hand.applyPowers();
                 }
 
-                this.isDone = true;// 59
+                this.isDone = true;
             } else {
-                if (this.amount == 1) {// 81
-                    AbstractDungeon.gridSelectScreen.open(tmp, this.amount, TEXT[0], false);// 82
+                if (this.amount == 1) {
+                    AbstractDungeon.gridSelectScreen.open(tmp, this.amount, TEXT[0], false);
                 } else {
-                    AbstractDungeon.gridSelectScreen.open(tmp, this.amount, TEXT[1], false);// 84
+                    AbstractDungeon.gridSelectScreen.open(tmp, this.amount, TEXT[1], false);
                 }
                 this.tickDuration();// 64
             }

@@ -7,11 +7,13 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.cards.temp.chop.Dice;
 import crimsonEyed.cards.temp.chop.Rend;
 import crimsonEyed.cards.temp.chop.Slash;
+import crimsonEyed.cards.uncommon.skills.Anticipate;
 import crimsonEyed.characters.TheCrimsonEyed;
 import crimsonEyed.relics.rarer.NohMask;
 
@@ -98,7 +100,7 @@ public class Chop2 extends AbstractDynamicCard {
     }
     void checkMaskDesc() {
         if (AbstractDungeon.player.hasRelic(NohMask.ID)) {
-            rawDescription = upgraded ? cardStrings.EXTENDED_DESCRIPTION[0] : cardStrings.EXTENDED_DESCRIPTION[1];
+            rawDescription = upgraded ? cardStrings.EXTENDED_DESCRIPTION[1] : cardStrings.EXTENDED_DESCRIPTION[0];
         }
         else {
             rawDescription = cardStrings.DESCRIPTION;
@@ -115,5 +117,14 @@ public class Chop2 extends AbstractDynamicCard {
             rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
+    }
+    @Override
+    public AbstractCard makeCopy() {
+        Chop2 tmp = new Chop2();
+        if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && AbstractDungeon.player.hasRelic(NohMask.ID)) {
+            tmp.checkMaskDesc();
+        }
+
+        return tmp;
     }
 }

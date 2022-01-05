@@ -41,8 +41,8 @@ public class React extends AbstractDynamicCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.onChoseThisOption();// 35
-    }// 36
+        this.onChoseThisOption();
+    }
 
     @Override
     public void onChoseThisOption() {

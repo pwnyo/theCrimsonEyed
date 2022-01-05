@@ -2,6 +2,8 @@ package crimsonEyed.cards.uncommon.skills;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
@@ -19,7 +21,7 @@ public class KillingIntent extends AbstractDynamicCard {
     public static final String ID = SasukeMod.makeID(KillingIntent.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
 
     public static final String IMG = makeCardPath("Skill.png");// "public static final String IMG = makeCardPath("KillingIntent.png");
-    // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
+    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
 
     // /TEXT DECLARATION/
@@ -39,7 +41,7 @@ public class KillingIntent extends AbstractDynamicCard {
 
     public KillingIntent() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = 1;
+        baseMagicNumber = magicNumber = 2;
     }
 
 
@@ -57,7 +59,8 @@ public class KillingIntent extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
+            isInnate = true;
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

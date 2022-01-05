@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.cards.temp.coordination.Eye;
@@ -38,7 +39,7 @@ public class Coordination extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 2;
+    private static final int COST = 1;
     private static final int MAGIC = 2;
     private static final int MAGIC2 = 1;
 
@@ -58,10 +59,10 @@ public class Coordination extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         ArrayList<AbstractCard> stanceChoices = new ArrayList();
         stanceChoices.add(new Hand());
-        stanceChoices.add(new Eye());
         if (p.hasRelic(NohMask.ID)) {
             stanceChoices.add(new Feet());
         }
+        stanceChoices.add(new Eye());
         if (upgraded) {
             for (AbstractCard c : stanceChoices) {
                 c.upgrade();
@@ -82,10 +83,10 @@ public class Coordination extends AbstractDynamicCard {
     }
     void checkMaskDesc() {
         if (AbstractDungeon.player.hasRelic(NohMask.ID)) {
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            rawDescription = upgraded ? cardStrings.EXTENDED_DESCRIPTION[1] : cardStrings.EXTENDED_DESCRIPTION[0];
         }
         else {
-            rawDescription = cardStrings.DESCRIPTION;
+            rawDescription = upgraded ? cardStrings.UPGRADE_DESCRIPTION : cardStrings.DESCRIPTION;
         }
     }
 
@@ -94,8 +95,18 @@ public class Coordination extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(1);
+            isEthereal = false;
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
+    }
+    @Override
+    public AbstractCard makeCopy() {
+        Coordination tmp = new Coordination();
+        if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && AbstractDungeon.player.hasRelic(NohMask.ID)) {
+            tmp.checkMaskDesc();
+        }
+
+        return tmp;
     }
 }

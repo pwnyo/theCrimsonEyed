@@ -14,7 +14,7 @@ public class Feet extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = SasukeMod.makeID(Eye.class.getSimpleName());
+    public static final String ID = SasukeMod.makeID(Feet.class.getSimpleName());
     public static final String IMG = makeCardPath("Skill.png");// "public static final String IMG = makeCardPath("Eye.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
