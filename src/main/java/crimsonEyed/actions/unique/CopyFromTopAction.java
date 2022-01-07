@@ -1,7 +1,7 @@
 package crimsonEyed.actions.unique;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -42,10 +42,8 @@ public class CopyFromTopAction extends AbstractGameAction {
             }
             else {
                 AbstractCard card = AbstractDungeon.player.discardPile.getTopCard();
-                if (upgrade) {
-                    card.upgrade();
-                }
-                addToTop(new MakeTempCardInDiscardAction(card, amount));
+                card.upgrade();
+                addToTop(new MakeTempCardInHandAction(card, amount));
             }
             this.isDone = true;// 61
         }

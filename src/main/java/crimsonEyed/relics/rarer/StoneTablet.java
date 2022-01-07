@@ -29,7 +29,6 @@ public class StoneTablet extends CustomRelic {
             this.flash();
             addToBot(new ScryAction(2));
         }
-
     }
 
     public void wasHPLost(int damageAmount) {

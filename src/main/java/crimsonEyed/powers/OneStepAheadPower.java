@@ -1,6 +1,7 @@
 package crimsonEyed.powers;
 
 import basemod.interfaces.CloneablePowerInterface;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.unique.RetainCardsAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -39,9 +40,14 @@ public class OneStepAheadPower extends AbstractPower implements CloneablePowerIn
     public void atEndOfTurn(boolean isPlayer) {
         if (isPlayer) {
             if (!AbstractDungeon.player.hand.isEmpty() && !AbstractDungeon.player.hasRelic("Runic Pyramid") && !AbstractDungeon.player.hasPower("Equilibrium")) {
-                this.addToBot(new RetainCardsAction(this.owner, this.amount));// 38
+                this.addToBot(new RetainCardsAction(this.owner, 1));// 38
             }
-            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+            if (amount <= 1) {
+                this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+            }
+            else {
+                this.addToBot(new ReducePowerAction(this.owner, this.owner, POWER_ID, 1));
+            }
         }
     }
 

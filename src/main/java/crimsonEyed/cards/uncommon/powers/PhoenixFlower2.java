@@ -15,8 +15,7 @@ public class PhoenixFlower2 extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = SasukeMod.makeID(PhoenixFlower2.class.getSimpleName());
-    public static final String IMG = makeCardPath("Skill.png");
-    // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
+    public static final String IMG = makeCardPath("PhoenixFlower.png");
 
 
     // /TEXT DECLARATION/

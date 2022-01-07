@@ -13,7 +13,6 @@ import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.cards.temp.chop.Dice;
 import crimsonEyed.cards.temp.chop.Rend;
 import crimsonEyed.cards.temp.chop.Slash;
-import crimsonEyed.cards.uncommon.skills.Anticipate;
 import crimsonEyed.characters.TheCrimsonEyed;
 import crimsonEyed.relics.rarer.NohMask;
 
@@ -103,7 +102,7 @@ public class Chop2 extends AbstractDynamicCard {
             rawDescription = upgraded ? cardStrings.EXTENDED_DESCRIPTION[1] : cardStrings.EXTENDED_DESCRIPTION[0];
         }
         else {
-            rawDescription = cardStrings.DESCRIPTION;
+            rawDescription = upgraded ? cardStrings.UPGRADE_DESCRIPTION : cardStrings.DESCRIPTION;
         }
     }
 
@@ -114,7 +113,7 @@ public class Chop2 extends AbstractDynamicCard {
             upgradeName();
             upgradeDamage(UPGRADE_DAMAGE);
             upgradeMagicNumber(1);
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            checkMaskDesc();
             initializeDescription();
         }
     }

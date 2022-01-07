@@ -24,8 +24,7 @@ public class SeeEverything extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = SasukeMod.makeID(SeeEverything.class.getSimpleName());
-    public static final String IMG = makeCardPath("Skill.png");// "public static final String IMG = makeCardPath("SeeEverything.png");
-    // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
+    public static final String IMG = makeCardPath("SeeEverything.png");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     // /TEXT DECLARATION/

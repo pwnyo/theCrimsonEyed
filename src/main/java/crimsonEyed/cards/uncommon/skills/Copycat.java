@@ -2,8 +2,6 @@ package crimsonEyed.cards.uncommon.skills;
 
 import com.megacrit.cardcrawl.actions.utility.ScryAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.actions.unique.CopyFromTopAction;
@@ -17,7 +15,7 @@ public class Copycat extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = SasukeMod.makeID(Copycat.class.getSimpleName());
-    public static final String IMG = makeCardPath("Skill.png");// "public static final String IMG = makeCardPath("Copycat.png");
+    public static final String IMG = makeCardPath("Copycat.png");
 
     // /TEXT DECLARATION/
 

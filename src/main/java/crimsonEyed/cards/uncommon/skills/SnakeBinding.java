@@ -26,7 +26,7 @@ public class SnakeBinding extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = SasukeMod.makeID(SnakeBinding.class.getSimpleName());
-    public static final String IMG = makeCardPath("Skill.png");// "public static final String IMG = makeCardPath("SnakeBinding.png");
+    public static final String IMG = makeCardPath("SnakeBinding.png");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
 
@@ -36,7 +36,7 @@ public class SnakeBinding extends AbstractDynamicCard {
     // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
-    private static final CardTarget TARGET = CardTarget.SELF;  //   since they don't change much.
+    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
@@ -51,7 +51,6 @@ public class SnakeBinding extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
         baseMagicNumber2 = magicNumber2 = 0;
-        selfRetain = true;
         exhaust = true;
     }
 
@@ -110,8 +109,7 @@ public class SnakeBinding extends AbstractDynamicCard {
         super.applyPowers();
         int count = countCards();
 
-        this.baseMagicNumber = count;
-        magicNumber = baseMagicNumber;
+        this.baseMagicNumber2 = magicNumber2 = count * magicNumber;
 
         rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
         this.initializeDescription();
@@ -121,8 +119,7 @@ public class SnakeBinding extends AbstractDynamicCard {
         super.calculateCardDamage(mo);
         int count = countCards();
 
-        this.baseMagicNumber = count;
-        magicNumber = baseMagicNumber;
+        this.baseMagicNumber2 = magicNumber2 = count * magicNumber2;
 
         rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
         this.initializeDescription();

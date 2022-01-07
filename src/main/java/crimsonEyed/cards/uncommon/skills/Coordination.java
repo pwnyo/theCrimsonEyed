@@ -25,7 +25,7 @@ public class Coordination extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = SasukeMod.makeID(Coordination.class.getSimpleName());
-    public static final String IMG = makeCardPath("Skill.png");// "public static final String IMG = makeCardPath("HandEyeCoordination.png");
+    public static final String IMG = makeCardPath("Coordination.png");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
 
@@ -63,13 +63,7 @@ public class Coordination extends AbstractDynamicCard {
             stanceChoices.add(new Feet());
         }
         stanceChoices.add(new Eye());
-        if (upgraded) {
-            for (AbstractCard c : stanceChoices) {
-                c.upgrade();
-            }
-        }
         addToBot(new ChooseOneAction(stanceChoices));
-
     }
     public void applyPowers() {
         super.applyPowers();
@@ -96,7 +90,7 @@ public class Coordination extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             isEthereal = false;
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            checkMaskDesc();
             initializeDescription();
         }
     }

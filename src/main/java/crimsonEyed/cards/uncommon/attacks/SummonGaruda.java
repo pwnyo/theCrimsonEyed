@@ -16,7 +16,8 @@ public class SummonGaruda extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = SasukeMod.makeID(SummonGaruda.class.getSimpleName());public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("SummonGaruda.png");
+    public static final String ID = SasukeMod.makeID(SummonGaruda.class.getSimpleName());
+    public static final String IMG = makeCardPath("SummonGaruda.png");
 
     // /TEXT DECLARATION/
 

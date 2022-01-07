@@ -1,13 +1,16 @@
 package crimsonEyed.cards.temp.anticipate;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
+import com.megacrit.cardcrawl.powers.EnergizedBluePower;
 import com.megacrit.cardcrawl.powers.NextTurnBlockPower;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
 
@@ -46,6 +49,10 @@ public class Read extends AbstractDynamicCard {
         baseBlock = block = BLOCK;
         baseMagicNumber = magicNumber = MAGIC;
     }
+    public Read(boolean generated) {
+        this();
+        applyPowers();
+    }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -55,8 +62,17 @@ public class Read extends AbstractDynamicCard {
     @Override
     public void onChoseThisOption() {
         AbstractPlayer p = AbstractDungeon.player;
+        recalc();
         addToBot(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, block)));
         addToBot(new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p, magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new EnergizedBluePower(p, magicNumber)));
+    }
+    void recalc() {
+        if (upgraded) {
+            this.baseBlock = block = BLOCK + 2;
+            this.upgradedBlock = true;
+        }
+        applyPowers();
     }
 
     // Upgraded stats.
@@ -65,7 +81,17 @@ public class Read extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeBlock(2);
+            recalc();
             initializeDescription();
         }
+    }
+    @Override
+    public AbstractCard makeCopy() {
+        Read tmp = new Read();
+        if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+            tmp.applyPowers();
+        }
+
+        return tmp;
     }
 }

@@ -15,9 +15,8 @@ public class Reminisce extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = SasukeMod.makeID(Reminisce.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
-
-    public static final String IMG = makeCardPath("Skill.png");// "public static final String IMG = makeCardPath("Reminiscence.png");
+    public static final String ID = SasukeMod.makeID(Reminisce.class.getSimpleName());
+    public static final String IMG = makeCardPath("Reminisce.png");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
 

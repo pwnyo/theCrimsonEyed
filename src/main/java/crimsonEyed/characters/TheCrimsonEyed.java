@@ -22,7 +22,6 @@ import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import crimsonEyed.SasukeMod;
-import crimsonEyed.cards.DefaultCommonAttack;
 import crimsonEyed.cards.basic.*;
 import crimsonEyed.relics.commoner.CrimsonEye2;
 import org.apache.logging.log4j.LogManager;
@@ -226,7 +225,7 @@ public class TheCrimsonEyed extends CustomPlayer {
     // energy is displayed from within the energy orb.
     @Override
     public BitmapFont getEnergyNumFont() {
-        return FontHelper.energyNumFontRed;
+        return FontHelper.energyNumFontBlue;
     }
 
     // Should return class name as it appears in run history screen.
@@ -238,7 +237,7 @@ public class TheCrimsonEyed extends CustomPlayer {
     //Which card should be obtainable from the Match and Keep event?
     @Override
     public AbstractCard getStartCardForEvent() {
-        return new DefaultCommonAttack();
+        return new Chidori();
     }
 
     // The class name as it appears next to your player name in-game

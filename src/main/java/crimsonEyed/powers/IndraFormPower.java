@@ -32,18 +32,15 @@ public class IndraFormPower extends AbstractPower implements CloneablePowerInter
     }
 
     @Override
-    public void atEndOfTurn(boolean isPlayer) {
-        if (isPlayer) {
-            flash();
-            int orbSlots = AbstractDungeon.player.maxOrbs;
-            for (int i = 0; i < orbSlots; i++) {
-                for (int j = 0; j < amount; j++) {
-                    addToBot(new ChannelAction(new Lightning()));
-                }
+    public void atStartOfTurn() {
+        flash();
+        int orbSlots = AbstractDungeon.player.maxOrbs;
+        for (int i = 0; i < orbSlots; i++) {
+            for (int j = 0; j < amount; j++) {
+                addToBot(new ChannelAction(new Lightning()));
             }
         }
     }
-
     @Override
     public AbstractPower makeCopy() {
         return new IndraFormPower(owner, amount);

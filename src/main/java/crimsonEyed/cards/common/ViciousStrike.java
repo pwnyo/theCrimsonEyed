@@ -18,8 +18,7 @@ public class ViciousStrike extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = SasukeMod.makeID(ViciousStrike.class.getSimpleName());
-    public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("VengefulStrike.png");
-    // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
+    public static final String IMG = makeCardPath("ViciousStrike.png");
 
 
     // /TEXT DECLARATION/

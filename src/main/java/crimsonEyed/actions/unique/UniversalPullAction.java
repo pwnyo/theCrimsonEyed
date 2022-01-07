@@ -37,7 +37,7 @@ public class UniversalPullAction extends AbstractGameAction {
 
     public void update() {
         if (this.duration == this.startDuration) {
-            if (!group.isEmpty() && this.numberOfCards > 0) {// 47
+            if (!group.isEmpty() && this.numberOfCards > 0) {
                 if (group.size() <= this.numberOfCards) {// 50
                     ArrayList<AbstractCard> cardsToMove = new ArrayList();// 51
                     Iterator var5 = group.group.iterator();// 52
@@ -52,14 +52,9 @@ public class UniversalPullAction extends AbstractGameAction {
 
                     while(var5.hasNext()) {
                         c = (AbstractCard)var5.next();
-                        if (this.player.hand.size() < 10) {// 56
-                            this.player.hand.addToHand(c);
-
-                            group.removeCard(c);// 61
-                        }
-
-                        c.lighten(false);// 63
-                        c.applyPowers();// 64
+                        group.removeCard(c);
+                        player.limbo.addToBottom(c);
+                        addToBot(new ApplyPowerAction(player, player, new UniversalPullPower(player, 1, c)));
                     }
 
                     this.isDone = true;// 67
@@ -67,7 +62,7 @@ public class UniversalPullAction extends AbstractGameAction {
                     if (this.numberOfCards == 1) {
                         AbstractDungeon.gridSelectScreen.open(group, this.numberOfCards, TEXT[0], false);
                     } else {
-                        AbstractDungeon.gridSelectScreen.open(group, this.numberOfCards, TEXT[1] + this.numberOfCards + TEXT[2], false);// 92
+                        AbstractDungeon.gridSelectScreen.open(group, this.numberOfCards, TEXT[1] + this.numberOfCards + TEXT[2], false);
                     }
 
                     this.tickDuration();
@@ -83,21 +78,10 @@ public class UniversalPullAction extends AbstractGameAction {
 
                 while(var1.hasNext()) {
                     c = (AbstractCard)var1.next();
-                    if (this.player.hand.size() < 10) {
-                        group.removeCard(c);
-                        player.limbo.addToBottom(c);
-                        addToBot(new ApplyPowerAction(player, player, new UniversalPullPower(player, 1, c)));
-                    }
 
-                    c.lighten(false);
-                    c.unhover();
-                    c.applyPowers();
-                }
-
-                for(var1 = group.group.iterator(); var1.hasNext(); c.target_y = 0.0F) {// 117 120
-                    c = (AbstractCard)var1.next();
-                    c.unhover();
-                    c.target_x = (float)CardGroup.DISCARD_PILE_X;
+                    group.removeCard(c);
+                    //player.limbo.addToBottom(c);
+                    addToBot(new ApplyPowerAction(player, player, new UniversalPullPower(player, 1, c)));
                 }
 
                 AbstractDungeon.gridSelectScreen.selectedCards.clear();
@@ -113,11 +97,10 @@ public class UniversalPullAction extends AbstractGameAction {
                     c.applyPowers();
                 }
             }
-
         }
-    }// 49 68 100 132
+    }
 
     static {
-        TEXT = CardCrawlGame.languagePack.getUIString("BetterToHandAction").TEXT;// 15
+        TEXT = CardCrawlGame.languagePack.getUIString("BetterToHandAction").TEXT;
     }
 }

@@ -48,9 +48,7 @@ public class Rend extends AbstractDynamicCard {
         baseMagicNumber = magicNumber = MAGIC;
     }
     public Rend(AbstractMonster m) {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = damage = 0;
-        baseMagicNumber = magicNumber = MAGIC;
+        this();
         target = m;
     }
 

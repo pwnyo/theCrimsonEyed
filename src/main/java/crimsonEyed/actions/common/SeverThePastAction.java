@@ -10,11 +10,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 public class SeverThePastAction extends AbstractGameAction {
     private float startingDuration;
 
-    public SeverThePastAction(int block) {
+    public SeverThePastAction() {
         this.actionType = ActionType.EXHAUST;// 16
         this.startingDuration = Settings.ACTION_DUR_FAST;// 17
-        this.duration = this.startingDuration;// 18
-        this.amount = block;
+        this.duration = this.startingDuration;
     }// 19
 
     public void update() {

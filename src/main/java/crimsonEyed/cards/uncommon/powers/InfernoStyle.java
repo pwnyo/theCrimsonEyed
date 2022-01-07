@@ -16,10 +16,8 @@ public class InfernoStyle extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = SasukeMod.makeID(InfernoStyle.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
-
-    public static final String IMG = makeCardPath("Skill.png");// "public static final String IMG = makeCardPath("InfernoStyle.png");
-    // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
+    public static final String ID = SasukeMod.makeID(InfernoStyle.class.getSimpleName());
+    public static final String IMG = makeCardPath("InfernoStyle.png");
 
 
     // /TEXT DECLARATION/

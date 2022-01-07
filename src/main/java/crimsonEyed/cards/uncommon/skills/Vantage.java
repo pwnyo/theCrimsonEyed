@@ -15,10 +15,10 @@ public class Vantage extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = SasukeMod.makeID(Vantage.class.getSimpleName());public static final String IMG = makeCardPath("Skill.png");// "public static final String IMG = makeCardPath("Vantage.png");
+    public static final String ID = SasukeMod.makeID(Vantage.class.getSimpleName());
+    public static final String IMG = makeCardPath("Vantage.png");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-    // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
 
     // /TEXT DECLARATION/

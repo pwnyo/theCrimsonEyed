@@ -44,10 +44,9 @@ public class Slash extends AbstractDynamicCard {
         baseDamage = damage = DAMAGE;
     }
     public Slash(AbstractMonster m) {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = damage = DAMAGE;
+        this();
         target = m;
-        applyPowers();
+        //applyPowers();
         calculateCardDamage(m);
     }
 
@@ -60,10 +59,20 @@ public class Slash extends AbstractDynamicCard {
     public void onChoseThisOption() {
         if (target == null)
             return;
-
+        recalc();
         addToBot(new DamageAction(target, new DamageInfo(AbstractDungeon.player, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
     }
-
+    void recalc() {
+        if (target == null)
+            return;
+        if (upgraded) {
+            this.baseDamage = damage = DAMAGE + UPGRADE_PLUS_DMG;
+            this.upgradedDamage = true;
+        }
+        SasukeMod.logger.info("upgraded? " + upgraded + " - damage is " + damage);
+        applyPowers();
+        calculateCardDamage(target);
+    }
 
     // Upgraded stats.
     @Override
@@ -71,6 +80,7 @@ public class Slash extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
+            recalc();
             initializeDescription();
         }
     }

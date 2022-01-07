@@ -3,15 +3,12 @@ package crimsonEyed.cards.rare;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.actions.defect.IncreaseMaxOrbAction;
-import com.megacrit.cardcrawl.cards.blue.ThunderStrike;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.orbs.AbstractOrb;
-import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
-import com.megacrit.cardcrawl.orbs.Lightning;
 import com.megacrit.cardcrawl.orbs.Plasma;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.WeightyImpactEffect;
@@ -20,7 +17,6 @@ import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
 
@@ -60,6 +56,10 @@ public class PlanetaryDevastation extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         int count = countDebuffs();
         if (count > 0) {
+            for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                this.addToBot(new VFXAction(new WeightyImpactEffect(mo.hb.cX, mo.hb.cY), 0));
+                addToBot(new WaitAction(0.1f));
+            }
             addToBot(new IncreaseMaxOrbAction(count));
         }
         addToBot(new ChannelAction(new Plasma()));
@@ -68,9 +68,8 @@ public class PlanetaryDevastation extends AbstractDynamicCard {
         int count = 0;
         ArrayList<AbstractPower> uniqueDebuffs = new ArrayList<>();
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            this.addToBot(new VFXAction(new WeightyImpactEffect(mo.hb.cX, mo.hb.cY), 0));
             for (AbstractPower pow : mo.powers) {
-                if (pow.type == AbstractPower.PowerType.DEBUFF && !uniqueDebuffs.contains(pow)) {
+                if (pow.type == AbstractPower.PowerType.DEBUFF && !uniqueDebuffs.contains(pow) && !pow.ID.equals("Shackled")) {
                     count++;
                     uniqueDebuffs.add(pow);
                 }
@@ -82,10 +81,13 @@ public class PlanetaryDevastation extends AbstractDynamicCard {
         super.applyPowers();// 52
         baseMagicNumber = magicNumber = countDebuffs();
 
-        if (this.baseMagicNumber > 0) {
+        if (this.baseMagicNumber == 1) {
             this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0] + cardStrings.DESCRIPTION;
-            this.initializeDescription();
         }
+        else {
+            this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[1] + cardStrings.DESCRIPTION;
+        }
+        this.initializeDescription();
 
     }// 66
 

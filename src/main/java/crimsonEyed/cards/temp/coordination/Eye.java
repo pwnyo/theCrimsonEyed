@@ -51,10 +51,5 @@ public class Eye extends AbstractDynamicCard {
     // Upgraded stats.
     @Override
     public void upgrade() {
-        if (!upgraded) {
-            upgradeName();
-            upgradeMagicNumber(1);
-            initializeDescription();
-        }
     }
 }

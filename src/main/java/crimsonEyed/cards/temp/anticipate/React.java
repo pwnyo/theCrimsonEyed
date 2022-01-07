@@ -1,9 +1,12 @@
 package crimsonEyed.cards.temp.anticipate;
 
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
 
@@ -38,6 +41,10 @@ public class React extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = block = BLOCK;
     }
+    public React(boolean generated) {
+        this();
+        applyPowers();
+    }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -47,16 +54,34 @@ public class React extends AbstractDynamicCard {
     @Override
     public void onChoseThisOption() {
         AbstractPlayer p = AbstractDungeon.player;
+        recalc();
         addToBot(new GainBlockAction(p, block));
     }
-
+    void recalc() {
+        if (upgraded) {
+            this.baseBlock = block = BLOCK + 2;
+            this.upgradedBlock = true;
+        }
+        applyPowers();
+    }
     // Upgraded stats.
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
             upgradeBlock(2);
+            recalc();
             initializeDescription();
         }
+    }
+
+    @Override
+    public AbstractCard makeCopy() {
+        React tmp = new React();
+        if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+            tmp.applyPowers();
+        }
+
+        return tmp;
     }
 }

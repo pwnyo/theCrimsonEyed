@@ -16,7 +16,8 @@ public class Revolution extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = SasukeMod.makeID(Revolution.class.getSimpleName());public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("Vengeance.png");
+    public static final String ID = SasukeMod.makeID(Revolution.class.getSimpleName());
+    public static final String IMG = makeCardPath("Revolution.png");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
 

@@ -19,7 +19,7 @@ public class HungerForPower extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = SasukeMod.makeID(HungerForPower.class.getSimpleName());
-    public static final String IMG = makeCardPath("Skill.png");// "public static final String IMG = makeCardPath("AllureOfDarkness.png");
+    public static final String IMG = makeCardPath("HungerForPower.png");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
 

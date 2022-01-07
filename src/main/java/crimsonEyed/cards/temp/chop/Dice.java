@@ -2,7 +2,6 @@ package crimsonEyed.cards.temp.chop;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.cards.blue.Fission;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -46,12 +45,9 @@ public class Dice extends AbstractDynamicCard {
         isMultiDamage = true;
     }
     public Dice(AbstractMonster m) {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = damage = DAMAGE;
-        baseMagicNumber = magicNumber = 4;
-        isMultiDamage = true;
+        this();
         target = m;
-        applyPowers();
+        //applyPowers();
         calculateCardDamage(m);
     }
 
@@ -64,9 +60,25 @@ public class Dice extends AbstractDynamicCard {
 
     @Override
     public void onChoseThisOption() {
+        if (upgraded) {
+            this.baseDamage = damage = DAMAGE + UPGRADE_PLUS_DMG;
+            this.upgradedDamage = true;
+        }
+        recalc();
         for (int i = 0; i < magicNumber; i++) {
             addToBot(new DamageAllEnemiesAction(AbstractDungeon.player, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         }
+    }
+    void recalc() {
+        if (target == null)
+            return;
+        if (upgraded) {
+            this.baseDamage = damage = DAMAGE + UPGRADE_PLUS_DMG;
+            this.upgradedDamage = true;
+        }
+        SasukeMod.logger.info("upgraded? " + upgraded + " - damage is " + damage);
+        applyPowers();
+        calculateCardDamage(target);
     }
 
     // Upgraded stats.
@@ -75,6 +87,7 @@ public class Dice extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
+            applyPowers();
             initializeDescription();
         }
     }

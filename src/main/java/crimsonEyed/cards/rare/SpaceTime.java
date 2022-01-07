@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
+import crimsonEyed.cards.temp.spacetime.AlmightyPush;
 import crimsonEyed.cards.temp.spacetime.Amenotejikara;
 import crimsonEyed.cards.temp.spacetime.UniversalPull;
 import crimsonEyed.characters.TheCrimsonEyed;
@@ -88,9 +89,12 @@ public class SpaceTime extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         ArrayList<AbstractCard> choices = new ArrayList();// 42
 
-        choices.add(new UniversalPull());// 43
-        choices.add(new Amenotejikara());// 44
+        choices.add(new UniversalPull());
+        choices.add(new Amenotejikara());
 
+        if (AbstractDungeon.player.hasRelic(NohMask.ID)) {
+            choices.add(new AlmightyPush());
+        }
         if (upgraded) {
             for (AbstractCard c : choices) {
                 c.upgrade();
@@ -101,10 +105,10 @@ public class SpaceTime extends AbstractDynamicCard {
     }
     void checkMaskDesc() {
         if (AbstractDungeon.player.hasRelic(NohMask.ID)) {
-            rawDescription = upgraded ? cardStrings.EXTENDED_DESCRIPTION[0] : cardStrings.EXTENDED_DESCRIPTION[1];
+            rawDescription = upgraded ? cardStrings.EXTENDED_DESCRIPTION[1] : cardStrings.EXTENDED_DESCRIPTION[0];
         }
         else {
-            rawDescription = cardStrings.DESCRIPTION;
+            rawDescription = upgraded ? cardStrings.UPGRADE_DESCRIPTION : cardStrings.DESCRIPTION;
         }
     }
 

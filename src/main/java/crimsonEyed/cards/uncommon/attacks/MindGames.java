@@ -22,7 +22,7 @@ MindGames extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = SasukeMod.makeID(MindGames.class.getSimpleName());
-    public static final String IMG = makeCardPath("Skill.png");// "public static final String IMG = makeCardPath("MindGames.png");
+    public static final String IMG = makeCardPath("Mindgames.png");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     // /TEXT DECLARATION/
@@ -58,7 +58,9 @@ MindGames extends AbstractDynamicCard {
 
     @Override
     public void triggerOnScry() {
-        addToBot(new DiscardToHandAction(this));
+        if (upgraded) {
+            addToBot(new DiscardToHandAction(this));
+        }
     }
 
     // Upgraded stats.
@@ -66,7 +68,7 @@ MindGames extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(0);
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

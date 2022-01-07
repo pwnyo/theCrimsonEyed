@@ -28,8 +28,8 @@
     "NAME": "Anticipate",
     "DESCRIPTION": "Choose one: NL Gain !M! Block or next turn, gain !B! Block, draw 1 additional card, and gain [E] .",
     "EXTENDED_DESCRIPTION": [
-      "Choose one: NL Gain !M! Block, gain 2 *Plated *Armor, or next turn, gain !B! Block, draw 1 additional card, and gain [E] .",
-      "Choose one: NL Gain !M! Block, gain 3 *Plated *Armor, or next turn, gain !B! Block, draw 1 additional card, and gain [E] ."
+      "Choose one: Gain 2 *Plated *Armor, gain !M! Block, or next turn, gain !B! Block, draw 1 additional card, and gain [E] .",
+      "Choose one: Gain 2 *Plated *Armor, gain !M! Block, or next turn, gain !B! Block, draw 1 additional card, and gain [E] ."
     ]
   },
   "crimsonEyed:Awakening": {
@@ -80,11 +80,11 @@
   },
   "crimsonEyed:Chop2": {
     "NAME": "Chop",
-    "DESCRIPTION": "Choose one: NL Deal !D! damage or deal damage equal to 15% of the enemy's Max HP. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Choose one: NL Deal !D! damage or deal damage equal to 20% of the enemy's Max HP. NL Exhaust.",
+    "DESCRIPTION": "Choose one: Deal !D! damage or deal damage equal to 15% of the enemy's Max HP. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Choose one: Deal !D! damage or deal damage equal to 20% of the enemy's Max HP. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
-      "Choose one: NL Deal !D! damage, deal damage equal to 15% of the enemy's HP, or deal !M! damage to ALL enemies 4 times. NL Exhaust.",
-      "Choose one: NL Deal !D! damage, deal damage equal to 20% of the enemy's HP, or deal !M! damage to ALL enemies 4 times. NL Exhaust."
+      "Choose one: Deal !D! damage, deal damage equal to 15% of the enemy's Max HP, or deal !M! damage to ALL enemies 4 times. NL Exhaust.",
+      "Choose one: Deal !D! damage, deal damage equal to 20% of the enemy's Max HP, or deal !M! damage to ALL enemies 4 times. NL Exhaust."
     ]
   },
   "crimsonEyed:Copycat": {
@@ -215,7 +215,7 @@
   },
   "crimsonEyed:IndraForm": {
     "NAME": "Indra Form",
-    "DESCRIPTION": "Channel !M! Lightning. At the end of your turn, Channel 1 Lightning for each Orb slot."
+    "DESCRIPTION": "Channel !M! Lightning. At the start of your turn, Channel 1 Lightning for each Orb slot."
   },
   "crimsonEyed:IndrasArrow": {
     "NAME": "Indra's Arrow",
@@ -286,12 +286,13 @@
   },
   "crimsonEyed:MindGames": {
     "NAME": "Mindgames",
-    "DESCRIPTION": "Deal !D! damage. NL Gain 1 Strength. On Scry: Return this from your discard pile to your hand."
+    "DESCRIPTION": "Deal !D! damage. NL Gain 1 Strength.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain 1 Strength. NL On Scry: Return this from your discard pile to your hand."
   },
   "crimsonEyed:OneStepAhead": {
     "NAME": "One Step Ahead",
     "DESCRIPTION": "Deal !D! damage. NL At the end of this turn, Retain up to !M! card.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL At the end of this turn, Retain up to !M! cards."
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL At the end of your next 2 turns, Retain up to !M! card."
   },
   "crimsonEyed:PaperBomb": {
     "NAME": "Paper Bomb",
@@ -316,12 +317,13 @@
   },
   "crimsonEyed:PhoenixFlower2": {
     "NAME": "Phoenix Flower",
-    "DESCRIPTION": "Whenever you Exhaust a card, deal !M! damage to ALL enemies."
+    "DESCRIPTION": "Whenever you Exhaust a card, deal !M! damage to a random enemy."
   },
   "crimsonEyed:PlanetaryDevastation": {
     "NAME": "Planetary Devastation",
     "DESCRIPTION": "Gain 1 Orb slot for each unique debuff on any enemies. NL Channel 1 Plasma. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
+      "(Gain !M! Orb slot.) NL ",
       "(Gain !M! Orb slots.) NL "
     ]
   },
@@ -435,7 +437,7 @@
   },
   "crimsonEyed:SnakeBinding": {
     "NAME": "Snake Binding",
-    "DESCRIPTION": "Retain. NL ALL enemies lose !M! Strength this turn for ALL your Status and Curse cards. NL Exhaust.",
+    "DESCRIPTION": "ALL enemies lose !M! Strength this turn for ALL your Status and Curse cards. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
       " NL (They lose !crimsonEyed:M2! Strength.)"
     ]
@@ -533,7 +535,7 @@
     "NAME": "Yasaka Magatama",
     "DESCRIPTION": "Deal !D! damage for each Dark Channeled this combat.",
     "EXTENDED_DESCRIPTION": [
-      " NL (Channeled !crimsonEyed:M2! Dark.)"
+      " NL (Channeled !M! Dark.)"
     ]
   },
   "crimsonEyed:ZeroIn": {

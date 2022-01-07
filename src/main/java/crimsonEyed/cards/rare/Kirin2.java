@@ -38,6 +38,8 @@ public class Kirin2 extends AbstractDynamicCard {
 
     public Kirin2() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        showEvokeValue = true;
+        showEvokeOrbCount = 3;
     }
 
 

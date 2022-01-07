@@ -21,8 +21,8 @@ public class Revenge extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = SasukeMod.makeID(Revenge.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
-    public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("Revenge.png");
+    public static final String ID = SasukeMod.makeID(Revenge.class.getSimpleName());
+    public static final String IMG = makeCardPath("Revenge.png");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     // /TEXT DECLARATION/

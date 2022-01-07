@@ -5,7 +5,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.curses.AscendersBane;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.util.TextureLoader;
@@ -37,7 +36,9 @@ public class BlueScale extends CustomRelic {
     boolean hasEnoughCurses() {
         int count = 0;
         for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
-            count++;
+            if (c.type == AbstractCard.CardType.CURSE) {
+                count++;
+            }
         }
         return (count >= CURSES);
     }

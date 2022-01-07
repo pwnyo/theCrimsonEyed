@@ -14,10 +14,8 @@ public class LightningSpeed extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = SasukeMod.makeID(LightningSpeed.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
-
-    public static final String IMG = makeCardPath("Skill.png");// "public static final String IMG = makeCardPath("LightningSpeed.png");
-    // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
+    public static final String ID = SasukeMod.makeID(LightningSpeed.class.getSimpleName());
+    public static final String IMG = makeCardPath("LightningSpeed.png");
 
 
     // /TEXT DECLARATION/

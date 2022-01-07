@@ -17,7 +17,7 @@ public class Perception extends AbstractDynamicCard {
     // TEXT DECLARATION 
 
     public static final String ID = SasukeMod.makeID(Perception.class.getSimpleName());
-    public static final String IMG = makeCardPath("Power.png");
+    public static final String IMG = makeCardPath("Perception.png");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     // /TEXT DECLARATION/

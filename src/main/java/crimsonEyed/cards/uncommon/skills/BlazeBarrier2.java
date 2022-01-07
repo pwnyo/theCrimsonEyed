@@ -56,7 +56,7 @@ public class BlazeBarrier2 extends AbstractDynamicCard {
             }
         }
         if (darkIndex != -1) {
-            addToBot(new TriggerPassiveAction(darkIndex));
+            addToBot(new TriggerPassiveAction(darkIndex, 1));
         }
         else {
             addToBot(new ChannelAction(new Dark()));

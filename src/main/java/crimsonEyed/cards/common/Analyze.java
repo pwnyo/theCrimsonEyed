@@ -1,13 +1,17 @@
 package crimsonEyed.cards.common;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.FocusPower;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
+
+import java.util.Iterator;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
 
@@ -16,7 +20,7 @@ public class Analyze extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = SasukeMod.makeID(Analyze.class.getSimpleName());
-    public static final String IMG = makeCardPath("Skill.png");// "public static final String IMG = makeCardPath("Awareness.png");
+    public static final String IMG = makeCardPath("Analyze.png");
 
     // /TEXT DECLARATION/
 
@@ -49,18 +53,35 @@ public class Analyze extends AbstractDynamicCard {
     }
 
     @Override
-    public void applyPowers() {
-        super.applyPowers();
-        AbstractPower focus = AbstractDungeon.player.getPower("Focus");
+    protected void applyPowersToBlock() {
+        this.isBlockModified = false;
+        float tmp = (float)this.baseBlock;
 
-        if (focus != null) {
-            int bonus = focus.amount * magicNumber;
-            block += bonus;
+        Iterator var2;
+        AbstractPower p;
+        for(var2 = AbstractDungeon.player.powers.iterator(); var2.hasNext(); tmp = p.modifyBlock(tmp, this)) {
+            p = (AbstractPower)var2.next();
         }
 
-        this.isBlockModified = block != this.baseBlock;
-    }
+        for(var2 = AbstractDungeon.player.powers.iterator(); var2.hasNext(); tmp = p.modifyBlockLast(tmp)) {
+            p = (AbstractPower)var2.next();
+        }
 
+        AbstractPower focus = AbstractDungeon.player.getPower(FocusPower.POWER_ID);
+        if (focus != null) {
+            tmp += focus.amount * magicNumber;
+        }
+
+        if (this.baseBlock != MathUtils.floor(tmp)) {
+            this.isBlockModified = true;
+        }
+
+        if (tmp < 0.0F) {
+            tmp = 0.0F;
+        }
+
+        this.block = MathUtils.floor(tmp);
+    }
 
     // Upgraded stats.
     @Override

@@ -20,7 +20,8 @@ public class Payback extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = SasukeMod.makeID(Payback.class.getSimpleName());public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("Retribution.png");
+    public static final String ID = SasukeMod.makeID(Payback.class.getSimpleName());
+    public static final String IMG = makeCardPath("Payback.png");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     // /TEXT DECLARATION/
@@ -52,7 +53,7 @@ public class Payback extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-        if (TrackDamagePatch.tookDamageThisTurn) {
+        if (TrackDamagePatch.tookDamageLastTurn) {
             addToBot(new GainEnergyAction(magicNumber));
         }
     }

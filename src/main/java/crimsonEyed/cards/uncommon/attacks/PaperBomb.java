@@ -20,7 +20,7 @@ public class PaperBomb extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = SasukeMod.makeID(PaperBomb.class.getSimpleName());
-    public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("PaperBomb.png");
+    public static final String IMG = makeCardPath("PaperBomb.png");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     // /TEXT DECLARATION/
@@ -56,7 +56,7 @@ public class PaperBomb extends AbstractDynamicCard {
 
     @Override
     public void triggerOnExhaust() {
-        addToBot(new DamageAllEnemiesAction(AbstractDungeon.player, magicNumber2, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.FIRE));
+        addToBot(new DamageAllEnemiesAction(AbstractDungeon.player, magicNumber, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.FIRE));
     }
 
     // Upgraded stats.

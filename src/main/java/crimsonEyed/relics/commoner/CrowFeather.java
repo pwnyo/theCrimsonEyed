@@ -35,7 +35,7 @@ public class CrowFeather extends CustomRelic implements OnApplyPowerRelic {
 
     @Override
     public boolean onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        if (power.type == AbstractPower.PowerType.DEBUFF && target instanceof AbstractMonster && source instanceof AbstractPlayer) {
+        if (power.type == AbstractPower.PowerType.DEBUFF && !power.ID.equals("Shackled") && target instanceof AbstractMonster && source instanceof AbstractPlayer) {
             flash();
             this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             this.addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, BLOCK, true));

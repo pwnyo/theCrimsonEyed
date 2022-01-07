@@ -18,9 +18,8 @@ public class KillingIntent extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = SasukeMod.makeID(KillingIntent.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
-
-    public static final String IMG = makeCardPath("Skill.png");// "public static final String IMG = makeCardPath("KillingIntent.png");
+    public static final String ID = SasukeMod.makeID(KillingIntent.class.getSimpleName());
+    public static final String IMG = makeCardPath("KillingIntent.png");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
 
@@ -49,8 +48,8 @@ public class KillingIntent extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new IntensifyAction());
-        addToBot(new ApplyPowerAction(m, p, new WeakPower(m, 1, false)));
-        addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, 1, false)));
+        addToBot(new ApplyPowerAction(m, p, new WeakPower(m, magicNumber, false)));
+        addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false)));
     }
 
 

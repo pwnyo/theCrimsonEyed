@@ -1,6 +1,5 @@
 package crimsonEyed.cards.rare;
 
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -8,6 +7,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.actions.common.SeverThePastAction;
+import crimsonEyed.actions.common.SeverThePastBlockAction;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
 
@@ -18,7 +18,7 @@ public class SeverThePast extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = SasukeMod.makeID(SeverThePast.class.getSimpleName());
-    public static final String IMG = makeCardPath("Skill.png");// "public static final String IMG = makeCardPath("SeverThePast.png");
+    public static final String IMG = makeCardPath("SeverThePast.png");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     // /TEXT DECLARATION/
@@ -48,8 +48,8 @@ public class SeverThePast extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new SeverThePastAction(magicNumber));
-        addToBot(new GainBlockAction(p, magicNumber * p.exhaustPile.size()));
+        addToBot(new SeverThePastAction());
+        addToBot(new SeverThePastBlockAction(magicNumber));
     }
     public void applyPowers() {
         this.baseBlock = (AbstractDungeon.player.exhaustPile.size() + AbstractDungeon.player.discardPile.size()) * magicNumber;

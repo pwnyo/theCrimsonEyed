@@ -19,8 +19,8 @@ public class SureFire extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = SasukeMod.makeID(SureFire.class.getSimpleName());public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("SureFire.png");
-    // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
+    public static final String ID = SasukeMod.makeID(SureFire.class.getSimpleName());
+    public static final String IMG = makeCardPath("SureFire.png");
 
 
     // /TEXT DECLARATION/
@@ -33,8 +33,7 @@ public class SureFire extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 1;  // COST = 1
-    private static final int UPGRADED_COST = 1; // UPGRADED_COST = 1
+    private static final int COST = 1;
 
     private static final int DAMAGE = 5;    // DAMAGE = 5
     private static final int UPGRADE_PLUS_DMG = 3;  // UPGRADE_PLUS_DMG = 3
@@ -67,7 +66,6 @@ public class SureFire extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
-            upgradeBaseCost(UPGRADED_COST);
             initializeDescription();
         }
     }

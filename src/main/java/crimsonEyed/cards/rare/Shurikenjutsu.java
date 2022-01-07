@@ -16,9 +16,8 @@ public class Shurikenjutsu extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = SasukeMod.makeID(Shurikenjutsu.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
-
-    public static final String IMG = makeCardPath("Skill.png");// "public static final String IMG = makeCardPath("Shurikenjutsu.png");
+    public static final String ID = SasukeMod.makeID(Shurikenjutsu.class.getSimpleName());
+    public static final String IMG = makeCardPath("Shurikenjutsu.png");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     // /TEXT DECLARATION/

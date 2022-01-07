@@ -60,8 +60,7 @@
         "crimsonEyed:GrudgePower": {
                 "NAME": "Grudge",
                 "DESCRIPTIONS": [
-                        "At the end of your turn, lose #b",
-                        " HP and #yExhaust up to #b",
+                        "At the end of your turn, #yExhaust up to #b",
                         " card.",
                         " cards."
                 ]
@@ -69,7 +68,7 @@
         "crimsonEyed:IndraFormPower": {
                 "NAME": "Indra Form",
                 "DESCRIPTIONS": [
-                        "At the end of your turn, #yChannel #b",
+                        "At the start of your turn, #yChannel #b",
                         " #yLightning for each Orb slot."
                 ]
         },
@@ -116,7 +115,7 @@
                 "NAME": "Mangekyou",
                 "DESCRIPTIONS": [
                         "Whenever you lose HP from a card, gain #b",
-                        " #yFocus"
+                        " #yFocus."
                 ]
         },
         "crimsonEyed:OneStepAheadPower": {
@@ -177,7 +176,7 @@
                         " HP."
                 ]
         },
-        "crimsonEyed:UniversalPullPower": {
+        "crimsonEyed:SpaceTimePower": {
                 "NAME": "Universal Pull",
                 "DESCRIPTIONS": [
                         "In #b",

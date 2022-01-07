@@ -21,7 +21,7 @@ public class YasakaMagatama2 extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = SasukeMod.makeID(YasakaMagatama2.class.getSimpleName());
-    public static final String IMG = makeCardPath("Skill.png");// "public static final String IMG = makeCardPath("Blackout.png");
+    public static final String IMG = makeCardPath("YasakaMagatama.png");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     // /TEXT DECLARATION/
@@ -64,14 +64,13 @@ public class YasakaMagatama2 extends AbstractDynamicCard {
         return count;
     }
     public void applyPowers() {
-        super.applyPowers();// 52
-        this.baseMagicNumber = 0;// 54
-        this.magicNumber = 0;// 55
-
-        if (countDark() > 0) {// 62
-            this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];// 63
-            this.initializeDescription();// 64
-        }
+        super.applyPowers();
+        int count = countDark();
+        this.baseMagicNumber = 0;
+        this.magicNumber = 0;
+        baseMagicNumber = magicNumber = count;
+        this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+        this.initializeDescription();
 
     }// 66
 
@@ -81,10 +80,10 @@ public class YasakaMagatama2 extends AbstractDynamicCard {
     }// 72
 
     public void calculateCardDamage(AbstractMonster mo) {
-        super.calculateCardDamage(mo);// 76
-        if (countDark() > 0) {// 77
-            this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];// 78
-        }
+        super.calculateCardDamage(mo);
+        int count = countDark();
+        baseMagicNumber = magicNumber = count;
+        this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
 
         this.initializeDescription();// 80
     }

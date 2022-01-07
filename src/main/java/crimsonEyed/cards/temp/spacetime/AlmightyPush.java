@@ -1,5 +1,6 @@
 package crimsonEyed.cards.temp.spacetime;
 
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -14,7 +15,8 @@ public class AlmightyPush extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = SasukeMod.makeID(AlmightyPush.class.getSimpleName());public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("AlmightyPush.png");
+    public static final String ID = SasukeMod.makeID(AlmightyPush.class.getSimpleName());
+    public static final String IMG = makeCardPath("AlmightyPush.png");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
 
@@ -48,7 +50,11 @@ public class AlmightyPush extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new AlmightyPushAction(magicNumber));
     }
-    // Upgraded stats.
+
+    @Override
+    public void onChoseThisOption() {
+        addToBot(new MakeTempCardInHandAction(this));
+    }
     @Override
     public void upgrade() {
         if (!upgraded) {

@@ -18,6 +18,7 @@ import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import crimsonEyed.cards.AbstractDefaultCard;
+import crimsonEyed.cards.temp.EnduringFlame;
 import crimsonEyed.characters.TheCrimsonEyed;
 import crimsonEyed.potions.ParalysisPotion;
 import crimsonEyed.potions.ScryPotion;
@@ -84,14 +85,14 @@ public class SasukeMod implements
     private static String modID;
 
     // Mod-settings settings. This is if you want an on/off savable button
-    public static Properties theDefaultDefaultSettings = new Properties();
+    public static Properties theCrimsonEyedDefaultSettings = new Properties();
     public static final String ENABLE_PLACEHOLDER_SETTINGS = "enablePlaceholder";
     public static boolean enablePlaceholder = true; // The boolean we'll be setting on/off (true/false)
 
     //This is for the in-game mod settings panel.
     private static final String MODNAME = "The Crimson-Eyed";
     private static final String AUTHOR = "Pwnyo"; // And pretty soon - You!
-    private static final String DESCRIPTION = "Adds Sasuke to the game.";
+    private static final String DESCRIPTION = "Adds Sasuke to the game. Features ~80 new cards, 11 new relics, and 3 new potions.";
     
     // =============== INPUT TEXTURE LOCATION =================
     
@@ -220,9 +221,9 @@ public class SasukeMod implements
         logger.info("Adding mod settings");
         // This loads the mod settings.
         // The actual mod Button is added below in receivePostInitialize()
-        theDefaultDefaultSettings.setProperty(ENABLE_PLACEHOLDER_SETTINGS, "FALSE"); // This is the default setting. It's actually set...
+        theCrimsonEyedDefaultSettings.setProperty(ENABLE_PLACEHOLDER_SETTINGS, "FALSE"); // This is the default setting. It's actually set...
         try {
-            SpireConfig config = new SpireConfig("defaultMod", "theDefaultConfig", theDefaultDefaultSettings); // ...right here
+            SpireConfig config = new SpireConfig("defaultMod", "theDefaultConfig", theCrimsonEyedDefaultSettings); // ...right here
             // the "fileName" parameter is the name of the file MTS will create where it will save our setting.
             config.load(); // Load the setting and set the boolean to equal it
             enablePlaceholder = config.getBool(ENABLE_PLACEHOLDER_SETTINGS);
@@ -325,7 +326,7 @@ public class SasukeMod implements
             enablePlaceholder = button.enabled; // The boolean true/false will be whether the button is enabled or not
             try {
                 // And based on that boolean, set the settings and save them
-                SpireConfig config = new SpireConfig("defaultMod", "theDefaultConfig", theDefaultDefaultSettings);
+                SpireConfig config = new SpireConfig("SasukeMod", "theCrimsonEyedConfig", theCrimsonEyedDefaultSettings);
                 config.setBool(ENABLE_PLACEHOLDER_SETTINGS, enablePlaceholder);
                 config.save();
             } catch (Exception e) {
@@ -379,7 +380,7 @@ public class SasukeMod implements
         //Color liquidColor, Color hybridColor, Color spotsColor, String potionID, PlayerClass playerClass
 
         BaseMod.addPotion(ScryPotion.class, Color.CYAN, Color.CYAN, null, ScryPotion.POTION_ID, TheCrimsonEyed.Enums.SASUKE);
-        BaseMod.addPotion(ParalysisPotion.class, Color.BLACK, Color.BLACK, Color.RED, ParalysisPotion.POTION_ID, TheCrimsonEyed.Enums.SASUKE);
+        BaseMod.addPotion(ParalysisPotion.class, Color.BLACK, Color.RED, Color.BLACK, ParalysisPotion.POTION_ID, TheCrimsonEyed.Enums.SASUKE);
         BaseMod.addPotion(YinVessel.class, Color.BLACK, Color.BLACK, null, YinVessel.POTION_ID, TheCrimsonEyed.Enums.SASUKE);
         
         logger.info("Done editing potions");
