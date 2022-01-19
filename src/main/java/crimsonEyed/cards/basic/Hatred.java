@@ -2,6 +2,7 @@ package crimsonEyed.cards.basic;
 
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.SoulboundField;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
+import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -33,13 +34,17 @@ public class Hatred extends AbstractDynamicCard {
     }
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
+        if (this.dontTriggerOnUseCard) {
+            this.addToTop(new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, magicNumber));
+        }
     }
 
     @Override
     public void triggerOnEndOfTurnForPlayingCard() {
         SasukeMod.logger.info("hatred is hurting");
         this.dontTriggerOnUseCard = true;
-        this.addToTop(new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, magicNumber));
+        AbstractDungeon.actionManager.cardQueue.add(new CardQueueItem(this, true));
+        //this.addToTop(new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, magicNumber));
     }
     public void upgrade() {
         upgradeMagicNumber(1);

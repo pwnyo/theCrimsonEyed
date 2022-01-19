@@ -29,7 +29,7 @@ public class Fireball extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 1;  // COST = 1
+    private static final int COST = 2;
 
     private static final int MAGIC = 8;
 
@@ -54,8 +54,7 @@ public class Fireball extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(2);
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            upgradeBaseCost(1);
             initializeDescription();
         }
     }

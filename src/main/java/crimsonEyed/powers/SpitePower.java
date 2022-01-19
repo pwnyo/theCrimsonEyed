@@ -1,6 +1,9 @@
 package crimsonEyed.powers;
 
+import basemod.devcommands.draw.Draw;
 import basemod.interfaces.CloneablePowerInterface;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -8,6 +11,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.relics.GremlinHorn;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.patches.interfaces.IOnMonsterDeathListenerPower;
 
@@ -41,5 +45,7 @@ public class SpitePower extends AbstractPower implements CloneablePowerInterface
     public void onMonsterDeath(AbstractMonster monster) {
         flash();
         addToTop(new HealAction(AbstractDungeon.player, AbstractDungeon.player, amount));
+        addToBot(new GainEnergyAction(1));
+        addToBot(new DrawCardAction(1));
     }
 }

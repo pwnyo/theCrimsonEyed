@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
-import com.megacrit.cardcrawl.powers.EnergizedBluePower;
 import com.megacrit.cardcrawl.powers.NextTurnBlockPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import crimsonEyed.SasukeMod;
@@ -39,7 +38,7 @@ public class Read extends AbstractDynamicCard {
 
     private static final int COST = -2;
     private static final int BLOCK = 3;
-    private static final int MAGIC = 1;
+    private static final int MAGIC = 2;
 
     // /STAT DECLARATION/
 
@@ -65,7 +64,7 @@ public class Read extends AbstractDynamicCard {
         recalc();
         addToBot(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, block)));
         addToBot(new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p, magicNumber)));
-        addToBot(new ApplyPowerAction(p, p, new EnergizedBluePower(p, magicNumber)));
+        //addToBot(new ApplyPowerAction(p, p, new EnergizedBluePower(p, magicNumber)));
     }
     void recalc() {
         if (upgraded) {

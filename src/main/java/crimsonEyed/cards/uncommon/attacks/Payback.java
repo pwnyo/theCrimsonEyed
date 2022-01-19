@@ -68,6 +68,12 @@ public class Payback extends AbstractDynamicCard {
         }
     }
 
+    @Override
+    public void applyPowers() {
+        super.applyPowers();
+        triggerOnGlowCheck();
+    }
+
     // Upgraded stats.
     @Override
     public void upgrade() {

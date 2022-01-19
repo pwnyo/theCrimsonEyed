@@ -3,6 +3,8 @@ package crimsonEyed.cards.rare;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.Lightning;
 import crimsonEyed.SasukeMod;
@@ -18,6 +20,7 @@ public class IndraForm extends AbstractDynamicCard {
 
     public static final String ID = SasukeMod.makeID(IndraForm.class.getSimpleName());
     public static final String IMG = makeCardPath("IndraForm.png");
+    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     // /TEXT DECLARATION/
 
@@ -38,6 +41,7 @@ public class IndraForm extends AbstractDynamicCard {
     public IndraForm() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
+        isEthereal = true;
     }
 
 
@@ -55,7 +59,8 @@ public class IndraForm extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
+            isEthereal = false;
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

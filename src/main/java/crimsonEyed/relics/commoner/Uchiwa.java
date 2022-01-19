@@ -6,7 +6,10 @@ import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.relics.GamblingChip;
+import com.megacrit.cardcrawl.relics.WarpedTongs;
 import crimsonEyed.SasukeMod;
+import crimsonEyed.actions.unique.UchiwaAction;
 import crimsonEyed.util.TextureLoader;
 
 import static crimsonEyed.SasukeMod.makeRelicOutlinePath;
@@ -31,16 +34,7 @@ public class Uchiwa extends CustomRelic {
         if (!this.activated) {
             this.activated = true;
 
-            int count = 0;
-            for (AbstractCard c : AbstractDungeon.player.hand.group) {
-                if (c.isInnate)
-                    count++;
-            }
-            if (count > 0) {
-                this.flash();
-                this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-                addToBot(new DrawCardAction(count));
-            }
+            addToBot(new UchiwaAction(this));
         }
     }
 

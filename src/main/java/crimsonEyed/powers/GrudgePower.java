@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.CombustPower;
 import crimsonEyed.SasukeMod;
 
 public class GrudgePower extends AbstractPower {
@@ -37,8 +38,7 @@ public class GrudgePower extends AbstractPower {
     public void atEndOfTurn(boolean isPlayer) {
         if (isPlayer && !AbstractDungeon.player.hand.isEmpty()) {
             flash();
-            addToBot(new ExhaustAction(amount, true));
-            addToBot(new LoseHPAction(this.owner, this.owner, this.amount));
+            addToBot(new ExhaustAction(amount, false, true, true));
         }
     }
 }

@@ -39,7 +39,6 @@ public class Spite extends AbstractDynamicCard {
     public Spite() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
-        isInnate = true;
         tags.add(CardTags.HEALING);
     }
 
@@ -56,7 +55,8 @@ public class Spite extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(2);
+            isInnate = true;
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

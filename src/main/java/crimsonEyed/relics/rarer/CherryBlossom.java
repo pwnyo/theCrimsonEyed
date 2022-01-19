@@ -2,11 +2,15 @@ package crimsonEyed.relics.rarer;
 
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
+import com.megacrit.cardcrawl.actions.defect.IncreaseMaxOrbAction;
 import com.megacrit.cardcrawl.actions.unique.ExhumeAction;
 import com.megacrit.cardcrawl.actions.utility.ExhaustToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.util.TextureLoader;
 
@@ -34,8 +38,10 @@ public class CherryBlossom extends CustomRelic {
         if (counter == 5) {
             counter = 0;
             this.flash();
-            this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-            this.addToBot(new ExhumeAction(false));
+            AbstractPlayer p = AbstractDungeon.player;
+            this.addToBot(new RelicAboveCreatureAction(p, this));
+            addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, 1)));
+            addToBot(new IncreaseMaxOrbAction(1));
         }
     }
 

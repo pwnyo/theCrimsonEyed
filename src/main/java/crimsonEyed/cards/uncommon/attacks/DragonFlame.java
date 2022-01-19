@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import crimsonEyed.SasukeMod;
-import crimsonEyed.actions.common.ExhaustFromDiscardTopAction;
+import crimsonEyed.actions.unique.ExhaustAllNonSkillAction;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
 
@@ -34,7 +34,7 @@ public class DragonFlame extends AbstractDynamicCard {
     private static final int COST = 2;  // COST = 2
 
     private static final int DAMAGE = 20;
-    private static final int UPGRADE_PLUS_DMG = 5;
+    private static final int UPGRADE_PLUS_DMG = 8;
 
     // /STAT DECLARATION/
 
@@ -42,14 +42,15 @@ public class DragonFlame extends AbstractDynamicCard {
     public DragonFlame() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
+        exhaust = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new ExhaustAllNonSkillAction());
         addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
-        addToBot(new ExhaustFromDiscardTopAction(2));
     }
 
 

@@ -42,6 +42,7 @@ public class SeverThePast extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = block = BLOCK;
         baseMagicNumber = magicNumber = MAGIC;
+        exhaust = true;
     }
 
 

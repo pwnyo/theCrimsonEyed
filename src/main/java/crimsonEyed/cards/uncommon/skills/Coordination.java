@@ -76,7 +76,7 @@ public class Coordination extends AbstractDynamicCard {
         checkMaskDesc();
     }
     void checkMaskDesc() {
-        if (AbstractDungeon.player.hasRelic(NohMask.ID)) {
+        if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && AbstractDungeon.player.hasRelic(NohMask.ID)) {
             rawDescription = upgraded ? cardStrings.EXTENDED_DESCRIPTION[1] : cardStrings.EXTENDED_DESCRIPTION[0];
         }
         else {

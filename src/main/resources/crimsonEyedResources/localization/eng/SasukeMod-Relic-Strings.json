@@ -47,7 +47,7 @@
     ]
   },
   "crimsonEyed:CrowFeather": {
-    "NAME": "CrowFeather",
+    "NAME": "Crow Feather",
     "FLAVOR": "You can feel it in the palm of your hand, yet cannot be certain it's really there.",
     "DESCRIPTIONS": [
       "Whenever you apply a debuff to an enemy, gain #b",
@@ -67,7 +67,7 @@
     "FLAVOR": "A blue snake's scale. Its rouses some part of you otherwise kept shut away.",
     "DESCRIPTIONS": [
       "If you have #b",
-      " or more Curses in your deck, gain [E] at the start of your turn."
+      " or more #rCurses in your deck, gain [E] at the start of your turn."
     ]
   },
   "crimsonEyed:CherryBlossom": {
@@ -75,7 +75,7 @@
     "FLAVOR": "PLACEHOLDER.",
     "DESCRIPTIONS": [
       "Every time you #yExhaust #b",
-      " cards, put up to #b1 card from your #yExhaust pile into your hand."
+      " cards, gain #b1 Orb slot and #b1 #yStrength."
     ]
   },
   "crimsonEyed:NohMask": {

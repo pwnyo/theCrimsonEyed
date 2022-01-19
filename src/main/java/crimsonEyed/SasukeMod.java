@@ -18,7 +18,6 @@ import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import crimsonEyed.cards.AbstractDefaultCard;
-import crimsonEyed.cards.temp.EnduringFlame;
 import crimsonEyed.characters.TheCrimsonEyed;
 import crimsonEyed.potions.ParalysisPotion;
 import crimsonEyed.potions.ScryPotion;

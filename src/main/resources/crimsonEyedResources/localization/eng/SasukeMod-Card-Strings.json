@@ -26,10 +26,10 @@
   },
   "crimsonEyed:Anticipate": {
     "NAME": "Anticipate",
-    "DESCRIPTION": "Choose one: NL Gain !M! Block or next turn, gain !B! Block, draw 1 additional card, and gain [E] .",
+    "DESCRIPTION": "Choose one: NL Gain !M! Block or next turn, gain !B! Block and draw 2 additional cards.",
     "EXTENDED_DESCRIPTION": [
-      "Choose one: Gain 2 *Plated *Armor, gain !M! Block, or next turn, gain !B! Block, draw 1 additional card, and gain [E] .",
-      "Choose one: Gain 2 *Plated *Armor, gain !M! Block, or next turn, gain !B! Block, draw 1 additional card, and gain [E] ."
+      "Choose one: Gain 2 *Plated *Armor, gain !M! Block, or next turn, gain !B! Block and draw 2 additional cards.",
+      "Choose one: Gain 3 *Plated *Armor, gain !M! Block, or next turn, gain !B! Block and draw 2 additional cards."
     ]
   },
   "crimsonEyed:Awakening": {
@@ -119,7 +119,7 @@
   },
   "crimsonEyed:DragonFlame": {
     "NAME": "Dragon Flame",
-    "DESCRIPTION": "Deal !D! damage. NL Exhaust the top 2 cards of your discard pile."
+    "DESCRIPTION": "Exhaust all non-Skill cards in your hand. NL Deal !D! damage. NL Exhaust."
   },
   "crimsonEyed:Endure": {
     "NAME": "Endure",
@@ -148,8 +148,7 @@
   },
   "crimsonEyed:Fireball": {
     "NAME": "Great Fireball",
-    "DESCRIPTION": "Exhaust a random card. NL Deal damage equal to !M! times its cost to ALL enemies.",
-    "UPGRADE_DESCRIPTION": "Exhaust a card. NL Deal damage equal to !M! times its cost to ALL enemies."
+    "DESCRIPTION": "Exhaust a card. NL Deal damage equal to !M! times its cost to ALL enemies."
   },
   "crimsonEyed:FromDiscardPile": {
     "NAME": "From Discard",
@@ -215,7 +214,8 @@
   },
   "crimsonEyed:IndraForm": {
     "NAME": "Indra Form",
-    "DESCRIPTION": "Channel !M! Lightning. At the start of your turn, Channel 1 Lightning for each Orb slot."
+    "DESCRIPTION": "Ethereal. NL At the start of NL your turn, Channel NL 1 Lightning for each Orb slot.",
+    "UPGRADE_DESCRIPTION": "At the start of NL your turn, Channel NL 1 Lightning for each Orb slot."
   },
   "crimsonEyed:IndrasArrow": {
     "NAME": "Indra's Arrow",
@@ -262,7 +262,7 @@
   },
   "crimsonEyed:Kirin2": {
     "NAME": "Kirin",
-    "DESCRIPTION": "Retain. NL Gain 1 temporary Focus for each card in your Exhaust pile. NL Evoke all your Orbs. NL Exhaust."
+    "DESCRIPTION": "Channel 1 Lightning. NL Gain 1 temporary Focus for each card in your Exhaust pile. NL Evoke all your Orbs."
   },
   "crimsonEyed:LionsBarrage": {
     "NAME": "Lion's Barrage",
@@ -338,7 +338,7 @@
   },
   "crimsonEyed:Read": {
     "NAME": "Read",
-    "DESCRIPTION": "Next turn, gain !B! Block, draw 1 additional card, and gain [E] ."
+    "DESCRIPTION": "Next turn, gain !B! Block and draw 2 additional cards."
   },
   "crimsonEyed:Reminisce": {
     "NAME": "Reminisce",
@@ -412,8 +412,8 @@
   },
   "crimsonEyed:SixthSense": {
     "NAME": "Sixth Sense",
-    "DESCRIPTION": "Scry 5. NL Draw !M! card. NL Gain [E] next turn.",
-    "UPGRADE_DESCRIPTION": "Scry 5. NL Draw !M! cards. NL Gain [E] next turn."
+    "DESCRIPTION": "Scry 5. NL Draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Scry 5. NL Draw !M! cards."
   },
   "crimsonEyed:SkeletonShield": {
     "NAME": "Skeleton Shield",
@@ -465,7 +465,8 @@
   },
   "crimsonEyed:Spite": {
     "NAME": "Spite",
-    "DESCRIPTION": "Innate. NL Whenever you deal Fatal damage, NL heal !M! HP."
+    "DESCRIPTION": "Whenever you deal Fatal damage, heal !M! HP, draw 1 card, and gain [E].",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you deal Fatal damage, heal !M! HP, draw 1 card, and gain [E]."
   },
   "crimsonEyed:Strike": {
     "NAME": "Strike",
@@ -481,7 +482,7 @@
   },
   "crimsonEyed:SureFire": {
     "NAME": "Sure-Fire",
-    "DESCRIPTION": "Deal !D! damage. NL If the enemy has Lock-On, gain [E] and draw 1 card."
+    "DESCRIPTION": "Deal !D! damage. NL On Exhaust: Put a copy of this card into your hand."
   },
   "crimsonEyed:Surveil": {
     "NAME": "Surveil",
