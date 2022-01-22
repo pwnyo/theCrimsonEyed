@@ -5,8 +5,10 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.watcher.BattleHymnPower;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
+import crimsonEyed.cards.temp.Resentment;
 import crimsonEyed.characters.TheCrimsonEyed;
 import crimsonEyed.powers.GrudgePower;
 
@@ -40,6 +42,7 @@ public class Grudge extends AbstractDynamicCard {
     public Grudge() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
+        cardsToPreview = new Resentment();
     }
 
 

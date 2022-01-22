@@ -32,7 +32,7 @@ public class Revolution extends AbstractDynamicCard {
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 2;
-    private static final int MAGIC = 1;
+    private static final int MAGIC = 2;
     private static final int UPGRADE_MAGIC = 1;
 
     // /STAT DECLARATION/
@@ -44,26 +44,6 @@ public class Revolution extends AbstractDynamicCard {
     }
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(p, p, new RevolutionPower(p, magicNumber)));
-        /*
-        int count = 0;
-        for (AbstractCard c : p.drawPile.group) {
-            if (c.type == CardType.CURSE || c.type == CardType.STATUS) {
-                count++;
-            }
-        }
-        for (AbstractCard c : p.discardPile.group) {
-            if (c.type == CardType.CURSE || c.type == CardType.STATUS) {
-                count++;
-            }
-        }
-        for (AbstractCard c : p.hand.group) {
-            if (c.type == CardType.CURSE || c.type == CardType.STATUS) {
-                count++;
-            }
-        }
-        if (count > 0)
-            addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, count * magicNumber)));
-        */
     }
 
     // Upgraded stats.

@@ -60,9 +60,9 @@
         "crimsonEyed:GrudgePower": {
                 "NAME": "Grudge",
                 "DESCRIPTIONS": [
-                        "At the end of your turn, #yExhaust up to #b",
-                        " card.",
-                        " cards."
+                        "At the start of your turn, add a #b",
+                        " #yResentments into your hand.",
+                        " #yResentment into your hand."
                 ]
         },
         "crimsonEyed:IndraFormPower": {

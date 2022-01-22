@@ -41,7 +41,7 @@ public class UniversalPull extends AbstractDynamicCard {
     public UniversalPull() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
-        purgeOnUse = true;
+        selfRetain = true;
     }
 
 

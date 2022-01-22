@@ -88,7 +88,7 @@ public class Analyze extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBlock(4);
+            upgradeMagicNumber(2);
             initializeDescription();
         }
     }

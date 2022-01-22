@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 public class CopyFromTopAction extends AbstractGameAction {
     private boolean upgrade;
 
-    public CopyFromTopAction(int amount, boolean upgrade) {
+    public CopyFromTopAction(int amount) {
         this.actionType = ActionType.CARD_MANIPULATION;
         this.amount = amount;
         this.duration = Settings.ACTION_DUR_FAST;

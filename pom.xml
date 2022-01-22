@@ -6,7 +6,7 @@
     <groupId>crimsoneyed</groupId>
     <artifactId>TheCrimsonEyed</artifactId> <!--Keep a note of this one: this is the ID used in the "auto add cards" method-->
     <name>The Crimson-Eyed</name>
-    <version>1.0.0</version>
+    <version>1.0.5</version>
     <description>Adds Sasuke into the game. Features 80+ new cards, 11 relics, and 3 potions!
 An avenger driven by Hatred.\n
 Major themes:

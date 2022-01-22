@@ -31,7 +31,7 @@ public class Fireball extends AbstractDynamicCard {
 
     private static final int COST = 2;
 
-    private static final int MAGIC = 8;
+    private static final int MAGIC = 10;
 
     // /STAT DECLARATION/
 

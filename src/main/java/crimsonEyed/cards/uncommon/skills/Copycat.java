@@ -43,7 +43,7 @@ public class Copycat extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ScryAction(1));
-        addToBot(new CopyFromTopAction(1, upgraded));
+        addToBot(new CopyFromTopAction(1));
     }
 
     // Upgraded stats.
