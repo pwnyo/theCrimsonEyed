@@ -1,0 +1,188 @@
+﻿{
+        "crimsonEyed:AmaterasuBarrierPower": {
+                "NAME": "Amaterasu Barrier",
+                "DESCRIPTIONS": [
+                        "Whenever you take unblocked Attack damage, #yChannel #b",
+                        " #yDark. (Wears off at the end of your turn.)"
+                ]
+        },
+        "crimsonEyed:BlazeBarrierPower": {
+                "NAME": "Окружающее Пламя",
+                "DESCRIPTIONS": [
+                        "Даёт #b",
+                        " #yОгненного #yБарьера, когда активируется пассивный эффект #yСферы #yТьмы."
+                ]
+        },
+        "crimsonEyed:CommonPower": {
+                "NAME": "Placeholder Power",
+                "DESCRIPTIONS": [
+                        "You applied #b",
+                        " keyword.",
+                        " keywords."
+                ]
+        },
+        "crimsonEyed:ElectrifyPower": {
+                "NAME": "Поток Чидори",
+                "DESCRIPTIONS": [
+                        "#yСферы #yМолнии бьют по ВСЕМ врагам следующие #b",
+                        " хода.",
+                        "#yСферы #yМолнии бьют по ВСЕМ врагам в этом ходу."
+                ]
+        },
+        "crimsonEyed:ExplosivePower": {
+                "NAME": "Explosive",
+                "DESCRIPTIONS": [
+                        "The next time you #yExhaust a card, enemy takes #b",
+                        " damage."
+                ]
+        },
+        "crimsonEyed:ExhaustDamagePower": {
+                "NAME": "Цветы Феникса",
+                "DESCRIPTIONS": [
+                        "Наносит #b",
+                        " урона случаному врагу, когда вы #yСжигаете Карту."
+                ]
+        },
+        "crimsonEyed:FatePower": {
+                "NAME": "Fate",
+                "DESCRIPTIONS": [
+                        "Negates #b",
+                        " buff.",
+                        " buffs."
+                ]
+        },
+        "crimsonEyed:GradualFocusLossPower": {
+                "NAME": "Strain",
+                "DESCRIPTIONS": [
+                        "At the end of your turn, lose #b1 #yFocus and reduce #yStrain by #b1."
+                ]
+        },
+        "crimsonEyed:GrudgePower": {
+                "NAME": "Grudge",
+                "DESCRIPTIONS": [
+                        "At the start of your turn, add a #b",
+                        " #yResentments into your hand.",
+                        " #yResentment into your hand."
+                ]
+        },
+        "crimsonEyed:IndraFormPower": {
+                "NAME": "Облик Индры",
+                "DESCRIPTIONS": [
+                        "#yЗаряжает #b",
+                        " #yСфер #yМолнии за каждый #bСлот для сфер в начале каждого вашего хода."
+                ]
+        },
+        "crimsonEyed:KagutsuchiPower": {
+                "NAME": "Кагуцучи",
+                "DESCRIPTIONS": [
+                        "Активирует пассивный эффект след. в очереди #yСферы #b",
+                        " раз, когда вы разыгрываете #yАтаку в этом ходу.",
+                        " раза, когда вы разыгрываете #yАтаку в этом ходу."
+                ]
+        },
+        "crimsonEyed:LightningSpeedPower": {
+                "NAME": "Мгновение",
+                "DESCRIPTIONS": [
+                        "Если вы сыграете ещё #b",
+                        " #yАтаки в этом ходу, #yЗаряжает #b",
+                        " #yСферу(ы) #yМолнии.",
+                        " #yАтаку в этом ходу, #yЗаряжает #b"
+                ]
+        },
+        "crimsonEyed:LoseFocusPower": {
+                "NAME": "Потеря Фокуса",
+                "DESCRIPTIONS": [
+                        "Отнимает #b",
+                        " #yФокуса в конце этого хода."
+                ]
+        },
+        "crimsonEyed:MandaPower": {
+                "NAME": "Manda",
+                "DESCRIPTIONS": [
+                        "The next #b",
+                        " times you would die this combat, heal to #b20% HP instead and lose #b1 Manda."
+                ]
+        },
+        "crimsonEyed:MangekyouPower": {
+                "NAME": "Mangekyou",
+                "DESCRIPTIONS": [
+                        "At the end of your turn, lose #b",
+                        " HP and gain #b",
+                        " #yFocus."
+                ]
+        },
+        "crimsonEyed:MangekyouPower2": {
+                "NAME": "Мангекё",
+                "DESCRIPTIONS": [
+                        "Даёт #b",
+                        " #yФокуса, когда вы теряете ОЗ от карты."
+                ]
+        },
+        "crimsonEyed:OneStepAheadPower": {
+                "NAME": "На Шаг Впереди",
+                "DESCRIPTIONS": [
+                        "Вы #yОставляете до #b1 карты в конце следующих #b",
+                        " ходов.",
+                        "Вы #yОставляете до #b1 карты в конце этого хода."
+                ]
+        },
+        "crimsonEyed:PerceptionPower": {
+                "NAME": "Восприятие",
+                "DESCRIPTIONS": [
+                        "Вы берёте #b",
+                        " карту, когда #yПредсказываете.",
+                        " карты, когда #yПредсказываете."
+                ]
+        },
+        "crimsonEyed:PunishmentPower": {
+                "NAME": "Цукуёми",
+                "DESCRIPTIONS": [
+                        "Теряет #b",
+                        " ОЗ за каждый дебафф в начале своего хода."
+                ]
+        },
+        "crimsonEyed:RarePower": {
+                "NAME": "Placeholder Power",
+                "DESCRIPTIONS": [
+                        "At the start of your turn, TOUCH #b",
+                        " enemy.",
+                        " enemies."
+                ]
+        },
+        "crimsonEyed:ResentmentPower": {
+                "NAME": "Resentment",
+                "DESCRIPTIONS": [
+                        "Whenever you lose HP, gain #b",
+                        " #yBlock next turn."
+                ]
+        },
+        "crimsonEyed:RevolutionPower": {
+                "NAME": "Революция!",
+                "DESCRIPTIONS": [
+                        "Даёт #b",
+                        " #yСилы, когда вы берёте #yСтатус или #yПроклятье."
+                ]
+        },
+        "crimsonEyed:SeverThePastPower": {
+                "NAME": "Sever the Past",
+                "DESCRIPTIONS": [
+                        "Exhaust any card that enters your discard pile. At the start of your turn, gain #yBlock equal to the number of cards in your #yExhaust pile."
+                ]
+        },
+        "crimsonEyed:SpitePower": {
+                "NAME": "Озлобленность",
+                "DESCRIPTIONS": [
+                        "Восполняет #b",
+                        " ОЗ, даёт максимум 1 [E] и вы добираете максимум 1 карту, когда #yКазните врага."
+                ]
+        },
+        "crimsonEyed:SpaceTimePower": {
+                "NAME": "Universal Pull",
+                "DESCRIPTIONS": [
+                        "In #b",
+                        " turn, add ",
+                        " into your hand.",
+                        " turns, add "
+                ]
+        }
+}

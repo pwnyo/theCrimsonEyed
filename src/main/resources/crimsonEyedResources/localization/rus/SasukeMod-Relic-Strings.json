@@ -1,0 +1,134 @@
+﻿{
+  "crimsonEyed:PlaceholderRelic": {
+    "NAME": "Placeholder Energy Relic",
+    "FLAVOR": "The snake is a friend.",
+    "DESCRIPTIONS": [
+      "Gain #b1 [E] ."
+    ]
+  },
+  "crimsonEyed:PlaceholderRelic2": {
+    "NAME": "Placeholder Relic 2",
+    "FLAVOR": "You feel stronger.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, gain #b1 #yStrength."
+    ]
+  },
+  "crimsonEyed:DefaultClickableRelic": {
+    "NAME": "Right-Clicky Relic",
+    "FLAVOR": "The more you right-click it, the more orbs you've evoked in your lifetime.",
+    "DESCRIPTIONS": [
+      "[#2aecd7]Usable [#2aecd7]once [#2aecd7]per [#2aecd7]turn.[] NL #yEvoke your rightmost Orb.",
+      "YOU ARE MINE!"
+    ]
+  },
+  "crimsonEyed:BottledPlaceholderRelic": {
+    "NAME": "Bottled Placeholder",
+    "FLAVOR": "What is this?",
+    "DESCRIPTIONS": [
+      "Choose a card. Whenever you take play any card, draw the chosen card.",
+      "Whenever you play a card, draw ",
+      ".",
+      "Select a card to bottle for "
+    ]
+  },
+  "crimsonEyed:CrimsonEye": {
+    "NAME": "Кровавый Глаз",
+    "FLAVOR": "Одинственный. Его радужка пульсирует тусклым красным цветом.",
+    "DESCRIPTIONS": [
+      "В начале каждого боя накладывает #b1 #yЗахват #yЦели на ВСЕХ врагов."
+    ]
+  },
+  "crimsonEyed:CrimsonEye2": {
+    "NAME": "Кровавый Глаз",
+    "FLAVOR": "Your eye, steeped in Hatred. Perceives the truth and fabricates illusion.",
+    "DESCRIPTIONS": [
+      "Даёт #b",
+      " #yФокуса, если ваш запас ОЗ не более #b50%."
+    ]
+  },
+  "crimsonEyed:CrowFeather": {
+    "NAME": "Перо Ворона",
+    "FLAVOR": "Вы можете держать это перо в руке, но вы не можете быть уверены, что оно лежит именно там.",
+    "DESCRIPTIONS": [
+      "Даёт #b",
+      " #yЗащиты, когда вы накладываете дебафф на врага."
+    ]
+  },
+  "crimsonEyed:EternalEye": {
+    "NAME": "Вечный Глаз",
+    "FLAVOR": "Пробуждённый в самых тёмных глубинах души.",
+    "DESCRIPTIONS": [
+      "Заменяет #yКровавый #yГлаз. В начале каждого боя даёт #b",
+      " #yФокуса."
+    ]
+  },
+  "crimsonEyed:BlueScale": {
+    "NAME": "Синяя Чешуйка",
+    "FLAVOR": "Чешуйка большой Синей Змеи. Чробуждает какую-то часть вас, которую иначе держали бы взаперти.",
+    "DESCRIPTIONS": [
+      "Даёт [E] в начале вашего хода, если в колоде #b",
+      " или больше #rПроклятий."
+    ]
+  },
+  "crimsonEyed:CherryBlossom": {
+    "NAME": "Цветок Сакуры",
+    "FLAVOR": "PLACEHOLDER.",
+    "DESCRIPTIONS": [
+      "Даёт #b1 #yСлот для Сфер и #b1 #yСилу, когда вы #yСжигаете #b",
+      " карт."
+    ]
+  },
+  "crimsonEyed:NohMask": {
+    "NAME": "Маска Но",
+    "FLAVOR": "Маска Жнеца. Надевая её вы выходите на перекрёсток жизни и смерти.",
+    "DESCRIPTIONS": [
+      "Карты с эффектом #b'Выберите #bодно' получают дополнительную опцию."
+    ]
+  },
+  "crimsonEyed:PaperSnek": {
+    "NAME": "Бумажная Смея",
+    "FLAVOR": "Измятые кривые создают очертания агонизирующего существа.",
+    "DESCRIPTIONS": [
+      "Враги, #yЗахваченные #yЦелью получают на #b75% больше урона (вместо #b50%)."
+    ]
+  },
+  "crimsonEyed:Kaleidoscope": {
+    "NAME": "Колейдоскоп",
+    "FLAVOR": "Мириады цветов.",
+    "DESCRIPTIONS": [
+      "В начале каждого боя накладывает #b",
+      " #yЗахват #yЦели на ВСЕХ врагов."
+    ]
+  },
+  "crimsonEyed:ScratchedHeadband": {
+    "NAME": "Поцарапанная Бондана",
+    "FLAVOR": "Напоминание об связях, когда-то треснувших и истончившихся, но никогда не разорвавшихся. Вы держите её крепко, боясь обронить.",
+    "DESCRIPTIONS": [
+      "Преобразует всю вашу #yНенависть в #yВечный #yОгонь. #yОбострение влияет на #yВечный #yОгонь."
+    ]
+  },
+  "crimsonEyed:StoneTablet": {
+    "NAME": "Каменная Плита",
+    "FLAVOR": "Предсказание начертано на языке, который вы никогда не знали. Но каким-то чудом вы понимаете написанное...",
+    "DESCRIPTIONS": [
+      "Вы #yПредсказываете #b",
+      " карты в начале вашего хода, если вы потеряли ОЗ в предыдущем ходу."
+    ]
+  },
+  "crimsonEyed:StoneTabletOLD": {
+    "NAME": "Stone Tablet",
+    "FLAVOR": "A prophecy is inscribed in a language you've never seen before. Somehow, you can read it.",
+    "DESCRIPTIONS": [
+      "Every time you #yScry #b",
+      " times, deal #b",
+      " damage to ALL enemies."
+    ]
+  },
+  "crimsonEyed:Uchiwa": {
+    "NAME": "Символ Учиха",
+    "FLAVOR": "Бумажный веер. Когда-то использовался для того, чтобы вести солдат в бой.",
+    "DESCRIPTIONS": [
+      "Вы берёте #b1 карту за каждую #yНачальную карту в руке в начале боя."
+    ]
+  }
+}

@@ -74,7 +74,7 @@
   },
   "crimsonEyed:Copycat": {
     "NAME": "Copycat",
-    "DESCRIPTION": "Scry 1. NL Put an Upgraded copy of the top card of your discard pile into your hand."
+    "DESCRIPTION": "Scry !M!. NL Put an Upgraded copy of the top card of your discard pile into your hand."
   },
   "crimsonEyed:AbsorbChakra": {
     "NAME": "Absorb Chakra",
@@ -263,8 +263,8 @@
   },
   "crimsonEyed:OneStepAhead": {
     "NAME": "One Step Ahead",
-    "DESCRIPTION": "Deal !D! damage. NL At the end of this turn, Retain up to !M! card.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL At the end of your next 2 turns, Retain up to !M! card."
+    "DESCRIPTION": "Deal !D! damage. NL At the end of this turn, Retain up to 1 card.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL At the end of your next 2 turns, Retain up to 1 card."
   },
   "crimsonEyed:PaperBomb": {
     "NAME": "Paper Bomb",
@@ -317,6 +317,11 @@
     "NAME": "Rend",
     "DESCRIPTION": "Deal damage equal to 15% of the enemy's Max HP.",
     "UPGRADE_DESCRIPTION": "Deal damage equal to 20% of the enemy's Max HP."
+  },
+  "crimsonEyed:Resentment": {
+    "NAME": "Resentment",
+    "DESCRIPTION": "Ethereal. NL Exhaust !M! card. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Ethereal. NL Exhaust !M! card. NL Exhaust."
   },
   "crimsonEyed:Revolution": {
     "NAME": "Revolution",
@@ -491,10 +496,6 @@
   "crimsonEyed:PhoenixFlower": {
     "NAME": "DEPRECATED:Phoenix Flower",
     "DESCRIPTION": "Deal !D! damage to a random enemy !M! times. NL Exhaust a card in your discard pile."
-  },
-  "crimsonEyed:Resentment": {
-    "NAME": "DEPRECATED:Resentment",
-    "DESCRIPTION": "Ethereal. NL Exhaust 1 card. NL Exhaust."
   },
   "crimsonEyed:SecretsOfTheUchiha": {
     "NAME": "DEPRECATED:Secrets of the Uchiha",

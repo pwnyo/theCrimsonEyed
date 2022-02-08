@@ -28,7 +28,7 @@ public class Copycat extends AbstractDynamicCard {
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 1;
-    private static final int MAGIC = 1;
+    private static final int MAGIC = 3;
 
     // /STAT DECLARATION/
 
@@ -42,7 +42,7 @@ public class Copycat extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ScryAction(1));
+        addToBot(new ScryAction(magicNumber));
         addToBot(new CopyFromTopAction(1));
     }
 

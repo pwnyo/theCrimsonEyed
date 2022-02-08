@@ -31,7 +31,7 @@ public class BlazeBarrier2 extends AbstractDynamicCard {
 
     private static final int COST = 2;
     private static final int MAGIC = 3;
-    private static final int BLOCK = 10;
+    private static final int BLOCK = 11;
 
     // /STAT DECLARATION/
 

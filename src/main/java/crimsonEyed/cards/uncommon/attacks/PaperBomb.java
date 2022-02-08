@@ -44,7 +44,7 @@ public class PaperBomb extends AbstractDynamicCard {
     public PaperBomb() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
-        baseMagicNumber = magicNumber = DAMAGE * 3;
+        baseMagicNumber = magicNumber = DAMAGE * 4;
     }
 
 
@@ -65,7 +65,7 @@ public class PaperBomb extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_DAMAGE);
-            upgradeMagicNumber(UPGRADE_DAMAGE * 3);
+            upgradeMagicNumber(UPGRADE_DAMAGE * 4);
             initializeDescription();
         }
     }

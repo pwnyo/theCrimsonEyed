@@ -87,7 +87,7 @@ public class Dice extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
-            applyPowers();
+            recalc();
             initializeDescription();
         }
     }

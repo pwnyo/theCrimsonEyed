@@ -479,15 +479,15 @@ public class SasukeMod implements
         
         // CardStrings
         BaseMod.loadCustomStringsFile(CardStrings.class,
-                getModID() + "Resources/localization/eng/SasukeMod-Card-Strings.json");
+                getModID() + makeLocPath("SasukeMod-Card-Strings.json"));
         
         // PowerStrings
         BaseMod.loadCustomStringsFile(PowerStrings.class,
-                getModID() + "Resources/localization/eng/SasukeMod-Power-Strings.json");
+                getModID() + makeLocPath("SasukeMod-Power-Strings.json"));
         
         // RelicStrings
         BaseMod.loadCustomStringsFile(RelicStrings.class,
-                getModID() + "Resources/localization/eng/SasukeMod-Relic-Strings.json");
+                getModID() + makeLocPath("SasukeMod-Relic-Strings.json"));
         
         // Event Strings
         BaseMod.loadCustomStringsFile(EventStrings.class,
@@ -495,11 +495,11 @@ public class SasukeMod implements
         
         // PotionStrings
         BaseMod.loadCustomStringsFile(PotionStrings.class,
-                getModID() + "Resources/localization/eng/SasukeMod-Potion-Strings.json");
+                getModID() + makeLocPath("SasukeMod-Potion-Strings.json"));
         
         // CharacterStrings
         BaseMod.loadCustomStringsFile(CharacterStrings.class,
-                getModID() + "Resources/localization/eng/SasukeMod-Character-Strings.json");
+                getModID() + makeLocPath("SasukeMod-Character-Strings.json"));
         
         // OrbStrings
         BaseMod.loadCustomStringsFile(OrbStrings.class,
@@ -523,7 +523,7 @@ public class SasukeMod implements
         // In Keyword-Strings.json you would have PROPER_NAME as A Long Keyword and the first element in NAMES be a long keyword, and the second element be a_long_keyword
         
         Gson gson = new Gson();
-        String json = Gdx.files.internal(getModID() + "Resources/localization/eng/SasukeMod-Keyword-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String json = Gdx.files.internal(getModID() + makeLocPath("SasukeMod-Keyword-Strings.json")).readString(String.valueOf(StandardCharsets.UTF_8));
         com.evacipated.cardcrawl.mod.stslib.Keyword[] keywords = gson.fromJson(json, com.evacipated.cardcrawl.mod.stslib.Keyword[].class);
         
         if (keywords != null) {
@@ -533,7 +533,21 @@ public class SasukeMod implements
             }
         }
     }
-    
+
+    private static String makeLocPath(String filename)
+    {
+        String toReturn = "Resources/localization/";
+        switch (Settings.language)
+        {
+            case RUS:
+                toReturn += "rus/";
+                break;
+            default:
+                toReturn += "eng/";
+                break;
+        }
+        return (toReturn + filename);
+    }
     // ================ /LOAD THE KEYWORDS/ ===================    
     
     // this adds "ModName:" before the ID of any card/relic/power etc.

@@ -58,7 +58,11 @@ public class React extends AbstractDynamicCard {
         addToBot(new GainBlockAction(p, block));
     }
     void recalc() {
-        if (upgraded) {
+        if (!(CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null
+                && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT)) {
+            return;
+        }
+            if (upgraded) {
             this.baseBlock = block = BLOCK + 2;
             this.upgradedBlock = true;
         }

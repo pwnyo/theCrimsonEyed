@@ -55,6 +55,7 @@ public class AlmightyPush extends AbstractDynamicCard {
     public void onChoseThisOption() {
         addToBot(new MakeTempCardInHandAction(this));
     }
+
     @Override
     public void upgrade() {
         if (!upgraded) {

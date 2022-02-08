@@ -1,0 +1,64 @@
+﻿[
+  {
+    "NAMES": [
+      "keyword",
+      "keywords"
+    ],
+    "DESCRIPTION": "Whenever you play a card, gain 1 dexterity this turn only."
+  },
+  {
+    "PROPER_NAME": "Multiword Keyword",
+    "NAMES": [
+      "Multiword Keyword",
+      "multiword_keyword",
+      "multiword_keywords",
+      "multikey",
+      "multikeyword"
+    ],
+    "DESCRIPTION": "Make sure the first element in the NAMES is the same as your PROPER_NAME. The rest is to match keywords like the single word keyword."
+  },
+  {
+    "PROPER_NAME": "Explosive",
+    "NAMES": [
+      "explosive",
+      "Explosive"
+    ],
+    "DESCRIPTION": "The next time you #yExhaust a card, enemy takes damage."
+  },
+  {
+    "PROPER_NAME": "Ненависть",
+    "NAMES": [
+      "ненависть",
+      "Ненависть",
+      "Hatreds"
+    ],
+    "DESCRIPTION": "#rНенависть это особое усиливаемое проклятье, отнимающее ваши ОЗ."
+  },
+  {
+    "PROPER_NAME": "Fate",
+    "NAMES": [
+      "fate",
+      "Fate"
+    ],
+    "DESCRIPTION": "Negates the next buff. Applied through #yArtifact."
+  },
+  {
+    "PROPER_NAME": "Огненный Барьер",
+    "NAMES": [
+      "Огненный Барьер",
+      "огненный_барьер",
+      "Огненный_Барьер",
+      "огненного_барьера",
+      "Огненного_Барьера"
+    ],
+    "DESCRIPTION": "Наносит урон в ответ на каждую атаку в этом ходу."
+  },
+  {
+    "PROPER_NAME": "Обострение",
+    "NAMES": [
+      "обостряет",
+      "Обостряет"
+    ],
+    "DESCRIPTION": "Кладёт ВСЕ несожжённые карты #rНенависти в руку и усиливает их потрю ОЗ на 1. Если таких нет, создаёт в руке одну такую карту."
+  }
+]

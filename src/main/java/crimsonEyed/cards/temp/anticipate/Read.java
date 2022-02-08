@@ -67,6 +67,10 @@ public class Read extends AbstractDynamicCard {
         //addToBot(new ApplyPowerAction(p, p, new EnergizedBluePower(p, magicNumber)));
     }
     void recalc() {
+        if (!(CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null
+                && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT)) {
+            return;
+        }
         if (upgraded) {
             this.baseBlock = block = BLOCK + 2;
             this.upgradedBlock = true;

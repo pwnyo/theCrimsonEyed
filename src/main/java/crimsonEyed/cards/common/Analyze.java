@@ -57,16 +57,6 @@ public class Analyze extends AbstractDynamicCard {
         this.isBlockModified = false;
         float tmp = (float)this.baseBlock;
 
-        Iterator var2;
-        AbstractPower p;
-        for(var2 = AbstractDungeon.player.powers.iterator(); var2.hasNext(); tmp = p.modifyBlock(tmp, this)) {
-            p = (AbstractPower)var2.next();
-        }
-
-        for(var2 = AbstractDungeon.player.powers.iterator(); var2.hasNext(); tmp = p.modifyBlockLast(tmp)) {
-            p = (AbstractPower)var2.next();
-        }
-
         AbstractPower focus = AbstractDungeon.player.getPower(FocusPower.POWER_ID);
         if (focus != null) {
             tmp += focus.amount * magicNumber;
@@ -78,6 +68,16 @@ public class Analyze extends AbstractDynamicCard {
 
         if (tmp < 0.0F) {
             tmp = 0.0F;
+        }
+
+        Iterator var2;
+        AbstractPower p;
+        for(var2 = AbstractDungeon.player.powers.iterator(); var2.hasNext(); tmp = p.modifyBlock(tmp, this)) {
+            p = (AbstractPower)var2.next();
+        }
+
+        for(var2 = AbstractDungeon.player.powers.iterator(); var2.hasNext(); tmp = p.modifyBlockLast(tmp)) {
+            p = (AbstractPower)var2.next();
         }
 
         this.block = MathUtils.floor(tmp);

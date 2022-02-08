@@ -1,0 +1,22 @@
+﻿{
+
+        "crimsonEyed:ParalysisPotion": {
+                "NAME": "Зелье Паралича",
+                "DESCRIPTIONS": ["Отнимает у врага #b", " Силы."]
+        },
+        "crimsonEyed:PlaceholderPotion": {
+                "NAME": "Placeholder Potion",
+                "DESCRIPTIONS": ["Gain ", " At the end of your turn, lose ", " Strength."]
+        },
+        "crimsonEyed:ScryPotion": {
+                "NAME": "Зелье Предсказания",
+                "DESCRIPTIONS": ["Вы #yПредсказываете #b", " карт. Тяните на 1 карту больше в начале вашего следующего хода."]
+        },
+        "crimsonEyed:YinVessel": {
+                "NAME": "Сосуд Инь",
+                "DESCRIPTIONS": [
+                        "Выберите #b1 из #b5 случайных редких карт (по 1-й от каждого другого цвета) и добавьте её в руку. Она стоит #b0 в этом ходу.",
+                        "Выберите #b1 из #b5 случайных редких карт (по 1-й от каждого другого цвета) и добавьте #b2 её копии в руку. Они стоят #b0 в этом ходу."
+                ]
+        }
+}
