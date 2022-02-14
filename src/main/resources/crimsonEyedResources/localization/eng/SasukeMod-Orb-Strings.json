@@ -1,6 +1,6 @@
 {
   "crimsonEyed:DefaultOrb": {
-    "NAME": "Default Orb",
+    "NAME": "DEPRECATED:Default Orb",
     "DESCRIPTION": [
       "#yPassive: At the start of your turn, draw #b",
       " card.",

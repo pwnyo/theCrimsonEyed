@@ -1,6 +1,6 @@
 {
         "crimsonEyed:AmaterasuBarrierPower": {
-                "NAME": "Amaterasu Barrier",
+                "NAME": "DEPRECATED:Amaterasu Barrier",
                 "DESCRIPTIONS": [
                         "Whenever you take unblocked Attack damage, #yChannel #b",
                         " #yDark. (Wears off at the end of your turn.)"
@@ -14,7 +14,7 @@
                 ]
         },
         "crimsonEyed:CommonPower": {
-                "NAME": "Placeholder Power",
+                "NAME": "DEPRECATED:Placeholder Power",
                 "DESCRIPTIONS": [
                         "You applied #b",
                         " keyword.",
@@ -30,7 +30,7 @@
                 ]
         },
         "crimsonEyed:ExplosivePower": {
-                "NAME": "Explosive",
+                "NAME": "DEPRECATED:Explosive",
                 "DESCRIPTIONS": [
                         "The next time you #yExhaust a card, enemy takes #b",
                         " damage."
@@ -44,7 +44,7 @@
                 ]
         },
         "crimsonEyed:FatePower": {
-                "NAME": "Fate",
+                "NAME": "DEPRECATED:Fate",
                 "DESCRIPTIONS": [
                         "Negates #b",
                         " buff.",
@@ -52,7 +52,7 @@
                 ]
         },
         "crimsonEyed:GradualFocusLossPower": {
-                "NAME": "Strain",
+                "NAME": "DEPRECATED:Strain",
                 "DESCRIPTIONS": [
                         "At the end of your turn, lose #b1 #yFocus and reduce #yStrain by #b1."
                 ]
@@ -81,7 +81,7 @@
                 ]
         },
         "crimsonEyed:LightningSpeedPower": {
-                "NAME": "Lightning",
+                "NAME": "Lightning Speed",
                 "DESCRIPTIONS": [
                         "If you play #b",
                         " more #yAttacks this turn, #yChannel #b",
@@ -97,14 +97,14 @@
                 ]
         },
         "crimsonEyed:MandaPower": {
-                "NAME": "Manda",
+                "NAME": "DEPRECATED:Manda",
                 "DESCRIPTIONS": [
                         "The next #b",
                         " times you would die this combat, heal to #b20% HP instead and lose #b1 Manda."
                 ]
         },
         "crimsonEyed:MangekyouPower": {
-                "NAME": "Mangekyou",
+                "NAME": "DEPRECATED:Mangekyou",
                 "DESCRIPTIONS": [
                         "At the end of your turn, lose #b",
                         " HP and gain #b",
@@ -135,14 +135,14 @@
                 ]
         },
         "crimsonEyed:PunishmentPower": {
-                "NAME": "Tsukuyomi",
+                "NAME": "DEPRECATED:Tsukuyomi",
                 "DESCRIPTIONS": [
                         "At the start of its turn, loses #b",
                         " HP for each of its debuffs."
                 ]
         },
         "crimsonEyed:RarePower": {
-                "NAME": "Placeholder Power",
+                "NAME": "DEPRECATED:Placeholder Power",
                 "DESCRIPTIONS": [
                         "At the start of your turn, TOUCH #b",
                         " enemy.",
@@ -150,7 +150,7 @@
                 ]
         },
         "crimsonEyed:ResentmentPower": {
-                "NAME": "Resentment",
+                "NAME": "DEPRECATED:Resentment",
                 "DESCRIPTIONS": [
                         "Whenever you lose HP, gain #b",
                         " #yBlock next turn."
