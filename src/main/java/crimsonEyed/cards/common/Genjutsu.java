@@ -30,7 +30,7 @@ public class Genjutsu extends AbstractDynamicCard {
 
     private static final int COST = 0;
     private static final int MAGIC = 1;
-    private static final int MAGIC2 = 1;
+    private static final int MAGIC2 = 2;
 
     // /STAT DECLARATION/
 
@@ -57,7 +57,7 @@ public class Genjutsu extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeSecondMagicNumber(1);
+            upgradeMagicNumber(1);
             initializeDescription();
         }
     }

@@ -33,7 +33,6 @@ public class Revolution extends AbstractDynamicCard {
 
     private static final int COST = 2;
     private static final int MAGIC = 2;
-    private static final int UPGRADE_MAGIC = 1;
 
     // /STAT DECLARATION/
 
@@ -51,7 +50,7 @@ public class Revolution extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_MAGIC);
+            upgradeBaseCost(1);
             initializeDescription();
         }
     }

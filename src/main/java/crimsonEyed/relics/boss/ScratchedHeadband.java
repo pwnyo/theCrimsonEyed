@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import crimsonEyed.SasukeMod;
+import crimsonEyed.actions.unique.IntensifyAction;
 import crimsonEyed.cards.basic.Hatred;
 import crimsonEyed.cards.temp.EnduringFlame;
 import crimsonEyed.util.TextureLoader;

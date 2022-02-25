@@ -37,7 +37,7 @@ public class Amaterasu extends AbstractDynamicCard {
     private static final int COST = 1;  // COST = 1
 
     private static final int DAMAGE = 8;
-    private static final int MAGIC = 3;
+    private static final int MAGIC = 2;
 
     // /STAT DECLARATION/
 
@@ -63,7 +63,8 @@ public class Amaterasu extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(-2);
+            upgradeDamage(3);
+            upgradeMagicNumber(-1);
             initializeDescription();
         }
     }

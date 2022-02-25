@@ -32,7 +32,7 @@ public class Tsukuyomi extends AbstractDynamicCard {
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 1;
-    private static final int MAGIC = 9;
+    private static final int MAGIC = 8;
     private static final int UGPRADE_MAGIC = 3;
 
     // /STAT DECLARATION/

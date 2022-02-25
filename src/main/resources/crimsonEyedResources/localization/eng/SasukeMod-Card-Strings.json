@@ -18,7 +18,8 @@
   },
   "crimsonEyed:AmpUp": {
     "NAME": "Amp Up",
-    "DESCRIPTION": "Retain. NL Gain [E] for each Channeled Orb. NL Evoke your next Orb."
+    "DESCRIPTION": "Gain [E] for each Channeled Orb. NL Evoke your next Orb twice.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Gain [E] for each Channeled Orb. NL Evoke your next Orb twice."
   },
   "crimsonEyed:Analyze": {
     "NAME": "Analyze",
@@ -133,7 +134,8 @@
   },
   "crimsonEyed:Fireball": {
     "NAME": "Great Fireball",
-    "DESCRIPTION": "Exhaust a card. NL Deal damage equal to !M! times its cost to ALL enemies."
+    "DESCRIPTION": "Exhaust a card. NL Deal damage equal to !M! times its cost to ALL enemies. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Exhaust a card. NL Deal damage equal to !M! times its cost to ALL enemies."
   },
   "crimsonEyed:FromDiscardPile": {
     "NAME": "From Discard",
@@ -298,7 +300,7 @@
   "crimsonEyed:PullWires": {
     "NAME": "Pull Wires",
     "DESCRIPTION": "Add !M! Shiv into your hand. NL Put a card from your discard pile on top of your draw pile.",
-    "UPGRADE_DESCRIPTION": "Add !M! Shiv+ into your hand. NL Put a card from your discard pile on top of your draw pile."
+    "UPGRADE_DESCRIPTION": "Add !M! Shivs into your hand. NL Put a card from your discard pile on top of your draw pile."
   },
   "crimsonEyed:React": {
     "NAME": "React",
@@ -404,11 +406,11 @@
   },
   "crimsonEyed:SpaceTime": {
     "NAME": "Space-Time",
-    "DESCRIPTION": "Choose one: NL Add *Universal *Pull or *Amenotejikara into your hand.",
-    "UPGRADE_DESCRIPTION": "Choose one: NL Add *Universal *Pull+ or *Amenotejikara+ into your hand.",
+    "DESCRIPTION": "Retain. NL Choose one: NL Add *Universal *Pull or *Amenotejikara into your hand.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Choose one: NL Add *Universal *Pull+ or *Amenotejikara+ into your hand.",
     "EXTENDED_DESCRIPTION": [
-      "Choose one: NL Add *Universal *Pull, *Amenotejikara, or *Almighty *Push into your hand.",
-      "Choose one: NL Add *Universal *Pull+, *Amenotejikara+, or *Almighty *Push+ into your hand."
+      "Retain. NL Choose one: NL Add *Universal *Pull, *Amenotejikara, or *Almighty *Push into your hand.",
+      "Retain. NL Choose one: NL Add *Universal *Pull+, *Amenotejikara+, or *Almighty *Push+ into your hand."
     ]
   },
   "crimsonEyed:Spite": {
@@ -438,8 +440,8 @@
   },
   "crimsonEyed:Tomoe": {
     "NAME": "Tomoe",
-    "DESCRIPTION": "Gain 1 Orb slot. NL Channel a random Orb. NL Put a Dazed on top of your draw pile.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Gain 1 Orb slot. NL Channel a random Orb. NL Put a Dazed on top of your draw pile."
+    "DESCRIPTION": "Gain 1 Orb slot. NL Channel a random Orb. NL Add a *Dazed into your discard pile.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Gain 1 Orb slot. NL Channel a random Orb. NL Add a *Dazed into your discard pile."
   },
   "crimsonEyed:Tsukuyomi": {
     "NAME": "Tsukuyomi",

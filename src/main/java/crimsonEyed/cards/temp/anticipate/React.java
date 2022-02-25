@@ -63,7 +63,7 @@ public class React extends AbstractDynamicCard {
             return;
         }
             if (upgraded) {
-            this.baseBlock = block = BLOCK + 2;
+            this.baseBlock = block = BLOCK + 3;
             this.upgradedBlock = true;
         }
         applyPowers();
@@ -73,7 +73,7 @@ public class React extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBlock(2);
+            upgradeBlock(3);
             recalc();
             initializeDescription();
         }

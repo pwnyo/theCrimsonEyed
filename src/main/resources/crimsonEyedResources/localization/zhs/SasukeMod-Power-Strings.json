@@ -1,0 +1,188 @@
+{
+        "crimsonEyed:AmaterasuBarrierPower": {
+                "NAME": "写轮眼·天照",
+                "DESCRIPTIONS": [
+                        "当你受到未被格挡的伤害时, #y生成 #b",
+                        " #y 黑暗 充能球. (你的回合结束时消失)"
+                ]
+        },
+        "crimsonEyed:BlazeBarrierPower": {
+                "NAME": "须佐能乎-御",
+                "DESCRIPTIONS": [
+                        "当 #y 黑暗 充能球触发其被动能力时, 获得 #b",
+                        "层 #y火遁-火之壁 ."
+                ]
+        },
+        "crimsonEyed:CommonPower": {
+                "NAME": "Placeholder Power",
+                "DESCRIPTIONS": [
+                        "You applied #b",
+                        " keyword.",
+                        " keywords."
+                ]
+        },
+        "crimsonEyed:ElectrifyPower": {
+                "NAME": "雷遁-天咒千鸟",
+                "DESCRIPTIONS": [
+                        "#y闪电 充能球将攻击所有敌人,持续 #b",
+                        " 回合.",
+                        "本回合#y闪电 充能球将攻击所有敌人."
+                ]
+        },
+        "crimsonEyed:ExplosivePower": {
+                "NAME": "炸裂火焰",
+                "DESCRIPTIONS": [
+                        "下一次 #y消耗 牌时,敌人受到 #b",
+                        " 点伤害."
+                ]
+        },
+        "crimsonEyed:ExhaustDamagePower": {
+                "NAME": "凤仙火之术",
+                "DESCRIPTIONS": [
+                        "#y消耗 牌时, 对随机敌人造成 #b",
+                        " 点伤害."
+                ]
+        },
+        "crimsonEyed:FatePower": {
+                "NAME": "天命",
+                "DESCRIPTIONS": [
+                        "无效接下来的 #b",
+                        " 个负面效果.",
+                        " 个负面效果."
+                ]
+        },
+        "crimsonEyed:GradualFocusLossPower": {
+                "NAME": "咒印反噬",
+                "DESCRIPTIONS": [
+                        "在你的回合结束时, 失去 #b1 点 #y集中 . #y咒印反噬 层数减 #b1 ."
+                ]
+        },
+        "crimsonEyed:GrudgePower": {
+                "NAME": "滔天恨意",
+                "DESCRIPTIONS": [
+                        "回合开始时,将1张 #b",
+                        " #y怨气 加入手牌.",
+                        " #y怨气 加入手牌."
+                ]
+        },
+        "crimsonEyed:IndraFormPower": {
+                "NAME": "因陀罗形态",
+                "DESCRIPTIONS": [
+                        "回合开始时,每有一个充能球栏位就 #y生成 #b",
+                        "个 #y闪电 充能球."
+                ]
+        },
+        "crimsonEyed:KagutsuchiPower": {
+                "NAME": "炎遁-加具土命",
+                "DESCRIPTIONS": [
+                        "本回合,你打出 #y攻击牌 时, 触发下一个充能球的被动能力 #b",
+                        " 次.",
+                        " 次."
+                ]
+        },
+        "crimsonEyed:LightningSpeedPower": {
+                "NAME": "雷遁-速击",
+                "DESCRIPTIONS": [
+                        "本回合打出 #b",
+                        " 张 #y攻击牌 , #y生成 #b",
+                        " #y闪电 充能球.",
+                        " 张 #y攻击牌 , #y生成 #b"
+                ]
+        },
+        "crimsonEyed:LoseFocusPower": {
+                "NAME": "注意力涣散",
+                "DESCRIPTIONS": [
+                        "回合结束时, 失去 #b",
+                        "层 #y集中 ."
+                ]
+        },
+        "crimsonEyed:MandaPower": {
+                "NAME": "Manda",
+                "DESCRIPTIONS": [
+                        "本场战斗,接下来 #b",
+                        " 次受到致命伤害时, 恢复 #b20% 血量并减少 #b1 层 Manda."
+                ]
+        },
+        "crimsonEyed:MangekyouPower": {
+                "NAME": "万花筒写轮眼",
+                "DESCRIPTIONS": [
+                        "回合结束时, 失去 #b",
+                        "点生命并获得 #b",
+                        "层 #y集中 ."
+                ]
+        },
+        "crimsonEyed:MangekyouPower2": {
+                "NAME": "万花筒写轮眼",
+                "DESCRIPTIONS": [
+                        "当你因牌的效果而失去生命时, 获得 #b",
+                        "层 #y集中 ."
+                ]
+        },
+        "crimsonEyed:OneStepAheadPower": {
+                "NAME": "计划周全",
+                "DESCRIPTIONS": [
+                        "接下来的 #b",
+                        " 回合结束时,可 #y保留 #b1 张牌.",
+                        "本回合结束时,可 #y保留 #b1 张牌."
+                ]
+        },
+        "crimsonEyed:PerceptionPower": {
+                "NAME": "洞察万物",
+                "DESCRIPTIONS": [
+                        "#y预见 时, 抽 #b",
+                        " 张牌.",
+                        " 张牌."
+                ]
+        },
+        "crimsonEyed:PunishmentPower": {
+                "NAME": "写轮眼·月读",
+                "DESCRIPTIONS": [
+                        "回合开始时,其每有一个负面效果就失去 #b",
+                        " 点生命."
+                ]
+        },
+        "crimsonEyed:RarePower": {
+                "NAME": "Placeholder Power",
+                "DESCRIPTIONS": [
+                        "At the start of your turn, TOUCH #b",
+                        " enemy.",
+                        " enemies."
+                ]
+        },
+        "crimsonEyed:ResentmentPower": {
+                "NAME": "复仇决意",
+                "DESCRIPTIONS": [
+                        "当你失去生命时, 下回合获得 #b",
+                        "点 #y格挡 ."
+                ]
+        },
+        "crimsonEyed:RevolutionPower": {
+                "NAME": "血继限界",
+                "DESCRIPTIONS": [
+                        "抽到#y状态 牌或 #y诅咒 牌时, 获得#b",
+                        " 点#y力量 ."
+                ]
+        },
+        "crimsonEyed:SeverThePastPower": {
+                "NAME": "斩断过往",
+                "DESCRIPTIONS": [
+                        "消耗弃牌堆中所有牌. 在回合开始时, 获得 #y格挡 等同于 #y消耗堆 牌数."
+                ]
+        },
+        "crimsonEyed:SpitePower": {
+                "NAME": "阴之力",
+                "DESCRIPTIONS": [
+                        "#y斩杀 时,治疗 #b",
+                        " 点生命."
+                ]
+        },
+        "crimsonEyed:SpaceTimePower": {
+                "NAME": "万象天引",
+                "DESCRIPTIONS": [
+                        "在 #b",
+                        " 回合内, 将 ",
+                        " 加入手牌.",
+                        " 回合内, 将 "
+                ]
+        }
+}

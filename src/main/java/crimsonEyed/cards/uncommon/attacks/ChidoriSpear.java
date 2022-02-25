@@ -31,8 +31,7 @@ public class ChidoriSpear extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 2;  // COST = 2
-    private static final int UPGRADED_COST = 2; // UPGRADED_COST = 2
+    private static final int COST = 2;
 
     private static final int DAMAGE = 15;
     private static final int UPGRADE_PLUS_DMG = 5;
@@ -60,7 +59,6 @@ public class ChidoriSpear extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
-            upgradeBaseCost(UPGRADED_COST);
             initializeDescription();
         }
     }

@@ -38,7 +38,7 @@ public class ChidoriBlade extends AbstractDynamicCard {
 
     private static final int COST = 1;  // COST = 1
 
-    private static final int DAMAGE = 7;
+    private static final int DAMAGE = 8;
 
     // /STAT DECLARATION/
 

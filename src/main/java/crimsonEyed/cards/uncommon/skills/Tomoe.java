@@ -1,5 +1,6 @@
 package crimsonEyed.cards.uncommon.skills;
 
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.actions.defect.IncreaseMaxOrbAction;
 import com.megacrit.cardcrawl.cards.status.Dazed;
@@ -54,7 +55,7 @@ public class Tomoe extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new IncreaseMaxOrbAction(magicNumber));
         addToBot(new ChannelAction(AbstractOrb.getRandomOrb(true)));
-        addToBot(new MakeTempCardAtTopOfDeckAction(new Dazed()));
+        addToBot(new MakeTempCardInDiscardAction(new Dazed(), 1));
     }
 
 

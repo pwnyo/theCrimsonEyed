@@ -39,7 +39,7 @@ public class IndrasArrow extends AbstractDynamicCard implements IOnChannelListen
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 5;
+    private static final int COST = 4;
 
     private static final int DAMAGE = 30;
     private static final int UPGRADE_PLUS_DMG = 6;
@@ -65,7 +65,7 @@ public class IndrasArrow extends AbstractDynamicCard implements IOnChannelListen
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
-            upgradeBaseCost(4);
+            upgradeBaseCost(3);
             initializeDescription();
         }
     }

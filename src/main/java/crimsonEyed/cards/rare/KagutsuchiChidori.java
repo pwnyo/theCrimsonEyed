@@ -35,7 +35,7 @@ public class KagutsuchiChidori extends AbstractDynamicCard {
     private static final int COST = 1;
 
     private static final int DAMAGE = 12;
-    private static final int MAGIC = 3;
+    private static final int MAGIC = 4;
     private static final int UPGRADE_MAGIC = 2;
 
     // /STAT DECLARATION/

@@ -3,6 +3,8 @@ package crimsonEyed.cards.uncommon.skills;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.defect.AnimateOrbAction;
 import com.megacrit.cardcrawl.actions.defect.EvokeOrbAction;
+import com.megacrit.cardcrawl.actions.defect.EvokeWithoutRemovingOrbAction;
+import com.megacrit.cardcrawl.cards.blue.Dualcast;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -41,7 +43,8 @@ public class AmpUp extends AbstractDynamicCard {
 
     public AmpUp() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        selfRetain = true;
+        showEvokeValue = true;
+        showEvokeOrbCount = 1;
     }
 
     // Actions the card should do.
@@ -59,6 +62,8 @@ public class AmpUp extends AbstractDynamicCard {
             addToBot(new GainEnergyAction(count));
 
             addToBot(new AnimateOrbAction(1));
+            addToBot(new EvokeWithoutRemovingOrbAction(1));
+            addToBot(new AnimateOrbAction(1));
             addToBot(new EvokeOrbAction(1));
         }
     }
@@ -68,7 +73,8 @@ public class AmpUp extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(0);
+            selfRetain = true;
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

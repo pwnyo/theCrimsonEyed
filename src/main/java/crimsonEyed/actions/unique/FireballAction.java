@@ -23,7 +23,7 @@ public class FireballAction extends AbstractGameAction {
 
         p = AbstractDungeon.player;
         multiplier = 0;
-        this.isRandom = !upgraded;
+        this.isRandom = false;
     }
 
     public void update() {

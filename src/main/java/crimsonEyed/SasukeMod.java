@@ -542,6 +542,9 @@ public class SasukeMod implements
             case RUS:
                 toReturn += "rus/";
                 break;
+            case ZHS:
+                toReturn += "zhs/";
+                break;
             default:
                 toReturn += "eng/";
                 break;

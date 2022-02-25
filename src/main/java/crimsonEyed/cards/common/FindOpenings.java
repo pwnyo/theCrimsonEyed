@@ -60,6 +60,7 @@ public class FindOpenings extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(3);
+            upgradeMagicNumber(2);
             initializeDescription();
         }
     }

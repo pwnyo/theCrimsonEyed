@@ -3,6 +3,7 @@ package crimsonEyed.cards.rare;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.watcher.ChooseOneAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.red.InfernalBlade;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -50,7 +51,7 @@ public class SpaceTime extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         cardsToPreview = new UniversalPull();
         cardsToPreview2 = new Amenotejikara();
-        exhaust = true;
+        selfRetain = true;
     }
 
     @Override

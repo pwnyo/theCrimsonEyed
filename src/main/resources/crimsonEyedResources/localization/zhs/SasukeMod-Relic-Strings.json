@@ -1,0 +1,134 @@
+{
+  "crimsonEyed:PlaceholderRelic": {
+    "NAME": "万蛇",
+    "FLAVOR": "通灵兽伙伴.",
+    "DESCRIPTIONS": [
+      "获得 #b1 [E] ."
+    ]
+  },
+  "crimsonEyed:PlaceholderRelic2": {
+    "NAME": "天之咒印",
+    "FLAVOR": "力量正在涌现.",
+    "DESCRIPTIONS": [
+      "每场战斗开始, 获得 #b1 点 #y力量 ."
+    ]
+  },
+  "crimsonEyed:DefaultClickableRelic": {
+    "NAME": "写轮眼-开眼",
+    "FLAVOR": "右击,发动写轮眼!",
+    "DESCRIPTIONS": [
+      "[#2aecd7]每 [#2aecd7]回合 [#2aecd7]可用 [#2aecd7]一次.[] NL #y激发 最右侧的充能球.",
+      "你是我的了!"
+    ]
+  },
+  "crimsonEyed:BottledPlaceholderRelic": {
+    "NAME": "瓶装忍术",
+    "FLAVOR": "这是什么忍术?",
+    "DESCRIPTIONS": [
+      "选择一张牌. 打出任意牌时, 抽取该牌.",
+      "打出任意牌时, 抽取该牌",
+      ".",
+      "选择一张牌装入 "
+    ]
+  },
+  "crimsonEyed:CrimsonEye": {
+    "NAME": "写轮眼",
+    "FLAVOR": "那只眼.闪烁着血红色.",
+    "DESCRIPTIONS": [
+      "每场战斗开始, 对所有敌人施加 #b1 层 #y跟踪锁定 ."
+    ]
+  },
+  "crimsonEyed:CrimsonEye2": {
+    "NAME": "写轮眼",
+    "FLAVOR": "仇恨遮蔽了你的双眼. 你却仍能洞察一切真实与虚妄.",
+    "DESCRIPTIONS": [
+      "当你的血量低于 #b50%, 获得 #b",
+      " 层额外 #y集中 ."
+    ]
+  },
+  "crimsonEyed:CrowFeather": {
+    "NAME": "鸦羽",
+    "FLAVOR": "你的手心能感受到它的温度, 可这就是真实吗?",
+    "DESCRIPTIONS": [
+      "当你对敌人施加负面效果, 获得 #b",
+      "点 #y格挡."
+    ]
+  },
+  "crimsonEyed:EternalEye": {
+    "NAME": "轮回眼",
+    "FLAVOR": "冲破黑暗,觉醒轮回眼.",
+    "DESCRIPTIONS": [
+      "替换 #y写轮眼 . 每场战斗开始获得 #b",
+      "层 #y集中 ."
+    ]
+  },
+  "crimsonEyed:BlueScale": {
+    "NAME": "蓝色印记",
+    "FLAVOR": "蓝蛇印记. 它唤醒了你的某些部分，而其他力量却被掩埋.",
+    "DESCRIPTIONS": [
+      "如果牌组中有 #b",
+      " 张及以上的 #r诅咒 , 每回合开始获得 [E] ."
+    ]
+  },
+  "crimsonEyed:CherryBlossom": {
+    "NAME": "樱花绽放",
+    "FLAVOR": "PLACEHOLDER.",
+    "DESCRIPTIONS": [
+      "#y消耗 #b",
+      " 牌时,获得 #b1 充能球栏位和 #b1 点 #y力量 ."
+    ]
+  },
+  "crimsonEyed:NohMask": {
+    "NAME": "能面",
+    "FLAVOR": "死神的面具. 戴上它的人,将在生与死之间游走.",
+    "DESCRIPTIONS": [
+      "带有'选择'的牌将有 #b3 种选择."
+    ]
+  },
+  "crimsonEyed:PaperSnek": {
+    "NAME": "纸蛇",
+    "FLAVOR": "褶皱的曲线勾勒出某种扭动生物的轮廓.",
+    "DESCRIPTIONS": [
+      "带有#y跟踪锁定 的敌人将承受 #b75% 额外伤害."
+    ]
+  },
+  "crimsonEyed:Kaleidoscope": {
+    "NAME": "永恒万花筒写轮眼",
+    "FLAVOR": "无穷无尽的色彩.",
+    "DESCRIPTIONS": [
+      "战斗开始时, 对所有敌人施加 #b",
+      " 层 #y跟踪锁定 ."
+    ]
+  },
+  "crimsonEyed:ScratchedHeadband": {
+    "NAME": "叛忍护额",
+    "FLAVOR": "羁绊与情谊曾经扭曲, 却从未断裂. 你紧握住它,终有一日再戴上.",
+    "DESCRIPTIONS": [
+      "将所有#y仇恨 转化为 #y不息烈火 . #y激化咒印 改为增益 #y不息烈火 ."
+    ]
+  },
+  "crimsonEyed:StoneTablet": {
+    "NAME": "石碑",
+    "FLAVOR": "碑上的预言是一种你从未见过的语言.可不知为何,你却能理解它....",
+    "DESCRIPTIONS": [
+      "如果你上回合失去了生命, 本回合 #y预见 #b",
+      " 张牌."
+    ]
+  },
+  "crimsonEyed:StoneTabletOLD": {
+    "NAME": "Stone Tablet",
+    "FLAVOR": "A prophecy is inscribed in a language you've never seen before. Somehow, you can read it.",
+    "DESCRIPTIONS": [
+      "Every time you #yScry #b",
+      " times, deal #b",
+      " damage to ALL enemies."
+    ]
+  },
+  "crimsonEyed:Uchiwa": {
+    "NAME": "团扇",
+    "FLAVOR": "一个纸扇.曾用于指挥士兵.",
+    "DESCRIPTIONS": [
+      "战斗开始时, 每有一张#y固有 牌,就抽 #b1 张牌."
+    ]
+  }
+}

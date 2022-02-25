@@ -32,7 +32,7 @@ public class PullWires extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 1;
+    private static final int COST = 0;
     private static final int MAGIC = 1;
 
     // /STAT DECLARATION/
@@ -48,9 +48,6 @@ public class PullWires extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractCard shiv = new Shiv();
-        if (upgraded) {
-            shiv.upgrade();
-        }
         addToBot(new MakeTempCardInHandAction(shiv, magicNumber));
         addToBot(new DiscardPileToTopOfDeckAction(p));
     }
@@ -60,7 +57,7 @@ public class PullWires extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(0);
+            upgradeMagicNumber(1);
             rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
