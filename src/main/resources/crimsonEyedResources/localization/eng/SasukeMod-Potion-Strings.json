@@ -5,7 +5,7 @@
                 "DESCRIPTIONS": ["Enemy loses #b", " Strength."]
         },
         "crimsonEyed:PlaceholderPotion": {
-                "NAME": "Placeholder Potion",
+                "NAME": "DEPRECATED:Placeholder Potion",
                 "DESCRIPTIONS": ["Gain ", " At the end of your turn, lose ", " Strength."]
         },
         "crimsonEyed:ScryPotion": {
