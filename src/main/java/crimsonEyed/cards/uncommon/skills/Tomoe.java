@@ -35,7 +35,7 @@ public class Tomoe extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 1;
+    private static final int COST = 0;
     private static final int MAGIC = 1;
 
     // /STAT DECLARATION/
@@ -54,7 +54,9 @@ public class Tomoe extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new IncreaseMaxOrbAction(magicNumber));
-        addToBot(new ChannelAction(AbstractOrb.getRandomOrb(true)));
+        if (upgraded) {
+            addToBot(new ChannelAction(AbstractOrb.getRandomOrb(true)));
+        }
         addToBot(new MakeTempCardInDiscardAction(new Dazed(), 1));
     }
 
@@ -64,7 +66,6 @@ public class Tomoe extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            isInnate = true;
             rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }

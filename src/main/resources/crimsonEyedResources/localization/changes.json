@@ -1,0 +1,91 @@
+{
+  "crimsonEyed:Hatred": {
+    "NAME": "Hatred",
+    "DESCRIPTION": "At the end of your turn, lose !M! HP. NL Cannot be removed from your deck. NL Exhaust."
+  },
+  "crimsonEyed:AmpUp": {
+    "NAME": "Amp Up",
+    "DESCRIPTION": "Gain [E] for each Channeled Orb."
+  },
+  "crimsonEyed:ChidoriSenbon": {
+    "NAME": "Chidori Senbon",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Trigger the passive ability of all your Orbs."
+  },
+  "crimsonEyed:ChidoriSpear": {
+    "NAME": "Chidori Sharp Spear",
+    "DESCRIPTION": "Deal !D! damage. NL Channel 2 Lightning."
+  },
+  "crimsonEyed:IndraForm": {
+    "NAME": "Indra Form",
+    "DESCRIPTION": "Ethereal. NL At the start of your turn, Channel !M! Lightning.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, Channel !M! Lightning."
+  },
+  "crimsonEyed:Izanagi": {
+    "NAME": "Izanagi",
+    "DESCRIPTION": "Gain !M! Intangible. NL Gain 1 less [E] at the start of each turn.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Gain !M! Intangible. NL Gain 1 less [E] at the start of each turn."
+  },
+  "crimsonEyed:KnowPain": {
+    "NAME": "Know Pain",
+    "DESCRIPTION": "Whenever you lose HP from a card, gain !M! Block next turn."
+  },
+  "crimsonEyed:SeverThePast": {
+    "NAME": "Sever the Past",
+    "DESCRIPTION": "Exhaust a card from your discard pile. NL Gain !M! Block for each card in your Exhaust pile.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Gain !B! Block.)"
+      ]
+  },
+  "crimsonEyed:Resentment": {
+    "NAME": "Resentment",
+    "DESCRIPTION": "Ethereal. NL Lose 1 HP. NL Exhaust !M! card. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Ethereal. NL Lose 1 HP. NL Exhaust !M! cards. NL Exhaust."
+  },
+  "crimsonEyed:SeverThePast": {
+    "NAME": "Sever the Past",
+    "DESCRIPTION": "Exhaust a card from your discard pile. NL Gain !M! Block for each card in your Exhaust pile.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Gain !B! Block.)"
+    ]
+  },
+  "crimsonEyed:ShedSkin": {
+    "NAME": "Shed Skin",
+    "DESCRIPTION": "Exhaust a card. NL If it was a Status or Curse card, gain [E] [E] and !M! *Regeneration. NL Exhaust."
+  },
+  "crimsonEyed:Slither": {
+    "NAME": "Slither",
+    "DESCRIPTION": "Draw !M! cards. NL Add 2 *Slimed into your hand."
+  },
+  "crimsonEyed:SureFire": {
+    "NAME": "Sure-Fire",
+    "DESCRIPTION": "Deal !D! damage. NL If the enemy has Lock-On, gain [E] and draw 1 card."
+  },
+  "crimsonEyed:Tomoe": {
+    "NAME": "Tomoe",
+    "DESCRIPTION": "Gain 1 Orb slot. NL Add a *Dazed into your discard pile.",
+    "UPGRADE_DESCRIPTION": "Gain 1 Orb slot. NL Channel a random Orb. NL Add a *Dazed into your discard pile."
+  },
+
+  "crimsonEyed:IndraFormPower": {
+     "NAME": "Indra Form",
+     "DESCRIPTIONS": [
+        "At the start of your turn, #yChannel #b",
+        " #yLightning."
+    ]
+  },
+  "crimsonEyed:KnowPainPower": {
+     "NAME": "Know Pain",
+     "DESCRIPTIONS": [
+        "Whenever you lose HP, gain #b",
+        " #yBlock next turn."
+     ]
+   },
+  "crimsonEyed:CherryBlossom": {
+    "NAME": "Cherry Blossom",
+    "FLAVOR": "Blooming resilience.",
+    "DESCRIPTIONS": [
+      "Every time you #yExhaust #b",
+      " cards, gain #b1 Orb slot and #b1 #yStrength."
+    ]
+  }
+}

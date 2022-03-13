@@ -33,7 +33,7 @@ public class Tsukuyomi extends AbstractDynamicCard {
 
     private static final int COST = 1;
     private static final int MAGIC = 8;
-    private static final int UGPRADE_MAGIC = 3;
+    private static final int UPGRADE_MAGIC = 3;
 
     // /STAT DECLARATION/
 
@@ -65,7 +65,7 @@ public class Tsukuyomi extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UGPRADE_MAGIC);
+            upgradeMagicNumber(UPGRADE_MAGIC);
             initializeDescription();
         }
     }

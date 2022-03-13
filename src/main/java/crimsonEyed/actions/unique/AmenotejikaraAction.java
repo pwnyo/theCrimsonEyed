@@ -19,23 +19,23 @@ public class AmenotejikaraAction extends AbstractGameAction {
     private boolean optional;
 
     public AmenotejikaraAction(int numberOfCards, boolean optional) {
-        this.actionType = ActionType.CARD_MANIPULATION;// 21
-        this.duration = this.startDuration = Settings.ACTION_DUR_FAST;// 22
-        this.player = AbstractDungeon.player;// 23
-        this.numberOfCards = numberOfCards;// 24
-        this.optional = optional;// 25
-    }// 26
+        this.actionType = ActionType.CARD_MANIPULATION;
+        this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
+        this.player = AbstractDungeon.player;
+        this.numberOfCards = numberOfCards;
+        this.optional = optional;
+    }
 
     public AmenotejikaraAction(int numberOfCards) {
-        this(numberOfCards, false);// 29
-    }// 30
+        this(numberOfCards, false);
+    }
 
     public void update() {
-        if (this.duration == this.startDuration) {// 33
-            if (!this.player.drawPile.isEmpty() && this.numberOfCards > 0) {// 34
+        if (this.duration == this.startDuration) {
+            if (!this.player.drawPile.isEmpty() && this.numberOfCards > 0) {
                 AbstractCard c;
                 Iterator var6;
-                if (this.player.drawPile.size() <= this.numberOfCards && !this.optional) {// 37
+                if (this.player.drawPile.size() <= this.numberOfCards && !this.optional) {
                     ArrayList<AbstractCard> cardsToMove = new ArrayList();// 38
                     var6 = this.player.drawPile.group.iterator();// 39
 

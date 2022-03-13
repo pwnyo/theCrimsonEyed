@@ -1,4 +1,4 @@
-package crimsonEyed.cards.common;
+package crimsonEyed.cards.uncommon.attacks;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -28,15 +28,15 @@ public class FindOpenings extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
+    private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 1;  // COST = 1
+    private static final int COST = 2;
 
-    private static final int DAMAGE = 9;
-    private static final int MAGIC = 3;
+    private static final int DAMAGE = 15;
+    private static final int MAGIC = 5;
 
     // /STAT DECLARATION/
 
@@ -59,8 +59,7 @@ public class FindOpenings extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(3);
-            upgradeMagicNumber(2);
+            upgradeDamage(5);
             initializeDescription();
         }
     }

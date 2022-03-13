@@ -3,7 +3,12 @@ package crimsonEyed.cards.uncommon.skills;
 import com.evacipated.cardcrawl.mod.stslib.actions.defect.TriggerPassiveAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
+import com.megacrit.cardcrawl.actions.defect.DarkImpulseAction;
+import com.megacrit.cardcrawl.cards.blue.Darkness;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.Dark;
 import crimsonEyed.SasukeMod;
@@ -18,6 +23,7 @@ public class BlazeBarrier2 extends AbstractDynamicCard {
 
     public static final String ID = SasukeMod.makeID(BlazeBarrier2.class.getSimpleName());
     public static final String IMG = makeCardPath("BlazeBarrier.png");
+    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     // /TEXT DECLARATION/
 
@@ -48,6 +54,7 @@ public class BlazeBarrier2 extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, block));
+
         int darkIndex = -1;
         for (int i = 0; i < p.filledOrbCount(); i++) {
             if (p.orbs.get(i) instanceof Dark) {
@@ -60,6 +67,24 @@ public class BlazeBarrier2 extends AbstractDynamicCard {
         }
         else {
             addToBot(new ChannelAction(new Dark()));
+        }
+    }
+
+    @Override
+    public void triggerOnGlowCheck() {
+        int darkIndex = -1;
+        AbstractPlayer p = AbstractDungeon.player;
+        for (int i = 0; i < p.filledOrbCount(); i++) {
+            if (p.orbs.get(i) instanceof Dark) {
+                darkIndex = i;
+                break;
+            }
+        }
+        if (darkIndex != -1) {
+            glowColor = GOLD_BORDER_GLOW_COLOR.cpy();
+        }
+        else {
+            glowColor = BLUE_BORDER_GLOW_COLOR.cpy();
         }
     }
 

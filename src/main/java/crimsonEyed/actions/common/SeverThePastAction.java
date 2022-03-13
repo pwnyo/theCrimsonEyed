@@ -11,10 +11,10 @@ public class SeverThePastAction extends AbstractGameAction {
     private float startingDuration;
 
     public SeverThePastAction() {
-        this.actionType = ActionType.EXHAUST;// 16
-        this.startingDuration = Settings.ACTION_DUR_FAST;// 17
+        this.actionType = ActionType.EXHAUST;
+        this.startingDuration = Settings.ACTION_DUR_FAST;
         this.duration = this.startingDuration;
-    }// 19
+    }
 
     public void update() {
         if (this.duration == this.startingDuration) {
@@ -28,5 +28,5 @@ public class SeverThePastAction extends AbstractGameAction {
             this.isDone = true;
         }
 
-    }// 36
+    }
 }

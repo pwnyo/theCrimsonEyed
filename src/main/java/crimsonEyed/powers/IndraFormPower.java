@@ -2,10 +2,12 @@ package crimsonEyed.powers;
 
 import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 import com.megacrit.cardcrawl.orbs.Lightning;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import crimsonEyed.SasukeMod;
@@ -32,13 +34,10 @@ public class IndraFormPower extends AbstractPower implements CloneablePowerInter
     }
 
     @Override
-    public void atStartOfTurn() {
+    public void atStartOfTurnPostDraw() {
         flash();
-        int orbSlots = AbstractDungeon.player.maxOrbs;
-        for (int i = 0; i < orbSlots; i++) {
-            for (int j = 0; j < amount; j++) {
-                addToBot(new ChannelAction(new Lightning()));
-            }
+        for (int i = 0; i < amount; i++) {
+            addToBot(new ChannelAction(new Lightning()));
         }
     }
     @Override

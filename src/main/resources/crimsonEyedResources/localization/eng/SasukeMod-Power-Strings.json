@@ -69,7 +69,7 @@
                 "NAME": "Indra Form",
                 "DESCRIPTIONS": [
                         "At the start of your turn, #yChannel #b",
-                        " #yLightning for each Orb slot."
+                        " #yLightning."
                 ]
         },
         "crimsonEyed:KagutsuchiPower": {
@@ -149,8 +149,8 @@
                         " enemies."
                 ]
         },
-        "crimsonEyed:ResentmentPower": {
-                "NAME": "DEPRECATED:Resentment",
+        "crimsonEyed:KnowPainPower": {
+                "NAME": "Know Pain",
                 "DESCRIPTIONS": [
                         "Whenever you lose HP, gain #b",
                         " #yBlock next turn."

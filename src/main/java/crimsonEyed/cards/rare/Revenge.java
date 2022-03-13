@@ -62,6 +62,7 @@ public class Revenge extends AbstractDynamicCard {
     public void tookDamage() {
         baseMagicNumber++;
         magicNumber = baseMagicNumber;
+        isMagicNumberModified = true;
     }
 
     AbstractGameAction.AttackEffect getRandomSlash() {

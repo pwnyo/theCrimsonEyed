@@ -35,12 +35,12 @@ public class RandomLockOnAction extends AbstractGameAction {
                 this.addToTop(new RandomLockOnAction(randomMonster, this.amount, this.numTimes));
             }
 
-            if (this.target.currentHealth > 0) {// 53
-                this.addToTop(new ApplyPowerAction(target, AbstractDungeon.player, new LockOnPower(target, amount), amount, true, AttackEffect.POISON));// 54
-                this.addToTop(new WaitAction(0.1F));// 62
+            if (this.target.currentHealth > 0) {
+                this.addToTop(new ApplyPowerAction(target, AbstractDungeon.player, new LockOnPower(target, amount), amount, true, AttackEffect.POISON));
+                this.addToTop(new WaitAction(0.1F));
             }
 
-            this.isDone = true;// 65
+            this.isDone = true;
         }
     }// 30 36 66
 }

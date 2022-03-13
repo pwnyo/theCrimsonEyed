@@ -2,10 +2,12 @@ package crimsonEyed.cards.uncommon.attacks;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.actions.defect.ImpulseAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.orbs.Lightning;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
@@ -33,7 +35,7 @@ public class ChidoriSpear extends AbstractDynamicCard {
 
     private static final int COST = 2;
 
-    private static final int DAMAGE = 15;
+    private static final int DAMAGE = 10;
     private static final int UPGRADE_PLUS_DMG = 5;
 
     // /STAT DECLARATION/
@@ -42,6 +44,8 @@ public class ChidoriSpear extends AbstractDynamicCard {
     public ChidoriSpear() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
+        showEvokeValue = true;
+        showEvokeOrbCount = 2;
     }
 
 
@@ -49,7 +53,8 @@ public class ChidoriSpear extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        addToBot(new ImpulseAction());
+        addToBot(new ChannelAction(new Lightning()));
+        addToBot(new ChannelAction(new Lightning()));
     }
 
 

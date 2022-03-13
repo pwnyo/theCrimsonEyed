@@ -1,5 +1,6 @@
 package crimsonEyed.cards.uncommon.attacks;
 
+import basemod.AutoAdd;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;

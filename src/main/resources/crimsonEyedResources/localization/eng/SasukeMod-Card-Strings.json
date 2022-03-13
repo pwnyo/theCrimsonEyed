@@ -18,8 +18,7 @@
   },
   "crimsonEyed:AmpUp": {
     "NAME": "Amp Up",
-    "DESCRIPTION": "Gain [E] for each Channeled Orb. NL Evoke your next Orb twice.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Gain [E] for each Channeled Orb. NL Evoke your next Orb twice."
+    "DESCRIPTION": "Gain [E] for each Channeled Orb."
   },
   "crimsonEyed:Analyze": {
     "NAME": "Analyze",
@@ -35,7 +34,7 @@
   },
   "crimsonEyed:BlazeBarrier2": {
     "NAME": "Blaze Barrier",
-    "DESCRIPTION": "Gain !B! Block. NL Trigger your next Dark's passive ability. NL If you have none, Channel one."
+    "DESCRIPTION": "Gain !B! Block. NL Trigger your next Dark Orb's passive ability. NL If you have none, Channel one."
   },
   "crimsonEyed:Chidori": {
     "NAME": "Chidori",
@@ -48,12 +47,11 @@
   },
   "crimsonEyed:ChidoriSenbon": {
     "NAME": "Chidori Senbon",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies X times. NL Channel X-1 Lightning.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies X times. NL Channel X Lightning."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Trigger the passive ability of all your Orbs."
   },
   "crimsonEyed:ChidoriSpear": {
     "NAME": "Chidori Sharp Spear",
-    "DESCRIPTION": "Deal !D! damage. NL Trigger the passive ability of ALL your Orbs."
+    "DESCRIPTION": "Deal !D! damage. NL Channel 2 Lightning."
   },
   "crimsonEyed:ChidoriStream": {
     "NAME": "Chidori Stream",
@@ -93,7 +91,7 @@
   },
   "crimsonEyed:CutDown": {
     "NAME": "Cut Down",
-    "DESCRIPTION": "Deal !D! damage twice. NL If this kills the enemy, gain !M! Strength."
+    "DESCRIPTION": "Deal !D! damage. NL If this kills the enemy, gain !M! Strength."
   },
   "crimsonEyed:Defend": {
     "NAME": "Defend",
@@ -181,7 +179,7 @@
   },
   "crimsonEyed:Hatred": {
     "NAME": "Hatred",
-    "DESCRIPTION": "Unplayable. NL At the end of your turn, lose !M! HP. NL Cannot be removed from your deck."
+    "DESCRIPTION": "At the end of your turn, lose !M! HP. NL Cannot be removed from your deck. NL Exhaust."
   },
   "crimsonEyed:Hand": {
     "NAME": "Hand",
@@ -201,8 +199,8 @@
   },
   "crimsonEyed:IndraForm": {
     "NAME": "Indra Form",
-    "DESCRIPTION": "Ethereal. NL At the start of NL your turn, Channel NL 1 Lightning for each Orb slot.",
-    "UPGRADE_DESCRIPTION": "At the start of NL your turn, Channel NL 1 Lightning for each Orb slot."
+    "DESCRIPTION": "Ethereal. NL At the start of your turn, Channel !M! Lightning.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, Channel !M! Lightning."
   },
   "crimsonEyed:IndrasArrow": {
     "NAME": "Indra's Arrow",
@@ -214,7 +212,8 @@
   },
   "crimsonEyed:Izanagi": {
     "NAME": "Izanagi",
-    "DESCRIPTION": "Retain. NL Gain !M! Intangible. NL Gain 1 less [E] at the start of each turn."
+    "DESCRIPTION": "Gain !M! Intangible. NL Gain 1 less [E] at the start of each turn.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Gain !M! Intangible. NL Gain 1 less [E] at the start of each turn."
   },
   "crimsonEyed:Jolt": {
     "NAME": "Jolt",
@@ -237,6 +236,10 @@
   "crimsonEyed:Kirin2": {
     "NAME": "Kirin",
     "DESCRIPTION": "Channel 1 Lightning. NL Gain 1 temporary Focus for each card in your Exhaust pile. NL Evoke all your Orbs."
+  },
+  "crimsonEyed:KnowPain": {
+    "NAME": "Know Pain",
+    "DESCRIPTION": "Whenever you lose HP, gain !M! Block next turn."
   },
   "crimsonEyed:LionsBarrage": {
     "NAME": "Lion's Barrage",
@@ -312,8 +315,8 @@
   },
   "crimsonEyed:Reminisce": {
     "NAME": "Reminisce",
-    "DESCRIPTION": "Gain [E] for every 3 cards in your Exhaust pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain [E] for every 3 cards in your Exhaust pile."
+    "DESCRIPTION": "Gain [E] for every NL 3 cards in your Exhaust pile. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain [E] for every NL 3 cards in your Exhaust pile."
   },
   "crimsonEyed:Rend": {
     "NAME": "Rend",
@@ -322,8 +325,8 @@
   },
   "crimsonEyed:Resentment": {
     "NAME": "Resentment",
-    "DESCRIPTION": "Ethereal. NL Exhaust !M! card. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Ethereal. NL Exhaust !M! cards. NL Exhaust."
+    "DESCRIPTION": "Ethereal. NL Lose 1 HP. NL Exhaust !M! card. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Ethereal. NL Lose 1 HP. NL Exhaust !M! cards. NL Exhaust."
   },
   "crimsonEyed:Revolution": {
     "NAME": "Revolution",
@@ -359,14 +362,14 @@
   },
   "crimsonEyed:SeverThePast": {
     "NAME": "Sever the Past",
-    "DESCRIPTION": "Exhaust all cards in your discard pile. NL Gain !M! Block for each card in your Exhaust pile.",
+    "DESCRIPTION": "Exhaust a card from your discard pile. NL Gain !M! Block for each card in your Exhaust pile.",
     "EXTENDED_DESCRIPTION": [
       " NL (Gain !B! Block.)"
-      ]
+    ]
   },
   "crimsonEyed:ShedSkin": {
     "NAME": "Shed Skin",
-    "DESCRIPTION": "Exhaust a card. NL If you Exhausted a Status or Curse card, gain !M! *Regeneration. NL Exhaust."
+    "DESCRIPTION": "Exhaust a card. NL If it was a Status or Curse card, gain [E] [E] and !M! *Regeneration. NL Exhaust."
   },
   "crimsonEyed:SixthSense": {
     "NAME": "Sixth Sense",
@@ -383,7 +386,7 @@
   },
   "crimsonEyed:Slither": {
     "NAME": "Slither",
-    "DESCRIPTION": "Draw !M! cards. NL Add 2 *Slimed to your discard pile."
+    "DESCRIPTION": "Draw !M! cards. NL Add 2 *Slimed into your hand."
   },
   "crimsonEyed:SnakeBinding": {
     "NAME": "Snake Binding",
@@ -432,7 +435,7 @@
   },
   "crimsonEyed:SureFire": {
     "NAME": "Sure-Fire",
-    "DESCRIPTION": "Deal !D! damage. NL On Exhaust: Put a copy of this card into your hand."
+    "DESCRIPTION": "Deal !D! damage. NL If the enemy has Lock-On, gain [E] and draw 1 card."
   },
   "crimsonEyed:Susanoo": {
     "NAME": "Susanoo",
@@ -440,8 +443,8 @@
   },
   "crimsonEyed:Tomoe": {
     "NAME": "Tomoe",
-    "DESCRIPTION": "Gain 1 Orb slot. NL Channel a random Orb. NL Add a *Dazed into your discard pile.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Gain 1 Orb slot. NL Channel a random Orb. NL Add a *Dazed into your discard pile."
+    "DESCRIPTION": "Gain 1 Orb slot. NL Add a *Dazed into your discard pile.",
+    "UPGRADE_DESCRIPTION": "Gain 1 Orb slot. NL Channel a random Orb. NL Add a *Dazed into your discard pile."
   },
   "crimsonEyed:Tsukuyomi": {
     "NAME": "Tsukuyomi",
@@ -509,7 +512,11 @@
     "DESCRIPTION": "Exhaust cards that enter your discard pile. At the start of your turn, gain 1 [E] and draw 1 additional card."
   },
   "crimsonEyed:ShockBlock": {
-    "NAME": "DEPRECATED:Shock Block",
+    "NAME": "Shock Block",
+    "DESCRIPTION": "Evoke your next Orb. NL Gain Block equal to its Evoked amount. Exhaust."
+  },
+  "crimsonEyed:ShockBlock2": {
+    "NAME": "DEPRECATED:Shock Block2",
     "DESCRIPTION": "Gain !B! Block. NL Gain !M! additional Block for each Channeled Lightning."
   },
   "crimsonEyed:SkeletonSword": {

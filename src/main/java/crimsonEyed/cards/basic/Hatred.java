@@ -3,6 +3,8 @@ package crimsonEyed.cards.basic;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.SoulboundField;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
+import com.megacrit.cardcrawl.cards.curses.Regret;
+import com.megacrit.cardcrawl.cards.red.SearingBlow;
 import com.megacrit.cardcrawl.cards.status.Burn;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -25,7 +27,7 @@ public class Hatred extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.CURSE;       //
     public static final CardColor COLOR = CardColor.CURSE;
 
-    private static final int COST = -2;
+    private static final int COST = 1;
     private static final int MAGIC = 1;
 
     public Hatred() {
@@ -36,7 +38,11 @@ public class Hatred extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         if (this.dontTriggerOnUseCard) {
+            exhaust = false;
             this.addToTop(new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, magicNumber));
+        }
+        else {
+            exhaust = true;
         }
     }
 

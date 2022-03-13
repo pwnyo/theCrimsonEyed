@@ -32,7 +32,7 @@ public class ShadowShuriken extends AbstractDynamicCard {
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 6;
+    private static final int DAMAGE = 7;
     private static final int MAGIC = 1;
 
     // /STAT DECLARATION/

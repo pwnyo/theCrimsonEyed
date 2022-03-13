@@ -1,6 +1,7 @@
 package crimsonEyed.cards.temp;
 
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;
+import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -45,6 +46,7 @@ public class Resentment extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new LoseHPAction(p, p, 1));
         addToBot(new ExhaustAction(magicNumber, false));
     }
 

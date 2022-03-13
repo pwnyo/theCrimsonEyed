@@ -19,30 +19,30 @@ public class ScryBlockAction extends AbstractGameAction {
     private int block;
 
     public ScryBlockAction(int numCards, int block) {
-        this.amount = numCards;// 20
+        this.amount = numCards;
         this.block = block;
-        if (AbstractDungeon.player.hasRelic("GoldenEye")) {// 22
-            AbstractDungeon.player.getRelic("GoldenEye").flash();// 23
-            this.amount += 2;// 24
+        if (AbstractDungeon.player.hasRelic("GoldenEye")) {
+            AbstractDungeon.player.getRelic("GoldenEye").flash();
+            this.amount += 2;
         }
 
-        this.actionType = ActionType.CARD_MANIPULATION;// 27
-        this.startingDuration = Settings.ACTION_DUR_FAST;// 28
-        this.duration = this.startingDuration;// 29
-    }// 30
+        this.actionType = ActionType.CARD_MANIPULATION;
+        this.startingDuration = Settings.ACTION_DUR_FAST;
+        this.duration = this.startingDuration;
+    }
 
     public void update() {
-        if (AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {// 34
-            this.isDone = true;// 35
+        if (AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
+            this.isDone = true;
         } else {
             Iterator var1;
             AbstractCard c;
-            if (this.duration == this.startingDuration) {// 39
-                var1 = AbstractDungeon.player.powers.iterator();// 40
+            if (this.duration == this.startingDuration) {
+                var1 = AbstractDungeon.player.powers.iterator();
 
                 while(var1.hasNext()) {
                     AbstractPower p = (AbstractPower)var1.next();
-                    p.onScry();// 41
+                    p.onScry();
                 }
 
                 if (AbstractDungeon.player.drawPile.isEmpty()) {// 43

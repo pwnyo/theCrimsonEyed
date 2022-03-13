@@ -1,5 +1,6 @@
 package crimsonEyed.actions.unique;
 
+import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.tempCards.Shiv;
@@ -15,7 +16,7 @@ public class ShurikenAction extends AbstractGameAction {
     }
 
     public void update() {
-        int toMake = 10 - p.hand.size();
+        int toMake = BaseMod.MAX_HAND_SIZE - p.hand.size();
         addToBot(new MakeTempCardInHandAction(new Shiv(), toMake));
 
         this.tickDuration();

@@ -28,7 +28,7 @@ public class Genjutsu extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 0;
+    private static final int COST = 1;
     private static final int MAGIC = 1;
     private static final int MAGIC2 = 2;
 
@@ -57,7 +57,7 @@ public class Genjutsu extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
+            upgradeBaseCost(0);
             initializeDescription();
         }
     }

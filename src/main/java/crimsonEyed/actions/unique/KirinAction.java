@@ -13,7 +13,7 @@ public class KirinAction extends AbstractGameAction {
     public KirinAction() {
         this.duration = Settings.ACTION_DUR_XFAST;
         this.actionType = ActionType.SPECIAL;
-    }// 16
+    }
 
     public void update() {
         if (this.duration == Settings.ACTION_DUR_XFAST && !AbstractDungeon.player.orbs.isEmpty()) {

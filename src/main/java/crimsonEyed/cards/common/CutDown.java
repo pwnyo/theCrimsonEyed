@@ -1,8 +1,11 @@
 package crimsonEyed.cards.common;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.blue.GeneticAlgorithm;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.actions.unique.CutDownAction;
 import crimsonEyed.cards.AbstractDynamicCard;
@@ -29,11 +32,10 @@ public class CutDown extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 2;  // COST = 1
+    private static final int COST = 1;  // COST = 1
 
-    private static final int DAMAGE = 6;
+    private static final int DAMAGE = 9;
     private static final int MAGIC = 3;
-    private static final int UPGRADE_MAGIC = 1;
 
     // /STAT DECLARATION/
 
@@ -49,17 +51,14 @@ public class CutDown extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new CutDownAction(m, new DamageInfo(p, damage), magicNumber));
-        addToBot(new CutDownAction(m, new DamageInfo(p, damage), magicNumber));
     }
-
 
     // Upgraded stats.
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(2);
-            upgradeMagicNumber(UPGRADE_MAGIC);
+            upgradeDamage(3);
             initializeDescription();
         }
     }

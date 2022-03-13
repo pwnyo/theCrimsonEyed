@@ -1,17 +1,26 @@
 package crimsonEyed.cards.uncommon.attacks;
 
+import basemod.AutoAdd;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.red.Dropkick;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.LockOnPower;
 import crimsonEyed.SasukeMod;
+import crimsonEyed.actions.unique.SureFireAction;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
 
+import java.util.Iterator;
+
 import static crimsonEyed.SasukeMod.makeCardPath;
 
+@AutoAdd.Ignore
 public class SureFire extends AbstractDynamicCard {
 
     // TEXT DECLARATION
@@ -32,7 +41,7 @@ public class SureFire extends AbstractDynamicCard {
 
     private static final int COST = 1;
 
-    private static final int DAMAGE = 9;
+    private static final int DAMAGE = 7;
     private static final int UPGRADE_PLUS_DMG = 3;
 
     // /STAT DECLARATION/
@@ -47,12 +56,16 @@ public class SureFire extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
+        addToBot(new SureFireAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
     }
-
-    @Override
-    public void triggerOnExhaust() {
-        addToBot(new MakeTempCardInHandAction(this.makeStatEquivalentCopy()));
+    public void triggerOnGlowCheck() {
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            if (!m.isDeadOrEscaped() && m.hasPower(LockOnPower.POWER_ID)) {
+                this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+                break;// 43
+            }
+        }
     }
 
     // Upgraded stats.

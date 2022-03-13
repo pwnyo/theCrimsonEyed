@@ -2,6 +2,7 @@ package crimsonEyed.actions.unique;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
@@ -14,9 +15,11 @@ import static basemod.BaseMod.logger;
 
 public class ShedSkinAction extends AbstractGameAction {
     private AbstractPlayer p;
+    private boolean upgraded;
 
-    public ShedSkinAction(int amount) {
+    public ShedSkinAction(int amount, boolean upgraded) {
         this.amount = amount;
+        this.upgraded = upgraded;
         this.actionType = ActionType.DAMAGE;
         this.duration = Settings.ACTION_DUR_FAST;
         p = AbstractDungeon.player;
@@ -61,5 +64,6 @@ public class ShedSkinAction extends AbstractGameAction {
     void regen() {
         logger.info("exhausted curse");
         addToBot(new ApplyPowerAction(p, p, new RegenPower(p, amount)));
+        addToBot(new GainEnergyAction(upgraded ? 3 : 2));
     }
 }

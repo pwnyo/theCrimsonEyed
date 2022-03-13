@@ -2,6 +2,8 @@ package crimsonEyed.cards.rare;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import com.megacrit.cardcrawl.powers.watcher.EnergyDownPower;
@@ -17,7 +19,7 @@ public class Izanagi extends AbstractDynamicCard {
 
     public static final String ID = SasukeMod.makeID(Izanagi.class.getSimpleName());
     public static final String IMG = makeCardPath("Izanagi.png");
-    // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
+    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     // /TEXT DECLARATION/
 
@@ -30,7 +32,7 @@ public class Izanagi extends AbstractDynamicCard {
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 1;
-    private static final int MAGIC = 1;
+    private static final int MAGIC = 2;
 
     // /STAT DECLARATION/
 
@@ -38,7 +40,6 @@ public class Izanagi extends AbstractDynamicCard {
     public Izanagi() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
-        selfRetain = true;
     }
 
 
@@ -55,7 +56,8 @@ public class Izanagi extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
+            selfRetain = true;
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

@@ -1,9 +1,11 @@
 package crimsonEyed.cards.uncommon.skills;
 
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.defect.AnimateOrbAction;
 import com.megacrit.cardcrawl.actions.defect.EvokeOrbAction;
 import com.megacrit.cardcrawl.actions.defect.EvokeWithoutRemovingOrbAction;
+import com.megacrit.cardcrawl.actions.defect.FissionAction;
 import com.megacrit.cardcrawl.cards.blue.Dualcast;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -24,8 +26,6 @@ public class AmpUp extends AbstractDynamicCard {
     public static final String ID = SasukeMod.makeID(AmpUp.class.getSimpleName());
     public static final String IMG = makeCardPath("AmpUp.png");
 
-    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-
     // /TEXT DECLARATION/
 
 
@@ -43,8 +43,6 @@ public class AmpUp extends AbstractDynamicCard {
 
     public AmpUp() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        showEvokeValue = true;
-        showEvokeOrbCount = 1;
     }
 
     // Actions the card should do.
@@ -59,12 +57,8 @@ public class AmpUp extends AbstractDynamicCard {
         }
 
         if (count > 0) {
+            addToBot(new AnimateOrbAction(1));
             addToBot(new GainEnergyAction(count));
-
-            addToBot(new AnimateOrbAction(1));
-            addToBot(new EvokeWithoutRemovingOrbAction(1));
-            addToBot(new AnimateOrbAction(1));
-            addToBot(new EvokeOrbAction(1));
         }
     }
 
@@ -73,8 +67,7 @@ public class AmpUp extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            selfRetain = true;
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            upgradeBaseCost(0);
             initializeDescription();
         }
     }

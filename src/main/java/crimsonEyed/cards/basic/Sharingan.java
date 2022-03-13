@@ -33,7 +33,7 @@ public class Sharingan extends AbstractDynamicCard {
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 0;
-    private static final int MAGIC = 3;
+    private static final int MAGIC = 2;
 
     // /STAT DECLARATION/
 

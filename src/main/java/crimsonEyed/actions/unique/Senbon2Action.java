@@ -1,5 +1,6 @@
 package crimsonEyed.actions.unique;
 
+import com.evacipated.cardcrawl.mod.stslib.actions.defect.TriggerPassiveAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
@@ -13,7 +14,7 @@ import com.megacrit.cardcrawl.orbs.Lightning;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import com.megacrit.cardcrawl.vfx.combat.DaggerSprayEffect;
 
-public class SenbonAction extends AbstractGameAction {
+public class Senbon2Action extends AbstractGameAction {
     public int[] multiDamage;
     private boolean freeToPlayOnce = false;
     private DamageType damageType;
@@ -21,7 +22,7 @@ public class SenbonAction extends AbstractGameAction {
     private int energyOnUse = -1;
     private boolean upgraded;
 
-    public SenbonAction(AbstractPlayer p, int[] multiDamage, DamageType damageType, boolean freeToPlayOnce, int energyOnUse, boolean upgraded) {
+    public Senbon2Action(AbstractPlayer p, int[] multiDamage, DamageType damageType, boolean freeToPlayOnce, int energyOnUse, boolean upgraded) {
         this.multiDamage = multiDamage;
         this.damageType = damageType;
         this.p = p;
@@ -51,8 +52,8 @@ public class SenbonAction extends AbstractGameAction {
                 this.addToBot(new DamageAllEnemiesAction(this.p, multiDamage, this.damageType, AttackEffect.NONE, true));
             }
 
-            for (int i = 0; i < (upgraded ? effect : effect - 1); i++) {
-                this.addToBot(new ChannelAction(new Lightning()));
+            for (int i = 0; i < effect; i++) {
+                this.addToBot(new TriggerPassiveAction());
             }
 
             if (!this.freeToPlayOnce) {// 61

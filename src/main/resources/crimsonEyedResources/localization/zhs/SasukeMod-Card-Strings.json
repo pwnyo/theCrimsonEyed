@@ -130,7 +130,7 @@
   },
   "crimsonEyed:FindOpenings": {
     "NAME": "看穿弱点",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 预见 !M!。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 预见 !M! 。"
   },
   "crimsonEyed:Fireball": {
     "NAME": "火遁-豪火球之术",
@@ -244,7 +244,7 @@
   },
   "crimsonEyed:LightningSpeed": {
     "NAME": "雷遁-速击",
-    "DESCRIPTION": "一回合内,每打出 !M! 张攻击牌，就 生成 1 闪电 充能球。"
+    "DESCRIPTION": "一回合内，每打出 !M! 张攻击牌，就 生成 1 闪电 充能球。"
   },
   "crimsonEyed:Mangekyou": {
     "NAME": "万花筒写轮眼",

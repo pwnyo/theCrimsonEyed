@@ -113,6 +113,7 @@ public class Chop2 extends AbstractDynamicCard {
             upgradeName();
             upgradeDamage(UPGRADE_DAMAGE);
             upgradeMagicNumber(1);
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

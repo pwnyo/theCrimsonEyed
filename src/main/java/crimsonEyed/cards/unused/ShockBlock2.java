@@ -2,14 +2,8 @@ package crimsonEyed.cards.unused;
 
 import basemod.AutoAdd;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.defect.AnimateOrbAction;
-import com.megacrit.cardcrawl.actions.defect.EvokeOrbAction;
-import com.megacrit.cardcrawl.actions.defect.EvokeWithoutRemovingOrbAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
@@ -17,13 +11,13 @@ import crimsonEyed.characters.TheCrimsonEyed;
 import static crimsonEyed.SasukeMod.makeCardPath;
 
 @AutoAdd.Ignore
-public class ShockBlock extends AbstractDynamicCard {
+public class ShockBlock2 extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
     public static final String ID = SasukeMod.makeID(ShockBlock2.class.getSimpleName());
-    public static final String IMG = makeCardPath("Skill.png");
-    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+    public static final String IMG = makeCardPath("Skill.png");// "public static final String IMG = makeCardPath("ShockBlock.png");
+    // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
 
     // /TEXT DECLARATION/
@@ -36,34 +30,23 @@ public class ShockBlock extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 2;
+    private static final int COST = 1;
     private static final int BLOCK = 6;
     private static final int MAGIC = 2;
 
     // /STAT DECLARATION/
 
 
-    public ShockBlock() {
+    public ShockBlock2() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = block = BLOCK;
         baseMagicNumber = magicNumber = MAGIC;
-        exhaust = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
-        AbstractOrb next = p.orbs.get(0);
-        if (upgraded) {
-            addToBot(new AnimateOrbAction(1));
-            addToBot(new EvokeWithoutRemovingOrbAction(1));
-        }
-        addToBot(new AnimateOrbAction(1));
-        addToBot(new EvokeOrbAction(1));
-        addToBot(new GainBlockAction(p, next.evokeAmount));
-
         addToBot(new GainBlockAction(p, block + p.filledOrbCount() * magicNumber));
     }
 
@@ -74,7 +57,6 @@ public class ShockBlock extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(1);
-            exhaust = false;
             initializeDescription();
         }
     }

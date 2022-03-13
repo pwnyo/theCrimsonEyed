@@ -2,6 +2,7 @@ package crimsonEyed.cards.uncommon.skills;
 
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.status.Slimed;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -47,8 +48,8 @@ public class Slither extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new MakeTempCardInDiscardAction(new Slimed(), 2));
         addToBot(new DrawCardAction(magicNumber));
+        addToBot(new MakeTempCardInHandAction(new Slimed(), 2));
     }
 
     // Upgraded stats.

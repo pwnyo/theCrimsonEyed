@@ -29,7 +29,6 @@ public class Susanoo extends AbstractDynamicCard {
 
     private static final int COST = 3;
     private static final int MAGIC = 6;
-    private static final int UPGRADE_MAGIC = 3;
 
     // /STAT DECLARATION/
 
@@ -55,7 +54,7 @@ public class Susanoo extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_MAGIC);
+            upgradeMagicNumber(3);
             initializeDescription();
         }
     }

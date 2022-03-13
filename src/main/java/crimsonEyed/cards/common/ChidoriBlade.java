@@ -65,7 +65,6 @@ public class ChidoriBlade extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(2);
             rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }

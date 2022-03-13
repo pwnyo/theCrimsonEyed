@@ -7,16 +7,18 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.BerserkPower;
+import com.megacrit.cardcrawl.powers.BrutalityPower;
 import com.megacrit.cardcrawl.powers.NextTurnBlockPower;
 import crimsonEyed.SasukeMod;
 
-public class ResentmentPower extends AbstractPower implements CloneablePowerInterface {
-    public static final String POWER_ID = SasukeMod.makeID("ResentmentPower");
+public class KnowPainPower extends AbstractPower implements CloneablePowerInterface {
+    public static final String POWER_ID = SasukeMod.makeID("KnowPainPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public ResentmentPower(AbstractCreature owner, int amount) {
+    public KnowPainPower(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
@@ -24,7 +26,7 @@ public class ResentmentPower extends AbstractPower implements CloneablePowerInte
         this.type = PowerType.BUFF;
 
         this.updateDescription();
-        loadRegion("rupture");
+        this.loadRegion("berserk");
     }
 
     public void wasHPLost(DamageInfo info, int damageAmount) {

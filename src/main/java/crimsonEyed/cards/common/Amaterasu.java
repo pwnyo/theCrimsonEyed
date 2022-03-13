@@ -63,8 +63,8 @@ public class Amaterasu extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(3);
             upgradeMagicNumber(-1);
+            upgradeDamage(3);
             initializeDescription();
         }
     }

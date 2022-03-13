@@ -3,6 +3,7 @@ package crimsonEyed.cards.common;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.defect.AnimateOrbAction;
 import com.megacrit.cardcrawl.actions.defect.EvokeOrbAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -33,7 +34,7 @@ public class Jolt extends AbstractDynamicCard {
 
     private static final int COST = 1;  // COST = 1
 
-    private static final int DAMAGE = 7;
+    private static final int DAMAGE = 6;
     private static final int UPGRADE_DAMAGE = 3;
 
     // /STAT DECLARATION/
@@ -51,6 +52,7 @@ public class Jolt extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.LIGHTNING));
+        addToBot(new AnimateOrbAction(1));
         addToBot(new EvokeOrbAction(1));
         addToBot(new DrawCardAction(1));
     }

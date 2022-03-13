@@ -27,9 +27,9 @@ public class ExhaustAllCopiesFromDiscardAction extends AbstractGameAction {
     }
 
     public void update() {
-        if (this.duration == Settings.ACTION_DUR_FAST) {// 46
-            if (!this.p.discardPile.isEmpty() && this.amount > 0) {// 47
-                if (this.p.discardPile.size() <= this.amount && !this.optional) {// 50
+        if (this.duration == Settings.ACTION_DUR_FAST) {
+            if (!this.p.discardPile.isEmpty() && this.amount > 0) {
+                if (this.p.discardPile.size() <= this.amount && !this.optional) {
 
                     for (int i = 0; i < p.discardPile.size(); ++i) {
                         AbstractCard c = p.discardPile.getTopCard();
@@ -37,15 +37,15 @@ public class ExhaustAllCopiesFromDiscardAction extends AbstractGameAction {
                         p.discardPile.moveToExhaustPile(c);
                     }
 
-                    this.isDone = true;// 67
+                    this.isDone = true;
                 } else {
-                    if (this.amount == 1) {// 70
-                        if (this.optional) {// 71
-                            AbstractDungeon.gridSelectScreen.open(this.p.discardPile, this.amount, true, TEXT[0]);// 72
+                    if (this.amount == 1) {
+                        if (this.optional) {
+                            AbstractDungeon.gridSelectScreen.open(this.p.discardPile, this.amount, true, TEXT[0]);
                         } else {
-                            AbstractDungeon.gridSelectScreen.open(this.p.discardPile, this.amount, TEXT[0], false);// 78
+                            AbstractDungeon.gridSelectScreen.open(this.p.discardPile, this.amount, TEXT[0], false);
                         }
-                    } else if (this.optional) {// 85
+                    } else if (this.optional) {
                         AbstractDungeon.gridSelectScreen.open(this.p.discardPile, this.amount, true, TEXT[1] + this.amount + TEXT[2]);// 86
                     } else {
                         AbstractDungeon.gridSelectScreen.open(this.p.discardPile, this.amount, TEXT[1] + this.amount + TEXT[2], false);// 92

@@ -2,6 +2,7 @@ package crimsonEyed.cards.rare;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
+import com.megacrit.cardcrawl.cards.red.DemonForm;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -33,7 +34,7 @@ public class IndraForm extends AbstractDynamicCard {
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 3;
-    private static final int MAGIC = 1;
+    private static final int MAGIC = 2;
 
     // /STAT DECLARATION/
 
@@ -48,10 +49,7 @@ public class IndraForm extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (int i = 0; i < magicNumber; i++) {
-            addToBot(new ChannelAction(new Lightning()));
-        }
-        addToBot(new ApplyPowerAction(p, p, new IndraFormPower(p, 1)));
+        addToBot(new ApplyPowerAction(p, p, new IndraFormPower(p, magicNumber)));
     }
 
     //Upgraded stats.

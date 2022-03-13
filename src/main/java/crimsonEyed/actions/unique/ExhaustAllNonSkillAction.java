@@ -15,7 +15,7 @@ public class ExhaustAllNonSkillAction extends AbstractGameAction {
         this.actionType = ActionType.WAIT;
         this.startingDuration = Settings.ACTION_DUR_FAST;
         this.duration = this.startingDuration;
-    }// 19
+    }
 
     public void update() {
         if (this.duration == this.startingDuration) {

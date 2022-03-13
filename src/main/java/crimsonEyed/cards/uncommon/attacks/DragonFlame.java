@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import crimsonEyed.SasukeMod;
+import crimsonEyed.actions.unique.DragonFlameAction;
 import crimsonEyed.actions.unique.ExhaustAllNonSkillAction;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
@@ -34,7 +35,6 @@ public class DragonFlame extends AbstractDynamicCard {
     private static final int COST = 2;  // COST = 2
 
     private static final int DAMAGE = 22;
-    private static final int UPGRADE_PLUS_DMG = 6;
 
     // /STAT DECLARATION/
 
@@ -59,7 +59,7 @@ public class DragonFlame extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_PLUS_DMG);
+            upgradeDamage(6);
             initializeDescription();
         }
     }

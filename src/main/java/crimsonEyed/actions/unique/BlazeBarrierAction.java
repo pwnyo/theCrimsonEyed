@@ -31,5 +31,5 @@ public class BlazeBarrierAction extends AbstractGameAction {
 
         this.tickDuration();
 
-    }// 31
+    }
 }

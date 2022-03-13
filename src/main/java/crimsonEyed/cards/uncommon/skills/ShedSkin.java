@@ -44,7 +44,7 @@ public class ShedSkin extends AbstractDynamicCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ShedSkinAction(magicNumber));
+        addToBot(new ShedSkinAction(magicNumber, upgraded));
     }
 
     // Upgraded stats.
@@ -52,7 +52,7 @@ public class ShedSkin extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
+            upgradeBaseCost(0);
             initializeDescription();
         }
     }

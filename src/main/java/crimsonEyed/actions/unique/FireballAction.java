@@ -27,21 +27,21 @@ public class FireballAction extends AbstractGameAction {
     }
 
     public void update() {
-        if (this.duration == Settings.ACTION_DUR_FAST) {// 26
-            if (this.p.hand.isEmpty()) {// 27
-                this.isDone = true;// 28
-            } else if (this.p.hand.size() == 1) {// 30
-                if (this.p.hand.getBottomCard().costForTurn == -1) {// 31
+        if (this.duration == Settings.ACTION_DUR_FAST) {
+            if (this.p.hand.isEmpty()) {
+                this.isDone = true;
+            } else if (this.p.hand.size() == 1) {
+                if (this.p.hand.getBottomCard().costForTurn == -1) {
                     multiplier += EnergyPanel.getCurrentEnergy();
 
                     this.addToTop(new DamageAllEnemiesAction(p, multiplier * amount, DamageInfo.DamageType.NORMAL, AttackEffect.FIRE));
-                } else if (this.p.hand.getBottomCard().costForTurn > 0) {// 33
+                } else if (this.p.hand.getBottomCard().costForTurn > 0) {
                     multiplier += p.hand.getBottomCard().costForTurn;
 
                     this.addToTop(new DamageAllEnemiesAction(p, multiplier * amount, DamageInfo.DamageType.NORMAL, AttackEffect.FIRE));
                 }
-                this.p.hand.moveToExhaustPile(this.p.hand.getBottomCard());// 36
-                this.tickDuration();// 37
+                this.p.hand.moveToExhaustPile(this.p.hand.getBottomCard());
+                this.tickDuration();
             } else {
                 if (!this.isRandom) {
                     AbstractDungeon.handCardSelectScreen.open("Exhaust", 1, false);
@@ -49,9 +49,9 @@ public class FireballAction extends AbstractGameAction {
                 else {
                     AbstractCard c = this.p.hand.getRandomCard(AbstractDungeon.cardRandomRng);
                     p.hand.moveToExhaustPile(c);
-                    if (c.costForTurn == -1) {// 49
+                    if (c.costForTurn == -1) {
                         multiplier += EnergyPanel.getCurrentEnergy();
-                    } else if (c.costForTurn > 0) {// 51
+                    } else if (c.costForTurn > 0) {
                         multiplier += c.costForTurn;
                     }
                     this.addToTop(new DamageAllEnemiesAction(p, multiplier * amount, DamageInfo.DamageType.NORMAL, AttackEffect.FIRE));
@@ -59,7 +59,7 @@ public class FireballAction extends AbstractGameAction {
                 this.tickDuration();
             }
         } else {
-            if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {// 47
+            if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
                 AbstractCard c;
                 for(Iterator var1 = AbstractDungeon.handCardSelectScreen.selectedCards.group.iterator(); var1.hasNext(); this.p.hand.moveToExhaustPile(c)) {// 48 54
                     c = (AbstractCard)var1.next();

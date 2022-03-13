@@ -36,7 +36,6 @@ public class PaperBomb extends AbstractDynamicCard {
     private static final int COST = 0;
 
     private static final int DAMAGE = 3;
-    private static final int UPGRADE_DAMAGE = 2;
 
     // /STAT DECLARATION/
 
@@ -64,8 +63,8 @@ public class PaperBomb extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_DAMAGE);
-            upgradeMagicNumber(UPGRADE_DAMAGE * 4);
+            upgradeDamage(2);
+            upgradeMagicNumber(2 * 4);
             initializeDescription();
         }
     }
