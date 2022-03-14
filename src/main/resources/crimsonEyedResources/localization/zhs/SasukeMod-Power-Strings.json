@@ -68,8 +68,8 @@
         "crimsonEyed:IndraFormPower": {
                 "NAME": "因陀罗形态",
                 "DESCRIPTIONS": [
-                        "回合开始时,每有一个充能球栏位就 #y生成 #b",
-                        "个 #y闪电 充能球."
+                        "在你的回合开始时，#y生成 #b",
+                        "个 #y闪电 充能球"
                 ]
         },
         "crimsonEyed:KagutsuchiPower": {
@@ -78,6 +78,13 @@
                         "本回合,你打出 #y攻击牌 时, 触发下一个充能球的被动能力 #b",
                         " 次.",
                         " 次."
+                ]
+        },
+        "crimsonEyed:KnowPainPower": {
+                "NAME": "知痛",
+                "DESCRIPTIONS": [
+                        "每当你在战斗中失去生命，就在下回合获得 #b",
+                        " 点 #y格挡 。"
                 ]
         },
         "crimsonEyed:LightningSpeedPower": {
