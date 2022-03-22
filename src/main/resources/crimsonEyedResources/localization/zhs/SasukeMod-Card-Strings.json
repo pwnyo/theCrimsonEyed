@@ -48,8 +48,8 @@
   },
   "crimsonEyed:ChidoriSenbon": {
     "NAME": "雷遁-千鸟千本",
-    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 触发所有充能球的被动能力。",
-    "UPGRADE_DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 触发所有充能球的被动能力。"
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 触发所有 充能球 的被动能力。",
+    "UPGRADE_DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 触发所有 充能球 的被动能力。"
   },
   "crimsonEyed:ChidoriSpear": {
     "NAME": "雷遁-千鸟锐枪",
@@ -201,8 +201,8 @@
   },
   "crimsonEyed:IndraForm": {
     "NAME": "因陀罗形态",
-    "DESCRIPTION": " 虚无 。 NL 在你的回合开始时，生成 2 个 闪电 充能球。",
-    "UPGRADE_DESCRIPTION": "在你的回合开始时，生成 2 个 闪电 充能球。"
+    "DESCRIPTION": " 虚无 。 NL 回合开始时，生成  !M! 闪电 充能球。",
+    "UPGRADE_DESCRIPTION": "回合开始时，生成  !M! 闪电 充能球。"
   },
   "crimsonEyed:IndrasArrow": {
     "NAME": "因陀罗之矢",
@@ -240,7 +240,7 @@
     "DESCRIPTION": " 生成 1 闪电 充能球。 NL 消耗 堆中每有一张牌就获得1瞬时 集中 。 NL 激发 所有充能球。"
   },
    "crimsonEyed:KnowPain": {
-     "NAME": "知痛",
+     "NAME": "感知痛苦",
      "DESCRIPTION": "每当你在战斗中失去生命，就在下回合获得 !M! 点 格挡 。"
    },
   "crimsonEyed:LionsBarrage": {
@@ -364,14 +364,14 @@
   },
   "crimsonEyed:SeverThePast": {
     "NAME": "斩断过去",
-    "DESCRIPTION": " 消耗 你的弃牌堆中的一张牌。 NL  消耗 堆每有一张牌，就获得 !M! 点 格挡 。",
+    "DESCRIPTION": " 从弃牌堆中 消耗 一张牌。 NL  消耗 堆每有一张牌，就获得 !M! 点 格挡 。",
     "EXTENDED_DESCRIPTION": [
       " NL (获得 !B! 点 格挡 。)"
       ]
   },
   "crimsonEyed:ShedSkin": {
     "NAME": "蜕皮",
-    "DESCRIPTION": "  消耗 1张牌。 NL 如果 消耗 了状态 牌或 诅咒 牌，获得 [E] [E] 和 !M! 层 *再生。 NL 消耗 。"
+    "DESCRIPTION": "  消耗 1张牌。 NL 如果 消耗 了状态 牌或 诅咒 牌，获得 [E] [E] 和 !M! 层 *再生 。 NL 消耗 。"
   },
   "crimsonEyed:SixthSense": {
     "NAME": "忍者直感",

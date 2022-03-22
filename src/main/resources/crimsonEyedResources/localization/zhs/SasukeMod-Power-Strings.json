@@ -81,7 +81,7 @@
                 ]
         },
         "crimsonEyed:KnowPainPower": {
-                "NAME": "知痛",
+                "NAME": "感知痛苦",
                 "DESCRIPTIONS": [
                         "每当你在战斗中失去生命，就在下回合获得 #b",
                         " 点 #y格挡 。"
