@@ -1,15 +1,19 @@
 package crimsonEyed.cards.common;
 
+import basemod.interfaces.OnPlayerDamagedSubscriber;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.watcher.DivinePunishmentAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.deprecated.DEPRECATEDPunishment;
 import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
+import crimsonEyed.powers.PunishmentPower;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
 
@@ -46,11 +50,11 @@ public class ShadowShuriken extends AbstractDynamicCard {
     }
 
 
-    // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new MakeTempCardInHandAction(new Shiv(), magicNumber));
-        addToBot(new DamageAction(m, new DamageInfo(m, damage), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        addToBot(new DamageAction(m, new DamageInfo(m, damage),
+                AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
     }
 
 

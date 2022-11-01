@@ -4,6 +4,8 @@ import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.actions.defect.IncreaseMaxOrbAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
+import com.megacrit.cardcrawl.cards.blue.Blizzard;
+import com.megacrit.cardcrawl.cards.red.DemonForm;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;

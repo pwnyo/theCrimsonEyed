@@ -3,6 +3,7 @@ package crimsonEyed.cards.rare;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.actions.defect.EvokeAllOrbsAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -16,6 +17,7 @@ import crimsonEyed.characters.TheCrimsonEyed;
 import crimsonEyed.powers.LoseFocusPower;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
+import static crimsonEyed.SasukeMod.makeID;
 
 public class Kirin2 extends AbstractDynamicCard {
 
@@ -50,6 +52,7 @@ public class Kirin2 extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new SFXAction(makeID("KIRIN")));
         addToBot(new ChannelAction(new Lightning()));
         int focus = getFocus();
         if (focus > 0) {

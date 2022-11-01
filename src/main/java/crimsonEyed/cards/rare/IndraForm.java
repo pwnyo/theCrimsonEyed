@@ -2,7 +2,10 @@ package crimsonEyed.cards.rare;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.red.DemonForm;
+import com.megacrit.cardcrawl.cards.red.ThunderClap;
+import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -49,6 +52,7 @@ public class IndraForm extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new SFXAction("THUNDERCLAP"));
         addToBot(new ApplyPowerAction(p, p, new IndraFormPower(p, magicNumber)));
     }
 

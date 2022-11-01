@@ -2,6 +2,7 @@ package crimsonEyed.cards.uncommon.skills;
 
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -11,6 +12,7 @@ import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
+import static crimsonEyed.SasukeMod.makeID;
 
 public class Tsukuyomi extends AbstractDynamicCard {
 
@@ -54,6 +56,7 @@ public class Tsukuyomi extends AbstractDynamicCard {
                 debuffs++;
         }
         if (debuffs > 0) {
+            addToBot(new SFXAction(makeID("MANGEKYOU")));
             addToBot(new VFXAction(new CollectorCurseEffect(m.hb.cX, m.hb.cY), 0.3F));
             addToBot(new LoseHPAction(m, p, debuffs * magicNumber));
         }

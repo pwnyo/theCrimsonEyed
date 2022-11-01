@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -15,6 +16,7 @@ import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
+import static crimsonEyed.SasukeMod.makeID;
 
 public class Amaterasu extends AbstractDynamicCard {
 
@@ -53,6 +55,7 @@ public class Amaterasu extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new LoseHPAction(p, p, magicNumber));
+        addToBot(new SFXAction(makeID("MANGEKYOU")));
         addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
         addToBot(new ChannelAction(new Dark()));
     }

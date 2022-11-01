@@ -1,6 +1,7 @@
 package crimsonEyed.cards.uncommon.skills;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -11,6 +12,7 @@ import crimsonEyed.characters.TheCrimsonEyed;
 import crimsonEyed.powers.KagutsuchiPower;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
+import static crimsonEyed.SasukeMod.makeID;
 
 public class Kagutsuchi extends AbstractDynamicCard {
 
@@ -47,6 +49,7 @@ public class Kagutsuchi extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new SFXAction(makeID("MANGEKYOU")));
         addToBot(new ApplyPowerAction(p, p, new KagutsuchiPower(p, 1)));
     }
 

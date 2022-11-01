@@ -1,6 +1,7 @@
 package crimsonEyed.cards.uncommon.powers;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import crimsonEyed.SasukeMod;
@@ -9,6 +10,7 @@ import crimsonEyed.characters.TheCrimsonEyed;
 import crimsonEyed.powers.MangekyouPower2;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
+import static crimsonEyed.SasukeMod.makeID;
 
 public class Mangekyou2 extends AbstractDynamicCard {
 
@@ -44,6 +46,7 @@ public class Mangekyou2 extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new SFXAction(makeID("MANGEKYOU")));
         addToBot(new ApplyPowerAction(p, p, new MangekyouPower2(p, magicNumber)));
     }
 

@@ -1,6 +1,7 @@
 package crimsonEyed.cards.uncommon.skills;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -13,6 +14,7 @@ import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
+import static crimsonEyed.SasukeMod.makeID;
 
 public class KillingIntent extends AbstractDynamicCard {
 
@@ -47,6 +49,7 @@ public class KillingIntent extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new SFXAction(makeID("GENJUTSU")));
         addToBot(new IntensifyAction());
         addToBot(new ApplyPowerAction(m, p, new WeakPower(m, magicNumber, false)));
         addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false)));

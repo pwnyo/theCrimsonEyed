@@ -3,6 +3,7 @@ package crimsonEyed.cards.uncommon.skills;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.actions.defect.IncreaseMaxOrbAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.status.Dazed;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -15,6 +16,7 @@ import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
+import static crimsonEyed.SasukeMod.makeID;
 
 public class Tomoe extends AbstractDynamicCard {
 
@@ -53,6 +55,7 @@ public class Tomoe extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new SFXAction(makeID("SHARINGAN")));
         addToBot(new IncreaseMaxOrbAction(magicNumber));
         if (upgraded) {
             addToBot(new ChannelAction(AbstractOrb.getRandomOrb(true)));

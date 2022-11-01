@@ -41,5 +41,5 @@ public class PoisonDamageAction extends AbstractGameAction {
             }
 
         }
-    }// 29 51
+    }
 }

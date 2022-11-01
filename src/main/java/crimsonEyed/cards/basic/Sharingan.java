@@ -2,6 +2,7 @@ package crimsonEyed.cards.basic;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.actions.utility.ScryAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -13,6 +14,7 @@ import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
+import static crimsonEyed.SasukeMod.makeID;
 
 public class Sharingan extends AbstractDynamicCard {
 
@@ -48,10 +50,7 @@ public class Sharingan extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        /*
-        for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
-            addToBot(new ApplyPowerAction(mo, p, new LockOnPower(mo, magicNumber2)));
-        }*/
+        addToBot(new SFXAction(makeID("SHARINGAN")));
         addToBot(new ApplyPowerAction(m, p, new LockOnPower(m, 2)));
         addToBot(new ScryAction(magicNumber));
         addToBot(new DrawCardAction(1));

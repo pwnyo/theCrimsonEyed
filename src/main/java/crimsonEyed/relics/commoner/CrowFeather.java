@@ -5,16 +5,17 @@ import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.relics.OnApplyPowerRelic;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.util.TextureLoader;
 
-import static crimsonEyed.SasukeMod.makeRelicOutlinePath;
-import static crimsonEyed.SasukeMod.makeRelicPath;
+import static crimsonEyed.SasukeMod.*;
 
 public class CrowFeather extends CustomRelic implements OnApplyPowerRelic {
     // ID, images, text.
@@ -41,5 +42,10 @@ public class CrowFeather extends CustomRelic implements OnApplyPowerRelic {
             this.addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, BLOCK, true));
         }
         return true;
+    }
+
+    @Override
+    public void onEquip() {
+        CardCrawlGame.sound.play(makeID("CROW"));
     }
 }

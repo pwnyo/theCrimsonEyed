@@ -1,6 +1,7 @@
 package crimsonEyed.cards.rare;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -11,6 +12,7 @@ import crimsonEyed.characters.TheCrimsonEyed;
 import crimsonEyed.powers.PerceptionPower;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
+import static crimsonEyed.SasukeMod.makeID;
 
 public class Perception extends AbstractDynamicCard {
 
@@ -46,6 +48,7 @@ public class Perception extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new SFXAction(makeID("SHARINGAN")));
         addToBot(new ApplyPowerAction(p, p, new PerceptionPower(p, magicNumber)));
     }
 

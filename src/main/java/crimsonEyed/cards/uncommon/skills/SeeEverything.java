@@ -2,6 +2,7 @@ package crimsonEyed.cards.uncommon.skills;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -18,6 +19,7 @@ import crimsonEyed.characters.TheCrimsonEyed;
 import java.util.Iterator;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
+import static crimsonEyed.SasukeMod.makeID;
 
 public class SeeEverything extends AbstractDynamicCard {
 
@@ -68,7 +70,7 @@ public class SeeEverything extends AbstractDynamicCard {
         }
 
         if (effect > 0) {
-
+            addToBot(new SFXAction(makeID("SHARINGAN")));
             Iterator var3 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
 
             while(var3.hasNext()) {

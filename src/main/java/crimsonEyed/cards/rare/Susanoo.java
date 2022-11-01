@@ -1,6 +1,7 @@
 package crimsonEyed.cards.rare;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.PlatedArmorPower;
@@ -9,6 +10,7 @@ import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
+import static crimsonEyed.SasukeMod.makeID;
 
 public class Susanoo extends AbstractDynamicCard {
 
@@ -42,6 +44,7 @@ public class Susanoo extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new SFXAction("INTIMIDATE"));
         addToBot(new ApplyPowerAction(p, p, new PlatedArmorPower(p, magicNumber)));
     }
     @Override

@@ -1,6 +1,7 @@
 package crimsonEyed.cards.common;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
@@ -10,6 +11,7 @@ import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
+import static crimsonEyed.SasukeMod.makeID;
 
 public class Genjutsu extends AbstractDynamicCard {
 
@@ -47,6 +49,7 @@ public class Genjutsu extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new SFXAction(makeID("GENJUTSU")));
         addToBot(new ApplyPowerAction(m, p, new StrengthPower(m, -magicNumber)));
         addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber2, false)));
     }

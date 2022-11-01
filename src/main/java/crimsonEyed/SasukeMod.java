@@ -77,7 +77,9 @@ public class SasukeMod implements
         EditStringsSubscriber,
         EditKeywordsSubscriber,
         EditCharactersSubscriber,
-        PostInitializeSubscriber {
+        PostInitializeSubscriber,
+        AddAudioSubscriber
+    {
     // Make sure to implement the subscribers *you* are using (read basemod wiki). Editing cards? EditCardsSubscriber.
     // Making relics? EditRelicsSubscriber. etc., etc., for a full list and how to make your own, visit the basemod wiki.
     public static final Logger logger = LogManager.getLogger(SasukeMod.class.getName());
@@ -550,6 +552,21 @@ public class SasukeMod implements
                 break;
         }
         return (toReturn + filename);
+    }
+
+    @Override
+    public void receiveAddAudio() {
+        addAudio("CHIDORI", "chidori");
+        addAudio("CROW", "crow");
+        addAudio("GENJUTSU", "genjutsu");
+        addAudio("MANGEKYOU", "mangekyou");
+        addAudio("SHARINGAN", "sharingan");
+        addAudio("KIRIN", "kirin");
+        addAudio("SUMMON", "summon");
+    }
+    void addAudio(String audioKey, String fileName) {
+        logger.info("adding crimsonEyedResources/audio/" + fileName + ".ogg");
+        BaseMod.addAudio(makeID(audioKey), "crimsonEyedResources/audio/" + fileName + ".ogg");
     }
     // ================ /LOAD THE KEYWORDS/ ===================    
     
