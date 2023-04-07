@@ -36,7 +36,7 @@ public class AmenotejikaraAction extends AbstractGameAction {
                 AbstractCard c;
                 Iterator var6;
                 if (this.player.drawPile.size() <= this.numberOfCards && !this.optional) {
-                    ArrayList<AbstractCard> cardsToMove = new ArrayList();// 38
+                    ArrayList<AbstractCard> cardsToMove = new ArrayList<>();// 38
                     var6 = this.player.drawPile.group.iterator();// 39
 
                     while(var6.hasNext()) {
