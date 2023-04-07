@@ -38,7 +38,7 @@ public class FromExhaustPile extends AbstractDynamicCard {
 
     public FromExhaustPile() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = 1;
+        baseMagicNumber = magicNumber = 2;
     }
 
 

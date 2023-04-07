@@ -2,8 +2,11 @@ package crimsonEyed.cards.uncommon.attacks;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.red.Sentinel;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -36,9 +39,8 @@ public class Fusillade extends AbstractDynamicCard {
 
     private static final int COST = 1;  // COST = 1
 
-    private static final int DAMAGE = 5;
-    private static final int UPGRADE_PLUS_DMG = 2;
-    private static final int MAGIC = 1;
+    private static final int DAMAGE = 7;
+    private static final int UPGRADE_PLUS_DMG = 3;
 
     // /STAT DECLARATION/
 
@@ -46,63 +48,19 @@ public class Fusillade extends AbstractDynamicCard {
     public Fusillade() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
-        baseMagicNumber = magicNumber = MAGIC;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (int i = 0; i < magicNumber; i++) {
-            addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
-        }
-    }
-    int countCards() {
-        int count = -1;
-
-        AbstractPlayer p = AbstractDungeon.player;
-        for (AbstractCard c : p.hand.group) {
-            if (c.cardID.equals(Fusillade.ID)) {
-                count++;
-            }
-        }
-        for (AbstractCard c : p.discardPile.group) {
-            if (c.cardID.equals(Fusillade.ID)) {
-                count++;
-            }
-        }
-        for (AbstractCard c : p.drawPile.group) {
-            if (c.cardID.equals(Fusillade.ID)) {
-                count++;
-            }
-        }
-        return count;
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
+        addToBot(new DrawCardAction(1));
     }
 
-    public void applyPowers() {
-        super.applyPowers();
-
-        this.baseMagicNumber = MAGIC + countCards();
-        magicNumber = baseMagicNumber;
-
-        if (countCards() > 0)
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-        else
-            rawDescription = cardStrings.DESCRIPTION;
-        initializeDescription();
-    }
-
-    public void calculateCardDamage(AbstractMonster mo) {
-        super.calculateCardDamage(mo);
-
-        this.baseMagicNumber = MAGIC + countCards();
-        magicNumber = baseMagicNumber;
-
-        if (countCards() > 0)
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-        else
-            rawDescription = cardStrings.DESCRIPTION;
-        initializeDescription();
+    @Override
+    public void triggerOnExhaust() {
+        addToTop(new MakeTempCardInHandAction(this.makeStatEquivalentCopy()));
     }
 
     // Upgraded stats.

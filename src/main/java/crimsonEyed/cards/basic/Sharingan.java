@@ -42,7 +42,6 @@ public class Sharingan extends AbstractDynamicCard {
 
     public Sharingan() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-
         baseMagicNumber = magicNumber = MAGIC;
     }
 

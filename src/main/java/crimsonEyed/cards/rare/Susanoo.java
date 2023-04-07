@@ -29,8 +29,8 @@ public class Susanoo extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 3;
-    private static final int MAGIC = 6;
+    private static final int COST = 4;
+    private static final int MAGIC = 8;
 
     // /STAT DECLARATION/
 
@@ -57,7 +57,7 @@ public class Susanoo extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(3);
+            upgradeBaseCost(3);
             initializeDescription();
         }
     }

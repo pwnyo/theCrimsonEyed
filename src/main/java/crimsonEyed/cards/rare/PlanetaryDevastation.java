@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.orbs.Plasma;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.WeightyImpactEffect;
 import crimsonEyed.SasukeMod;
+import crimsonEyed.actions.unique.PlanetaryDevastationAction;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
 
@@ -41,14 +42,15 @@ public class PlanetaryDevastation extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 3;  // COST = 3
-    private static final int UPGRADED_COST = 2; // UPGRADED_COST = 2
+    private static final int COST = 2;
+    private static final int UPGRADED_COST = 1;
 
     // /STAT DECLARATION/
 
 
     public PlanetaryDevastation() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        baseMagicNumber = magicNumber = 3;
         exhaust = true;
     }
 
@@ -56,24 +58,16 @@ public class PlanetaryDevastation extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int count = countDebuffs();
-        if (count > 0) {
-            for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                this.addToBot(new VFXAction(new WeightyImpactEffect(mo.hb.cX, mo.hb.cY), 0));
-                addToBot(new WaitAction(0.1f));
-            }
-            addToBot(new IncreaseMaxOrbAction(count));
-        }
-        addToBot(new ChannelAction(new Plasma()));
+        addToBot(new PlanetaryDevastationAction());
+        addToBot(new IncreaseMaxOrbAction(3));
     }
-    int countDebuffs() {
+    static int countDebuffs() {
         int count = 0;
-        ArrayList<AbstractPower> uniqueDebuffs = new ArrayList<>();
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
             for (AbstractPower pow : mo.powers) {
-                if (pow.type == AbstractPower.PowerType.DEBUFF && !uniqueDebuffs.contains(pow) && !pow.ID.equals("Shackled")) {
+                if (pow.type == AbstractPower.PowerType.DEBUFF && !pow.ID.equals("Shackled")) {
                     count++;
-                    uniqueDebuffs.add(pow);
+                    break;
                 }
             }
         }
@@ -83,12 +77,7 @@ public class PlanetaryDevastation extends AbstractDynamicCard {
         super.applyPowers();// 52
         baseMagicNumber = magicNumber = countDebuffs();
 
-        if (this.baseMagicNumber == 1) {
-            this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0] + cardStrings.DESCRIPTION;
-        }
-        else {
-            this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[1] + cardStrings.DESCRIPTION;
-        }
+        this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0] + cardStrings.DESCRIPTION;
         this.initializeDescription();
 
     }// 66

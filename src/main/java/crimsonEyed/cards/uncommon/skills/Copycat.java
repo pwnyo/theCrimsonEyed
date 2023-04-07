@@ -2,6 +2,8 @@ package crimsonEyed.cards.uncommon.skills;
 
 import com.megacrit.cardcrawl.actions.utility.ScryAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.actions.unique.CopyFromTopAction;
@@ -16,6 +18,7 @@ public class Copycat extends AbstractDynamicCard {
 
     public static final String ID = SasukeMod.makeID(Copycat.class.getSimpleName());
     public static final String IMG = makeCardPath("Copycat.png");
+    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     // /TEXT DECLARATION/
 
@@ -27,8 +30,8 @@ public class Copycat extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 1;
-    private static final int MAGIC = 3;
+    private static final int COST = 0;
+    private static final int MAGIC = 2;
 
     // /STAT DECLARATION/
 
@@ -43,7 +46,7 @@ public class Copycat extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ScryAction(magicNumber));
-        addToBot(new CopyFromTopAction(1));
+        addToBot(new CopyFromTopAction(upgraded));
     }
 
     // Upgraded stats.
@@ -51,7 +54,8 @@ public class Copycat extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(0);
+            upgradeMagicNumber(1);
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

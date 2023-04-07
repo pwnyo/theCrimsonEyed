@@ -15,13 +15,12 @@ import com.megacrit.cardcrawl.vfx.combat.DaggerSprayEffect;
 
 public class SenbonAction extends AbstractGameAction {
     public int[] multiDamage;
-    private boolean freeToPlayOnce = false;
+    private boolean freeToPlayOnce;
     private DamageType damageType;
     private AbstractPlayer p;
     private int energyOnUse = -1;
-    private boolean upgraded;
 
-    public SenbonAction(AbstractPlayer p, int[] multiDamage, DamageType damageType, boolean freeToPlayOnce, int energyOnUse, boolean upgraded) {
+    public SenbonAction(AbstractPlayer p, int[] multiDamage, DamageType damageType, boolean freeToPlayOnce, int energyOnUse) {
         this.multiDamage = multiDamage;
         this.damageType = damageType;
         this.p = p;
@@ -29,7 +28,6 @@ public class SenbonAction extends AbstractGameAction {
         this.duration = Settings.ACTION_DUR_XFAST;
         this.actionType = ActionType.SPECIAL;
         this.energyOnUse = energyOnUse;
-        this.upgraded = upgraded;
     }
 
     public void update() {
@@ -49,10 +47,6 @@ public class SenbonAction extends AbstractGameAction {
                 this.addToBot(new SFXAction("BLUNT_FAST"));// 56
                 this.addToBot(new VFXAction(new DaggerSprayEffect(AbstractDungeon.getMonsters().shouldFlipVfx()), 0.0F));
                 this.addToBot(new DamageAllEnemiesAction(this.p, multiDamage, this.damageType, AttackEffect.NONE, true));
-            }
-
-            for (int i = 0; i < (upgraded ? effect : effect - 1); i++) {
-                this.addToBot(new ChannelAction(new Lightning()));
             }
 
             if (!this.freeToPlayOnce) {// 61

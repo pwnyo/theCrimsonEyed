@@ -2,7 +2,11 @@ package crimsonEyed.powers;
 
 import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.blue.MachineLearning;
+import com.megacrit.cardcrawl.cards.red.Brutality;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -11,6 +15,7 @@ import com.megacrit.cardcrawl.powers.BerserkPower;
 import com.megacrit.cardcrawl.powers.BrutalityPower;
 import com.megacrit.cardcrawl.powers.NextTurnBlockPower;
 import crimsonEyed.SasukeMod;
+import crimsonEyed.actions.unique.IntensifyAction;
 
 public class KnowPainPower extends AbstractPower implements CloneablePowerInterface {
     public static final String POWER_ID = SasukeMod.makeID("KnowPainPower");
@@ -29,14 +34,20 @@ public class KnowPainPower extends AbstractPower implements CloneablePowerInterf
         this.loadRegion("berserk");
     }
 
-    public void wasHPLost(DamageInfo info, int damageAmount) {
-        if (damageAmount > 0) {
-            flash();
-            addToTop(new ApplyPowerAction(owner, owner, new NextTurnBlockPower(owner, amount)));
-        }
+    @Override
+    public void atStartOfTurnPostDraw() {
+        flash();
+        addToBot(new IntensifyAction());
+        addToBot(new DrawCardAction(amount));
     }
+
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+        if (amount == 1) {
+            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+        }
+        else {
+            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[2];
+        }
     }
 
     @Override

@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
+import com.megacrit.cardcrawl.powers.EnergizedBluePower;
 import com.megacrit.cardcrawl.powers.NextTurnBlockPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import crimsonEyed.SasukeMod;
@@ -37,20 +38,14 @@ public class Read extends AbstractDynamicCard {
     public static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = -2;
-    private static final int BLOCK = 3;
-    private static final int MAGIC = 2;
+    private static final int MAGIC = 1;
 
     // /STAT DECLARATION/
 
 
     public Read() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseBlock = block = BLOCK;
         baseMagicNumber = magicNumber = MAGIC;
-    }
-    public Read(boolean generated) {
-        this();
-        applyPowers();
     }
 
     @Override
@@ -61,21 +56,8 @@ public class Read extends AbstractDynamicCard {
     @Override
     public void onChoseThisOption() {
         AbstractPlayer p = AbstractDungeon.player;
-        recalc();
-        addToBot(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, block)));
+        addToBot(new ApplyPowerAction(p, p, new EnergizedBluePower(p, 1)));
         addToBot(new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p, magicNumber)));
-        //addToBot(new ApplyPowerAction(p, p, new EnergizedBluePower(p, magicNumber)));
-    }
-    void recalc() {
-        if (!(CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null
-                && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT)) {
-            return;
-        }
-        if (upgraded) {
-            this.baseBlock = block = BLOCK + 3;
-            this.upgradedBlock = true;
-        }
-        applyPowers();
     }
 
     // Upgraded stats.
@@ -83,18 +65,9 @@ public class Read extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBlock(3);
-            recalc();
+            upgradeMagicNumber(1);
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
-    }
-    @Override
-    public AbstractCard makeCopy() {
-        Read tmp = new Read();
-        if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-            tmp.applyPowers();
-        }
-
-        return tmp;
     }
 }

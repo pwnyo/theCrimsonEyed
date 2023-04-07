@@ -31,7 +31,7 @@ public class SnakeBite extends AbstractDynamicCard {
 
     private static final int COST = 0;  // COST = 0
 
-    private static final int DAMAGE = 3;
+    private static final int DAMAGE = 2;
     private static final int UPGRADE_PLUS_DMG = 2;  // UPGRADE_PLUS_DMG = 2
 
     // /STAT DECLARATION/

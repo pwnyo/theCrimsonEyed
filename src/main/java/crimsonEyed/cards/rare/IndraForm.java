@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.Lightning;
+import com.megacrit.cardcrawl.powers.FocusPower;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
@@ -45,7 +46,6 @@ public class IndraForm extends AbstractDynamicCard {
     public IndraForm() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
-        isEthereal = true;
     }
 
 
@@ -53,6 +53,7 @@ public class IndraForm extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new SFXAction("THUNDERCLAP"));
+        addToBot(new ApplyPowerAction(p, p, new FocusPower(p, 1)));
         addToBot(new ApplyPowerAction(p, p, new IndraFormPower(p, magicNumber)));
     }
 
@@ -61,8 +62,7 @@ public class IndraForm extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            isEthereal = false;
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            upgradeMagicNumber(1);
             initializeDescription();
         }
     }

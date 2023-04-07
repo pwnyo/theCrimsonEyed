@@ -3,6 +3,7 @@ package crimsonEyed.cards.common;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
+import com.megacrit.cardcrawl.actions.defect.BarrageAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -39,7 +40,7 @@ public class Amaterasu extends AbstractDynamicCard {
     private static final int COST = 1;  // COST = 1
 
     private static final int DAMAGE = 8;
-    private static final int MAGIC = 2;
+    private static final int MAGIC = 1;
 
     // /STAT DECLARATION/
 
@@ -66,7 +67,6 @@ public class Amaterasu extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(-1);
             upgradeDamage(3);
             initializeDescription();
         }

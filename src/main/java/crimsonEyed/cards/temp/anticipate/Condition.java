@@ -36,7 +36,7 @@ public class Condition extends AbstractDynamicCard {
 
     public Condition() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = 2;
+        baseMagicNumber = magicNumber = 3;
     }
 
 

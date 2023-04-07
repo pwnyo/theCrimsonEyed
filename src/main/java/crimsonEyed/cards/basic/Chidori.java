@@ -1,10 +1,12 @@
 package crimsonEyed.cards.basic;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.actions.defect.EvokeOrbAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -13,9 +15,13 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.Lightning;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import crimsonEyed.SasukeMod;
+import crimsonEyed.actions.common.EvokeNextOrbOfTypeAction;
+import crimsonEyed.actions.unique.ChidoriAction;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
+import crimsonEyed.patches.ScryListenPatch;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
 import static crimsonEyed.SasukeMod.makeID;
@@ -44,7 +50,6 @@ public class Chidori extends AbstractDynamicCard {
     private static final int COST = 1;
 
     private static final int DAMAGE = 5;
-    private static final int UPGRADE_DAMAGE = 3;
 
     // /STAT DECLARATION/
 
@@ -62,19 +67,20 @@ public class Chidori extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new SFXAction(makeID("CHIDORI")));
         addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.LIGHTNING));
-        if (p.orbs.get(0) instanceof Lightning)
+        addToBot(new ChannelAction(new Lightning()));
+        if (ScryListenPatch.scriedThisTurn) {
+            addToBot(new WaitAction(0.1f));
             addToBot(new EvokeOrbAction(1));
-        else
-            addToBot(new ChannelAction(new Lightning()));
+        }
     }
 
     @Override
     public void triggerOnGlowCheck() {
-        if (AbstractDungeon.player.orbs.get(0) instanceof Lightning) {
-            glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        if (ScryListenPatch.scriedThisTurn) {
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
         else {
-            AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
         }
     }
 
@@ -83,7 +89,7 @@ public class Chidori extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_DAMAGE);
+            upgradeDamage(3);
             initializeDescription();
         }
     }

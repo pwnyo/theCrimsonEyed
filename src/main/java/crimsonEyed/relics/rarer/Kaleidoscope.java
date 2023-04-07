@@ -1,4 +1,4 @@
-package crimsonEyed.relics.commoner;
+package crimsonEyed.relics.rarer;
 
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
@@ -32,7 +32,7 @@ public class Kaleidoscope extends CustomRelic {
         flash();
         for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
             this.addToBot(new RelicAboveCreatureAction(m, this));
-            this.addToBot(new ApplyPowerAction(m, AbstractDungeon.player, new LockOnPower(m, AMT), 1, true));
+            this.addToBot(new ApplyPowerAction(m, AbstractDungeon.player, new LockOnPower(m, AMT), AMT, true));
         }
     }
 

@@ -11,8 +11,6 @@ import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
 
-import java.util.Iterator;
-
 import static crimsonEyed.SasukeMod.makeCardPath;
 
 public class Analyze extends AbstractDynamicCard {
@@ -32,8 +30,8 @@ public class Analyze extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 2;
-    private static final int BLOCK = 10;
+    private static final int COST = 1;
+    private static final int BLOCK = 7;
     private static final int MAGIC = 3;
 
     // /STAT DECLARATION/
@@ -70,14 +68,11 @@ public class Analyze extends AbstractDynamicCard {
             tmp = 0.0F;
         }
 
-        Iterator var2;
-        AbstractPower p;
-        for(var2 = AbstractDungeon.player.powers.iterator(); var2.hasNext(); tmp = p.modifyBlock(tmp, this)) {
-            p = (AbstractPower)var2.next();
+        for (AbstractPower p : AbstractDungeon.player.powers) {
+            tmp = p.modifyBlock(tmp, this);
         }
-
-        for(var2 = AbstractDungeon.player.powers.iterator(); var2.hasNext(); tmp = p.modifyBlockLast(tmp)) {
-            p = (AbstractPower)var2.next();
+        for (AbstractPower p : AbstractDungeon.player.powers) {
+            tmp = p.modifyBlockLast(tmp);
         }
 
         this.block = MathUtils.floor(tmp);
@@ -88,7 +83,7 @@ public class Analyze extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(2);
+            upgradeBlock(3);
             initializeDescription();
         }
     }

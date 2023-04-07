@@ -38,7 +38,7 @@ public class FromDiscardPile extends AbstractDynamicCard {
 
     public FromDiscardPile() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = 1;
+        baseMagicNumber = magicNumber = 2;
     }
 
 

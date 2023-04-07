@@ -29,11 +29,10 @@ public class LionsBarrage extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 1;  // COST = 1
+    private static final int COST = 0;
 
-    private static final int DAMAGE = 3;
+    private static final int DAMAGE = 2;
     private static final int MAGIC = 3;
-    private static final int UPGRADE_MAGIC = 1;
 
     // /STAT DECLARATION/
 
@@ -59,7 +58,7 @@ public class LionsBarrage extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_MAGIC);
+            upgradeDamage(1);
             initializeDescription();
         }
     }

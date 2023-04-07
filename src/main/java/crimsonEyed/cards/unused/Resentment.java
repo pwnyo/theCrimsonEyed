@@ -1,7 +1,7 @@
-package crimsonEyed.cards.temp;
+package crimsonEyed.cards.unused;
 
+import basemod.AutoAdd;
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;
-import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -11,6 +11,7 @@ import crimsonEyed.cards.AbstractDynamicCard;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
 
+@AutoAdd.Ignore
 public class Resentment extends AbstractDynamicCard {
 
     // TEXT DECLARATION
@@ -46,7 +47,6 @@ public class Resentment extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new LoseHPAction(p, p, 1));
         addToBot(new ExhaustAction(magicNumber, false));
     }
 

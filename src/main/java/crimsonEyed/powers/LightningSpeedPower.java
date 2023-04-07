@@ -1,12 +1,14 @@
 package crimsonEyed.powers;
 
 import basemod.interfaces.CloneablePowerInterface;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.Lightning;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import crimsonEyed.SasukeMod;
@@ -32,40 +34,15 @@ public class LightningSpeedPower extends AbstractPower implements CloneablePower
     }
 
     public void updateDescription() {
-        if (this.amount == 1) {
-            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[3] + channelCount + DESCRIPTIONS[2];
-        } else {
-            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + channelCount + DESCRIPTIONS[2];
-        }
-
+        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     }
 
-    public void stackPower(int stackAmount) {
-        this.fontScale = 8.0F;
-        this.channelCount += 1;
-        this.updateDescription();
-    }
-
-    public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (card.type != AbstractCard.CardType.ATTACK) {
-            return;
+    @Override
+    public void onChannel(AbstractOrb orb) {
+        if (orb instanceof Lightning) {
+            flash();
+            addToBot(new GainBlockAction(owner, amount));
         }
-        --this.amount;
-        if (this.amount == 0) {
-            this.flash();
-            this.amount = 3;
-
-            for (int i = 0; i < channelCount; i++) {
-                addToBot(new ChannelAction(new Lightning()));
-            }
-        }
-
-        this.updateDescription();
-    }
-
-    public void atStartOfTurn() {
-        this.amount = 3;
-        this.updateDescription();
     }
 
     @Override

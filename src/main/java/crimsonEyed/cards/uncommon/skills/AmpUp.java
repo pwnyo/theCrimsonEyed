@@ -2,10 +2,7 @@ package crimsonEyed.cards.uncommon.skills;
 
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.actions.defect.AnimateOrbAction;
-import com.megacrit.cardcrawl.actions.defect.EvokeOrbAction;
-import com.megacrit.cardcrawl.actions.defect.EvokeWithoutRemovingOrbAction;
-import com.megacrit.cardcrawl.actions.defect.FissionAction;
+import com.megacrit.cardcrawl.actions.defect.*;
 import com.megacrit.cardcrawl.cards.blue.Dualcast;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -13,7 +10,9 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
+import com.megacrit.cardcrawl.orbs.Lightning;
 import crimsonEyed.SasukeMod;
+import crimsonEyed.actions.common.AmpUpAction;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
 
@@ -25,6 +24,7 @@ public class AmpUp extends AbstractDynamicCard {
 
     public static final String ID = SasukeMod.makeID(AmpUp.class.getSimpleName());
     public static final String IMG = makeCardPath("AmpUp.png");
+    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     // /TEXT DECLARATION/
 
@@ -43,23 +43,15 @@ public class AmpUp extends AbstractDynamicCard {
 
     public AmpUp() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        showEvokeValue = true;
+        showEvokeOrbCount = 1;
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int count = 0;
-
-        for (AbstractOrb o : p.orbs) {
-            if (!(o instanceof EmptyOrbSlot)) {
-                count++;
-            }
-        }
-
-        if (count > 0) {
-            addToBot(new AnimateOrbAction(1));
-            addToBot(new GainEnergyAction(count));
-        }
+        addToBot(new EvokeOrbAction(1));
+        addToBot(new AmpUpAction());
     }
 
     // Upgraded stats.

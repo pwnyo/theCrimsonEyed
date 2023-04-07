@@ -2,14 +2,22 @@ package crimsonEyed.cards.rare;
 
 import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.defect.EvokeOrbAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.blue.ForceField;
+import com.megacrit.cardcrawl.cards.green.Eviscerate;
+import com.megacrit.cardcrawl.cards.red.Cleave;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
+import com.megacrit.cardcrawl.orbs.Lightning;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
@@ -39,10 +47,9 @@ public class IndrasArrow extends AbstractDynamicCard implements IOnChannelListen
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 4;
+    private static final int COST = 5;
 
-    private static final int DAMAGE = 30;
-    private static final int UPGRADE_PLUS_DMG = 6;
+    private static final int DAMAGE = 24;
 
     // /STAT DECLARATION/
 
@@ -50,6 +57,7 @@ public class IndrasArrow extends AbstractDynamicCard implements IOnChannelListen
     public IndrasArrow() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
+        isMultiDamage = true;
     }
 
 
@@ -64,8 +72,7 @@ public class IndrasArrow extends AbstractDynamicCard implements IOnChannelListen
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_PLUS_DMG);
-            upgradeBaseCost(3);
+            upgradeDamage(8);
             initializeDescription();
         }
     }
@@ -76,19 +83,13 @@ public class IndrasArrow extends AbstractDynamicCard implements IOnChannelListen
     }
 
     @Override
-    public void applyPowers() {
-        super.applyPowers();
-        countOrbs();
-    }
-
-    @Override
     public void onChannel(AbstractOrb o) {
         countOrbs();
     }
 
     @Override
     public void onEvoke(AbstractOrb o) {
-        countOrbs(-1);
+        countOrbs();
     }
 
     @Override
@@ -97,17 +98,7 @@ public class IndrasArrow extends AbstractDynamicCard implements IOnChannelListen
     }
 
     void countOrbs() {
-        if (CardCrawlGame.dungeon == null || AbstractDungeon.currMapNode == null ||
-                AbstractDungeon.getCurrRoom().phase != AbstractRoom.RoomPhase.COMBAT) {
-            return;
-        }
-        int count = 0;
-        for (AbstractOrb o : AbstractDungeon.player.orbs) {
-            if (!(o instanceof EmptyOrbSlot))
-                count++;
-        }
-        BaseMod.logger.info("channeled orbs: " + count);
-        setCostForTurn(cost - count);
+        countOrbs(0);
     }
     void countOrbs(int bonus) {
         if (CardCrawlGame.dungeon == null || AbstractDungeon.currMapNode == null ||
@@ -116,7 +107,7 @@ public class IndrasArrow extends AbstractDynamicCard implements IOnChannelListen
         }
         int count = 0;
         for (AbstractOrb o : AbstractDungeon.player.orbs) {
-            if (!(o instanceof EmptyOrbSlot))
+            if (o instanceof Lightning)
                 count++;
         }
         count += bonus;
@@ -124,15 +115,12 @@ public class IndrasArrow extends AbstractDynamicCard implements IOnChannelListen
         setCostForTurn(cost - count);
     }
 
-    /*
     @Override
     public AbstractCard makeCopy() {
-        try {
-            IndrasArrow arrow = getClass().newInstance();
-            arrow.countOrbs();
-            return arrow;
-        } catch (IllegalAccessException | InstantiationException e) {
-            throw new RuntimeException("BaseMod failed to auto-generate makeCopy for card: " + this.cardID);
+        AbstractCard tmp = new IndrasArrow();
+        if (AbstractDungeon.player != null) {
+            countOrbs();
         }
-    }*/
+        return tmp;
+    }
 }

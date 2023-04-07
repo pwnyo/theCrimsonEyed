@@ -2,12 +2,15 @@ package crimsonEyed.cards.common;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.defect.ForTheEyesAction;
+import com.megacrit.cardcrawl.cards.red.SpotWeakness;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import crimsonEyed.SasukeMod;
+import crimsonEyed.actions.unique.ParryAction;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
 
@@ -32,10 +35,9 @@ public class Parry extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 1;  // COST = 1
-    private static final int BLOCK = 7;
-    private static final int UPGRADE_PLUS_BLOCK = 2;
-    private static final int MAGIC = 1;
+    private static final int COST = 1;
+    private static final int BLOCK = 6;
+    private static final int MAGIC = 2;
 
     // /STAT DECLARATION/
 
@@ -51,12 +53,7 @@ public class Parry extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, block));
-
-        if (m != null && m.getIntentBaseDmg() >= 0) {// 28
-            addToBot(new ApplyPowerAction(m, p, new WeakPower(m, magicNumber, false)));
-        } else {
-            AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, "That enemy does not intend to Attack!", true));
-        }
+        addToBot(new ParryAction(magicNumber, m));
     }
 
 
@@ -65,8 +62,7 @@ public class Parry extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBlock(UPGRADE_PLUS_BLOCK);
-            upgradeMagicNumber(1);
+            upgradeBlock(3);
             initializeDescription();
         }
     }

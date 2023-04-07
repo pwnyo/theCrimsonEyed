@@ -20,7 +20,6 @@ import java.util.Iterator;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
 
-@AutoAdd.Ignore
 public class SureFire extends AbstractDynamicCard {
 
     // TEXT DECLARATION
@@ -41,7 +40,7 @@ public class SureFire extends AbstractDynamicCard {
 
     private static final int COST = 1;
 
-    private static final int DAMAGE = 7;
+    private static final int DAMAGE = 5;
     private static final int UPGRADE_PLUS_DMG = 3;
 
     // /STAT DECLARATION/
@@ -63,7 +62,7 @@ public class SureFire extends AbstractDynamicCard {
         for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (!m.isDeadOrEscaped() && m.hasPower(LockOnPower.POWER_ID)) {
                 this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
-                break;// 43
+                break;
             }
         }
     }

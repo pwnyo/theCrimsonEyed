@@ -1,6 +1,7 @@
 package crimsonEyed.cards.rare;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.cards.status.VoidCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -10,6 +11,7 @@ import com.megacrit.cardcrawl.powers.watcher.EnergyDownPower;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
+import crimsonEyed.powers.BlindedPower;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
 
@@ -31,7 +33,7 @@ public class Izanagi extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.POWER;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 1;
+    private static final int COST = 2;
     private static final int MAGIC = 2;
 
     // /STAT DECLARATION/
@@ -40,6 +42,7 @@ public class Izanagi extends AbstractDynamicCard {
     public Izanagi() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
+        cardsToPreview = new VoidCard();
     }
 
 
@@ -47,7 +50,7 @@ public class Izanagi extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, magicNumber)));
-        addToBot(new ApplyPowerAction(p, p, new EnergyDownPower(p, 1, false)));
+        addToBot(new ApplyPowerAction(p, p, new BlindedPower(p, 1)));
     }
 
 
@@ -56,8 +59,7 @@ public class Izanagi extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            selfRetain = true;
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            upgradeMagicNumber(1);
             initializeDescription();
         }
     }

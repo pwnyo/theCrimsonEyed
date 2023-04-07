@@ -4,14 +4,18 @@ import com.evacipated.cardcrawl.mod.stslib.actions.defect.TriggerPassiveAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.actions.defect.DarkImpulseAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.blue.Darkness;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.Dark;
+import com.megacrit.cardcrawl.orbs.Lightning;
 import crimsonEyed.SasukeMod;
+import crimsonEyed.actions.unique.BlazeBarrierAction;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
 
@@ -36,16 +40,15 @@ public class BlazeBarrier2 extends AbstractDynamicCard {
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 2;
-    private static final int MAGIC = 3;
-    private static final int BLOCK = 12;
+    private static final int BLOCK = 10;
 
     // /STAT DECLARATION/
 
 
     public BlazeBarrier2() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = MAGIC;
         baseBlock = block = BLOCK;
+        baseMagicNumber = magicNumber = 1;
         showEvokeValue = true;
         showEvokeOrbCount = 1;
     }
@@ -54,38 +57,19 @@ public class BlazeBarrier2 extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, block));
-
-        int darkIndex = -1;
-        for (int i = 0; i < p.filledOrbCount(); i++) {
-            if (p.orbs.get(i) instanceof Dark) {
-                darkIndex = i;
-                break;
-            }
-        }
-        if (darkIndex != -1) {
-            addToBot(new TriggerPassiveAction(darkIndex, 1));
-        }
-        else {
-            addToBot(new ChannelAction(new Dark()));
-        }
+        addToBot(new ChannelAction(new Dark()));
+        addToBot(new TriggerPassiveAction(magicNumber));
     }
 
     @Override
     public void triggerOnGlowCheck() {
-        int darkIndex = -1;
-        AbstractPlayer p = AbstractDungeon.player;
-        for (int i = 0; i < p.filledOrbCount(); i++) {
-            if (p.orbs.get(i) instanceof Dark) {
-                darkIndex = i;
-                break;
+        for (AbstractOrb o : AbstractDungeon.player.orbs) {
+            if (o instanceof Dark) {
+                glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+                return;
             }
         }
-        if (darkIndex != -1) {
-            glowColor = GOLD_BORDER_GLOW_COLOR.cpy();
-        }
-        else {
-            glowColor = BLUE_BORDER_GLOW_COLOR.cpy();
-        }
+        glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
     }
 
     // Upgraded stats.
@@ -93,7 +77,9 @@ public class BlazeBarrier2 extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBlock(4);
+            upgradeBlock(3);
+            upgradeMagicNumber(1);
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

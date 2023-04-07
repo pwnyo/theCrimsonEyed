@@ -3,19 +3,29 @@ package crimsonEyed.cards.uncommon.skills;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.blue.FTL;
+import com.megacrit.cardcrawl.cards.colorless.Trip;
+import com.megacrit.cardcrawl.cards.green.PiercingWail;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.relics.UnceasingTop;
 import com.megacrit.cardcrawl.vfx.combat.ShockWaveEffect;
 import crimsonEyed.SasukeMod;
+import crimsonEyed.actions.unique.IntensifyAction;
+import crimsonEyed.actions.unique.SnakeBindingAction;
+import crimsonEyed.actions.unique.SnakeHandsAction;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
+import crimsonEyed.patches.ScryListenPatch;
 
 import java.util.Iterator;
 
@@ -41,8 +51,7 @@ public class SnakeBinding extends AbstractDynamicCard {
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 1;
-    private static final int MAGIC = 3;
-    private static final int UPGRADE_MAGIC = 2;
+    private static final int MAGIC = 4;
 
     // /STAT DECLARATION/
 
@@ -50,83 +59,22 @@ public class SnakeBinding extends AbstractDynamicCard {
     public SnakeBinding() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
-        baseMagicNumber2 = magicNumber2 = 0;
-        exhaust = true;
     }
-
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (countCards() <= 0)
-            return;
-        if (Settings.FAST_MODE) {// 44
-            this.addToBot(new VFXAction(p, new ShockWaveEffect(p.hb.cX, p.hb.cY, Settings.GREEN_TEXT_COLOR, ShockWaveEffect.ShockWaveType.CHAOTIC), 0.3F));// 45
-        } else {
-            this.addToBot(new VFXAction(p, new ShockWaveEffect(p.hb.cX, p.hb.cY, Settings.GREEN_TEXT_COLOR, ShockWaveEffect.ShockWaveType.CHAOTIC), 1.5F));// 51
-        }
-        int badCount = countCards();
-
-        for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            addToBot(new ApplyPowerAction(mo, p, new StrengthPower(mo, -this.magicNumber * badCount), -this.magicNumber * countCards(), true, AbstractGameAction.AttackEffect.NONE));
-            addToBot(new ApplyPowerAction(mo, p, new GainStrengthPower(mo, this.magicNumber * badCount), this.magicNumber * countCards(), true, AbstractGameAction.AttackEffect.NONE));
-        }
+        addToBot(new SnakeBindingAction(magicNumber, this));
     }
 
-    int countCards() {
-        int count = 0;
-        Iterator var1 = AbstractDungeon.player.hand.group.iterator();
-
-        AbstractCard c;
-        while(var1.hasNext()) {
-            c = (AbstractCard)var1.next();
-            if (isStatusOrCurse(c)) {
-                ++count;
-            }
+    @Override
+    public void triggerOnGlowCheck() {
+        if (SnakeHandsAction.hasStatusOrCurse()) {
+            glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
-
-        var1 = AbstractDungeon.player.drawPile.group.iterator();
-
-        while(var1.hasNext()) {
-            c = (AbstractCard)var1.next();
-            if (isStatusOrCurse(c)) {
-                ++count;
-            }
+        else {
+            glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
         }
-
-        var1 = AbstractDungeon.player.discardPile.group.iterator();
-
-        while(var1.hasNext()) {
-            c = (AbstractCard)var1.next();
-            if (isStatusOrCurse(c)) {
-                ++count;
-            }
-        }
-
-        return count;
-    }
-    public void applyPowers() {
-        super.applyPowers();
-        int count = countCards();
-
-        this.baseMagicNumber2 = magicNumber2 = count * magicNumber;
-
-        rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
-        this.initializeDescription();
-    }
-
-    public void calculateCardDamage(AbstractMonster mo) {
-        super.calculateCardDamage(mo);
-        int count = countCards();
-
-        this.baseMagicNumber2 = magicNumber2 = count * magicNumber2;
-
-        rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
-        this.initializeDescription();
-    }
-
-    public static boolean isStatusOrCurse(AbstractCard c) {
-        return c.type == CardType.STATUS || c.type == CardType.CURSE;
     }
 
     // Upgraded stats.
@@ -134,7 +82,7 @@ public class SnakeBinding extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_MAGIC);
+            upgradeMagicNumber(2);
             initializeDescription();
         }
     }

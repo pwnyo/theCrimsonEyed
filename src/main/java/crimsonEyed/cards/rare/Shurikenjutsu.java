@@ -30,7 +30,7 @@ public class Shurikenjutsu extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 2;  // COST = 2
+    private static final int COST = 3;
 
     // /STAT DECLARATION/
 

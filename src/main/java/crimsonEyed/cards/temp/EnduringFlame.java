@@ -34,7 +34,7 @@ public class EnduringFlame extends AbstractDynamicCard {
     public static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = 0;
-    private static final int BLOCK = 9;
+    private static final int BLOCK = 6;
 
     // /STAT DECLARATION/
 

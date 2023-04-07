@@ -5,10 +5,9 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.watcher.BattleHymnPower;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
-import crimsonEyed.cards.temp.Resentment;
+import crimsonEyed.cards.unused.Resentment;
 import crimsonEyed.characters.TheCrimsonEyed;
 import crimsonEyed.powers.GrudgePower;
 
@@ -33,7 +32,7 @@ public class Grudge extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.POWER;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 2;
+    private static final int COST = 1;
     private static final int MAGIC = 1;
 
     // /STAT DECLARATION/

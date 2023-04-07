@@ -39,22 +39,14 @@ public class UniversalPullAction extends AbstractGameAction {
         if (this.duration == this.startDuration) {
             if (!group.isEmpty() && this.numberOfCards > 0) {
                 if (group.size() <= this.numberOfCards) {// 50
-                    ArrayList<AbstractCard> cardsToMove = new ArrayList();// 51
-                    Iterator var5 = group.group.iterator();// 52
-
-                    AbstractCard c;
-                    while(var5.hasNext()) {
-                        c = (AbstractCard)var5.next();
-                        cardsToMove.add(c);// 53
+                    ArrayList<AbstractCard> cardsToMove = new ArrayList<>();// 51
+                    for (AbstractCard c : group.group) {
+                        cardsToMove.add(c);
                     }
-
-                    var5 = cardsToMove.iterator();// 55
-
-                    while(var5.hasNext()) {
-                        c = (AbstractCard)var5.next();
+                    for (AbstractCard c : cardsToMove) {
+                        cardsToMove.add(c);
                         group.removeCard(c);
-                        player.limbo.addToBottom(c);
-                        addToBot(new ApplyPowerAction(player, player, new UniversalPullPower(player, 1, c)));
+                        addToTop(new ApplyPowerAction(player, player, new UniversalPullPower(player, 1, c)));
                     }
 
                     this.isDone = true;// 67
@@ -71,17 +63,11 @@ public class UniversalPullAction extends AbstractGameAction {
                 this.isDone = true;
             }
         } else {
-            Iterator var1;
-            AbstractCard c;
+
             if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
-                var1 = AbstractDungeon.gridSelectScreen.selectedCards.iterator();
-
-                while(var1.hasNext()) {
-                    c = (AbstractCard)var1.next();
-
+                for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
                     group.removeCard(c);
-                    //player.limbo.addToBottom(c);
-                    addToBot(new ApplyPowerAction(player, player, new UniversalPullPower(player, 1, c)));
+                    addToTop(new ApplyPowerAction(player, player, new UniversalPullPower(player, 1, c)));
                 }
 
                 AbstractDungeon.gridSelectScreen.selectedCards.clear();
@@ -90,10 +76,7 @@ public class UniversalPullAction extends AbstractGameAction {
 
             this.tickDuration();
             if (this.isDone) {
-                var1 = this.player.hand.group.iterator();
-
-                while(var1.hasNext()) {
-                    c = (AbstractCard)var1.next();
+                for (AbstractCard c : player.hand.group) {
                     c.applyPowers();
                 }
             }

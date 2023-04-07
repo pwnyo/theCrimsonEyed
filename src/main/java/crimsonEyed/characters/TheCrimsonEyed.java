@@ -63,11 +63,11 @@ public class TheCrimsonEyed extends CustomPlayer {
     // =============== BASE STATS =================
 
     public static final int ENERGY_PER_TURN = 3;
-    public static final int STARTING_HP = 72;
-    public static final int MAX_HP = 72;
+    public static final int STARTING_HP = 75;
+    public static final int MAX_HP = 75;
     public static final int STARTING_GOLD = 99;
     public static final int CARD_DRAW = 5;
-    public static final int ORB_SLOTS = 2;
+    public static final int ORB_SLOTS = 3;
 
     // =============== /BASE STATS/ =================
 
@@ -163,7 +163,6 @@ public class TheCrimsonEyed extends CustomPlayer {
         retVal.add(Strike.ID);
         retVal.add(Chidori.ID);
 
-        retVal.add(Defend.ID);
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);

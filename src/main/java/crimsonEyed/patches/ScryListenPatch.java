@@ -1,21 +1,31 @@
 package crimsonEyed.patches;
 
-import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
 import com.megacrit.cardcrawl.actions.utility.ScryAction;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import crimsonEyed.patches.interfaces.IScryListenerRelic;
+import crimsonEyed.actions.unique.ScryBlockAction;
 
 @SpirePatch(clz = ScryAction.class, method = "update")
 public class ScryListenPatch {
-    @SpireInsertPatch(loc = 43)
-    public static void Insert(ScryAction __action) {
-        for (AbstractRelic r : AbstractDungeon.player.relics) {
-            if (r instanceof IScryListenerRelic) {
-                IScryListenerRelic listener = (IScryListenerRelic) r;
-                listener.onScry();
-            }
+    public static boolean scriedThisTurn;
+
+    @SpirePostfixPatch
+    public static void Postfix(ScryAction __action) {
+        scriedThisTurn = true;
+    }
+    @SpirePostfixPatch
+    public static void Postfix2(ScryBlockAction __action) { scriedThisTurn = false; }
+    @SpirePatch(clz = AbstractRelic.class, method = "atTurnStart")
+    public static class NextTurn {
+        public static void Postfix(AbstractRelic __relic) {
+            scriedThisTurn = false;
+        }
+    }
+    @SpirePatch(clz = AbstractRelic.class, method = "atBattleStart")
+    public static class StartBattle {
+        public static void Postfix(AbstractRelic __relic) {
+            scriedThisTurn = false;
         }
     }
 }

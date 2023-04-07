@@ -32,9 +32,9 @@ public class CutDown extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 1;  // COST = 1
+    private static final int COST = 2;
 
-    private static final int DAMAGE = 9;
+    private static final int DAMAGE = 15;
     private static final int MAGIC = 3;
 
     // /STAT DECLARATION/
@@ -58,7 +58,8 @@ public class CutDown extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(3);
+            upgradeDamage(5);
+            upgradeMagicNumber(1);
             initializeDescription();
         }
     }

@@ -30,8 +30,7 @@ public class AlmightyPush extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = CardColor.COLORLESS;
 
-    private static final int COST = 3;  // COST = 3
-    private static final int UPGRADED_COST = 2; // UPGRADED_COST = 2
+    private static final int COST = 3;
 
     private static final int MAGIC = 6;
 
@@ -60,7 +59,7 @@ public class AlmightyPush extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
+            upgradeBaseCost(2);
             initializeDescription();
         }
     }

@@ -3,6 +3,8 @@ package crimsonEyed.cards.uncommon.powers;
 import basemod.AutoAdd;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
@@ -29,9 +31,10 @@ public class KnowPain extends AbstractDynamicCard {
     private static final CardTarget TARGET = CardTarget.SELF;  //   since they don't change much.
     private static final CardType TYPE = CardType.POWER;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
+    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
-    private static final int COST = 0;
-    private static final int MAGIC = 2;
+    private static final int COST = 1;
+    private static final int MAGIC = 1;
     private static final int UPGRADE_MAGIC = 1;
 
     // /STAT DECLARATION/
@@ -56,6 +59,7 @@ public class KnowPain extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_MAGIC);
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

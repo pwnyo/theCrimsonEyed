@@ -2,11 +2,16 @@ package crimsonEyed.cards.common;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.cards.red.Disarm;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 import crimsonEyed.SasukeMod;
+import crimsonEyed.actions.unique.GenjutsuAction;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
 
@@ -18,7 +23,7 @@ public class Genjutsu extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = SasukeMod.makeID(Genjutsu.class.getSimpleName());
-    public static final String IMG = makeCardPath("Genjutsu.png");// "public static final String IMG = makeCardPath("Genjutsu.png");
+    public static final String IMG = makeCardPath("Genjutsu.png");
 
     // /TEXT DECLARATION/
 
@@ -41,7 +46,6 @@ public class Genjutsu extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
         baseMagicNumber2 = magicNumber2 = MAGIC2;
-        selfRetain = true;
         exhaust = true;
     }
 
@@ -50,8 +54,8 @@ public class Genjutsu extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new SFXAction(makeID("GENJUTSU")));
-        addToBot(new ApplyPowerAction(m, p, new StrengthPower(m, -magicNumber)));
-        addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber2, false)));
+        addToBot(new ApplyPowerAction(m, p, new WeakPower(m, magicNumber2, false)));
+        addToBot(new ApplyPowerAction(m, p, new StrengthPower(m, -magicNumber), -magicNumber));
     }
 
 
@@ -60,7 +64,7 @@ public class Genjutsu extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(0);
+            upgradeMagicNumber(1);
             initializeDescription();
         }
     }

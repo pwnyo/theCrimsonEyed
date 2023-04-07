@@ -1,7 +1,10 @@
-package crimsonEyed.cards.uncommon.skills;
+package crimsonEyed.cards.uncommon.attacks;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -22,7 +25,6 @@ public class KillingIntent extends AbstractDynamicCard {
 
     public static final String ID = SasukeMod.makeID(KillingIntent.class.getSimpleName());
     public static final String IMG = makeCardPath("KillingIntent.png");
-    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
 
     // /TEXT DECLARATION/
@@ -32,7 +34,7 @@ public class KillingIntent extends AbstractDynamicCard {
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
-    private static final CardType TYPE = CardType.SKILL;       //
+    private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 1;
@@ -42,7 +44,8 @@ public class KillingIntent extends AbstractDynamicCard {
 
     public KillingIntent() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = 2;
+        baseDamage = damage = 8;
+        baseMagicNumber = magicNumber = 1;
     }
 
 
@@ -50,9 +53,10 @@ public class KillingIntent extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new SFXAction(makeID("GENJUTSU")));
-        addToBot(new IntensifyAction());
+        addToBot(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.SLASH_HEAVY));
         addToBot(new ApplyPowerAction(m, p, new WeakPower(m, magicNumber, false)));
         addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false)));
+        addToBot(new IntensifyAction());
     }
 
 
@@ -61,8 +65,7 @@ public class KillingIntent extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            isInnate = true;
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            upgradeDamage(4);
             initializeDescription();
         }
     }

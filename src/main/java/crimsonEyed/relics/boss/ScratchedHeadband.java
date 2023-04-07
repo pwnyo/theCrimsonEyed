@@ -28,11 +28,13 @@ public class ScratchedHeadband extends CustomRelic {
     }
     public void onEquip() {
         AbstractCard hate = AbstractDungeon.player.masterDeck.findCardById(Hatred.ID);
+        AbstractCard hope = new EnduringFlame();
+        hope.upgrade();
 
         if (hate != null) {
             AbstractDungeon.player.masterDeck.removeCard(hate);
-            AbstractDungeon.effectList.add(new ShowCardBrieflyEffect(new EnduringFlame()));
-            AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(new EnduringFlame(), (float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F, false));
+            AbstractDungeon.effectList.add(new ShowCardBrieflyEffect(hope));
+            AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(hope, (float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F, false));
         }
     }
 

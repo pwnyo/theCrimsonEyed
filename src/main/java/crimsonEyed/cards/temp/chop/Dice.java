@@ -31,8 +31,7 @@ public class Dice extends AbstractDynamicCard {
 
     private static final int COST = -2;
 
-    private static final int DAMAGE = 3;    // DAMAGE = 3
-    private static final int UPGRADE_PLUS_DMG = 1;  // UPGRADE_PLUS_DMG = 1
+    private static final int DAMAGE = 2;
     private AbstractMonster target;
 
     // /STAT DECLARATION/
@@ -41,7 +40,7 @@ public class Dice extends AbstractDynamicCard {
     public Dice() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
-        baseMagicNumber = magicNumber = 4;
+        baseMagicNumber = magicNumber = 5;
         isMultiDamage = true;
     }
     public Dice(AbstractMonster m) {
@@ -61,8 +60,8 @@ public class Dice extends AbstractDynamicCard {
     @Override
     public void onChoseThisOption() {
         if (upgraded) {
-            this.baseDamage = damage = DAMAGE + UPGRADE_PLUS_DMG;
-            this.upgradedDamage = true;
+            this.baseMagicNumber = magicNumber = 4;
+            this.upgradedMagicNumber = true;
         }
         recalc();
         for (int i = 0; i < magicNumber; i++) {
@@ -73,8 +72,8 @@ public class Dice extends AbstractDynamicCard {
         if (target == null)
             return;
         if (upgraded) {
-            this.baseDamage = damage = DAMAGE + UPGRADE_PLUS_DMG;
-            this.upgradedDamage = true;
+            this.baseMagicNumber = magicNumber = 4;
+            this.upgradedMagicNumber = true;
         }
         SasukeMod.logger.info("upgraded? " + upgraded + " - damage is " + damage);
         applyPowers();
@@ -86,7 +85,7 @@ public class Dice extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_PLUS_DMG);
+            upgradeDamage(1);
             recalc();
             initializeDescription();
         }

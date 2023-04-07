@@ -13,6 +13,14 @@
                         " #yFlame #yBarrier."
                 ]
         },
+        "crimsonEyed:BlindedPower": {
+                "NAME": "Blinded",
+                "DESCRIPTIONS": [
+                        "At the end of your turn, shuffle #b",
+                        " #yVoids into your draw pile.",
+                        "At the end of your turn, shuffle a #yVoid into your draw pile."
+                ]
+        },
         "crimsonEyed:CommonPower": {
                 "NAME": "DEPRECATED:Placeholder Power",
                 "DESCRIPTIONS": [
@@ -60,9 +68,9 @@
         "crimsonEyed:GrudgePower": {
                 "NAME": "Grudge",
                 "DESCRIPTIONS": [
-                        "At the start of your turn, add a #b",
-                        " #yResentments into your hand.",
-                        " #yResentment into your hand."
+                        "At the start of your turn, #yExhaust #b",
+                        " card.",
+                        " cards."
                 ]
         },
         "crimsonEyed:IndraFormPower": {
@@ -83,10 +91,8 @@
         "crimsonEyed:LightningSpeedPower": {
                 "NAME": "Lightning Speed",
                 "DESCRIPTIONS": [
-                        "If you play #b",
-                        " more #yAttacks this turn, #yChannel #b",
-                        " #yLightning.",
-                        " more #yAttack this turn, #yChannel #b"
+                        "Whenever you #yChannel #yLightning, gain #b",
+                        " #yBlock."
                 ]
         },
         "crimsonEyed:LoseFocusPower": {
@@ -152,14 +158,22 @@
         "crimsonEyed:KnowPainPower": {
                 "NAME": "Know Pain",
                 "DESCRIPTIONS": [
-                        "Whenever you lose HP, gain #b",
-                        " #yBlock next turn."
+                        "At the start of your turn, #yIntensify your #yHatred and draw #b",
+                        " card.",
+                        " cards."
                 ]
         },
         "crimsonEyed:RevolutionPower": {
                 "NAME": "Revolution",
                 "DESCRIPTIONS": [
                         "Whenever you draw a #yStatus or #yCurse card, gain #b",
+                        " #yStrength."
+                ]
+        },
+        "crimsonEyed:RevolutionPower2": {
+                "NAME": "Revolution",
+                "DESCRIPTIONS": [
+                        "Whenever you #yIntensify your #yHatred, gain #b",
                         " #yStrength."
                 ]
         },
@@ -173,6 +187,13 @@
                 "NAME": "Spite",
                 "DESCRIPTIONS": [
                         "Whenever you deal #yFatal damage, heal #b",
+                        " HP."
+                ]
+        },
+        "crimsonEyed:SpitePower2": {
+                "NAME": "Spite",
+                "DESCRIPTIONS": [
+                        "Whenever you attack this enemy this turn, heal #b",
                         " HP."
                 ]
         },

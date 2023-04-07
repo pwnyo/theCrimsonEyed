@@ -36,7 +36,7 @@ public class ExhaustDamagePower extends AbstractPower implements CloneablePowerI
     @Override
     public void onExhaust(AbstractCard card) {
         flash();
-        addToBot(new DamageRandomEnemyAction(new DamageInfo(owner, amount, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.FIRE));
+        addToBot(new DamageRandomEnemyAction(new DamageInfo(owner, amount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));
     }
 
     @Override

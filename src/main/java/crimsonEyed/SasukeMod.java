@@ -18,7 +18,9 @@ import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import crimsonEyed.cards.AbstractDefaultCard;
+import crimsonEyed.cards.uncommon.skills.Coordination;
 import crimsonEyed.characters.TheCrimsonEyed;
+import crimsonEyed.potions.CoordinationPotion;
 import crimsonEyed.potions.ParalysisPotion;
 import crimsonEyed.potions.ScryPotion;
 import crimsonEyed.potions.YinVessel;
@@ -27,6 +29,7 @@ import crimsonEyed.relics.boss.EternalEye;
 import crimsonEyed.relics.boss.ScratchedHeadband;
 import crimsonEyed.relics.commoner.*;
 import crimsonEyed.relics.rarer.CherryBlossom;
+import crimsonEyed.relics.rarer.Kaleidoscope;
 import crimsonEyed.relics.rarer.NohMask;
 import crimsonEyed.relics.rarer.StoneTablet;
 import crimsonEyed.util.IDCheckDontTouchPls;
@@ -380,7 +383,7 @@ public class SasukeMod implements
         //BaseMod.addPotion(PlaceholderPotion.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, PlaceholderPotion.POTION_ID, TheDefault.Enums.THE_DEFAULT);
         //Color liquidColor, Color hybridColor, Color spotsColor, String potionID, PlayerClass playerClass
 
-        BaseMod.addPotion(ScryPotion.class, Color.CYAN, Color.CYAN, null, ScryPotion.POTION_ID, TheCrimsonEyed.Enums.SASUKE);
+        BaseMod.addPotion(CoordinationPotion.class, Color.CYAN, Color.CYAN, null, ScryPotion.POTION_ID, TheCrimsonEyed.Enums.SASUKE);
         BaseMod.addPotion(ParalysisPotion.class, Color.BLACK, Color.RED, Color.BLACK, ParalysisPotion.POTION_ID, TheCrimsonEyed.Enums.SASUKE);
         BaseMod.addPotion(YinVessel.class, Color.BLACK, Color.BLACK, null, YinVessel.POTION_ID, TheCrimsonEyed.Enums.SASUKE);
         
@@ -418,7 +421,6 @@ public class SasukeMod implements
         BaseMod.addRelicToCustomPool(new ScratchedHeadband(), TheCrimsonEyed.Enums.SASUKE_BLUE);
 
         // This adds a relic to the Shared pool. Every character can find this relic.
-        //BaseMod.addRelic(new CrimsonEye2(), RelicType.SHARED);
         
         // Mark relics as seen - makes it visible in the compendium immediately
         // If you don't have this it won't be visible in the compendium until you see them in game

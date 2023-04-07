@@ -7,10 +7,8 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.potions.EssenceOfDarkness;
 import com.megacrit.cardcrawl.powers.FocusPower;
-import com.megacrit.cardcrawl.relics.Damaru;
-import com.megacrit.cardcrawl.relics.DataDisk;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.util.TextureLoader;
@@ -24,7 +22,7 @@ public class CrimsonEye2 extends CustomRelic {
 
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("crimsonEye.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("crimsonEye.png"));
-    private static final int FOCUS_AMT = 2;
+    private static final int AMT = 1;
     private boolean isActive = false;
 
     public CrimsonEye2() {
@@ -38,7 +36,8 @@ public class CrimsonEye2 extends CustomRelic {
                 if (!CrimsonEye2.this.isActive && AbstractDungeon.player.isBloodied) {
                     CrimsonEye2.this.flash();
                     CrimsonEye2.this.pulse = true;
-                    AbstractDungeon.player.addPower(new FocusPower(AbstractDungeon.player, FOCUS_AMT));
+                    AbstractDungeon.player.addPower(new StrengthPower(AbstractDungeon.player, AMT));
+                    AbstractDungeon.player.addPower(new FocusPower(AbstractDungeon.player, AMT));
                     this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, CrimsonEye2.this));
                     CrimsonEye2.this.isActive = true;
                     AbstractDungeon.onModifyPower();
@@ -54,7 +53,8 @@ public class CrimsonEye2 extends CustomRelic {
         this.pulse = true;
         if (!this.isActive && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
             AbstractPlayer p = AbstractDungeon.player;
-            this.addToTop(new ApplyPowerAction(p, p, new FocusPower(p, FOCUS_AMT)));
+            this.addToTop(new ApplyPowerAction(p, p, new FocusPower(p, AMT)));
+            this.addToTop(new ApplyPowerAction(p, p, new StrengthPower(p, AMT)));
             this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             this.isActive = true;
             AbstractDungeon.player.hand.applyPowers();
@@ -65,7 +65,8 @@ public class CrimsonEye2 extends CustomRelic {
     public void onNotBloodied() {
         if (this.isActive && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
             AbstractPlayer p = AbstractDungeon.player;
-            this.addToTop(new ApplyPowerAction(p, p, new FocusPower(p, -FOCUS_AMT)));
+            this.addToTop(new ApplyPowerAction(p, p, new StrengthPower(p, -AMT)));
+            this.addToTop(new ApplyPowerAction(p, p, new FocusPower(p, -AMT)));
         }
 
         this.stopPulse();
@@ -80,7 +81,7 @@ public class CrimsonEye2 extends CustomRelic {
 
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0] + FOCUS_AMT + this.DESCRIPTIONS[1];
+        return DESCRIPTIONS[0] + AMT + this.DESCRIPTIONS[1];
     }
 
 }

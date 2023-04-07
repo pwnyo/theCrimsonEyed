@@ -1,14 +1,21 @@
 package crimsonEyed.cards.common;
 
+import com.megacrit.cardcrawl.actions.common.BetterDiscardPileToHandAction;
+import com.megacrit.cardcrawl.actions.common.BetterDrawPileToHandAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.defect.DiscardPileToHandAction;
+import com.megacrit.cardcrawl.actions.unique.AttackFromDeckToHandAction;
 import com.megacrit.cardcrawl.actions.unique.DiscardPileToTopOfDeckAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.red.Headbutt;
 import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import crimsonEyed.SasukeMod;
+import crimsonEyed.actions.common.AttackFromDiscardToHandAction;
+import crimsonEyed.actions.common.DrawPileToTopOfDeckAction;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
 
@@ -32,8 +39,8 @@ public class PullWires extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 0;
-    private static final int MAGIC = 1;
+    private static final int COST = 1;
+    private static final int MAGIC = 2;
 
     // /STAT DECLARATION/
 
@@ -41,14 +48,14 @@ public class PullWires extends AbstractDynamicCard {
     public PullWires() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
+        cardsToPreview = new Shiv();
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractCard shiv = new Shiv();
-        addToBot(new MakeTempCardInHandAction(shiv, magicNumber));
+        addToBot(new MakeTempCardInHandAction(new Shiv(), magicNumber));
         addToBot(new DiscardPileToTopOfDeckAction(p));
     }
 
@@ -58,7 +65,6 @@ public class PullWires extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(1);
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

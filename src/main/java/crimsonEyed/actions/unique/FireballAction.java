@@ -14,16 +14,14 @@ import java.util.Iterator;
 public class FireballAction extends AbstractGameAction {
     private AbstractPlayer p;
     private int multiplier;
-    private boolean isRandom;
 
-    public FireballAction(int amount, boolean upgraded) {
+    public FireballAction(int amount) {
         this.amount = amount;
         this.actionType = ActionType.DAMAGE;
         this.duration = Settings.ACTION_DUR_FAST;
 
         p = AbstractDungeon.player;
         multiplier = 0;
-        this.isRandom = false;
     }
 
     public void update() {
@@ -43,19 +41,14 @@ public class FireballAction extends AbstractGameAction {
                 this.p.hand.moveToExhaustPile(this.p.hand.getBottomCard());
                 this.tickDuration();
             } else {
-                if (!this.isRandom) {
-                    AbstractDungeon.handCardSelectScreen.open("Exhaust", 1, false);
+               AbstractCard c = this.p.hand.getRandomCard(AbstractDungeon.cardRandomRng);
+                p.hand.moveToExhaustPile(c);
+                if (c.costForTurn == -1) {
+                    multiplier += EnergyPanel.getCurrentEnergy();
+                } else if (c.costForTurn > 0) {
+                    multiplier += c.costForTurn;
                 }
-                else {
-                    AbstractCard c = this.p.hand.getRandomCard(AbstractDungeon.cardRandomRng);
-                    p.hand.moveToExhaustPile(c);
-                    if (c.costForTurn == -1) {
-                        multiplier += EnergyPanel.getCurrentEnergy();
-                    } else if (c.costForTurn > 0) {
-                        multiplier += c.costForTurn;
-                    }
-                    this.addToTop(new DamageAllEnemiesAction(p, multiplier * amount, DamageInfo.DamageType.NORMAL, AttackEffect.FIRE));
-                }
+                this.addToTop(new DamageAllEnemiesAction(p, multiplier * amount, DamageInfo.DamageType.NORMAL, AttackEffect.FIRE));
                 this.tickDuration();
             }
         } else {

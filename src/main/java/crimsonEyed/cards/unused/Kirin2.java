@@ -1,5 +1,6 @@
-package crimsonEyed.cards.rare;
+package crimsonEyed.cards.unused;
 
+import basemod.AutoAdd;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.actions.defect.EvokeAllOrbsAction;
@@ -19,6 +20,7 @@ import crimsonEyed.powers.LoseFocusPower;
 import static crimsonEyed.SasukeMod.makeCardPath;
 import static crimsonEyed.SasukeMod.makeID;
 
+@AutoAdd.Ignore
 public class Kirin2 extends AbstractDynamicCard {
 
     // TEXT DECLARATION

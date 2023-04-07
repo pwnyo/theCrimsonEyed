@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.FocusPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.relics.commoner.CrimsonEye2;
 import crimsonEyed.util.TextureLoader;
@@ -28,12 +29,13 @@ public class EternalEye extends CustomRelic {
     @Override
     public void atBattleStart() {
         AbstractPlayer p = AbstractDungeon.player;
-        addToTop(new ApplyPowerAction(p, p, new FocusPower(p, 3)));
+        addToTop(new ApplyPowerAction(p, p, new FocusPower(p, 2)));
+        addToTop(new ApplyPowerAction(p, p, new StrengthPower(p, 2)));
     }
 
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0] + 3 + DESCRIPTIONS[1];
+        return DESCRIPTIONS[0] + 2 + DESCRIPTIONS[1];
     }
 
     @Override

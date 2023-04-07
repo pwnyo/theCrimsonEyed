@@ -49,9 +49,9 @@ public class KagutsuchiPower extends AbstractPower implements CloneablePowerInte
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (card.type == AbstractCard.CardType.ATTACK) {// 34
-            this.addToBot(new TriggerPassiveAction(this.amount));// 35
-            this.flash();// 36
+        if (card.type == AbstractCard.CardType.ATTACK) {
+            this.flash();
+            this.addToBot(new TriggerPassiveAction(this.amount));
         }
     }
     public void atEndOfTurn(boolean isPlayer) {

@@ -22,7 +22,7 @@ public class Hatred extends AbstractDynamicCard {
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
-    private static final CardRarity RARITY = CardRarity.CURSE; //  Up to you, I like auto-complete on these
+    private static final CardRarity RARITY = CardRarity.SPECIAL; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.NONE;  //   since they don't change much.
     private static final CardType TYPE = CardType.CURSE;       //
     public static final CardColor COLOR = CardColor.CURSE;
@@ -34,12 +34,13 @@ public class Hatred extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
         SoulboundField.soulbound.set(this, true);
+        exhaust = true;
     }
     @Override
-    public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
+    public void use(AbstractPlayer p, AbstractMonster m) {
         if (this.dontTriggerOnUseCard) {
             exhaust = false;
-            this.addToTop(new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, magicNumber));
+            addToTop(new LoseHPAction(p, p, magicNumber));
         }
         else {
             exhaust = true;
@@ -48,15 +49,13 @@ public class Hatred extends AbstractDynamicCard {
 
     @Override
     public void triggerOnEndOfTurnForPlayingCard() {
-        SasukeMod.logger.info("hatred is hurting");
         this.dontTriggerOnUseCard = true;
         AbstractDungeon.actionManager.cardQueue.add(new CardQueueItem(this, true));
-        //this.addToTop(new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, magicNumber));
     }
     public void upgrade() {
-        upgradeMagicNumber(1);
         ++this.timesUpgraded;
         this.upgraded = true;
+        upgradeMagicNumber(1);
         this.name = cardStrings.NAME + "+" + this.timesUpgraded;// 52
         this.initializeTitle();
     }

@@ -2,6 +2,7 @@ package crimsonEyed.cards.common;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
+import com.megacrit.cardcrawl.actions.defect.ImpulseAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -52,7 +53,7 @@ public class ChidoriStream extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new SFXAction(makeID("CHIDORI")));
         addToBot(new ChannelAction(new Lightning()));
-        addToBot(new ApplyPowerAction(p, p, new ElectrifyPower(p, 1)));
+        addToBot(new ImpulseAction());
     }
 
 

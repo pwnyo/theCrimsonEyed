@@ -1,7 +1,11 @@
 package crimsonEyed.cards.uncommon.skills;
 
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.watcher.ChooseOneAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.purple.Pray;
+import com.megacrit.cardcrawl.cards.status.Dazed;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -50,33 +54,26 @@ public class Coordination extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
         baseMagicNumber2 = magicNumber2 = MAGIC2;
-        isEthereal = true;
+        exhaust = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        ArrayList<AbstractCard> stanceChoices = new ArrayList();
+        ArrayList<AbstractCard> stanceChoices = new ArrayList<>();
         stanceChoices.add(new Hand());
+        stanceChoices.add(new Eye());
         if (p.hasRelic(NohMask.ID)) {
             stanceChoices.add(new Feet());
         }
-        stanceChoices.add(new Eye());
         addToBot(new ChooseOneAction(stanceChoices));
-    }
-    public void applyPowers() {
-        super.applyPowers();
-        checkMaskDesc();
+        addToBot(new MakeTempCardInDrawPileAction(new Dazed(), 1, true, true));
     }
 
-    @Override
-    public void calculateCardDamage(AbstractMonster mo) {
-        super.calculateCardDamage(mo);
-        checkMaskDesc();
-    }
     void checkMaskDesc() {
-        if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && AbstractDungeon.player.hasRelic(NohMask.ID)) {
+        if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null &&
+                AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && AbstractDungeon.player.hasRelic(NohMask.ID)) {
             rawDescription = upgraded ? cardStrings.EXTENDED_DESCRIPTION[1] : cardStrings.EXTENDED_DESCRIPTION[0];
         }
         else {
@@ -89,7 +86,7 @@ public class Coordination extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            isEthereal = false;
+            exhaust = false;
             checkMaskDesc();
             initializeDescription();
         }

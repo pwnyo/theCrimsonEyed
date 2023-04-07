@@ -1,7 +1,9 @@
 package crimsonEyed.patches;
 
+import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
+import com.megacrit.cardcrawl.actions.defect.EvokeOrbAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -13,16 +15,13 @@ import crimsonEyed.patches.interfaces.*;
 import java.util.Iterator;
 
 public class OrbListenerPatch {
-    @SpirePatch(clz = AbstractPower.class, method = "onChannel")
+    @SpirePatch(clz = AbstractPlayer.class, method="channelOrb")
     public static class OnChannel {
-        @SpirePostfixPatch
-        public static void Postfix(AbstractPower __power, AbstractOrb orb) {
-            AbstractPlayer p = AbstractDungeon.player;
-
-            for (AbstractCard c : p.hand.group) {
+        @SpireInsertPatch(loc=2904)
+        public static void Insert(AbstractPlayer __p, AbstractOrb orb) {
+            for (AbstractCard c : __p.hand.group) {
                 if (c instanceof IOnChannelListenerCard) {
-                    IOnChannelListenerCard listener = (IOnChannelListenerCard) c;
-                    listener.onChannel(orb);
+                    ((IOnChannelListenerCard) c).onChannel(orb);
                 }
             }
         }
@@ -46,9 +45,7 @@ public class OrbListenerPatch {
     public static class OnGainOrbSlot {
         @SpirePostfixPatch
         public static void Postfix(AbstractPlayer __player, int amount) {
-            AbstractPlayer p = AbstractDungeon.player;
-
-            for (AbstractCard c : p.hand.group) {
+            for (AbstractCard c : __player.hand.group) {
                 if (c instanceof IOnGainOrbSlotListenerCard) {
                     IOnGainOrbSlotListenerCard listener = (IOnGainOrbSlotListenerCard) c;
                     listener.onGainOrbSlot();
@@ -60,12 +57,7 @@ public class OrbListenerPatch {
     public static class OnLoseOrbSlot {
         @SpirePostfixPatch
         public static void Postfix(AbstractPlayer __player, int amount) {
-            AbstractPlayer p = AbstractDungeon.player;
-
-            Iterator iterator = p.hand.group.iterator();
-            AbstractCard c;
-            while (iterator.hasNext()) {
-                c = (AbstractCard) iterator.next();
+            for (AbstractCard c : __player.hand.group) {
                 if (c instanceof IOnLoseOrbSlotListenerCard) {
                     IOnLoseOrbSlotListenerCard listener = (IOnLoseOrbSlotListenerCard) c;
                     listener.onLoseOrbSlot();

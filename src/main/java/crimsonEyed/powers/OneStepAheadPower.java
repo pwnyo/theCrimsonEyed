@@ -40,6 +40,7 @@ public class OneStepAheadPower extends AbstractPower implements CloneablePowerIn
     public void atEndOfTurn(boolean isPlayer) {
         if (isPlayer) {
             if (!AbstractDungeon.player.hand.isEmpty() && !AbstractDungeon.player.hasRelic("Runic Pyramid") && !AbstractDungeon.player.hasPower("Equilibrium")) {
+                flash();
                 this.addToBot(new RetainCardsAction(this.owner, 1));// 38
             }
             if (amount <= 1) {

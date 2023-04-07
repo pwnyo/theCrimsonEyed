@@ -32,7 +32,7 @@ public class Perception extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 1;
+    private static final int COST = 0;
     private static final int MAGIC = 1;
 
     // /STAT DECLARATION/
@@ -41,7 +41,6 @@ public class Perception extends AbstractDynamicCard {
     public Perception() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = MAGIC;
-        isInnate = true;
     }
 
 
@@ -57,7 +56,7 @@ public class Perception extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
+            isInnate = true;
             rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }

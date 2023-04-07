@@ -38,7 +38,7 @@ public class FromDrawPile extends AbstractDynamicCard {
 
     public FromDrawPile() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = 1;
+        baseMagicNumber = magicNumber = 2;
     }
 
 

@@ -29,8 +29,8 @@ public class PeripheralVision extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 0;
-    private static final int BLOCK = 3;
+    private static final int COST = 1;
+    private static final int BLOCK = 5;
     private static final int UPGRADE_BLOCK = 2;
 
     // /STAT DECLARATION/
@@ -45,11 +45,8 @@ public class PeripheralVision extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Iterator iterator = AbstractDungeon.getMonsters().monsters.iterator();
-        
-        while(iterator.hasNext()) {
-            AbstractMonster m2 = (AbstractMonster)iterator.next();
-            if (!m2.isDeadOrEscaped()) {
+        for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
+            if (!mo.isDeadOrEscaped()) {
                 addToBot(new GainBlockAction(p, block));
             }
         }

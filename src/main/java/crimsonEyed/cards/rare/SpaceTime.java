@@ -51,11 +51,14 @@ public class SpaceTime extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         cardsToPreview = new UniversalPull();
         cardsToPreview2 = new Amenotejikara();
-        selfRetain = true;
     }
 
     @Override
     public void renderCardPreviewInSingleView(SpriteBatch sb) {
+        if (upgraded) {
+            cardsToPreview.upgrade();
+            cardsToPreview2.upgrade();
+        }
         super.renderCardPreviewInSingleView(sb);
         this.cardsToPreview2.current_x = 490.0F * Settings.scale;
         this.cardsToPreview2.current_y = 290.0F * Settings.scale;
@@ -66,6 +69,10 @@ public class SpaceTime extends AbstractDynamicCard {
     @Override
     public void renderCardPreview(SpriteBatch sb) {
         if (AbstractDungeon.player == null || !AbstractDungeon.player.isDraggingCard) {
+            if (upgraded) {
+                cardsToPreview.upgrade();
+                cardsToPreview2.upgrade();
+            }
             float tmpScale = this.drawScale * 0.5F;
 
             if (this.current_x > (float)Settings.WIDTH * 0.75F) {
@@ -88,7 +95,7 @@ public class SpaceTime extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        ArrayList<AbstractCard> choices = new ArrayList();// 42
+        ArrayList<AbstractCard> choices = new ArrayList<>();
 
         choices.add(new UniversalPull());
         choices.add(new Amenotejikara());
@@ -105,7 +112,7 @@ public class SpaceTime extends AbstractDynamicCard {
         addToBot(new ChooseOneAction(choices));
     }
     void checkMaskDesc() {
-        if (AbstractDungeon.player.hasRelic(NohMask.ID)) {
+        if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && AbstractDungeon.player.hasRelic(NohMask.ID)) {
             rawDescription = upgraded ? cardStrings.EXTENDED_DESCRIPTION[1] : cardStrings.EXTENDED_DESCRIPTION[0];
         }
         else {
@@ -119,7 +126,7 @@ public class SpaceTime extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeBaseCost(0);
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            checkMaskDesc();
 
             UniversalPull up = new UniversalPull();
             Amenotejikara am = new Amenotejikara();

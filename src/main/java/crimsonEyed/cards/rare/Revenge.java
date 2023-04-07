@@ -48,6 +48,7 @@ public class Revenge extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC;
+        exhaust = true;
     }
 
 

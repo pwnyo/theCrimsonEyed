@@ -34,6 +34,6 @@ public class SpiteAction extends AbstractGameAction {
             }
         }
 
-        this.tickDuration();// 45
-    }// 46
+        this.tickDuration();
+    }
 }

@@ -38,15 +38,13 @@ public class SeverThePast extends AbstractDynamicCard {
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 2;
-    private static final int BLOCK = 0;
-    private static final int MAGIC = 2;
+    private static final int MAGIC = 3;
 
     // /STAT DECLARATION/
 
 
     public SeverThePast() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseBlock = block = BLOCK;
         baseMagicNumber = magicNumber = MAGIC;
     }
 
@@ -57,20 +55,6 @@ public class SeverThePast extends AbstractDynamicCard {
         addToBot(new ExhaustFromDiscardAction(1, false));
         addToBot(new SeverThePastBlockAction(magicNumber));
     }
-    public void applyPowers() {
-        /*
-        this.baseBlock = (AbstractDungeon.player.exhaustPile.size() + (AbstractDungeon.player.discardPile.size() >= 1 ? 1 : 0)) * magicNumber;
-
-        super.applyPowers();
-
-        this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
-        this.initializeDescription();*/
-    }
-    public void onMoveToDiscard() {
-        //this.rawDescription = cardStrings.DESCRIPTION;
-        //this.initializeDescription();
-    }
-
     // Upgraded stats.
     @Override
     public void upgrade() {

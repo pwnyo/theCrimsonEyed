@@ -1,5 +1,8 @@
 {
-
+        "crimsonEyed:CoordinationPotion": {
+                "NAME": "Coordination Potion",
+                "DESCRIPTIONS": ["Gain #b", " Strength and Focus."]
+        },
         "crimsonEyed:ParalysisPotion": {
                 "NAME": "Paralysis Potion",
                 "DESCRIPTIONS": ["Enemy loses #b", " Strength."]

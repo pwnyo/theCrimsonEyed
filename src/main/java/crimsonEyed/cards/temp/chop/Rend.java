@@ -49,7 +49,9 @@ public class Rend extends AbstractDynamicCard {
     }
     public Rend(AbstractMonster m) {
         this();
+        baseDamage = damage = !upgraded ? (int)(target.maxHealth * CUT) : (int)(target.maxHealth * CUT2);
         target = m;
+        calculateCardDamage(m);
     }
 
 
@@ -62,9 +64,7 @@ public class Rend extends AbstractDynamicCard {
     public void onChoseThisOption() {
         if (target == null)
             return;
-
-        int dmg = !upgraded ? (int)(target.maxHealth * CUT) : (int)(target.maxHealth * CUT2);
-        addToBot(new DamageAction(target, new DamageInfo(AbstractDungeon.player, dmg, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        addToBot(new DamageAction(target, new DamageInfo(AbstractDungeon.player, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
     }
 
     // Upgraded stats.

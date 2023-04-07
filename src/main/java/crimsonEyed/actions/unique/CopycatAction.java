@@ -11,7 +11,6 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class CopycatAction extends AbstractGameAction {
     public static final String[] TEXT = CardCrawlGame.languagePack.getUIString("BetterToHandAction").TEXT;
@@ -37,15 +36,12 @@ public class CopycatAction extends AbstractGameAction {
 
     public void update() {
         if (this.duration == Settings.ACTION_DUR_FAST) {// 46
-            if (!this.player.discardPile.isEmpty() && this.amount > 0) {// 47
-                if (this.player.discardPile.size() <= this.amount) {// 50
-                    ArrayList<AbstractCard> cardsToMove = new ArrayList();// 51
-                    Iterator var5 = this.player.discardPile.group.iterator();// 52
+            if (!this.player.discardPile.isEmpty() && this.amount > 0) {
+                if (this.player.discardPile.size() <= this.amount) {
+                    ArrayList<AbstractCard> cardsToMove = new ArrayList<>();
 
-                    AbstractCard c;
-                    while(var5.hasNext()) {
-                        c = (AbstractCard)var5.next();
-                        cardsToMove.add(c);// 53
+                    for (AbstractCard c : player.discardPile.group) {
+                        cardsToMove.add(c);
                     }
 
                     for (AbstractCard card : cardsToMove) {
@@ -68,8 +64,6 @@ public class CopycatAction extends AbstractGameAction {
                 this.isDone = true;// 48
             }
         } else {
-            Iterator var1;
-            AbstractCard c;
             if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
                 for (AbstractCard card : AbstractDungeon.gridSelectScreen.selectedCards) {
                     AbstractCard temp = card.makeCopy();
@@ -79,11 +73,10 @@ public class CopycatAction extends AbstractGameAction {
                     else
                         addToBot(new MakeTempCardInDiscardAction(temp, copies));
                 }
-
-                for(var1 = this.player.discardPile.group.iterator(); var1.hasNext(); c.target_y = 0.0F) {// 117 120
-                    c = (AbstractCard)var1.next();
+                for (AbstractCard c : player.discardPile.group) {
                     c.unhover();
                     c.target_x = (float) CardGroup.DISCARD_PILE_X;
+                    c.target_y = 0.0F;
                 }
 
                 AbstractDungeon.gridSelectScreen.selectedCards.clear();
@@ -92,10 +85,7 @@ public class CopycatAction extends AbstractGameAction {
 
             this.tickDuration();
             if (this.isDone) {
-                var1 = this.player.hand.group.iterator();
-
-                while(var1.hasNext()) {
-                    c = (AbstractCard)var1.next();
+                for (AbstractCard c : player.hand.group) {
                     c.applyPowers();
                 }
             }

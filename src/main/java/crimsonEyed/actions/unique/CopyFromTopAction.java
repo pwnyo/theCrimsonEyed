@@ -1,49 +1,37 @@
 package crimsonEyed.actions.unique;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.red.Havoc;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class CopyFromTopAction extends AbstractGameAction {
     private boolean upgrade;
 
-    public CopyFromTopAction(int amount) {
+    public CopyFromTopAction(boolean upgraded) {
         this.actionType = ActionType.CARD_MANIPULATION;
-        this.amount = amount;
         this.duration = Settings.ACTION_DUR_FAST;
+        this.upgrade = upgraded;
     }
 
     public void update() {
         if (this.duration == Settings.ACTION_DUR_FAST) {
-            /*
-            if (AbstractDungeon.player.drawPile.size() + AbstractDungeon.player.discardPile.size() == 0) {// 26
-                this.isDone = true;// 27
-                return;// 28
-            }
-
+            AbstractPlayer p = AbstractDungeon.player;
             if (AbstractDungeon.player.drawPile.isEmpty()) {
-                this.addToTop(new EmptyDeckShuffleAction());
-                this.isDone = true;// 34
-                return;// 35
-            }
-
-            if (!AbstractDungeon.player.drawPile.isEmpty()) {// 38
-                AbstractCard card = AbstractDungeon.player.drawPile.getTopCard();
-                card.upgrade();
-                addToTop(new MakeTempCardInDiscardAction(card, amount));
-            }
-
-             */
-            if (AbstractDungeon.player.discardPile.isEmpty()) {
                 this.isDone = true;
                 return;
             }
             else {
-                AbstractCard card = AbstractDungeon.player.discardPile.getTopCard();
-                card.upgrade();
-                addToTop(new MakeTempCardInHandAction(card, amount));
+                AbstractCard card = AbstractDungeon.player.drawPile.getTopCard();
+                AbstractCard copy = card.makeStatEquivalentCopy();
+                addToTop(new ExhaustSpecificCardAction(card, p.drawPile));
+                if (upgrade)
+                    copy.upgrade();
+                addToTop(new MakeTempCardInHandAction(copy));
             }
             this.isDone = true;// 61
         }

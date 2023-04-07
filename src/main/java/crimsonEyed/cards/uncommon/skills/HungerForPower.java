@@ -1,14 +1,14 @@
 package crimsonEyed.cards.uncommon.skills;
 
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.vfx.DarkSmokePuffEffect;
+import com.megacrit.cardcrawl.powers.EnergizedBluePower;
 import crimsonEyed.SasukeMod;
+import crimsonEyed.actions.unique.IntensifyAction;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
 
@@ -34,7 +34,7 @@ public class HungerForPower extends AbstractDynamicCard {
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 1;  // COST = 1
-    private static final int MAGIC = 1;
+    private static final int MAGIC = 3;
 
     // /STAT DECLARATION/
 
@@ -48,16 +48,9 @@ public class HungerForPower extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int badCount = 0;
-        for (AbstractCard c : p.hand.group) {
-            if (c.type == CardType.CURSE || c.type == CardType.STATUS) {
-                badCount++;
-            }
-        }
-        addToBot(new VFXAction(new DarkSmokePuffEffect(p.hb_x, p.hb_y), 0.1F));
-        addToBot(new DrawCardAction(1 + badCount * magicNumber));
+        addToBot(new DrawCardAction(magicNumber));
+        addToBot(new IntensifyAction());
     }
-
 
     // Upgraded stats.
     @Override
@@ -65,7 +58,6 @@ public class HungerForPower extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(1);
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

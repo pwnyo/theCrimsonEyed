@@ -1,17 +1,24 @@
 package crimsonEyed.cards.uncommon.skills;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.actions.defect.IncreaseMaxOrbAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.actions.utility.ScryAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.status.Dazed;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import com.megacrit.cardcrawl.powers.FocusPower;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.actions.common.MakeTempCardAtTopOfDeckAction;
+import crimsonEyed.actions.unique.TomoeAction;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
 
@@ -37,18 +44,14 @@ public class Tomoe extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 0;
-    private static final int MAGIC = 1;
+    private static final int COST = 1;
 
     // /STAT DECLARATION/
 
 
     public Tomoe() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = MAGIC;
-        cardsToPreview = new Dazed();
-        showEvokeValue = true;
-        showEvokeOrbCount = 1;
+        baseMagicNumber = magicNumber = 2;
     }
 
 
@@ -56,20 +59,28 @@ public class Tomoe extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new SFXAction(makeID("SHARINGAN")));
-        addToBot(new IncreaseMaxOrbAction(magicNumber));
-        if (upgraded) {
-            addToBot(new ChannelAction(AbstractOrb.getRandomOrb(true)));
-        }
-        addToBot(new MakeTempCardInDiscardAction(new Dazed(), 1));
+        addToBot(new ScryAction(magicNumber));
+        addToBot(new TomoeAction(1));
     }
 
+    @Override
+    public void triggerOnGlowCheck() {
+        AbstractPlayer p = AbstractDungeon.player;
+        if (!p.orbs.isEmpty() && p.filledOrbCount() >= p.maxOrbs) {
+            glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        }
+        else {
+            glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        }
+    }
 
     // Upgraded stats.
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            upgradeBaseCost(0);
+            upgradeMagicNumber(1);
             initializeDescription();
         }
     }

@@ -58,7 +58,7 @@ public class Chop2 extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        ArrayList<AbstractCard> stanceChoices = new ArrayList();
+        ArrayList<AbstractCard> stanceChoices = new ArrayList<AbstractCard>();
         stanceChoices.add(new Slash(m));
         stanceChoices.add(new Rend(m));
         if (p.hasRelic(NohMask.ID)) {
@@ -98,7 +98,7 @@ public class Chop2 extends AbstractDynamicCard {
         checkMaskDesc();
     }
     void checkMaskDesc() {
-        if (AbstractDungeon.player.hasRelic(NohMask.ID)) {
+        if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && AbstractDungeon.player.hasRelic(NohMask.ID)) {
             rawDescription = upgraded ? cardStrings.EXTENDED_DESCRIPTION[1] : cardStrings.EXTENDED_DESCRIPTION[0];
         }
         else {
@@ -113,7 +113,7 @@ public class Chop2 extends AbstractDynamicCard {
             upgradeName();
             upgradeDamage(UPGRADE_DAMAGE);
             upgradeMagicNumber(1);
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            checkMaskDesc();
             initializeDescription();
         }
     }

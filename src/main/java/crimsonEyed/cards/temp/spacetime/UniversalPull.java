@@ -33,7 +33,7 @@ public class UniversalPull extends AbstractDynamicCard {
     public static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = 1;  // COST = 1
-    private static final int MAGIC = 1;
+    private static final int MAGIC = 2;
 
     // /STAT DECLARATION/
 
@@ -41,14 +41,13 @@ public class UniversalPull extends AbstractDynamicCard {
     public UniversalPull() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
-        selfRetain = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        ArrayList<AbstractCard> stanceChoices = new ArrayList();
+        ArrayList<AbstractCard> stanceChoices = new ArrayList<>();
         stanceChoices.add(new FromDrawPile());
         stanceChoices.add(new FromDiscardPile());
         stanceChoices.add(new FromExhaustPile());
@@ -59,7 +58,6 @@ public class UniversalPull extends AbstractDynamicCard {
         }
 
         this.addToBot(new ChooseOneAction(stanceChoices));
-        //addToBot(new AnywhereToHandAction(magicNumber));
     }
 
     @Override
@@ -72,8 +70,7 @@ public class UniversalPull extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            upgradeBaseCost(0);
             initializeDescription();
         }
     }

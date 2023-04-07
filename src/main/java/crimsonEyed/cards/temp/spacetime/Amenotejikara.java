@@ -2,6 +2,7 @@ package crimsonEyed.cards.temp.spacetime;
 
 import com.megacrit.cardcrawl.actions.common.BetterDrawPileToHandAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.unique.AttackFromDeckToHandAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -40,14 +41,14 @@ public class Amenotejikara extends AbstractDynamicCard {
 
     public Amenotejikara() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        //shuffleBackIntoDrawPile = true;
+        shuffleBackIntoDrawPile = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new BetterDrawPileToHandAction(1));
+        addToBot(new AttackFromDeckToHandAction(1));
     }
 
     @Override
@@ -60,8 +61,7 @@ public class Amenotejikara extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            shuffleBackIntoDrawPile = true;
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            upgradeBaseCost(0);
             initializeDescription();
         }
     }

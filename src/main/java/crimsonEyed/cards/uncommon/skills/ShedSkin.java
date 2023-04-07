@@ -1,5 +1,6 @@
 package crimsonEyed.cards.uncommon.skills;
 
+import basemod.AutoAdd;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -17,7 +18,6 @@ public class ShedSkin extends AbstractDynamicCard {
 
     public static final String ID = SasukeMod.makeID(ShedSkin.class.getSimpleName());
     public static final String IMG = makeCardPath("ShedSkin.png");
-    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
 
     // /TEXT DECLARATION/
@@ -40,11 +40,10 @@ public class ShedSkin extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
         tags.add(CardTags.HEALING);
-        exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ShedSkinAction(magicNumber, upgraded));
+        addToBot(new ShedSkinAction(this, magicNumber));
     }
 
     // Upgraded stats.
@@ -52,7 +51,7 @@ public class ShedSkin extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(0);
+            upgradeMagicNumber(1);
             initializeDescription();
         }
     }

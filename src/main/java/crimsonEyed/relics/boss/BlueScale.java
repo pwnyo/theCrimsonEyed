@@ -5,8 +5,19 @@ import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.curses.Necronomicurse;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.relics.CursedKey;
+import com.megacrit.cardcrawl.relics.Necronomicon;
+import com.megacrit.cardcrawl.relics.WarPaint;
+import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import crimsonEyed.SasukeMod;
+import crimsonEyed.cards.basic.Hatred;
+import crimsonEyed.cards.temp.EnduringFlame;
 import crimsonEyed.util.TextureLoader;
 
 import static crimsonEyed.SasukeMod.makeRelicOutlinePath;
@@ -24,27 +35,17 @@ public class BlueScale extends CustomRelic {
         super(ID, IMG, OUTLINE, RelicTier.BOSS, LandingSound.CLINK);
     }
 
-    // Flash at the start of Battle.
     @Override
-    public void atTurnStart() {
-        if (hasEnoughCurses()) {
-            flash();
-            this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-            this.addToBot(new GainEnergyAction(1));
-        }
+    public void onEquip() {
+        AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(new Hatred(), (float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
+        ++AbstractDungeon.player.energy.energyMaster;
     }
-    boolean hasEnoughCurses() {
-        int count = 0;
-        for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
-            if (c.type == AbstractCard.CardType.CURSE) {
-                count++;
-            }
-        }
-        return (count >= CURSES);
+    public void onUnequip() {
+        --AbstractDungeon.player.energy.energyMaster;
     }
 
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0] + CURSES + DESCRIPTIONS[1];
+        return DESCRIPTIONS[0];
     }
 }

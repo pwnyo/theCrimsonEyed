@@ -3,6 +3,7 @@ package crimsonEyed.cards.uncommon.skills;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.cards.purple.Collect;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -13,6 +14,7 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import crimsonEyed.SasukeMod;
+import crimsonEyed.actions.unique.SeeEverythingAction;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
 
@@ -40,7 +42,6 @@ public class SeeEverything extends AbstractDynamicCard {
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = -1;
-    private static final int BONUS = 1;
 
     // /STAT DECLARATION/
 
@@ -54,35 +55,7 @@ public class SeeEverything extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int effect = EnergyPanel.totalCount;
-
-        if (this.energyOnUse != -1) {
-            effect = this.energyOnUse;
-        }
-
-        if (upgraded) {
-            effect += BONUS;
-        }
-
-        if (p.hasRelic("Chemical X")) {
-            effect += 2;
-            p.getRelic("Chemical X").flash();
-        }
-
-        if (effect > 0) {
-            addToBot(new SFXAction(makeID("SHARINGAN")));
-            Iterator var3 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
-
-            while(var3.hasNext()) {
-                m = (AbstractMonster)var3.next();
-                this.addToBot(new ApplyPowerAction(m, p, new LockOnPower(m, effect), effect, true, AbstractGameAction.AttackEffect.NONE));
-                this.addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, effect, false), effect, true, AbstractGameAction.AttackEffect.NONE));
-                this.addToBot(new ApplyPowerAction(m, p, new WeakPower(m, effect, false), effect, true, AbstractGameAction.AttackEffect.NONE));
-            }
-            if (!this.freeToPlayOnce) {
-                p.energy.use(EnergyPanel.totalCount);
-            }
-        }
+       addToBot(new SeeEverythingAction(freeToPlayOnce, energyOnUse, upgraded ? 1 : 0));
     }
 
 

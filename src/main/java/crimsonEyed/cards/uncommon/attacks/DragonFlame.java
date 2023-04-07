@@ -2,6 +2,7 @@ package crimsonEyed.cards.uncommon.attacks;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -34,7 +35,7 @@ public class DragonFlame extends AbstractDynamicCard {
 
     private static final int COST = 2;  // COST = 2
 
-    private static final int DAMAGE = 22;
+    private static final int DAMAGE = 20;
 
     // /STAT DECLARATION/
 
@@ -42,6 +43,7 @@ public class DragonFlame extends AbstractDynamicCard {
     public DragonFlame() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
+        baseMagicNumber = magicNumber = 2;
         exhaust = true;
     }
 
@@ -59,7 +61,7 @@ public class DragonFlame extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(6);
+            upgradeDamage(8);
             initializeDescription();
         }
     }

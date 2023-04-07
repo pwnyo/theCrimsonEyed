@@ -38,7 +38,7 @@ public class ParalysisPotion extends CustomPotion {
     // This is your potency.
     @Override
     public int getPotency(final int potency) {
-        return 2;
+        return 3;
     }
 
     @Override

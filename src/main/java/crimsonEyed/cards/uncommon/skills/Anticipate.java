@@ -37,30 +37,28 @@ public class Anticipate extends AbstractDynamicCard {
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 1;
-    private static final int BLOCK = 3;
-    private static final int MAGIC = 6;
-    private static final int UPGRADE_PLUS_BLOCK = 3;
+    private static final int BLOCK = 6;
     // /STAT DECLARATION/
 
 
     public Anticipate() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = block = BLOCK;
-        baseMagicNumber = magicNumber = MAGIC;
-        baseMagicNumber2 = magicNumber2 = 1;
+        baseMagicNumber = magicNumber = 1;
+        baseMagicNumber2 = magicNumber2 = 3;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        ArrayList<AbstractCard> stanceChoices = new ArrayList();
+        ArrayList<AbstractCard> stanceChoices = new ArrayList<>();
+        stanceChoices.add(new React(true));
+
         if (p.hasRelic(NohMask.ID)) {
             stanceChoices.add(new Condition());
         }
-        stanceChoices.add(new React(true));
-        stanceChoices.add(new Read(true));
-
+        stanceChoices.add(new Read());
         if (upgraded) {
             for (AbstractCard c : stanceChoices) {
                 c.upgrade();
@@ -69,29 +67,13 @@ public class Anticipate extends AbstractDynamicCard {
 
         this.addToBot(new ChooseOneAction(stanceChoices));
     }
-    public void applyPowers() {
-        this.baseBlock += 3;
-        this.baseMagicNumber = this.baseBlock;
-        super.applyPowers();
-        this.magicNumber = this.block;
-        this.isMagicNumberModified = this.isBlockModified;
-        this.baseBlock -= 3;
-        super.applyPowers();
-        checkMaskDesc();
-    }
-
-    @Override
-    public void calculateCardDamage(AbstractMonster mo) {
-        super.calculateCardDamage(mo);
-        checkMaskDesc();
-    }
 
     void checkMaskDesc() {
         if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && AbstractDungeon.player.hasRelic(NohMask.ID)) {
-            rawDescription = upgraded ? cardStrings.EXTENDED_DESCRIPTION[1] : cardStrings.EXTENDED_DESCRIPTION[0];
+            rawDescription = cardStrings.EXTENDED_DESCRIPTION[upgraded ? 1 : 0];
         }
         else {
-            rawDescription = cardStrings.DESCRIPTION;
+            rawDescription = upgraded ? cardStrings.UPGRADE_DESCRIPTION : cardStrings.DESCRIPTION;
         }
     }
 
@@ -100,8 +82,9 @@ public class Anticipate extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBlock(UPGRADE_PLUS_BLOCK);
-            upgradeMagicNumber(UPGRADE_PLUS_BLOCK);
+            upgradeBlock(3);
+            upgradeMagicNumber(1);
+            upgradeSecondMagicNumber(1);
             checkMaskDesc();
             initializeDescription();
         }

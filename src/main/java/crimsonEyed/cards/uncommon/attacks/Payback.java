@@ -5,11 +5,17 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.blue.Blizzard;
+import com.megacrit.cardcrawl.cards.purple.Brilliance;
+import com.megacrit.cardcrawl.cards.purple.SpiritShield;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import crimsonEyed.SasukeMod;
+import crimsonEyed.actions.unique.PaybackAction;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
 import crimsonEyed.patches.TrackDamagePatch;
@@ -34,10 +40,10 @@ public class Payback extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 1;  // COST = 1
+    private static final int COST = 2;
 
-    private static final int DAMAGE = 8;
-    private static final int MAGIC = 1;
+    private static final int DAMAGE = 9;
+    private AbstractMonster target;
 
     // /STAT DECLARATION/
 
@@ -45,33 +51,34 @@ public class Payback extends AbstractDynamicCard {
     public Payback() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
-        baseMagicNumber = magicNumber = MAGIC;
+        baseMagicNumber = magicNumber = 0;
     }
 
+    @Override
+    public void calculateCardDamage(AbstractMonster mo) {
+        super.calculateCardDamage(mo);
+        if (mo == null || this != AbstractDungeon.player.hoveredCard) {
+            magicNumber = 0;
+            rawDescription = cardStrings.DESCRIPTION;
+            initializeDescription();
+            return;
+        }
+        int count = 0;
+        for (AbstractPower pow : mo.powers) {
+            if (pow.type == AbstractPower.PowerType.DEBUFF && !pow.ID.equals("Shackled")) {
+                count++;
+            }
+        }
+        magicNumber = count;
+        rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+        initializeDescription();
+    }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-        if (TrackDamagePatch.tookDamageLastTurn) {
-            addToBot(new GainEnergyAction(magicNumber));
-        }
-    }
-
-    @Override
-    public void triggerOnGlowCheck() {
-        if (TrackDamagePatch.tookDamageLastTurn) {
-            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
-        }
-        else {
-            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        }
-    }
-
-    @Override
-    public void applyPowers() {
-        super.applyPowers();
-        triggerOnGlowCheck();
+        addToBot(new PaybackAction(m));
     }
 
     // Upgraded stats.
@@ -79,8 +86,7 @@ public class Payback extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            upgradeBaseCost(1);
             initializeDescription();
         }
     }

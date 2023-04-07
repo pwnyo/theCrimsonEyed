@@ -1,5 +1,6 @@
 package crimsonEyed.patches;
 
+import basemod.AutoAdd;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -8,6 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import crimsonEyed.powers.SeverThePastPower;
 
+@AutoAdd.Ignore
 public class SeverThePastPatch {
     @SpirePatch(clz = CardGroup.class, method = "moveToDiscardPile")
     public static class MoveToDiscard {
