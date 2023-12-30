@@ -4,6 +4,7 @@ import com.evacipated.cardcrawl.mod.stslib.actions.common.FetchAction;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.MoveCardsAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.red.BodySlam;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -52,9 +53,22 @@ public class SeverThePast extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ExhaustFromDiscardAction(1, false));
         addToBot(new SeverThePastBlockAction(magicNumber));
+        addToBot(new ExhaustFromDiscardAction(1, false));
     }
+
+    public void applyPowersToBlock() {
+        baseBlock = AbstractDungeon.player.exhaustPile.size() * magicNumber;
+        super.applyPowersToBlock();
+        this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+        this.initializeDescription();
+    }
+
+    public void onMoveToDiscard() {
+        this.rawDescription = cardStrings.DESCRIPTION;
+        this.initializeDescription();
+    }
+
     // Upgraded stats.
     @Override
     public void upgrade() {

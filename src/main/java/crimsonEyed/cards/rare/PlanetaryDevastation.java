@@ -1,6 +1,7 @@
 package crimsonEyed.cards.rare;
 
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.actions.defect.IncreaseMaxOrbAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
@@ -13,6 +14,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.Plasma;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.LockOnPower;
 import com.megacrit.cardcrawl.vfx.combat.WeightyImpactEffect;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.actions.unique.PlanetaryDevastationAction;
@@ -38,7 +40,7 @@ public class PlanetaryDevastation extends AbstractDynamicCard {
     // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.RARE; //  Up to you, I like auto-complete on these
-    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;  //   since they don't change much.
+    private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
@@ -50,7 +52,8 @@ public class PlanetaryDevastation extends AbstractDynamicCard {
 
     public PlanetaryDevastation() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = 3;
+        baseMagicNumber = magicNumber = 99;
+        baseMagicNumber2 = magicNumber2 = 99;
         exhaust = true;
     }
 
@@ -58,42 +61,8 @@ public class PlanetaryDevastation extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new ApplyPowerAction(m, p, new LockOnPower(m, 99)));
         addToBot(new PlanetaryDevastationAction());
-        addToBot(new IncreaseMaxOrbAction(3));
-    }
-    static int countDebuffs() {
-        int count = 0;
-        for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            for (AbstractPower pow : mo.powers) {
-                if (pow.type == AbstractPower.PowerType.DEBUFF && !pow.ID.equals("Shackled")) {
-                    count++;
-                    break;
-                }
-            }
-        }
-        return count;
-    }
-    public void applyPowers() {
-        super.applyPowers();// 52
-        baseMagicNumber = magicNumber = countDebuffs();
-
-        this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0] + cardStrings.DESCRIPTION;
-        this.initializeDescription();
-
-    }// 66
-
-    public void onMoveToDiscard() {
-        this.rawDescription = cardStrings.DESCRIPTION;
-        this.initializeDescription();
-    }
-
-    public void calculateCardDamage(AbstractMonster mo) {
-        super.calculateCardDamage(mo);
-        if (this.baseMagicNumber > 0) {
-            this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0] + cardStrings.DESCRIPTION;
-        }
-
-        this.initializeDescription();
     }
 
     // Upgraded stats.

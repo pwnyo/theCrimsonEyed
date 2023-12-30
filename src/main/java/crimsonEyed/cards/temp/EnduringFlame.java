@@ -1,9 +1,12 @@
 package crimsonEyed.cards.temp;
 
+import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.red.Flex;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -21,7 +24,8 @@ public class EnduringFlame extends AbstractDynamicCard {
     public static final String ID = SasukeMod.makeID(EnduringFlame.class.getSimpleName());
     public static final String IMG = makeCardPath("EnduringFlame.png");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-
+    private static final String BG_SM = "crimsonEyedResources/images/512/bg_skill_naruto.png";
+    private static final String BG_LG = "crimsonEyedResources/images/1024/bg_skill_naruto.png";
 
     // /TEXT DECLARATION/
 
@@ -47,10 +51,7 @@ public class EnduringFlame extends AbstractDynamicCard {
         baseBlock = block = BLOCK;
         timesUpgraded = upgrades;
 
-        setBackgroundTexture("crimsonEyedResources/images/512/bg_skill_naruto.png",
-                "crimsonEyedResources/images/1024/bg_skill_naruto.png");
-        setOrbTexture("crimsonEyedResources/images/512/card_naruto_energy.png",
-                "crimsonEyedResources/images/1024/card_naruto_energy.png");
+        setImg();
     }
 
     // Actions the card should do.
@@ -83,19 +84,21 @@ public class EnduringFlame extends AbstractDynamicCard {
         return (Texture)imgMap.get(textureString);
     }
     public Texture getBackgroundSmallTexture() {
-        return getTextureFromString("crimsonEyedResources/images/512/bg_skill_naruto.png");
+        return getTextureFromString(BG_SM);
     }
 
     public Texture getBackgroundLargeTexture() {
-        return getTextureFromString("crimsonEyedResources/images/1024/bg_skill_naruto.png");
+        return getTextureFromString(BG_LG);
+    }
+    public void setImg() {
+        setBackgroundTexture(BG_SM, BG_LG);
+        setOrbTexture("crimsonEyedResources/images/512/card_naruto_energy.png",
+                "crimsonEyedResources/images/1024/card_naruto_energy.png");
     }
     @Override
     public AbstractCard makeCopy() {
         EnduringFlame flame = new EnduringFlame(timesUpgraded);
-        setBackgroundTexture("crimsonEyedResources/images/512/bg_skill_naruto.png",
-                "crimsonEyedResources/images/1024/bg_skill_naruto.png");
-        setOrbTexture("crimsonEyedResources/images/512/card_naruto_energy.png",
-                "crimsonEyedResources/images/1024/card_naruto_energy.png");
+        flame.setImg();
         return flame;
     }
 }

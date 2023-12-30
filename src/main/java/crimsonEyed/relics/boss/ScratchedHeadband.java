@@ -5,13 +5,14 @@ import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.vfx.cardManip.PurgeCardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
-import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import crimsonEyed.SasukeMod;
-import crimsonEyed.actions.unique.IntensifyAction;
 import crimsonEyed.cards.basic.Hatred;
 import crimsonEyed.cards.temp.EnduringFlame;
 import crimsonEyed.util.TextureLoader;
+
+import java.util.ArrayList;
 
 import static crimsonEyed.SasukeMod.makeRelicOutlinePath;
 import static crimsonEyed.SasukeMod.makeRelicPath;
@@ -26,18 +27,26 @@ public class ScratchedHeadband extends CustomRelic {
     public ScratchedHeadband() {
         super(ID, IMG, OUTLINE, RelicTier.BOSS, LandingSound.CLINK);
     }
+
     public void onEquip() {
-        AbstractCard hate = AbstractDungeon.player.masterDeck.findCardById(Hatred.ID);
+        ArrayList<AbstractCard> hates = new ArrayList<>();
         AbstractCard hope = new EnduringFlame();
         hope.upgrade();
 
-        if (hate != null) {
-            AbstractDungeon.player.masterDeck.removeCard(hate);
-            AbstractDungeon.effectList.add(new ShowCardBrieflyEffect(hope));
-            AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(hope, (float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F, false));
+        float displayCount = 0.0F;
+
+        for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
+            if (c.cardID.equals(Hatred.ID)) {
+                hates.add(c);
+            }
+        }
+        for (AbstractCard c : hates) {
+            AbstractDungeon.topLevelEffects.add(new PurgeCardEffect(c, (float)Settings.WIDTH / 3.0F + displayCount, (float)Settings.HEIGHT / 3.0F));
+            displayCount += (float)Settings.WIDTH / 6.0F;
+            AbstractDungeon.player.masterDeck.removeCard(c);
+            AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(hope, (float)Settings.WIDTH / 3.0F + displayCount, (float)Settings.HEIGHT / 3.0F));
         }
     }
-
     @Override
     public String getUpdatedDescription() {
         return DESCRIPTIONS[0];

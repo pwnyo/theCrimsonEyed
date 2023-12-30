@@ -13,10 +13,9 @@ import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 
 public class HonoikazuchiAction extends AbstractGameAction {
     boolean upgraded;
-    public HonoikazuchiAction(boolean upgraded) {
+    public HonoikazuchiAction() {
         this.actionType = ActionType.DAMAGE;
         this.duration = Settings.ACTION_DUR_FAST;
-        this.upgraded = upgraded;
     }
 
     public void update() {
@@ -24,8 +23,9 @@ public class HonoikazuchiAction extends AbstractGameAction {
             AbstractPlayer p = AbstractDungeon.player;
             if (!p.orbs.isEmpty() && !(p.orbs.get(0) instanceof EmptyOrbSlot)) {
                 AbstractOrb orb = p.orbs.get(0);
+                int damage = orb.evokeAmount;
                 addToBot(new EvokeOrbAction(1));
-                addToBot(new DamageAllEnemiesAction(p, orb.evokeAmount, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.FIRE));
+                addToBot(new DamageAllEnemiesAction(p, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.FIRE));
             }
         }
         this.isDone = true;

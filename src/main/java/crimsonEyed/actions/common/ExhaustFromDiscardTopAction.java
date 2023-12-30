@@ -18,19 +18,18 @@ public class ExhaustFromDiscardTopAction extends AbstractGameAction {
 
     public void update() {
         if (this.duration == Settings.ACTION_DUR_FASTER) {
-            AbstractCard c1, c2;
-            if (p.discardPile.size() < amount) {
-                for (AbstractCard c : p.discardPile.group) {
-                    p.discardPile.moveToExhaustPile(c);
+            if (p.drawPile.size() < amount) {
+                for (AbstractCard c : p.drawPile.group) {
+                    p.drawPile.moveToExhaustPile(c);
                 }
             }
             else {
                 for (int i = 0; i < amount; i++) {
-                    p.discardPile.moveToExhaustPile(p.discardPile.getTopCard());
+                    p.drawPile.moveToExhaustPile(p.drawPile.getTopCard());
                 }
             }
         }
 
-        this.tickDuration();
+        this.isDone = true;
     }
 }

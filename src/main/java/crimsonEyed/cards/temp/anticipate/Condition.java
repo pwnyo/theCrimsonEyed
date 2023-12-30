@@ -1,6 +1,7 @@
 package crimsonEyed.cards.temp.anticipate;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.utility.ScryAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -36,7 +37,7 @@ public class Condition extends AbstractDynamicCard {
 
     public Condition() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = 3;
+        baseMagicNumber = magicNumber = 5;
     }
 
 
@@ -46,8 +47,7 @@ public class Condition extends AbstractDynamicCard {
         onChoseThisOption();
     }
     public void onChoseThisOption() {
-        AbstractPlayer p = AbstractDungeon.player;
-        addToBot(new ApplyPowerAction(p, p, new PlatedArmorPower(p, magicNumber)));
+        addToBot(new ScryAction(magicNumber));
     }
 
 
@@ -56,7 +56,7 @@ public class Condition extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
+            upgradeMagicNumber(3);
             initializeDescription();
         }
     }

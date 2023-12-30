@@ -2,17 +2,17 @@ package crimsonEyed.cards.common;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
-import com.megacrit.cardcrawl.actions.defect.ImpulseAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.Lightning;
+import com.megacrit.cardcrawl.powers.FocusPower;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
-import crimsonEyed.powers.ElectrifyPower;
+import crimsonEyed.powers.LoseFocusPower;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
 import static crimsonEyed.SasukeMod.makeID;
@@ -43,6 +43,7 @@ public class ChidoriStream extends AbstractDynamicCard {
 
     public ChidoriStream() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        baseMagicNumber = magicNumber = 1;
         showEvokeValue = true;
         showEvokeOrbCount = 1;
     }
@@ -53,7 +54,8 @@ public class ChidoriStream extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new SFXAction(makeID("CHIDORI")));
         addToBot(new ChannelAction(new Lightning()));
-        addToBot(new ImpulseAction());
+        addToBot(new ApplyPowerAction(p, p, new FocusPower(p, this.magicNumber), this.magicNumber));
+        addToBot(new ApplyPowerAction(p, p, new LoseFocusPower(p, this.magicNumber), this.magicNumber));
     }
 
 
@@ -62,7 +64,7 @@ public class ChidoriStream extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(0);
+            upgradeMagicNumber(1);
             initializeDescription();
         }
     }

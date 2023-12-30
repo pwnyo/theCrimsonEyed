@@ -38,7 +38,7 @@ public class ChidoriBlade extends AbstractDynamicCard {
 
     private static final int COST = 1;  // COST = 1
 
-    private static final int DAMAGE = 8;
+    private static final int DAMAGE = 9;
 
     // /STAT DECLARATION/
 
@@ -54,9 +54,6 @@ public class ChidoriBlade extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         addToBot(new TriggerPassiveAction());
-        if (upgraded) {
-            addToBot(new TriggerPassiveAction());
-        }
     }
 
 
@@ -65,7 +62,7 @@ public class ChidoriBlade extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            rawDescription = UPGRADE_DESCRIPTION;
+            upgradeDamage(3);
             initializeDescription();
         }
     }

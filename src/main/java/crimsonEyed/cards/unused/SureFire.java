@@ -1,12 +1,8 @@
-package crimsonEyed.cards.uncommon.attacks;
+package crimsonEyed.cards.unused;
 
 import basemod.AutoAdd;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.red.Dropkick;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -16,10 +12,9 @@ import crimsonEyed.actions.unique.SureFireAction;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
 
-import java.util.Iterator;
-
 import static crimsonEyed.SasukeMod.makeCardPath;
 
+@AutoAdd.Ignore
 public class SureFire extends AbstractDynamicCard {
 
     // TEXT DECLARATION

@@ -32,7 +32,7 @@ public class React extends AbstractDynamicCard {
     public static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = -2;
-    private static final int BLOCK = 6;
+    private static final int BLOCK = 7;
 
     // /STAT DECLARATION/
 
@@ -72,7 +72,7 @@ public class React extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBlock(3);
+            upgradeBlock(2);
             recalc();
             initializeDescription();
         }

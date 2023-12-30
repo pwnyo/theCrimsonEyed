@@ -7,8 +7,8 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 
-public class GainBlockForOrbPassiveAction extends AbstractGameAction {
-    public GainBlockForOrbPassiveAction() {
+public class GainEvokeBlock extends AbstractGameAction {
+    public GainEvokeBlock() {
         this.duration = Settings.ACTION_DUR_FASTER;
     }
 
@@ -20,7 +20,7 @@ public class GainBlockForOrbPassiveAction extends AbstractGameAction {
                 isDone = true;
                 return;
             }
-            addToBot(new GainBlockAction(p, p.orbs.get(0).passiveAmount));
+            addToBot(new GainBlockAction(p, p.orbs.get(0).evokeAmount));
         }
 
         this.tickDuration();

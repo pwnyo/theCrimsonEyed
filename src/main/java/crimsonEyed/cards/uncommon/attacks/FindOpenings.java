@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.utility.ScryAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.red.Disarm;
 import com.megacrit.cardcrawl.cards.red.Flex;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -40,8 +41,8 @@ public class FindOpenings extends AbstractDynamicCard {
 
     private static final int COST = 1;
 
-    private static final int DAMAGE = 5;
-    private static final int MAGIC = 3;
+    private static final int DAMAGE = 6;
+    private static final int MAGIC = 1;
 
     // /STAT DECLARATION/
 
@@ -50,6 +51,8 @@ public class FindOpenings extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC;
+        isInnate = true;
+        exhaust = true;
     }
 
 
@@ -57,15 +60,15 @@ public class FindOpenings extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber2)));
-        addToBot(new ApplyPowerAction(p, p, new LoseStrengthPower(p, magicNumber2)));
+        addToBot(new ApplyPowerAction(m, p, new StrengthPower(m, -this.magicNumber), -this.magicNumber));
     }
     // Upgraded stats.
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(3);
+            upgradeDamage(2);
+            upgradeMagicNumber(1);
             initializeDescription();
         }
     }

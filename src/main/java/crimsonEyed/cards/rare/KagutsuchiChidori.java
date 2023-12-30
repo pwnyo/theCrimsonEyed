@@ -55,6 +55,8 @@ public class KagutsuchiChidori extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
         isEthereal = true;
+        showEvokeValue = true;
+        showEvokeOrbCount = 1;
     }
 
     // Actions the card should do.
@@ -72,12 +74,11 @@ public class KagutsuchiChidori extends AbstractDynamicCard {
     }
 
     void checkMaskDesc() {
-        if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null &&
-                AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && AbstractDungeon.player.hasRelic(NohMask.ID)) {
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+        if (NohMask.shouldUseMaskDesc()) {
+            rawDescription = !upgraded ? cardStrings.EXTENDED_DESCRIPTION[0] : cardStrings.EXTENDED_DESCRIPTION[1];
         }
         else {
-            rawDescription = cardStrings.DESCRIPTION;
+            rawDescription = !upgraded ? cardStrings.DESCRIPTION : cardStrings.UPGRADE_DESCRIPTION;
         }
     }
 
@@ -85,7 +86,7 @@ public class KagutsuchiChidori extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(5);
+            isEthereal = false;
             checkMaskDesc();
             initializeDescription();
         }
@@ -93,10 +94,7 @@ public class KagutsuchiChidori extends AbstractDynamicCard {
     @Override
     public AbstractCard makeCopy() {
         KagutsuchiChidori tmp = new KagutsuchiChidori();
-        if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && AbstractDungeon.player.hasRelic(NohMask.ID)) {
-            tmp.checkMaskDesc();
-        }
-
+        tmp.checkMaskDesc();
         return tmp;
     }
 }

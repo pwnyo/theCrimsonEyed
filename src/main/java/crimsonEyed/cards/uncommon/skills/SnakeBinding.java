@@ -64,7 +64,7 @@ public class SnakeBinding extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new SnakeBindingAction(magicNumber, this));
+        addToBot(new SnakeBindingAction(this, magicNumber));
     }
 
     @Override

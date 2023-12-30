@@ -4,6 +4,7 @@ import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.SoulboundFi
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.cards.curses.Regret;
+import com.megacrit.cardcrawl.cards.green.Tactician;
 import com.megacrit.cardcrawl.cards.red.SearingBlow;
 import com.megacrit.cardcrawl.cards.status.Burn;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -27,23 +28,20 @@ public class Hatred extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.CURSE;       //
     public static final CardColor COLOR = CardColor.CURSE;
 
-    private static final int COST = 1;
-    private static final int MAGIC = 1;
+    private static final int COST = -2;
+    private static final int MAGIC = 0;
 
     public Hatred() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
         SoulboundField.soulbound.set(this, true);
-        exhaust = true;
     }
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (this.dontTriggerOnUseCard) {
-            exhaust = false;
-            addToTop(new LoseHPAction(p, p, magicNumber));
-        }
-        else {
-            exhaust = true;
+            if (magicNumber > 0) {
+                addToTop(new LoseHPAction(p, p, magicNumber));
+            }
         }
     }
 

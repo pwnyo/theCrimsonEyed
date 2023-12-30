@@ -6,12 +6,14 @@ import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.curses.Necronomicurse;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.CursedKey;
 import com.megacrit.cardcrawl.relics.Necronomicon;
 import com.megacrit.cardcrawl.relics.WarPaint;
+import com.megacrit.cardcrawl.ui.campfire.SmithOption;
 import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
@@ -29,7 +31,6 @@ public class BlueScale extends CustomRelic {
 
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("blueScale.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("blueScale.png"));
-    private static final int CURSES = 3;
 
     public BlueScale() {
         super(ID, IMG, OUTLINE, RelicTier.BOSS, LandingSound.CLINK);
@@ -37,7 +38,15 @@ public class BlueScale extends CustomRelic {
 
     @Override
     public void onEquip() {
-        AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(new Hatred(), (float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
+        AbstractCard hate = AbstractDungeon.player.masterDeck.findCardById(Hatred.ID);
+        if (hate != null) {
+            hate.upgrade();
+            AbstractDungeon.effectsQueue.add(new UpgradeShineEffect((float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
+            AbstractDungeon.effectsQueue.add(new ShowCardBrieflyEffect(hate.makeStatEquivalentCopy()));
+        }
+        else {
+            AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(new Hatred(), (float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
+        }
         ++AbstractDungeon.player.energy.energyMaster;
     }
     public void onUnequip() {

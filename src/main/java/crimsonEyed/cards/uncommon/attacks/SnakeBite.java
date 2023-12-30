@@ -1,6 +1,5 @@
 package crimsonEyed.cards.uncommon.attacks;
 
-import basemod.AutoAdd;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -29,10 +28,9 @@ public class SnakeBite extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 0;  // COST = 0
+    private static final int COST = 0;
 
-    private static final int DAMAGE = 2;
-    private static final int UPGRADE_PLUS_DMG = 2;  // UPGRADE_PLUS_DMG = 2
+    private static final int DAMAGE = 3;
 
     // /STAT DECLARATION/
 
@@ -55,7 +53,7 @@ public class SnakeBite extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_PLUS_DMG);
+            upgradeDamage(1);
             initializeDescription();
         }
     }

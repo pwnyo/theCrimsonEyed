@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
 import com.megacrit.cardcrawl.powers.EnergizedBluePower;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
@@ -40,8 +41,7 @@ public class SixthSense extends AbstractDynamicCard {
 
     public SixthSense() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = 3;
-        baseMagicNumber2 = magicNumber2 = 1;
+        baseMagicNumber = magicNumber = 4;
     }
 
 
@@ -49,8 +49,7 @@ public class SixthSense extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ScryAction(magicNumber));
-        addToBot(new DrawCardAction(magicNumber2));
-        addToBot(new ApplyPowerAction(p, p, new EnergizedBluePower(p, 1)));
+        addToBot(new ApplyPowerAction(p, p, new EnergizedBluePower(p, magicNumber2)));
     }
 
     // Upgraded stats.

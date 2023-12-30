@@ -13,6 +13,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.relics.CentennialPuzzle;
+import com.megacrit.cardcrawl.relics.PenNib;
+import com.megacrit.cardcrawl.relics.ToyOrnithopter;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.util.TextureLoader;
 
@@ -26,6 +28,7 @@ public class CherryBlossom extends CustomRelic {
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("cherryBlossom.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("cherryBlossom.png"));
     private static boolean usedThisCombat = false;
+    private static int COUNT = 5, HEAL = 5;
 
     public CherryBlossom() {
         super(ID, IMG, OUTLINE, RelicTier.RARE, LandingSound.MAGICAL);
@@ -33,8 +36,9 @@ public class CherryBlossom extends CustomRelic {
 
     public void atPreBattle() {
         usedThisCombat = false;
-        this.pulse = true;
+        counter = COUNT;
         this.beginPulse();
+        this.pulse = true;
     }
 
     public void onEquip() {
@@ -45,15 +49,14 @@ public class CherryBlossom extends CustomRelic {
     public void onExhaust(AbstractCard card) {
         if (usedThisCombat) return;
 
-        counter++;
-        if (counter == 5) {
-            counter = 0;
-            this.flash();
-            this.pulse = false;
+        counter--;
 
+        if (counter == 0) {
+            this.flash();
             AbstractPlayer p = AbstractDungeon.player;
             addToBot(new RelicAboveCreatureAction(p, this));
-            addToBot(new HealAction(p, p, 10));
+            addToBot(new HealAction(p, p, HEAL));
+            this.pulse = false;
             usedThisCombat = true;
             this.grayscale = true;
         }
@@ -61,7 +64,7 @@ public class CherryBlossom extends CustomRelic {
 
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0] + 5 + DESCRIPTIONS[1];
+        return DESCRIPTIONS[0] + COUNT + DESCRIPTIONS[1] + HEAL + DESCRIPTIONS[2];
     }
 
 }

@@ -54,7 +54,6 @@ public class Copycat extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
             rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }

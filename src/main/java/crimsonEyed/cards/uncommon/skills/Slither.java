@@ -35,7 +35,7 @@ public class Slither extends AbstractDynamicCard {
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 0;
-    private static final int MAGIC = 2;
+    private static final int MAGIC = 3;
     private static final int UPGRADE_PLUS_MAGIC = 1;
 
     // /STAT DECLARATION/
@@ -52,7 +52,7 @@ public class Slither extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DrawCardAction(magicNumber));
-        addToBot(new MakeTempCardInHandAction(new Slimed()));
+        addToBot(new MakeTempCardAtTopOfDeckAction(new Slimed()));
     }
 
     // Upgraded stats.

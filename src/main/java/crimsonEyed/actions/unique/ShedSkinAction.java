@@ -10,7 +10,9 @@ import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.DarkEmbracePower;
 import com.megacrit.cardcrawl.powers.RegenPower;
+import com.megacrit.cardcrawl.relics.Nunchaku;
 import com.megacrit.cardcrawl.relics.UnceasingTop;
 
 import java.util.Iterator;
@@ -35,10 +37,10 @@ public class ShedSkinAction extends AbstractGameAction {
                 this.isDone = true;// 28
             } else if (this.p.hand.size() == 1) {// 30
                 if (this.p.hand.getBottomCard().type == AbstractCard.CardType.CURSE || p.hand.getBottomCard().type == AbstractCard.CardType.STATUS) {// 31
-                    regen();
+                    addToTop(new ApplyPowerAction(p, p, new RegenPower(p, amount)));
                 }
 
-                this.p.hand.moveToExhaustPile(this.p.hand.getBottomCard());// 36
+                addToBot(new ExhaustSpecificCardAction(card, p.discardPile));
                 this.tickDuration();// 37
             } else {
                 AbstractDungeon.handCardSelectScreen.open("Exhaust", 1, false);// 40
@@ -49,9 +51,8 @@ public class ShedSkinAction extends AbstractGameAction {
                 for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
                     if (c.type == AbstractCard.CardType.CURSE || c.type == AbstractCard.CardType.STATUS) {// 49
                         addToTop(new ApplyPowerAction(p, p, new RegenPower(p, amount)));
-                        addToTop(new ExhaustSpecificCardAction(card, AbstractDungeon.player.discardPile));
+                        addToBot(new ExhaustSpecificCardAction(card, p.discardPile));
                     }
-                    p.hand.moveToExhaustPile(c);
                 }
 
                 AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
@@ -60,7 +61,5 @@ public class ShedSkinAction extends AbstractGameAction {
 
             this.tickDuration();// 60
         }
-    }
-    void regen() {
     }
 }

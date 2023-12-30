@@ -29,8 +29,8 @@ public class PhoenixFlower2 extends AbstractDynamicCard {
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 1;
-    private static final int MAGIC = 5;
-    private static final int UPGRADE_MAGIC = 3;
+    private static final int MAGIC = 4;
+    private static final int UPGRADE_MAGIC = 2;
 
     // /STAT DECLARATION/
 

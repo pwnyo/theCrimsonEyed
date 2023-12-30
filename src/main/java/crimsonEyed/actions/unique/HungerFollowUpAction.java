@@ -6,28 +6,25 @@ import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-import java.util.Iterator;
 
-public class AllureFollowUpAction extends AbstractGameAction {
-    public AllureFollowUpAction() {
-        this.duration = 0.001F;// 13
+public class HungerFollowUpAction extends AbstractGameAction {
+    public HungerFollowUpAction() {
+        this.duration = 0.001F;
     }
 
     public void update() {
         AbstractDungeon.actionManager.addToTop(new WaitAction(0.4F));
         this.tickDuration();
         if (this.isDone) {
-            boolean drewBadStuff = false;
-            Iterator var1 = DrawCardAction.drawnCards.iterator();
-
-            while(var1.hasNext()) {
-                AbstractCard c = (AbstractCard)var1.next();
+            int count = 0;
+            for (AbstractCard c : DrawCardAction.drawnCards) {
                 if (c.type == AbstractCard.CardType.CURSE || c.type == AbstractCard.CardType.STATUS) {
-                    drewBadStuff = true;
+                    count++;
+                    AbstractDungeon.player.hand.moveToExhaustPile(c);
                 }
             }
-            if (drewBadStuff) {
-                addToBot(new DrawCardAction(2));
+            if (count > 0) {
+                addToTop(new DrawCardAction(count));
             }
         }
 

@@ -8,9 +8,11 @@ import com.megacrit.cardcrawl.cards.green.Bane;
 import com.megacrit.cardcrawl.cards.red.Dropkick;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.vfx.CollectorCurseEffect;
@@ -18,6 +20,7 @@ import crimsonEyed.SasukeMod;
 import crimsonEyed.actions.unique.TsukuyomiAction;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
+import crimsonEyed.patches.MonsterTargetPatch;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
 import static crimsonEyed.SasukeMod.makeID;
@@ -39,36 +42,56 @@ public class Tsukuyomi extends AbstractDynamicCard {
 
     public Tsukuyomi() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        baseDamage = damage = 0;
         baseMagicNumber = magicNumber = MAGIC;
-        baseMagicNumber2 = magicNumber2 = 0;
+        baseMagicNumber2 = magicNumber2 = 2;
     }
 
     @Override
     public void calculateCardDamage(AbstractMonster mo) {
         super.calculateCardDamage(mo);
-        if (mo == null || !isSelected) {
-            magicNumber2 = 0;
-            rawDescription = cardStrings.DESCRIPTION;
-            return;
-        }
-        SasukeMod.logger.info("looking at monster " + mo.name);
-        int count = 0;
-        for (AbstractPower pow : mo.powers) {
-            if (pow.type == AbstractPower.PowerType.DEBUFF && !pow.ID.equals("Shackled")) {
-                count++;
+        checkDebuffs();
+    }
+
+    @Override
+    public void applyPowers() {
+        super.applyPowers();
+        checkDebuffs();
+    }
+
+    void checkDebuffs() {
+        AbstractMonster m = MonsterTargetPatch.hoveredMonster;
+        if (m != null) {
+            int count = 0;
+            for (AbstractPower pow : m.powers) {
+                if (pow.type == AbstractPower.PowerType.DEBUFF && !pow.ID.equals("Shackled") && !pow.ID.equals(VulnerablePower.POWER_ID)) {
+                    count++;
+                }
             }
+            damage = count;
+            rawDescription = cardStrings.DESCRIPTION + (damage == 1 ?
+                    cardStrings.EXTENDED_DESCRIPTION[0] : cardStrings.EXTENDED_DESCRIPTION[1]);
+            initializeDescription();
         }
-        magicNumber2 = count;
-        rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
-        initializeDescription();
+        else {
+            damage = 0;
+            rawDescription = cardStrings.DESCRIPTION;
+            initializeDescription();
+        }
+    }
+
+    public void onMoveToDiscard() {
+        damage = 0;
+        this.rawDescription = cardStrings.DESCRIPTION;
+        this.initializeDescription();
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new LoseHPAction(p, p, 2));
-        addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, !upgraded ? 2: 3, false)));
         addToBot(new TsukuyomiAction(m, magicNumber));
+        addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber2, false)));
     }
 
 
@@ -78,7 +101,7 @@ public class Tsukuyomi extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_MAGIC);
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            upgradeSecondMagicNumber(1);
             initializeDescription();
         }
     }

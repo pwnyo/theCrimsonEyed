@@ -1,16 +1,7 @@
-package crimsonEyed.cards.uncommon.attacks;
+package crimsonEyed.cards.uncommon.skills;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.blue.Blizzard;
-import com.megacrit.cardcrawl.cards.purple.Brilliance;
-import com.megacrit.cardcrawl.cards.purple.SpiritShield;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -18,7 +9,7 @@ import crimsonEyed.SasukeMod;
 import crimsonEyed.actions.unique.PaybackAction;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
-import crimsonEyed.patches.TrackDamagePatch;
+import crimsonEyed.patches.MonsterTargetPatch;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
 
@@ -37,47 +28,49 @@ public class Payback extends AbstractDynamicCard {
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
-    private static final CardType TYPE = CardType.ATTACK;       //
+    private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 2;
-
-    private static final int DAMAGE = 9;
-    private AbstractMonster target;
+    private static final int COST = 1;
 
     // /STAT DECLARATION/
 
 
     public Payback() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = damage = DAMAGE;
-        baseMagicNumber = magicNumber = 0;
     }
 
     @Override
-    public void calculateCardDamage(AbstractMonster mo) {
-        super.calculateCardDamage(mo);
-        if (mo == null || this != AbstractDungeon.player.hoveredCard) {
-            magicNumber = 0;
-            rawDescription = cardStrings.DESCRIPTION;
-            initializeDescription();
-            return;
-        }
-        int count = 0;
-        for (AbstractPower pow : mo.powers) {
-            if (pow.type == AbstractPower.PowerType.DEBUFF && !pow.ID.equals("Shackled")) {
-                count++;
+    public void applyPowers() {
+        super.applyPowers();
+        checkDebuffs();
+    }
+    void checkDebuffs() {
+        AbstractMonster m = MonsterTargetPatch.hoveredMonster;
+        if (m != null) {
+            int count = 0;
+            for (AbstractPower pow : m.powers) {
+                if (pow.type == AbstractPower.PowerType.DEBUFF && !pow.ID.equals("Shackled")) {
+                    count++;
+                }
             }
+            rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0] + count +  cardStrings.EXTENDED_DESCRIPTION[1];
         }
-        magicNumber = count;
-        rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+        else {
+            rawDescription = cardStrings.DESCRIPTION;
+        }
         initializeDescription();
+    }
+
+    @Override
+    public void onMoveToDiscard() {
+        this.rawDescription = cardStrings.DESCRIPTION;
+        this.initializeDescription();
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
         addToBot(new PaybackAction(m));
     }
 
@@ -86,7 +79,7 @@ public class Payback extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(1);
+            upgradeBaseCost(0);
             initializeDescription();
         }
     }

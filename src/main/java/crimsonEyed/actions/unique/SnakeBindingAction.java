@@ -19,29 +19,29 @@ import crimsonEyed.SasukeMod;
 
 public class SnakeBindingAction extends AbstractGameAction {
     AbstractPlayer p;
-    AbstractCard parent;
+    AbstractCard card;
 
-    public SnakeBindingAction(int amount, AbstractCard parent) {
+    public SnakeBindingAction(AbstractCard c, int amount) {
         this.amount = amount;
         this.actionType = AbstractGameAction.ActionType.DAMAGE;
         this.duration = Settings.ACTION_DUR_FASTER;
         p = AbstractDungeon.player;
-        this.parent = parent;
+        this.card = c;
     }
 
     public void update() {
         if (this.duration == Settings.ACTION_DUR_FASTER) {
-            if (Settings.FAST_MODE) {// 44
-                this.addToBot(new VFXAction(p, new ShockWaveEffect(p.hb.cX, p.hb.cY, Settings.GREEN_TEXT_COLOR, ShockWaveEffect.ShockWaveType.CHAOTIC), 0.3F));// 45
-            } else {
-                this.addToBot(new VFXAction(p, new ShockWaveEffect(p.hb.cX, p.hb.cY, Settings.GREEN_TEXT_COLOR, ShockWaveEffect.ShockWaveType.CHAOTIC), 1.5F));// 51
-            }
             for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
                 applyBinding(mo);
             }
+            if (Settings.FAST_MODE) {// 44
+                this.addToTop(new VFXAction(p, new ShockWaveEffect(p.hb.cX, p.hb.cY, Settings.GREEN_TEXT_COLOR, ShockWaveEffect.ShockWaveType.CHAOTIC), 0.3F));// 45
+            } else {
+                this.addToTop(new VFXAction(p, new ShockWaveEffect(p.hb.cX, p.hb.cY, Settings.GREEN_TEXT_COLOR, ShockWaveEffect.ShockWaveType.CHAOTIC), 1.5F));// 51
+            }
             if (!SnakeHandsAction.hasStatusOrCurse()) {
-                SasukeMod.logger.info("binding should exhaust");
-                addToBot(new ExhaustSpecificCardAction(parent, p.discardPile));
+                card.exhaust = true;
+                addToBot(new ExhaustSpecificCardAction(card, p.discardPile));
             }
         }
 
@@ -49,9 +49,9 @@ public class SnakeBindingAction extends AbstractGameAction {
     }
 
     void applyBinding(AbstractMonster mo) {
-        addToBot(new ApplyPowerAction(mo, p, new StrengthPower(mo, -amount), -amount, true, AbstractGameAction.AttackEffect.NONE));
+        addToTop(new ApplyPowerAction(mo, p, new StrengthPower(mo, -amount), -amount, true, AbstractGameAction.AttackEffect.NONE));
         if (!mo.hasPower(ArtifactPower.POWER_ID)) {
-            addToBot(new ApplyPowerAction(mo, p, new GainStrengthPower(mo, amount), amount, true, AbstractGameAction.AttackEffect.NONE));
+            addToTop(new ApplyPowerAction(mo, p, new GainStrengthPower(mo, amount), amount, true, AbstractGameAction.AttackEffect.NONE));
         }
     }
 }

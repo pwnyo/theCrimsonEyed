@@ -53,7 +53,6 @@ public class IndraForm extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new SFXAction("THUNDERCLAP"));
-        addToBot(new ApplyPowerAction(p, p, new FocusPower(p, 1)));
         addToBot(new ApplyPowerAction(p, p, new IndraFormPower(p, magicNumber)));
     }
 

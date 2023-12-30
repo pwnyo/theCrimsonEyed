@@ -36,7 +36,7 @@ public class Revenge extends AbstractDynamicCard {
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 3;
-    private static final int DAMAGE = 5;
+    private static final int DAMAGE = 7;
     private static final int MAGIC = 3;
     private static final ArrayList<AbstractGameAction.AttackEffect> attackEffects =
             new ArrayList<>(Arrays.asList(AbstractGameAction.AttackEffect.SLASH_DIAGONAL, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL, AbstractGameAction.AttackEffect.SLASH_HEAVY, AbstractGameAction.AttackEffect.SLASH_VERTICAL));
@@ -76,7 +76,7 @@ public class Revenge extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(2);
+            upgradeDamage(2);
             initializeDescription();
         }
     }

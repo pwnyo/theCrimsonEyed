@@ -41,7 +41,6 @@ public class Grudge extends AbstractDynamicCard {
     public Grudge() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
-        cardsToPreview = new Resentment();
     }
 
 

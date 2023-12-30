@@ -1,6 +1,5 @@
-package crimsonEyed.cards.uncommon.skills;
+package crimsonEyed.cards.common;
 
-import basemod.AutoAdd;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -18,14 +17,14 @@ public class ShedSkin extends AbstractDynamicCard {
 
     public static final String ID = SasukeMod.makeID(ShedSkin.class.getSimpleName());
     public static final String IMG = makeCardPath("ShedSkin.png");
-
+    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     // /TEXT DECLARATION/
 
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
+    private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.SELF;  //   since they don't change much.
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;

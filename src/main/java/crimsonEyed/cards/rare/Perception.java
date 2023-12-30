@@ -32,7 +32,7 @@ public class Perception extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 0;
+    private static final int COST = 1;
     private static final int MAGIC = 1;
 
     // /STAT DECLARATION/

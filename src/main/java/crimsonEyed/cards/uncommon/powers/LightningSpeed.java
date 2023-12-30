@@ -1,8 +1,12 @@
 package crimsonEyed.cards.uncommon.powers;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.orbs.Lightning;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
@@ -16,7 +20,7 @@ public class LightningSpeed extends AbstractDynamicCard {
 
     public static final String ID = SasukeMod.makeID(LightningSpeed.class.getSimpleName());
     public static final String IMG = makeCardPath("LightningSpeed.png");
-
+    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     // /TEXT DECLARATION/
 
@@ -28,9 +32,8 @@ public class LightningSpeed extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.POWER;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 1;  // COST = 1
-    private static final int UPGRADED_COST = 0; // UPGRADED_COST = 0
-    private static final int MAGIC = 3;
+    private static final int COST = 1;
+    private static final int MAGIC = 2;
 
     // /STAT DECLARATION/
 
@@ -44,7 +47,8 @@ public class LightningSpeed extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new LightningSpeedPower(p, 1)));
+        addToBot(new ApplyPowerAction(p, p, new LightningSpeedPower(p, magicNumber)));
+        addToBot(new ChannelAction(new Lightning()));
     }
 
 
@@ -53,7 +57,7 @@ public class LightningSpeed extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
+            upgradeMagicNumber(1);
             initializeDescription();
         }
     }

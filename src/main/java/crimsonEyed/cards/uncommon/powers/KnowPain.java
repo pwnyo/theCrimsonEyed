@@ -18,7 +18,7 @@ public class KnowPain extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = SasukeMod.makeID(KnowPain.class.getSimpleName());
-    public static final String IMG = makeCardPath("Reminisce.png");
+    public static final String IMG = makeCardPath("KnowPain.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
 
@@ -33,9 +33,8 @@ public class KnowPain extends AbstractDynamicCard {
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
-    private static final int COST = 1;
+    private static final int COST = 0;
     private static final int MAGIC = 1;
-    private static final int UPGRADE_MAGIC = 1;
 
     // /STAT DECLARATION/
 
@@ -58,7 +57,7 @@ public class KnowPain extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_MAGIC);
+            isInnate = true;
             rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }

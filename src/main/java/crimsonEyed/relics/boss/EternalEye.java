@@ -20,6 +20,7 @@ public class EternalEye extends CustomRelic {
 
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("eternalEye.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("crimsonEye.png"));
+    private static int STR = 2, FOCUS = 1;
 
     public EternalEye() {
         super(ID, IMG, OUTLINE, RelicTier.BOSS, LandingSound.HEAVY);
@@ -29,13 +30,13 @@ public class EternalEye extends CustomRelic {
     @Override
     public void atBattleStart() {
         AbstractPlayer p = AbstractDungeon.player;
-        addToTop(new ApplyPowerAction(p, p, new FocusPower(p, 2)));
-        addToTop(new ApplyPowerAction(p, p, new StrengthPower(p, 2)));
+        addToTop(new ApplyPowerAction(p, p, new FocusPower(p, FOCUS)));
+        addToTop(new ApplyPowerAction(p, p, new StrengthPower(p, STR)));
     }
 
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0] + 2 + DESCRIPTIONS[1];
+        return DESCRIPTIONS[0] + STR + DESCRIPTIONS[1] + FOCUS + DESCRIPTIONS[2];
     }
 
     @Override

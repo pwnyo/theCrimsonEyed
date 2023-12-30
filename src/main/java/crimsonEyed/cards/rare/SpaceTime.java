@@ -3,6 +3,7 @@ package crimsonEyed.cards.rare;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.watcher.ChooseOneAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.red.Evolve;
 import com.megacrit.cardcrawl.cards.red.InfernalBlade;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -10,6 +11,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.EvolvePower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
@@ -68,7 +70,8 @@ public class SpaceTime extends AbstractDynamicCard {
 
     @Override
     public void renderCardPreview(SpriteBatch sb) {
-        if (AbstractDungeon.player == null || !AbstractDungeon.player.isDraggingCard) {
+        if (AbstractDungeon.player == null ||
+                (AbstractDungeon.player != null && !AbstractDungeon.player.isDraggingCard)) {
             if (upgraded) {
                 cardsToPreview.upgrade();
                 cardsToPreview2.upgrade();
@@ -112,7 +115,7 @@ public class SpaceTime extends AbstractDynamicCard {
         addToBot(new ChooseOneAction(choices));
     }
     void checkMaskDesc() {
-        if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && AbstractDungeon.player.hasRelic(NohMask.ID)) {
+        if (NohMask.shouldUseMaskDesc()) {
             rawDescription = upgraded ? cardStrings.EXTENDED_DESCRIPTION[1] : cardStrings.EXTENDED_DESCRIPTION[0];
         }
         else {
@@ -125,7 +128,6 @@ public class SpaceTime extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(0);
             checkMaskDesc();
 
             UniversalPull up = new UniversalPull();
@@ -141,10 +143,7 @@ public class SpaceTime extends AbstractDynamicCard {
     @Override
     public AbstractCard makeCopy() {
         SpaceTime tmp = new SpaceTime();
-        if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && AbstractDungeon.player.hasRelic(NohMask.ID)) {
-            tmp.checkMaskDesc();
-        }
-
+        tmp.checkMaskDesc();
         return tmp;
     }
 }

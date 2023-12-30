@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.actions.defect.DiscardPileToHandAction;
 import com.megacrit.cardcrawl.actions.unique.AttackFromDeckToHandAction;
 import com.megacrit.cardcrawl.actions.unique.DiscardPileToTopOfDeckAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.green.StormOfSteel;
 import com.megacrit.cardcrawl.cards.red.Headbutt;
 import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -49,13 +50,20 @@ public class PullWires extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
         cardsToPreview = new Shiv();
+        if (upgraded) {
+            cardsToPreview.upgrade();
+        }
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new MakeTempCardInHandAction(new Shiv(), magicNumber));
+        AbstractCard c = new Shiv();
+        if (upgraded) {
+            c.upgrade();
+        }
+        addToBot(new MakeTempCardInHandAction(c, magicNumber));
         addToBot(new DiscardPileToTopOfDeckAction(p));
     }
 
@@ -64,7 +72,8 @@ public class PullWires extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            cardsToPreview.upgrade();
             initializeDescription();
         }
     }

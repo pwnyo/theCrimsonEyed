@@ -4,6 +4,7 @@ import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.cards.purple.Evaluate;
 import com.megacrit.cardcrawl.cards.status.VoidCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -41,7 +42,7 @@ public class BlindedPower extends AbstractPower implements CloneablePowerInterfa
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         flash();
-        addToBot(new MakeTempCardInDrawPileAction(new VoidCard(),1,true,true));
+        addToBot(new MakeTempCardInDrawPileAction(new VoidCard(),1,true,true, false));
     }
 
     @Override

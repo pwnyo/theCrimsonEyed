@@ -3,6 +3,7 @@ package crimsonEyed.cards.uncommon.attacks;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -42,7 +43,7 @@ public class YasakaMagatama2 extends AbstractDynamicCard {
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 2;
-    private static final int DAMAGE = 6;
+    private static final int DAMAGE = 5;
 
     // /STAT DECLARATION/
 
@@ -61,7 +62,7 @@ public class YasakaMagatama2 extends AbstractDynamicCard {
         for (int i = 0; i < magicNumber; i++) {
             addToBot(new MagatamaAction(damage));
         }
-        addToBot(new MakeTempCardInHandAction(new Burn()));
+        addToBot(new MakeTempCardInDiscardAction(new Burn(),1));
     }
     // Upgraded stats.
     @Override

@@ -37,7 +37,7 @@ public class Anticipate extends AbstractDynamicCard {
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 1;
-    private static final int BLOCK = 6;
+    private static final int BLOCK = 7;
     // /STAT DECLARATION/
 
 
@@ -45,7 +45,6 @@ public class Anticipate extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = block = BLOCK;
         baseMagicNumber = magicNumber = 1;
-        baseMagicNumber2 = magicNumber2 = 3;
     }
 
 
@@ -53,12 +52,14 @@ public class Anticipate extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         ArrayList<AbstractCard> stanceChoices = new ArrayList<>();
-        stanceChoices.add(new React(true));
+        AbstractCard react = new React();
+        stanceChoices.add(react);
 
         if (p.hasRelic(NohMask.ID)) {
             stanceChoices.add(new Condition());
         }
         stanceChoices.add(new Read());
+
         if (upgraded) {
             for (AbstractCard c : stanceChoices) {
                 c.upgrade();
@@ -82,9 +83,8 @@ public class Anticipate extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBlock(3);
+            upgradeBlock(2);
             upgradeMagicNumber(1);
-            upgradeSecondMagicNumber(1);
             checkMaskDesc();
             initializeDescription();
         }

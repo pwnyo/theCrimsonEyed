@@ -43,15 +43,14 @@ public class AmpUp extends AbstractDynamicCard {
 
     public AmpUp() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        showEvokeValue = true;
-        showEvokeOrbCount = 1;
+        exhaust = true;
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new EvokeOrbAction(1));
         addToBot(new AmpUpAction());
+        addToBot(new EvokeOrbAction(1));
     }
 
     // Upgraded stats.
@@ -59,7 +58,8 @@ public class AmpUp extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(0);
+            exhaust = false;
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

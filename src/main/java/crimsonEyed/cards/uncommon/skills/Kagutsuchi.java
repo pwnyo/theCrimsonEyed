@@ -42,14 +42,13 @@ public class Kagutsuchi extends AbstractDynamicCard {
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 1;
-    private static final int MAGIC = 1;
 
     // /STAT DECLARATION/
 
 
     public Kagutsuchi() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = MAGIC;
+        baseMagicNumber = magicNumber = 1;
         showEvokeValue = true;
         showEvokeOrbCount = 1;
     }
@@ -62,8 +61,10 @@ public class Kagutsuchi extends AbstractDynamicCard {
         addToBot(new LoseHPAction(p, p, 1));
         addToBot(new ApplyPowerAction(m, p, new LockOnPower(m, magicNumber)));
 
-        addToBot(new AnimateOrbAction(1));
-        addToBot(new EvokeWithoutRemovingOrbAction(1));
+        if (upgraded) {
+            addToBot(new AnimateOrbAction(1));
+            addToBot(new EvokeWithoutRemovingOrbAction(1));
+        }
         addToBot(new AnimateOrbAction(1));
         addToBot(new EvokeOrbAction(1));
     }
@@ -74,7 +75,7 @@ public class Kagutsuchi extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

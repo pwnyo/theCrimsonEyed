@@ -6,6 +6,8 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
@@ -21,6 +23,8 @@ public class OneStepAhead extends AbstractDynamicCard {
     public static final String ID = SasukeMod.makeID(OneStepAhead.class.getSimpleName());
     public static final String IMG = makeCardPath("OneStepAhead.png");
 
+    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+
     // /TEXT DECLARATION/
 
 
@@ -31,14 +35,15 @@ public class OneStepAhead extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 1;  // COST = 1
+    private static final int COST = 0;
 
     // /STAT DECLARATION/
 
 
     public OneStepAhead() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseBlock = block = 7;
+        baseBlock = block = 4;
+        baseMagicNumber = magicNumber = 1;
     }
 
 
@@ -46,7 +51,7 @@ public class OneStepAhead extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, block));
-        addToBot(new ApplyPowerAction(p, p, new OneStepAheadPower(p, 1)));
+        addToBot(new ApplyPowerAction(p, p, new OneStepAheadPower(p, magicNumber)));
     }
 
 
@@ -55,7 +60,8 @@ public class OneStepAhead extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBlock(3);
+            upgradeMagicNumber(1);
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

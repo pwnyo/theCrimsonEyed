@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.LockOnPower;
 import crimsonEyed.relics.commoner.PaperSnek;
 
+import java.awt.print.Paper;
 import java.util.ArrayList;
 
 public class PaperSnakePatch {
@@ -54,7 +55,7 @@ public class PaperSnakePatch {
     @SpirePatch(clz = LockOnPower.class, method = "updateDescription")
     public static class ChangeLockOnDesc {
         public static void Postfix(LockOnPower __power) {
-            if (__power.owner != null) {
+            if (__power.owner != null && AbstractDungeon.player.hasRelic(PaperSnek.ID)) {
                 if (__power.amount == 1) {
                     __power.description = __power.DESCRIPTIONS[0] + 75 + __power.DESCRIPTIONS[1] + __power.amount + __power.DESCRIPTIONS[2];
                 } else {

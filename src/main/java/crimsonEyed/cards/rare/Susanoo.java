@@ -57,7 +57,7 @@ public class Susanoo extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(3);
+            upgradeMagicNumber(2);
             initializeDescription();
         }
     }

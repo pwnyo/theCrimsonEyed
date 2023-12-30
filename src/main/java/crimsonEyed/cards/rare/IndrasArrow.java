@@ -8,8 +8,10 @@ import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.defect.EvokeOrbAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.blue.Blizzard;
 import com.megacrit.cardcrawl.cards.blue.ForceField;
 import com.megacrit.cardcrawl.cards.green.Eviscerate;
+import com.megacrit.cardcrawl.cards.red.BloodForBlood;
 import com.megacrit.cardcrawl.cards.red.Cleave;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -28,7 +30,7 @@ import crimsonEyed.patches.interfaces.IOnLoseOrbSlotListenerCard;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
 
-public class IndrasArrow extends AbstractDynamicCard implements IOnChannelListenerCard, IOnEvokeListenerCard, IOnLoseOrbSlotListenerCard {
+public class IndrasArrow extends AbstractDynamicCard implements IOnChannelListenerCard {
 
     // TEXT DECLARATION
 
@@ -49,7 +51,7 @@ public class IndrasArrow extends AbstractDynamicCard implements IOnChannelListen
 
     private static final int COST = 5;
 
-    private static final int DAMAGE = 24;
+    private static final int DAMAGE = 32;
 
     // /STAT DECLARATION/
 
@@ -57,7 +59,6 @@ public class IndrasArrow extends AbstractDynamicCard implements IOnChannelListen
     public IndrasArrow() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
-        isMultiDamage = true;
     }
 
 
@@ -78,49 +79,26 @@ public class IndrasArrow extends AbstractDynamicCard implements IOnChannelListen
     }
 
     @Override
-    public void triggerWhenDrawn() {
-        countOrbs();
-    }
-
-    @Override
     public void onChannel(AbstractOrb o) {
-        countOrbs();
-    }
-
-    @Override
-    public void onEvoke(AbstractOrb o) {
-        countOrbs();
-    }
-
-    @Override
-    public void onLoseOrbSlot() {
-        countOrbs();
-    }
-
-    void countOrbs() {
-        countOrbs(0);
-    }
-    void countOrbs(int bonus) {
-        if (CardCrawlGame.dungeon == null || AbstractDungeon.currMapNode == null ||
-                AbstractDungeon.getCurrRoom().phase != AbstractRoom.RoomPhase.COMBAT) {
-            return;
+        if (o instanceof Lightning) {
+            updateCost(-1);
         }
-        int count = 0;
-        for (AbstractOrb o : AbstractDungeon.player.orbs) {
-            if (o instanceof Lightning)
-                count++;
-        }
-        count += bonus;
-        BaseMod.logger.info("channeled orbs: " + count);
-        setCostForTurn(cost - count);
     }
 
     @Override
     public AbstractCard makeCopy() {
+        int count = 0;
         AbstractCard tmp = new IndrasArrow();
         if (AbstractDungeon.player != null) {
-            countOrbs();
+            for (AbstractOrb o : AbstractDungeon.actionManager.orbsChanneledThisCombat) {
+                if (o instanceof Lightning) {
+                    count++;
+                }
+            }
+
+            BaseMod.logger.info("channeled orbs: " + count);
         }
+        tmp.updateCost(-count);
         return tmp;
     }
 }

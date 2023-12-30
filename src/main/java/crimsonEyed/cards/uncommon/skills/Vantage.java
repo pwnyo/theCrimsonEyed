@@ -1,13 +1,18 @@
 package crimsonEyed.cards.uncommon.skills;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.utility.ScryAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.NextTurnBlockPower;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.actions.unique.ScryBlockAction;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
+import crimsonEyed.patches.ExhaustTracker;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
 
@@ -38,16 +43,17 @@ public class Vantage extends AbstractDynamicCard {
 
     public Vantage() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        baseBlock = block = 6;
         isInnate = true;
-        baseBlock = block = 3;
-        baseMagicNumber = magicNumber = 2;
+        exhaust = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ScryBlockAction(magicNumber, block));
+        addToBot(new GainBlockAction(p, block));
+        addToBot(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, block)));
     }
 
     // Upgraded stats.
@@ -55,7 +61,7 @@ public class Vantage extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
+            upgradeBlock(2);
             initializeDescription();
         }
     }

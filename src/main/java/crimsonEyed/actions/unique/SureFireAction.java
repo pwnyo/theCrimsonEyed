@@ -14,9 +14,9 @@ public class SureFireAction extends AbstractGameAction {
     private DamageInfo info;
 
     public SureFireAction(AbstractCreature target, DamageInfo info) {
-        this.actionType = ActionType.BLOCK;
-        this.target = target;// 17
-        this.info = info;// 18
+        this.actionType = ActionType.DAMAGE;
+        this.target = target;
+        this.info = info;
     }
 
     public void update() {

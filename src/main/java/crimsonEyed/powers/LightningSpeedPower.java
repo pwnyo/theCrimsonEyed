@@ -19,15 +19,12 @@ public class LightningSpeedPower extends AbstractPower implements CloneablePower
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private int channelCount;
-
-    public LightningSpeedPower(AbstractCreature owner, int channelCount) {
+    public LightningSpeedPower(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
         this.type = PowerType.BUFF;
-        this.amount = 3;
-        this.channelCount = channelCount;
+        this.amount = amount;
         this.loadRegion("burst");
 
         this.updateDescription();

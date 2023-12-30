@@ -2,6 +2,7 @@ package crimsonEyed.cards.rare;
 
 import com.megacrit.cardcrawl.actions.watcher.ChooseOneAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.purple.Halt;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -41,16 +42,15 @@ public class Chop2 extends AbstractDynamicCard {
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 2;
-    private static final int DAMAGE = 15;
-    private static final int UPGRADE_DAMAGE = 5;
 
     // /STAT DECLARATION/
 
 
     public Chop2() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = damage = DAMAGE;
-        baseMagicNumber = magicNumber = 3;
+        baseDamage = damage = 20;
+        baseMagicNumber = magicNumber = 15;
+        baseMagicNumber2 = magicNumber2 = 5;
         exhaust = true;
     }
 
@@ -64,11 +64,6 @@ public class Chop2 extends AbstractDynamicCard {
         if (p.hasRelic(NohMask.ID)) {
             stanceChoices.add(new Dice(m));
         }
-        if (this.upgraded) {
-            for (AbstractCard c : stanceChoices) {
-                c.upgrade();
-            }
-        }
 
         this.addToBot(new ChooseOneAction(stanceChoices));
     }
@@ -80,6 +75,13 @@ public class Chop2 extends AbstractDynamicCard {
         this.magicNumber = this.damage;
         this.isMagicNumberModified = this.isDamageModified;
 
+        isMultiDamage = true;
+        this.baseDamage = baseMagicNumber2;
+        super.applyPowers();
+        this.magicNumber2 = this.damage;
+        this.isMagicNumber2Modified = this.isDamageModified;
+
+        isMultiDamage = false;
         this.baseDamage = normalDmg;
         super.applyPowers();
         checkMaskDesc();
@@ -87,18 +89,29 @@ public class Chop2 extends AbstractDynamicCard {
 
     @Override
     public void calculateCardDamage(AbstractMonster mo) {
+        isMultiDamage = true;
         int normalDmg = baseDamage;
+
+        //aoe damage
         this.baseDamage = baseMagicNumber;
         super.calculateCardDamage(mo);
         this.magicNumber = this.damage;
         this.isMagicNumberModified = this.isDamageModified;
+
+        isMultiDamage = false;
+
+        //random damage
+        this.baseDamage = baseMagicNumber;
+        super.calculateCardDamage(mo);
+        this.magicNumber2 = this.damage;
+        this.isMagicNumber2Modified = this.isDamageModified;
 
         this.baseDamage = normalDmg;
         super.calculateCardDamage(mo);
         checkMaskDesc();
     }
     void checkMaskDesc() {
-        if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && AbstractDungeon.player.hasRelic(NohMask.ID)) {
+        if (NohMask.shouldUseMaskDesc()) {
             rawDescription = upgraded ? cardStrings.EXTENDED_DESCRIPTION[1] : cardStrings.EXTENDED_DESCRIPTION[0];
         }
         else {
@@ -111,18 +124,15 @@ public class Chop2 extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_DAMAGE);
-            upgradeMagicNumber(1);
             checkMaskDesc();
+            exhaust = false;
             initializeDescription();
         }
     }
     @Override
     public AbstractCard makeCopy() {
         Chop2 tmp = new Chop2();
-        if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && AbstractDungeon.player.hasRelic(NohMask.ID)) {
-            tmp.checkMaskDesc();
-        }
+        tmp.checkMaskDesc();
 
         return tmp;
     }

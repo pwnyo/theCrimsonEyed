@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.FocusPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.relics.RedSkull;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.util.TextureLoader;

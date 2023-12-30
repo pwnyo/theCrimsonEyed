@@ -37,7 +37,7 @@ public class Parry extends AbstractDynamicCard {
 
     private static final int COST = 1;
     private static final int BLOCK = 6;
-    private static final int MAGIC = 2;
+    private static final int MAGIC = 1;
 
     // /STAT DECLARATION/
 
@@ -53,7 +53,7 @@ public class Parry extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, block));
-        addToBot(new ParryAction(magicNumber, m));
+        addToBot(new ApplyPowerAction(m, p, new WeakPower(m, magicNumber, false), magicNumber));
     }
 
 
@@ -62,7 +62,8 @@ public class Parry extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBlock(3);
+            upgradeBlock(2);
+            upgradeMagicNumber(1);
             initializeDescription();
         }
     }

@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.watcher.ChooseOneAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.purple.Evaluate;
 import com.megacrit.cardcrawl.cards.purple.Pray;
 import com.megacrit.cardcrawl.cards.status.Dazed;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -44,17 +45,13 @@ public class Coordination extends AbstractDynamicCard {
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 1;
-    private static final int MAGIC = 2;
-    private static final int MAGIC2 = 1;
 
     // /STAT DECLARATION/
 
 
     public Coordination() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = MAGIC;
-        baseMagicNumber2 = magicNumber2 = MAGIC2;
-        exhaust = true;
+        baseMagicNumber = magicNumber = 2;
     }
 
 
@@ -68,16 +65,16 @@ public class Coordination extends AbstractDynamicCard {
             stanceChoices.add(new Feet());
         }
         addToBot(new ChooseOneAction(stanceChoices));
-        addToBot(new MakeTempCardInDrawPileAction(new Dazed(), 1, true, true));
+        addToBot(new MakeTempCardInDiscardAction(new Dazed(), !upgraded ? 2 : 1));
     }
 
     void checkMaskDesc() {
         if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null &&
                 AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && AbstractDungeon.player.hasRelic(NohMask.ID)) {
-            rawDescription = upgraded ? cardStrings.EXTENDED_DESCRIPTION[1] : cardStrings.EXTENDED_DESCRIPTION[0];
+            rawDescription = cardStrings.EXTENDED_DESCRIPTION[0];
         }
         else {
-            rawDescription = upgraded ? cardStrings.UPGRADE_DESCRIPTION : cardStrings.DESCRIPTION;
+            rawDescription = cardStrings.DESCRIPTION;
         }
     }
 
@@ -86,7 +83,7 @@ public class Coordination extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            exhaust = false;
+            upgradeMagicNumber(-1);
             checkMaskDesc();
             initializeDescription();
         }

@@ -16,7 +16,7 @@ public class Slash extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = SasukeMod.makeID(Slash.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
-    public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("Slash.png");
+    public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("Slash2.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
 
@@ -32,7 +32,7 @@ public class Slash extends AbstractDynamicCard {
 
     private static final int COST = -2;
 
-    private static final int DAMAGE = 15;
+    private static final int DAMAGE = 20;
     private static final int UPGRADE_PLUS_DMG = 5;
     private AbstractMonster target;
 
@@ -46,7 +46,6 @@ public class Slash extends AbstractDynamicCard {
     public Slash(AbstractMonster m) {
         this();
         target = m;
-        //applyPowers();
         calculateCardDamage(m);
     }
 
@@ -65,11 +64,6 @@ public class Slash extends AbstractDynamicCard {
     void recalc() {
         if (target == null)
             return;
-        if (upgraded) {
-            this.baseDamage = damage = DAMAGE + UPGRADE_PLUS_DMG;
-            this.upgradedDamage = true;
-        }
-        SasukeMod.logger.info("upgraded? " + upgraded + " - damage is " + damage);
         applyPowers();
         calculateCardDamage(target);
     }

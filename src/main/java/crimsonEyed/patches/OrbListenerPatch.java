@@ -24,6 +24,16 @@ public class OrbListenerPatch {
                     ((IOnChannelListenerCard) c).onChannel(orb);
                 }
             }
+            for (AbstractCard c : __p.discardPile.group) {
+                if (c instanceof IOnChannelListenerCard) {
+                    ((IOnChannelListenerCard) c).onChannel(orb);
+                }
+            }
+            for (AbstractCard c : __p.drawPile.group) {
+                if (c instanceof IOnChannelListenerCard) {
+                    ((IOnChannelListenerCard) c).onChannel(orb);
+                }
+            }
         }
     }
 

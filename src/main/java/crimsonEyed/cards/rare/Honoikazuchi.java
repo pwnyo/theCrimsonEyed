@@ -5,7 +5,11 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.defect.EvokeOrbAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.blue.Dualcast;
 import com.megacrit.cardcrawl.cards.blue.Recursion;
+import com.megacrit.cardcrawl.cards.colorless.MindBlast;
+import com.megacrit.cardcrawl.cards.red.BodySlam;
+import com.megacrit.cardcrawl.cards.red.HeavyBlade;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -17,6 +21,7 @@ import crimsonEyed.SasukeMod;
 import crimsonEyed.actions.unique.HonoikazuchiAction;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
+import crimsonEyed.patches.TempElectroPatch;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
 
@@ -29,7 +34,6 @@ public class Honoikazuchi extends AbstractDynamicCard {
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 
     // /TEXT DECLARATION/
 
@@ -37,7 +41,7 @@ public class Honoikazuchi extends AbstractDynamicCard {
     // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.RARE; //  Up to you, I like auto-complete on these
-    private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
+    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
@@ -59,17 +63,18 @@ public class Honoikazuchi extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new HonoikazuchiAction(upgraded));
+        addToBot(new HonoikazuchiAction());
     }
     public void applyPowers() {
         if (!AbstractDungeon.player.orbs.isEmpty() && !(AbstractDungeon.player.orbs.get(0) instanceof EmptyOrbSlot)) {
-            this.baseDamage = AbstractDungeon.player.orbs.get(0).evokeAmount;
-            super.applyPowers();
-            redesc();
+            baseDamage = AbstractDungeon.player.orbs.get(0).evokeAmount;
         }
+        super.applyPowers();
+        redesc();
     }
 
     public void onMoveToDiscard() {
+        baseDamage = damage = 0;
         this.rawDescription = !upgraded ? cardStrings.DESCRIPTION : cardStrings.UPGRADE_DESCRIPTION;
         this.initializeDescription();
     }

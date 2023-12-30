@@ -35,7 +35,7 @@ public class DragonFlame extends AbstractDynamicCard {
 
     private static final int COST = 2;  // COST = 2
 
-    private static final int DAMAGE = 20;
+    private static final int DAMAGE = 22;
 
     // /STAT DECLARATION/
 
@@ -61,7 +61,7 @@ public class DragonFlame extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(8);
+            upgradeDamage(6);
             initializeDescription();
         }
     }

@@ -2,6 +2,9 @@ package crimsonEyed.relics.rarer;
 
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.util.TextureLoader;
 
@@ -24,4 +27,8 @@ public class NohMask extends CustomRelic {
         return DESCRIPTIONS[0];
     }
 
+    public static boolean shouldUseMaskDesc() {
+        return CardCrawlGame.dungeon != null && AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(NohMask.ID)
+                && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT;
+    }
 }

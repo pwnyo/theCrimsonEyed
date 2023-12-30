@@ -30,10 +30,10 @@ public class OneStepAheadPower extends AbstractPower implements CloneablePowerIn
 
     public void updateDescription() {
         if (amount == 1) {
-            this.description = DESCRIPTIONS[2];
+            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
         }
         else {
-            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[2];
         }
     }
 
@@ -41,14 +41,9 @@ public class OneStepAheadPower extends AbstractPower implements CloneablePowerIn
         if (isPlayer) {
             if (!AbstractDungeon.player.hand.isEmpty() && !AbstractDungeon.player.hasRelic("Runic Pyramid") && !AbstractDungeon.player.hasPower("Equilibrium")) {
                 flash();
-                this.addToBot(new RetainCardsAction(this.owner, 1));// 38
+                this.addToBot(new RetainCardsAction(this.owner, amount));// 38
             }
-            if (amount <= 1) {
-                this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
-            }
-            else {
-                this.addToBot(new ReducePowerAction(this.owner, this.owner, POWER_ID, 1));
-            }
+            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
         }
     }
 

@@ -2,6 +2,8 @@ package crimsonEyed.cards.temp.chop;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -15,7 +17,7 @@ public class Dice extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = SasukeMod.makeID(Dice.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
-    public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("Dice.png");
+    public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("Dice2.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
 
@@ -25,13 +27,12 @@ public class Dice extends AbstractDynamicCard {
     // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.SPECIAL; //  Up to you, I like auto-complete on these
-    private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
+    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = -2;
 
-    private static final int DAMAGE = 2;
     private AbstractMonster target;
 
     // /STAT DECLARATION/
@@ -39,14 +40,13 @@ public class Dice extends AbstractDynamicCard {
 
     public Dice() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = damage = DAMAGE;
-        baseMagicNumber = magicNumber = 5;
+        baseDamage = damage = 5;
+        baseMagicNumber = magicNumber = 4;
         isMultiDamage = true;
     }
     public Dice(AbstractMonster m) {
         this();
         target = m;
-        //applyPowers();
         calculateCardDamage(m);
     }
 
@@ -59,23 +59,14 @@ public class Dice extends AbstractDynamicCard {
 
     @Override
     public void onChoseThisOption() {
-        if (upgraded) {
-            this.baseMagicNumber = magicNumber = 4;
-            this.upgradedMagicNumber = true;
-        }
         recalc();
         for (int i = 0; i < magicNumber; i++) {
-            addToBot(new DamageAllEnemiesAction(AbstractDungeon.player, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+            addToBot(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, damage), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
         }
     }
     void recalc() {
         if (target == null)
             return;
-        if (upgraded) {
-            this.baseMagicNumber = magicNumber = 4;
-            this.upgradedMagicNumber = true;
-        }
-        SasukeMod.logger.info("upgraded? " + upgraded + " - damage is " + damage);
         applyPowers();
         calculateCardDamage(target);
     }
@@ -85,7 +76,7 @@ public class Dice extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(1);
+            upgradeMagicNumber(1);
             recalc();
             initializeDescription();
         }

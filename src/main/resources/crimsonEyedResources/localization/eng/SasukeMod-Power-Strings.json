@@ -73,6 +73,14 @@
                         " cards."
                 ]
         },
+        "crimsonEyed:GrudgePower2": {
+                "NAME": "Grudge",
+                "DESCRIPTIONS": [
+                        "At the start of your turn, #yExhaust the top card of your draw pile.",
+                        "At the start of your turn, #yExhaust the top #b",
+                        " cards of your draw pile."
+                ]
+        },
         "crimsonEyed:IndraFormPower": {
                 "NAME": "Indra Form",
                 "DESCRIPTIONS": [
@@ -127,9 +135,9 @@
         "crimsonEyed:OneStepAheadPower": {
                 "NAME": "One Step Ahead",
                 "DESCRIPTIONS": [
-                        "At the end of your next #b",
-                        " turns, #yRetain up to #b1 card.",
-                        "At the end of this turn, #yRetain up to #b1 card."
+                        "At the end of this turn, #yRetain up to #b",
+                        " card.",
+                        " cards."
                 ]
         },
         "crimsonEyed:PerceptionPower": {

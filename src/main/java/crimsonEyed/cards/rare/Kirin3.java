@@ -1,14 +1,19 @@
 package crimsonEyed.cards.rare;
 
 import basemod.AutoAdd;
+import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
+import com.megacrit.cardcrawl.actions.defect.DarkImpulseAction;
 import com.megacrit.cardcrawl.actions.defect.EvokeAllOrbsAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.actions.watcher.PressEndTurnButtonAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.blue.BallLightning;
 import com.megacrit.cardcrawl.cards.blue.ForceField;
 import com.megacrit.cardcrawl.cards.green.Eviscerate;
+import com.megacrit.cardcrawl.cards.green.PiercingWail;
 import com.megacrit.cardcrawl.cards.red.BloodForBlood;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -17,6 +22,8 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.Lightning;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.vfx.BorderLongFlashEffect;
+import com.megacrit.cardcrawl.vfx.combat.RoomTintEffect;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
@@ -51,8 +58,8 @@ public class Kirin3 extends AbstractDynamicCard implements IOnExhaustListenerCar
     public Kirin3() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         showEvokeValue = true;
-        showEvokeOrbCount = 6;
-        baseMagicNumber = magicNumber = 3;
+        showEvokeOrbCount = 4;
+        baseMagicNumber = magicNumber = 4;
         exhaust = true;
         if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null &&
                 AbstractDungeon.getCurrRoom().phase != AbstractRoom.RoomPhase.COMPLETE && AbstractDungeon.player != null) {
@@ -74,6 +81,8 @@ public class Kirin3 extends AbstractDynamicCard implements IOnExhaustListenerCar
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new SFXAction(makeID("KIRIN")));
+        AbstractDungeon.effectsQueue.add(new RoomTintEffect(Color.BLACK.cpy(), 0.8F));
+        AbstractDungeon.effectsQueue.add(new BorderLongFlashEffect(Color.CYAN.cpy()));
         for (int i = 0; i < magicNumber; i++) {
             addToBot(new ChannelAction(new Lightning()));
         }
@@ -86,7 +95,8 @@ public class Kirin3 extends AbstractDynamicCard implements IOnExhaustListenerCar
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(2);
+            upgradeMagicNumber(1);
+            upgradeBaseCost(8);
             initializeDescription();
         }
     }

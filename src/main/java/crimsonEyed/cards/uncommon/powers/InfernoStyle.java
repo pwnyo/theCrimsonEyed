@@ -33,7 +33,7 @@ public class InfernoStyle extends AbstractDynamicCard {
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 1;  // COST = 1
-    private static final int MAGIC = 2;
+    private static final int MAGIC = 3;
 
     // /STAT DECLARATION/
 

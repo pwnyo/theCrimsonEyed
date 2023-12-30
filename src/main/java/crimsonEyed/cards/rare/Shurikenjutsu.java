@@ -54,8 +54,7 @@ public class Shurikenjutsu extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            exhaust = false;
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            upgradeBaseCost(2);
             initializeDescription();
         }
     }

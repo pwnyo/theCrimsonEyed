@@ -50,7 +50,7 @@
     "NAME": "Crow Feather",
     "FLAVOR": "You can feel it in the palm of your hand, yet cannot be certain it's really there.",
     "DESCRIPTIONS": [
-      "The first time you apply a debuff to an enemy each turn, gain #b",
+      "Whenever you apply a debuff to an enemy, gain #b",
       " #yBlock."
     ]
   },
@@ -59,14 +59,15 @@
     "FLAVOR": "Awakened from out of darkness.",
     "DESCRIPTIONS": [
       "Replaces #yCrimson #yEye. Start each combat with #b",
-      " #yStrength and #yFocus."
+      " #yStrength and #b",
+      " #yFocus."
     ]
   },
   "crimsonEyed:BlueScale": {
     "NAME": "Blue Scale",
     "FLAVOR": "A blue snake's scale. Its rouses some part of you otherwise kept shut away.",
     "DESCRIPTIONS": [
-      "Upon pickup, obtain #yHatred. Gain [E] at the start of your turn."
+      "Upon pickup, permanently #yIntensify your #yHatred. Gain [E] at the start of your turn."
     ]
   },
   "crimsonEyed:CherryBlossom": {
@@ -74,7 +75,8 @@
     "FLAVOR": "Blooming resilience.",
     "DESCRIPTIONS": [
       "The first time you #yExhaust #b",
-      " cards each combat, heal #b10 HP."
+      " cards each combat, heal #b",
+      " HP."
     ]
   },
   "crimsonEyed:NohMask": {

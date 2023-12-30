@@ -33,7 +33,7 @@ public class SummonGaruda extends AbstractDynamicCard {
 
     private static final int COST = 1;  // COST = 1
 
-    private static final int DAMAGE = 10;
+    private static final int DAMAGE = 8;
     private static final int MAGIC = 2;
 
     // /STAT DECLARATION/

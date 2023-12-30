@@ -6,7 +6,13 @@ import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.blue.Blizzard;
 import com.megacrit.cardcrawl.cards.colorless.MindBlast;
+import com.megacrit.cardcrawl.cards.green.DaggerSpray;
+import com.megacrit.cardcrawl.cards.green.DieDieDie;
+import com.megacrit.cardcrawl.cards.purple.Conclude;
+import com.megacrit.cardcrawl.cards.red.BodySlam;
+import com.megacrit.cardcrawl.cards.red.Cleave;
 import com.megacrit.cardcrawl.cards.red.PerfectedStrike;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -46,25 +52,18 @@ public class Fireball extends AbstractDynamicCard {
 
     public Fireball() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = damage = 10;
+        baseDamage = damage = 8;
         baseMagicNumber = magicNumber = 1;
+        isMultiDamage = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAllEnemiesAction(p, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.FIRE));
+        addToBot(new DamageAllEnemiesAction(p, multiDamage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.FIRE));
         addToBot(new ExhaustAction(1, false, false));
     }
-
-    public void calculateCardDamage(AbstractMonster mo) {
-        int realBaseDamage = this.baseDamage;
-        this.baseDamage += this.magicNumber * AbstractDungeon.player.exhaustPile.size();
-        super.calculateCardDamage(mo);
-        this.baseDamage = realBaseDamage;
-        this.isDamageModified = this.damage != this.baseDamage;
-    }// 79
 
     public void applyPowers() {
         int realBaseDamage = this.baseDamage;
@@ -74,13 +73,12 @@ public class Fireball extends AbstractDynamicCard {
         this.isDamageModified = this.damage != this.baseDamage;
     }
 
-
     // Upgraded stats.
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(4);
+            upgradeBaseCost(1);
             initializeDescription();
         }
     }

@@ -37,14 +37,14 @@ public class KillingIntent extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 1;
+    private static final int COST = 0;
 
     // /STAT DECLARATION/
 
 
     public KillingIntent() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = damage = 8;
+        baseDamage = damage = 5;
         baseMagicNumber = magicNumber = 1;
     }
 
@@ -65,7 +65,7 @@ public class KillingIntent extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(4);
+            upgradeDamage(3);
             initializeDescription();
         }
     }

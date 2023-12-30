@@ -14,8 +14,6 @@ public class ScryListenPatch {
     public static void Postfix(ScryAction __action) {
         scriedThisTurn = true;
     }
-    @SpirePostfixPatch
-    public static void Postfix2(ScryBlockAction __action) { scriedThisTurn = false; }
     @SpirePatch(clz = AbstractRelic.class, method = "atTurnStart")
     public static class NextTurn {
         public static void Postfix(AbstractRelic __relic) {
