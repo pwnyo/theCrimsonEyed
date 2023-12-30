@@ -6,8 +6,6 @@ import com.megacrit.cardcrawl.actions.defect.AnimateOrbAction;
 import com.megacrit.cardcrawl.actions.defect.EvokeOrbAction;
 import com.megacrit.cardcrawl.actions.defect.EvokeWithoutRemovingOrbAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
-import com.megacrit.cardcrawl.cards.blue.Dualcast;
-import com.megacrit.cardcrawl.cards.blue.ForceField;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -16,8 +14,6 @@ import com.megacrit.cardcrawl.powers.LockOnPower;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
-import crimsonEyed.patches.TempElectroPatch;
-import crimsonEyed.powers.KagutsuchiPower;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
 import static crimsonEyed.SasukeMod.makeID;
@@ -48,7 +44,8 @@ public class Kagutsuchi extends AbstractDynamicCard {
 
     public Kagutsuchi() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = 1;
+        baseMagicNumber = magicNumber = 2;
+        baseMagicNumber2 = magicNumber2 = 1;
         showEvokeValue = true;
         showEvokeOrbCount = 1;
     }
@@ -58,8 +55,8 @@ public class Kagutsuchi extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new SFXAction(makeID("MANGEKYOU")));
-        addToBot(new LoseHPAction(p, p, 1));
-        addToBot(new ApplyPowerAction(m, p, new LockOnPower(m, magicNumber)));
+        addToBot(new LoseHPAction(p, p, magicNumber));
+        addToBot(new ApplyPowerAction(m, p, new LockOnPower(m, magicNumber2)));
 
         if (upgraded) {
             addToBot(new AnimateOrbAction(1));
@@ -75,7 +72,8 @@ public class Kagutsuchi extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            upgradeMagicNumber(-1);
+            upgradeSecondMagicNumber(1);
             initializeDescription();
         }
     }

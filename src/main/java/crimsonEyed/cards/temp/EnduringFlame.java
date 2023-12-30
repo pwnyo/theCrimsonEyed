@@ -1,12 +1,9 @@
 package crimsonEyed.cards.temp;
 
-import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.red.Flex;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -81,7 +78,7 @@ public class EnduringFlame extends AbstractDynamicCard {
 
     private static Texture getTextureFromString(String textureString) {
         loadTextureFromString(textureString);
-        return (Texture)imgMap.get(textureString);
+        return imgMap.get(textureString);
     }
     public Texture getBackgroundSmallTexture() {
         return getTextureFromString(BG_SM);

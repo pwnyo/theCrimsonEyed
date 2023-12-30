@@ -1,21 +1,13 @@
 package crimsonEyed.cards.uncommon.skills;
 
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
-import com.megacrit.cardcrawl.cards.green.Bane;
-import com.megacrit.cardcrawl.cards.red.Dropkick;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
-import com.megacrit.cardcrawl.powers.WeakPower;
-import com.megacrit.cardcrawl.vfx.CollectorCurseEffect;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.actions.unique.TsukuyomiAction;
 import crimsonEyed.cards.AbstractDynamicCard;
@@ -23,7 +15,6 @@ import crimsonEyed.characters.TheCrimsonEyed;
 import crimsonEyed.patches.MonsterTargetPatch;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
-import static crimsonEyed.SasukeMod.makeID;
 
 public class Tsukuyomi extends AbstractDynamicCard {
 

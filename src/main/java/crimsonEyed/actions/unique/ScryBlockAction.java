@@ -2,7 +2,6 @@ package crimsonEyed.actions.unique;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.utility.ScryAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -11,8 +10,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import crimsonEyed.patches.ScryListenPatch;
-
-import java.util.Iterator;
 
 public class ScryBlockAction extends AbstractGameAction {
     private static final UIStrings uiStrings;
@@ -50,7 +47,7 @@ public class ScryBlockAction extends AbstractGameAction {
                 CardGroup tmpGroup = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);// 47
                 if (this.amount != -1) {// 48
                     for(int i = 0; i < Math.min(this.amount, AbstractDungeon.player.drawPile.size()); ++i) {// 49
-                        tmpGroup.addToTop((AbstractCard)AbstractDungeon.player.drawPile.group.get(AbstractDungeon.player.drawPile.size() - i - 1));// 50 51
+                        tmpGroup.addToTop(AbstractDungeon.player.drawPile.group.get(AbstractDungeon.player.drawPile.size() - i - 1));// 50 51
                     }
                 } else {
                     for (AbstractCard c : AbstractDungeon.player.drawPile.group) {

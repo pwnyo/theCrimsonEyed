@@ -1,6 +1,5 @@
 package crimsonEyed.cards.rare;
 
-import basemod.AutoAdd;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -9,7 +8,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
-import crimsonEyed.powers.RevolutionPower;
 import crimsonEyed.powers.RevolutionPower2;
 
 import static crimsonEyed.SasukeMod.makeCardPath;

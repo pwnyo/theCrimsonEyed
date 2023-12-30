@@ -8,8 +8,6 @@ import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
 
-import java.util.Iterator;
-
 import static crimsonEyed.SasukeMod.makeCardPath;
 
 public class PeripheralVision extends AbstractDynamicCard {

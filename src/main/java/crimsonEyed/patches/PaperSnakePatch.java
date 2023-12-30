@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.LockOnPower;
 import crimsonEyed.relics.commoner.PaperSnek;
 
-import java.awt.print.Paper;
 import java.util.ArrayList;
 
 public class PaperSnakePatch {
@@ -39,12 +38,7 @@ public class PaperSnakePatch {
             for (int i = 0; i < retVal.length; ++i) {
                 DamageInfo info = new DamageInfo(AbstractDungeon.player, baseDamage);
                 if (isOrbDamage && (monsters.get(i).hasPower(LockOnPower.POWER_ID))) {
-                    if (hasSnake) {
-                        info.output = (int)((float)info.base * 1.75F);
-                    }
-                    else {
-                        info.output = (int)((float)info.base * 1.5F);
-                    }
+                    info.output = (int)((float)info.base * 1.75F);
                 }
 
                 retVal[i] = info.output;
@@ -57,9 +51,9 @@ public class PaperSnakePatch {
         public static void Postfix(LockOnPower __power) {
             if (__power.owner != null && AbstractDungeon.player.hasRelic(PaperSnek.ID)) {
                 if (__power.amount == 1) {
-                    __power.description = __power.DESCRIPTIONS[0] + 75 + __power.DESCRIPTIONS[1] + __power.amount + __power.DESCRIPTIONS[2];
+                    __power.description = LockOnPower.DESCRIPTIONS[0] + 75 + LockOnPower.DESCRIPTIONS[1] + __power.amount + LockOnPower.DESCRIPTIONS[2];
                 } else {
-                    __power.description = __power.DESCRIPTIONS[0] + 75 + __power.DESCRIPTIONS[1] + __power.amount + __power.DESCRIPTIONS[3];
+                    __power.description = LockOnPower.DESCRIPTIONS[0] + 75 + LockOnPower.DESCRIPTIONS[1] + __power.amount + LockOnPower.DESCRIPTIONS[3];
                 }
             }
         }

@@ -1,16 +1,10 @@
 package crimsonEyed.cards.uncommon.skills;
 
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.actions.defect.*;
-import com.megacrit.cardcrawl.cards.blue.Dualcast;
+import com.megacrit.cardcrawl.actions.defect.EvokeOrbAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.orbs.AbstractOrb;
-import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
-import com.megacrit.cardcrawl.orbs.Lightning;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.actions.common.AmpUpAction;
 import crimsonEyed.cards.AbstractDynamicCard;

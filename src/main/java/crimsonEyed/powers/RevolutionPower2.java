@@ -2,17 +2,12 @@ package crimsonEyed.powers;
 
 import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.BetterDrawPileToHandAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import crimsonEyed.SasukeMod;
-import crimsonEyed.patches.interfaces.IOnAddToHandListenerPower;
 import crimsonEyed.patches.interfaces.IOnIntensifyListener;
 
 public class RevolutionPower2 extends AbstractPower implements CloneablePowerInterface, IOnIntensifyListener {

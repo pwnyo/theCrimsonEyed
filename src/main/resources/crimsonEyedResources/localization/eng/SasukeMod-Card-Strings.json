@@ -248,8 +248,7 @@
   },
   "crimsonEyed:Kagutsuchi": {
     "NAME": "Kagutsuchi",
-    "DESCRIPTION": "Lose 1 HP. NL Apply !M! Lock-On. NL Evoke your next Orb.",
-    "UPGRADE_DESCRIPTION": "Lose 1 HP. NL Apply !M! Lock-On. NL Evoke your next Orb twice."
+    "DESCRIPTION": "Lose !M! HP. NL Apply !crimsonEyed:M2! Lock-On. NL Evoke your next Orb twice."
   },
   "crimsonEyed:KagutsuchiChidori": {
     "NAME": "Kagutsuchi Chidori",
@@ -480,11 +479,7 @@
   },
   "crimsonEyed:SnakeBinding": {
     "NAME": "Snake Binding",
-    "DESCRIPTION": "ALL enemies lose !M! Strength this turn. NL If you have no Status or Curse cards in your hand, Exhaust.",
-    "UPGRADE_DESCRIPTION": "ALL enemies lose !M! Strength this turn. NL If you have no Status or Curse cards in your hand, Exhaust.",
-    "EXTENDED_DESCRIPTION": [
-      " NL (They lose !crimsonEyed:M2! Strength.)"
-    ]
+    "DESCRIPTION": "ALL enemies lose !M! Strength this turn. NL Put a *Slimed into your hand."
   },
   "crimsonEyed:SnakeBite": {
     "NAME": "Snake Bite",

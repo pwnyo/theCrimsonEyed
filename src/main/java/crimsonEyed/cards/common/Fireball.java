@@ -1,27 +1,15 @@
 package crimsonEyed.cards.common;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.blue.Blizzard;
-import com.megacrit.cardcrawl.cards.colorless.MindBlast;
-import com.megacrit.cardcrawl.cards.green.DaggerSpray;
-import com.megacrit.cardcrawl.cards.green.DieDieDie;
-import com.megacrit.cardcrawl.cards.purple.Conclude;
-import com.megacrit.cardcrawl.cards.red.BodySlam;
-import com.megacrit.cardcrawl.cards.red.Cleave;
-import com.megacrit.cardcrawl.cards.red.PerfectedStrike;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import crimsonEyed.SasukeMod;
-import crimsonEyed.actions.unique.ExhaustDamageAction;
-import crimsonEyed.actions.unique.FireballAction;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
 

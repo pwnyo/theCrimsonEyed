@@ -1,23 +1,13 @@
 package crimsonEyed.actions.unique;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.DarkEmbracePower;
 import com.megacrit.cardcrawl.powers.RegenPower;
-import com.megacrit.cardcrawl.relics.Nunchaku;
-import com.megacrit.cardcrawl.relics.UnceasingTop;
-
-import java.util.Iterator;
-
-import static basemod.BaseMod.logger;
 
 public class ShedSkinAction extends AbstractGameAction {
     private AbstractPlayer p;

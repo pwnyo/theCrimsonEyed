@@ -11,7 +11,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import crimsonEyed.powers.UniversalPullPower;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class UniversalPullAction extends AbstractGameAction {
     public static final String[] TEXT;

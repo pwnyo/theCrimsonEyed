@@ -10,16 +10,11 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.orbs.AbstractOrb;
-import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
-import com.megacrit.cardcrawl.orbs.Plasma;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.cards.temp.kaguchidori.DarkChoice;
 import crimsonEyed.cards.temp.kaguchidori.LightningChoice;
 import crimsonEyed.cards.temp.kaguchidori.PlasmaChoice;
-import crimsonEyed.cards.uncommon.skills.Anticipate;
 import crimsonEyed.characters.TheCrimsonEyed;
 import crimsonEyed.relics.rarer.NohMask;
 

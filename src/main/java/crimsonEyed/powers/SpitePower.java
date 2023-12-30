@@ -1,6 +1,5 @@
 package crimsonEyed.powers;
 
-import basemod.devcommands.draw.Draw;
 import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
@@ -11,7 +10,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.relics.GremlinHorn;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.patches.interfaces.IOnMonsterDeathListenerPower;
 

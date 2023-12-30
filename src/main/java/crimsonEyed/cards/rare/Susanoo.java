@@ -10,7 +10,6 @@ import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
-import static crimsonEyed.SasukeMod.makeID;
 
 public class Susanoo extends AbstractDynamicCard {
 

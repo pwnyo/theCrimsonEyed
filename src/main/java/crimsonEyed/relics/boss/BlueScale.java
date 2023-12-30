@@ -2,24 +2,14 @@ package crimsonEyed.relics.boss;
 
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.curses.Necronomicurse;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.relics.CursedKey;
-import com.megacrit.cardcrawl.relics.Necronomicon;
-import com.megacrit.cardcrawl.relics.WarPaint;
-import com.megacrit.cardcrawl.ui.campfire.SmithOption;
 import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.basic.Hatred;
-import crimsonEyed.cards.temp.EnduringFlame;
 import crimsonEyed.util.TextureLoader;
 
 import static crimsonEyed.SasukeMod.makeRelicOutlinePath;

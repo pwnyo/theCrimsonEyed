@@ -7,7 +7,6 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
-import crimsonEyed.cards.unused.Resentment;
 import crimsonEyed.characters.TheCrimsonEyed;
 import crimsonEyed.powers.GrudgePower;
 

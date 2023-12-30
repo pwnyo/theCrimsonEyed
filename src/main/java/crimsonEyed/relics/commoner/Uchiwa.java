@@ -2,12 +2,6 @@ package crimsonEyed.relics.commoner;
 
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.relics.GamblingChip;
-import com.megacrit.cardcrawl.relics.WarpedTongs;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.actions.unique.UchiwaAction;
 import crimsonEyed.util.TextureLoader;
