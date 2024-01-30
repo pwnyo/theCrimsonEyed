@@ -1,8 +1,11 @@
-package crimsonEyed.cards.uncommon.attacks;
+package crimsonEyed.cards.uncommon.skills;
 
+import basemod.patches.whatmod.CardView;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -29,18 +32,18 @@ public class PaperBomb extends AbstractDynamicCard {
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.NONE;  //   since they don't change much.
-    private static final CardType TYPE = CardType.ATTACK;       //
+    private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 1;
+    private static final int COST = 0;
 
     // /STAT DECLARATION/
 
 
     public PaperBomb() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = damage = 7;
-        baseMagicNumber = magicNumber = 14;
+        baseMagicNumber = magicNumber = 12;
+        baseMagicNumber2 = magicNumber2 = 1;
         isMultiDamage = true;
     }
 
@@ -48,7 +51,7 @@ public class PaperBomb extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAllEnemiesAction(AbstractDungeon.player, multiDamage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.FIRE));
+        addToBot(new MakeTempCardInHandAction(new Shiv(), magicNumber2));
     }
 
     @Override
@@ -61,8 +64,8 @@ public class PaperBomb extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(3);
-            upgradeMagicNumber(6);
+            upgradeMagicNumber(8);
+            upgradeSecondMagicNumber(1);
             rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }

@@ -36,10 +36,6 @@ public class SnakeBindingAction extends AbstractGameAction {
             } else {
                 this.addToTop(new VFXAction(p, new ShockWaveEffect(p.hb.cX, p.hb.cY, Settings.GREEN_TEXT_COLOR, ShockWaveEffect.ShockWaveType.CHAOTIC), 1.5F));// 51
             }
-            if (!SnakeHandsAction.hasStatusOrCurse()) {
-                card.exhaust = true;
-                addToBot(new ExhaustSpecificCardAction(card, p.discardPile));
-            }
         }
 
         this.tickDuration();

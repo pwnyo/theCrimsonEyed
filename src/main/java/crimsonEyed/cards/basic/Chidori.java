@@ -10,11 +10,15 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.Lightning;
+import com.megacrit.cardcrawl.powers.LockOnPower;
 import crimsonEyed.SasukeMod;
+import crimsonEyed.actions.unique.ChidoriAction;
 import crimsonEyed.cards.AbstractDynamicCard;
+import crimsonEyed.cards.unused.SureFire;
 import crimsonEyed.characters.TheCrimsonEyed;
 import crimsonEyed.patches.ScryListenPatch;
 
@@ -63,19 +67,17 @@ public class Chidori extends AbstractDynamicCard {
         addToBot(new SFXAction(makeID("CHIDORI")));
         addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.LIGHTNING));
         addToBot(new ChannelAction(new Lightning()));
-        if (ScryListenPatch.scriedThisTurn) {
-            addToBot(new WaitAction(0.1f));
-            addToBot(new EvokeOrbAction(1));
-        }
+        addToBot(new ChidoriAction(m));
     }
 
     @Override
     public void triggerOnGlowCheck() {
-        if (ScryListenPatch.scriedThisTurn) {
-            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
-        }
-        else {
-            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            if (!m.isDeadOrEscaped() && m.hasPower(LockOnPower.POWER_ID)) {
+                this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+                break;
+            }
         }
     }
 

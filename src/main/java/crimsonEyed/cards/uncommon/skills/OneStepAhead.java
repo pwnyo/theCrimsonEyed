@@ -32,14 +32,14 @@ public class OneStepAhead extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 0;
+    private static final int COST = 1;
 
     // /STAT DECLARATION/
 
 
     public OneStepAhead() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseBlock = block = 4;
+        baseBlock = block = 7;
         baseMagicNumber = magicNumber = 1;
     }
 

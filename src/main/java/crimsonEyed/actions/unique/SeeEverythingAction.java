@@ -3,6 +3,7 @@ package crimsonEyed.actions.unique;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.actions.utility.ScryAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -45,6 +46,7 @@ public class SeeEverythingAction extends AbstractGameAction {
 
             if (effect > 0) {
                 addToBot(new SFXAction(makeID("SHARINGAN")));
+                addToBot(new ScryAction(effect));
                 for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
                     this.addToBot(new ApplyPowerAction(m, p, new LockOnPower(m, effect), effect, true, AbstractGameAction.AttackEffect.NONE));
                     this.addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, effect, false), effect, true, AbstractGameAction.AttackEffect.NONE));

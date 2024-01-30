@@ -30,7 +30,7 @@ public class Copycat extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 0;
+    private static final int COST = 1;
     private static final int MAGIC = 2;
 
     // /STAT DECLARATION/

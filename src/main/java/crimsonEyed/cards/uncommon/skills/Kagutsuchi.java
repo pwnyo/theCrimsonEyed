@@ -45,7 +45,6 @@ public class Kagutsuchi extends AbstractDynamicCard {
     public Kagutsuchi() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = 2;
-        baseMagicNumber2 = magicNumber2 = 1;
         showEvokeValue = true;
         showEvokeOrbCount = 1;
     }
@@ -55,13 +54,11 @@ public class Kagutsuchi extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new SFXAction(makeID("MANGEKYOU")));
-        addToBot(new LoseHPAction(p, p, magicNumber));
-        addToBot(new ApplyPowerAction(m, p, new LockOnPower(m, magicNumber2)));
+        addToBot(new LoseHPAction(p, p, 1));
+        addToBot(new ApplyPowerAction(m, p, new LockOnPower(m, 1)));
 
-        if (upgraded) {
-            addToBot(new AnimateOrbAction(1));
-            addToBot(new EvokeWithoutRemovingOrbAction(1));
-        }
+        addToBot(new AnimateOrbAction(1));
+        addToBot(new EvokeWithoutRemovingOrbAction(1));
         addToBot(new AnimateOrbAction(1));
         addToBot(new EvokeOrbAction(1));
     }
@@ -72,8 +69,7 @@ public class Kagutsuchi extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(-1);
-            upgradeSecondMagicNumber(1);
+            upgradeBaseCost(0);
             initializeDescription();
         }
     }

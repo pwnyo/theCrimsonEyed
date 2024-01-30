@@ -2,6 +2,7 @@ package crimsonEyed.relics.boss;
 
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -27,20 +28,11 @@ public class BlueScale extends CustomRelic {
     }
 
     @Override
-    public void onEquip() {
-        AbstractCard hate = AbstractDungeon.player.masterDeck.findCardById(Hatred.ID);
-        if (hate != null) {
-            hate.upgrade();
-            AbstractDungeon.effectsQueue.add(new UpgradeShineEffect((float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
-            AbstractDungeon.effectsQueue.add(new ShowCardBrieflyEffect(hate.makeStatEquivalentCopy()));
+    public void onCardDraw(AbstractCard drawnCard) {
+        if (drawnCard.type == AbstractCard.CardType.CURSE) {
+            flash();
+            addToBot(new GainEnergyAction(1));
         }
-        else {
-            AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(new Hatred(), (float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
-        }
-        ++AbstractDungeon.player.energy.energyMaster;
-    }
-    public void onUnequip() {
-        --AbstractDungeon.player.energy.energyMaster;
     }
 
     @Override

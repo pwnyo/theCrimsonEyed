@@ -13,7 +13,9 @@ public class SeverThePastBlockAction extends AbstractGameAction {
 
     public void update() {
         AbstractPlayer p = AbstractDungeon.player;
-        addToBot(new GainBlockAction(p, amount * p.exhaustPile.size()));
+        if (p.exhaustPile.size() > 0) {
+            addToBot(new GainBlockAction(p, amount * p.exhaustPile.size()));
+        }
         this.isDone = true;
     }
 }

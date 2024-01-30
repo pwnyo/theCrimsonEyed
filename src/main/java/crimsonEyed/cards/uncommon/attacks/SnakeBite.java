@@ -2,6 +2,8 @@ package crimsonEyed.cards.uncommon.attacks;
 
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.actions.common.PoisonDamageAction;
@@ -16,7 +18,7 @@ public class SnakeBite extends AbstractDynamicCard {
 
     public static final String ID = SasukeMod.makeID(SnakeBite.class.getSimpleName());
     public static final String IMG = makeCardPath("SnakeBite.png");
-
+    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     // /TEXT DECLARATION/
 
@@ -53,7 +55,7 @@ public class SnakeBite extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(1);
+            upgradeDamage(2);
             initializeDescription();
         }
     }

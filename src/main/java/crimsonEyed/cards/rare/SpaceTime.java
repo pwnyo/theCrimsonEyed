@@ -39,7 +39,7 @@ public class SpaceTime extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.POWER;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 0;
+    private static final int COST = 1;
     private AbstractCard cardsToPreview2;
 
     // /STAT DECLARATION/
@@ -53,10 +53,6 @@ public class SpaceTime extends AbstractDynamicCard {
 
     @Override
     public void renderCardPreviewInSingleView(SpriteBatch sb) {
-        if (upgraded) {
-            cardsToPreview.upgrade();
-            cardsToPreview2.upgrade();
-        }
         super.renderCardPreviewInSingleView(sb);
         this.cardsToPreview2.current_x = 490.0F * Settings.scale;
         this.cardsToPreview2.current_y = 290.0F * Settings.scale;
@@ -68,10 +64,6 @@ public class SpaceTime extends AbstractDynamicCard {
     public void renderCardPreview(SpriteBatch sb) {
         if (AbstractDungeon.player == null ||
                 (AbstractDungeon.player != null && !AbstractDungeon.player.isDraggingCard)) {
-            if (upgraded) {
-                cardsToPreview.upgrade();
-                cardsToPreview2.upgrade();
-            }
             float tmpScale = this.drawScale * 0.5F;
 
             if (this.current_x > (float)Settings.WIDTH * 0.75F) {
@@ -102,11 +94,6 @@ public class SpaceTime extends AbstractDynamicCard {
         if (AbstractDungeon.player.hasRelic(NohMask.ID)) {
             choices.add(new AlmightyPush());
         }
-        if (upgraded) {
-            for (AbstractCard c : choices) {
-                c.upgrade();
-            }
-        }
 
         addToBot(new ChooseOneAction(choices));
     }
@@ -124,14 +111,8 @@ public class SpaceTime extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            upgradeBaseCost(0);
             checkMaskDesc();
-
-            UniversalPull up = new UniversalPull();
-            Amenotejikara am = new Amenotejikara();
-            up.upgrade();
-            am.upgrade();
-            cardsToPreview = up;
-            cardsToPreview2 = am;
 
             initializeDescription();
         }

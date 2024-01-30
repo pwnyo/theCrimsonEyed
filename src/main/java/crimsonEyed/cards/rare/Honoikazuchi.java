@@ -1,15 +1,22 @@
 package crimsonEyed.cards.rare;
 
+import com.megacrit.cardcrawl.cards.blue.ThunderStrike;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import com.megacrit.cardcrawl.orbs.Dark;
 import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
+import com.megacrit.cardcrawl.orbs.Lightning;
 import crimsonEyed.SasukeMod;
+import crimsonEyed.actions.unique.Honoikazuchi2Action;
 import crimsonEyed.actions.unique.HonoikazuchiAction;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
+
+import java.util.Iterator;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
 
@@ -29,12 +36,12 @@ public class Honoikazuchi extends AbstractDynamicCard {
     // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.RARE; //  Up to you, I like auto-complete on these
-    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;  //   since they don't change much.
+    private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 2;
-    private static final int DAMAGE = 0;
+    private static final int DAMAGE = 12;
 
     // /STAT DECLARATION/
 
@@ -42,7 +49,6 @@ public class Honoikazuchi extends AbstractDynamicCard {
     public Honoikazuchi() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
-        isMultiDamage = true;
         showEvokeValue = true;
         showEvokeOrbCount = 1;
     }
@@ -51,19 +57,21 @@ public class Honoikazuchi extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new HonoikazuchiAction());
+        addToBot(new Honoikazuchi2Action(m, damage));
     }
     public void applyPowers() {
-        if (!AbstractDungeon.player.orbs.isEmpty() && !(AbstractDungeon.player.orbs.get(0) instanceof EmptyOrbSlot)) {
-            baseDamage = AbstractDungeon.player.orbs.get(0).evokeAmount;
-        }
         super.applyPowers();
+        baseMagicNumber = magicNumber = 0;
+        for (AbstractOrb o : AbstractDungeon.actionManager.orbsChanneledThisCombat) {
+            if (o instanceof Dark) {
+                ++this.baseMagicNumber;
+            }
+        }
         redesc();
     }
 
     public void onMoveToDiscard() {
-        baseDamage = damage = 0;
-        this.rawDescription = !upgraded ? cardStrings.DESCRIPTION : cardStrings.UPGRADE_DESCRIPTION;
+        this.rawDescription = cardStrings.DESCRIPTION;
         this.initializeDescription();
     }
 
@@ -72,7 +80,9 @@ public class Honoikazuchi extends AbstractDynamicCard {
         redesc();
     }
     void redesc() {
-        this.rawDescription = (!upgraded ? cardStrings.DESCRIPTION : cardStrings.UPGRADE_DESCRIPTION) + cardStrings.EXTENDED_DESCRIPTION[0];
+        if (this.baseMagicNumber > 0) {
+            this.rawDescription = cardStrings.DESCRIPTION  + cardStrings.EXTENDED_DESCRIPTION[0];
+        }
         this.initializeDescription();
     }
 
@@ -81,7 +91,7 @@ public class Honoikazuchi extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(1);
+            upgradeDamage(3);
             initializeDescription();
         }
     }

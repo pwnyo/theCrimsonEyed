@@ -6,10 +6,12 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.Lightning;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
@@ -46,8 +48,21 @@ public class IndrasArrow extends AbstractDynamicCard implements IOnChannelListen
     public IndrasArrow() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
+        if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null &&
+                AbstractDungeon.getCurrRoom().phase != AbstractRoom.RoomPhase.COMPLETE && AbstractDungeon.player != null) {
+            configureCostsOnNewCard();
+        }
     }
 
+    void configureCostsOnNewCard() {
+        int count = 0;
+        for (AbstractOrb o : AbstractDungeon.actionManager.orbsChanneledThisCombat) {
+            if (o instanceof Lightning) {
+                count++;
+            }
+        }
+        this.updateCost(-count);
+    }
 
     // Actions the card should do.
     @Override
@@ -70,22 +85,5 @@ public class IndrasArrow extends AbstractDynamicCard implements IOnChannelListen
         if (o instanceof Lightning) {
             updateCost(-1);
         }
-    }
-
-    @Override
-    public AbstractCard makeCopy() {
-        int count = 0;
-        AbstractCard tmp = new IndrasArrow();
-        if (AbstractDungeon.player != null) {
-            for (AbstractOrb o : AbstractDungeon.actionManager.orbsChanneledThisCombat) {
-                if (o instanceof Lightning) {
-                    count++;
-                }
-            }
-
-            BaseMod.logger.info("channeled orbs: " + count);
-        }
-        tmp.updateCost(-count);
-        return tmp;
     }
 }

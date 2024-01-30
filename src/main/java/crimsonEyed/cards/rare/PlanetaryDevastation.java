@@ -1,10 +1,13 @@
 package crimsonEyed.cards.rare;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.defect.ChannelAction;
+import com.megacrit.cardcrawl.actions.defect.IncreaseMaxOrbAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.orbs.Plasma;
 import com.megacrit.cardcrawl.powers.LockOnPower;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.actions.unique.PlanetaryDevastationAction;
@@ -32,8 +35,7 @@ public class PlanetaryDevastation extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 2;
-    private static final int UPGRADED_COST = 1;
+    private static final int COST = 3;
 
     // /STAT DECLARATION/
 
@@ -41,7 +43,7 @@ public class PlanetaryDevastation extends AbstractDynamicCard {
     public PlanetaryDevastation() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = 99;
-        baseMagicNumber2 = magicNumber2 = 99;
+        baseMagicNumber2 = magicNumber2 = 1;
         exhaust = true;
     }
 
@@ -50,7 +52,10 @@ public class PlanetaryDevastation extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(m, p, new LockOnPower(m, 99)));
-        addToBot(new PlanetaryDevastationAction());
+        addToBot(new IncreaseMaxOrbAction(magicNumber2));
+        for (int i = 0; i < magicNumber2; i++) {
+            addToBot(new ChannelAction(new Plasma()));
+        }
     }
 
     // Upgraded stats.
@@ -58,7 +63,8 @@ public class PlanetaryDevastation extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
+            upgradeSecondMagicNumber(1);
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

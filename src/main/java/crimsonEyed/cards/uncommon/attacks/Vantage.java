@@ -1,7 +1,10 @@
-package crimsonEyed.cards.uncommon.skills;
+package crimsonEyed.cards.uncommon.attacks;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -29,8 +32,8 @@ public class Vantage extends AbstractDynamicCard {
     // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
-    private static final CardTarget TARGET = CardTarget.SELF;  //   since they don't change much.
-    private static final CardType TYPE = CardType.SKILL;       //
+    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;  //   since they don't change much.
+    private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 0;
@@ -40,6 +43,7 @@ public class Vantage extends AbstractDynamicCard {
 
     public Vantage() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        baseDamage = damage = 6;
         baseBlock = block = 6;
         isInnate = true;
         exhaust = true;
@@ -50,7 +54,7 @@ public class Vantage extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, block));
-        addToBot(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, block)));
+        addToBot(new DamageAllEnemiesAction(p, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
     }
 
     // Upgraded stats.
@@ -58,7 +62,8 @@ public class Vantage extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBlock(2);
+            upgradeDamage(3);
+            upgradeBlock(3);
             initializeDescription();
         }
     }

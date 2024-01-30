@@ -59,6 +59,14 @@
                         " buffs."
                 ]
         },
+        "crimsonEyed:FindOpeningsPower": {
+                "NAME": "Find Openings",
+                "DESCRIPTIONS": [
+                        "Whenever you play an #yAttack, draw #b",
+                        " card.",
+                        " cards."
+                ]
+        },
         "crimsonEyed:GradualFocusLossPower": {
                 "NAME": "DEPRECATED:Strain",
                 "DESCRIPTIONS": [

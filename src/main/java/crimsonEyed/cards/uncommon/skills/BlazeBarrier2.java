@@ -2,6 +2,8 @@ package crimsonEyed.cards.uncommon.skills;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.defect.TriggerPassiveAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
+import com.megacrit.cardcrawl.cards.blue.Dualcast;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -28,7 +30,7 @@ public class BlazeBarrier2 extends AbstractDynamicCard {
     // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
-    private static final CardTarget TARGET = CardTarget.SELF;  //   since they don't change much.
+    private static final CardTarget TARGET = CardTarget.NONE;  //   since they don't change much.
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
@@ -48,9 +50,11 @@ public class BlazeBarrier2 extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ChannelAction(new Dark()));
+        addToBot(new WaitAction(0.1f));
         if (upgraded) {
             addToBot(new TriggerPassiveAction(magicNumber));
         }
+        addToBot(new WaitAction(0.1f));
         addToBot(new GainEvokeBlock());
     }
 

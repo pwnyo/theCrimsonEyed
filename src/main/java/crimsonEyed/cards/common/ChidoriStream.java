@@ -43,7 +43,7 @@ public class ChidoriStream extends AbstractDynamicCard {
 
     public ChidoriStream() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = 1;
+        baseMagicNumber = magicNumber = 2;
         showEvokeValue = true;
         showEvokeOrbCount = 1;
     }

@@ -1,10 +1,14 @@
-package crimsonEyed.cards.uncommon.skills;
+package crimsonEyed.cards.uncommon.attacks;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.actions.unique.PaybackAction;
 import crimsonEyed.cards.AbstractDynamicCard;
@@ -28,7 +32,7 @@ public class Payback extends AbstractDynamicCard {
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
-    private static final CardType TYPE = CardType.SKILL;       //
+    private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 1;
@@ -38,8 +42,13 @@ public class Payback extends AbstractDynamicCard {
 
     public Payback() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        baseDamage = damage = 5;
     }
-
+    @Override
+    public void calculateCardDamage(AbstractMonster mo) {
+        super.calculateCardDamage(mo);
+        checkDebuffs();
+    }
     @Override
     public void applyPowers() {
         super.applyPowers();
@@ -50,20 +59,24 @@ public class Payback extends AbstractDynamicCard {
         if (m != null) {
             int count = 0;
             for (AbstractPower pow : m.powers) {
-                if (pow.type == AbstractPower.PowerType.DEBUFF && !pow.ID.equals("Shackled")) {
+                if (pow.type == AbstractPower.PowerType.DEBUFF && !pow.ID.equals("Shackled") && !pow.ID.equals(VulnerablePower.POWER_ID)) {
                     count++;
                 }
             }
-            rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0] + count +  cardStrings.EXTENDED_DESCRIPTION[1];
+            magicNumber = count;
+            rawDescription = cardStrings.DESCRIPTION + (magicNumber == 1 ?
+                    cardStrings.EXTENDED_DESCRIPTION[0] : cardStrings.EXTENDED_DESCRIPTION[1]);
+            initializeDescription();
         }
         else {
+            magicNumber = 0;
             rawDescription = cardStrings.DESCRIPTION;
+            initializeDescription();
         }
-        initializeDescription();
     }
 
-    @Override
     public void onMoveToDiscard() {
+        magicNumber = 0;
         this.rawDescription = cardStrings.DESCRIPTION;
         this.initializeDescription();
     }
@@ -71,6 +84,7 @@ public class Payback extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_HEAVY));
         addToBot(new PaybackAction(m));
     }
 
@@ -79,7 +93,7 @@ public class Payback extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(0);
+            upgradeDamage(3);
             initializeDescription();
         }
     }

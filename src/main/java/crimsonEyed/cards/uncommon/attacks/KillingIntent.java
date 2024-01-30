@@ -42,7 +42,7 @@ public class KillingIntent extends AbstractDynamicCard {
 
     public KillingIntent() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = damage = 5;
+        baseDamage = damage = 3;
         baseMagicNumber = magicNumber = 1;
     }
 

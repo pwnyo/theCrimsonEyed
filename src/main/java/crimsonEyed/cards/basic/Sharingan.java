@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.LockOnPower;
 import crimsonEyed.SasukeMod;
+import crimsonEyed.actions.unique.IntensifyAction;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
 
@@ -52,7 +53,10 @@ public class Sharingan extends AbstractDynamicCard {
         addToBot(new SFXAction(makeID("SHARINGAN")));
         addToBot(new ApplyPowerAction(m, p, new LockOnPower(m, 2)));
         addToBot(new ScryAction(magicNumber));
-        addToBot(new DrawCardAction(1));
+        if (upgraded) {
+            addToBot(new DrawCardAction(1));
+        }
+        addToBot(new IntensifyAction());
     }
 
     // Upgraded stats.
@@ -61,7 +65,6 @@ public class Sharingan extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(1);
-            isInnate = true;
             rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }

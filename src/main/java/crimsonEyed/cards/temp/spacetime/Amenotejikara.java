@@ -33,13 +33,14 @@ public class Amenotejikara extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = CardColor.COLORLESS;
 
-    private static final int COST = 1;
+    private static final int COST = 0;
 
     // /STAT DECLARATION/
 
 
     public Amenotejikara() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        baseMagicNumber = magicNumber = 1;
         shuffleBackIntoDrawPile = true;
     }
 
@@ -47,7 +48,7 @@ public class Amenotejikara extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new AttackFromDeckToHandAction(1));
+        addToBot(new AttackFromDeckToHandAction(magicNumber));
     }
 
     @Override
@@ -60,7 +61,8 @@ public class Amenotejikara extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(0);
+            upgradeMagicNumber(1);
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

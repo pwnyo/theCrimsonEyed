@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
+import crimsonEyed.powers.FindOpeningsPower;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
 
@@ -36,7 +37,7 @@ public class FindOpenings extends AbstractDynamicCard {
 
     private static final int COST = 1;
 
-    private static final int DAMAGE = 6;
+    private static final int DAMAGE = 5;
     private static final int MAGIC = 1;
 
     // /STAT DECLARATION/
@@ -46,8 +47,6 @@ public class FindOpenings extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC;
-        isInnate = true;
-        exhaust = true;
     }
 
 
@@ -55,15 +54,14 @@ public class FindOpenings extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        addToBot(new ApplyPowerAction(m, p, new StrengthPower(m, -this.magicNumber), -this.magicNumber));
+        addToBot(new ApplyPowerAction(p, p, new FindOpeningsPower(p, 1)));
     }
     // Upgraded stats.
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(2);
-            upgradeMagicNumber(1);
+            upgradeDamage(3);
             initializeDescription();
         }
     }

@@ -1,10 +1,12 @@
 package crimsonEyed.cards.uncommon.skills;
 
+import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.actions.defect.EvokeOrbAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.orbs.Lightning;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.actions.common.AmpUpAction;
 import crimsonEyed.cards.AbstractDynamicCard;
@@ -37,14 +39,12 @@ public class AmpUp extends AbstractDynamicCard {
 
     public AmpUp() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        exhaust = true;
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new AmpUpAction());
-        addToBot(new EvokeOrbAction(1));
     }
 
     // Upgraded stats.
@@ -52,8 +52,7 @@ public class AmpUp extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            exhaust = false;
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            upgradeBaseCost(0);
             initializeDescription();
         }
     }

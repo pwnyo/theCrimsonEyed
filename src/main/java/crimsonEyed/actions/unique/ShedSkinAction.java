@@ -2,7 +2,11 @@ package crimsonEyed.actions.unique;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DiscardAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
+import com.megacrit.cardcrawl.actions.unique.ArmamentsAction;
+import com.megacrit.cardcrawl.actions.utility.ScryAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
@@ -28,9 +32,9 @@ public class ShedSkinAction extends AbstractGameAction {
             } else if (this.p.hand.size() == 1) {// 30
                 if (this.p.hand.getBottomCard().type == AbstractCard.CardType.CURSE || p.hand.getBottomCard().type == AbstractCard.CardType.STATUS) {// 31
                     addToTop(new ApplyPowerAction(p, p, new RegenPower(p, amount)));
+                    addToBot(new ExhaustSpecificCardAction(card, p.discardPile));
                 }
-
-                addToBot(new ExhaustSpecificCardAction(card, p.discardPile));
+                this.p.hand.moveToExhaustPile(p.hand.getBottomCard());
                 this.tickDuration();// 37
             } else {
                 AbstractDungeon.handCardSelectScreen.open("Exhaust", 1, false);// 40
@@ -43,10 +47,10 @@ public class ShedSkinAction extends AbstractGameAction {
                         addToTop(new ApplyPowerAction(p, p, new RegenPower(p, amount)));
                         addToBot(new ExhaustSpecificCardAction(card, p.discardPile));
                     }
+                    this.p.hand.moveToExhaustPile(c);
                 }
 
                 AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
-                AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
             }
 
             this.tickDuration();// 60

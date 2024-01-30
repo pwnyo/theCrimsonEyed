@@ -57,7 +57,7 @@
       "intensify",
       "Intensify"
     ],
-    "DESCRIPTION": "Upgrade each #yHatred in your hand. Put ALL #yHatred cards into your hand. If you have none, add 1 into your hand."
+    "DESCRIPTION": "Upgrade any #yHatred in your hand. Draw ALL your #yHatred. If you have none, add a copy into your hand."
   },
   {
     "PROPER_NAME": "Scried",

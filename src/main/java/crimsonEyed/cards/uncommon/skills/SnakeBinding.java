@@ -1,6 +1,8 @@
 package crimsonEyed.cards.uncommon.skills;
 
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.status.Slimed;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -33,7 +35,7 @@ public class SnakeBinding extends AbstractDynamicCard {
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 1;
-    private static final int MAGIC = 4;
+    private static final int MAGIC = 3;
 
     // /STAT DECLARATION/
 
@@ -47,24 +49,16 @@ public class SnakeBinding extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new SnakeBindingAction(this, magicNumber));
+        addToBot(new MakeTempCardInHandAction(new Slimed()));
     }
 
-    @Override
-    public void triggerOnGlowCheck() {
-        if (SnakeHandsAction.hasStatusOrCurse()) {
-            glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
-        }
-        else {
-            glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        }
-    }
 
     // Upgraded stats.
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(2);
+            upgradeMagicNumber(1);
             initializeDescription();
         }
     }

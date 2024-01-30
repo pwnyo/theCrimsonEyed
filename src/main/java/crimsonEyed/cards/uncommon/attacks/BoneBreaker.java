@@ -39,8 +39,8 @@ public class BoneBreaker extends AbstractDynamicCard {
 
     public BoneBreaker() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = damage = 8;
-        baseMagicNumber = magicNumber = 2;
+        baseDamage = damage = 9;
+        baseMagicNumber = magicNumber = 1;
     }
 
 
@@ -57,7 +57,8 @@ public class BoneBreaker extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(3);
+            upgradeDamage(1);
+            upgradeMagicNumber(1);
             initializeDescription();
         }
     }

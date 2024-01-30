@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
+import crimsonEyed.powers.RevolutionPower;
 import crimsonEyed.powers.RevolutionPower2;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
@@ -32,7 +33,7 @@ public class Revolution extends AbstractDynamicCard {
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 1;
-    private static final int MAGIC = 2;
+    private static final int MAGIC = 1;
 
     // /STAT DECLARATION/
 
@@ -42,7 +43,7 @@ public class Revolution extends AbstractDynamicCard {
         baseMagicNumber = magicNumber = MAGIC;
     }
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new RevolutionPower2(p, magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new RevolutionPower(p, magicNumber)));
     }
 
     // Upgraded stats.
@@ -50,7 +51,8 @@ public class Revolution extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
+            isInnate = true;
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

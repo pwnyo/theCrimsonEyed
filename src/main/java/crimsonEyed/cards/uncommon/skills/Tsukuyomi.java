@@ -81,8 +81,8 @@ public class Tsukuyomi extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new LoseHPAction(p, p, 2));
-        addToBot(new TsukuyomiAction(m, magicNumber));
         addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber2, false)));
+        addToBot(new TsukuyomiAction(m, magicNumber));
     }
 
 

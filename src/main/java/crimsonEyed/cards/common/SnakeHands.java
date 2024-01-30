@@ -27,7 +27,7 @@ public class SnakeHands extends AbstractDynamicCard {
 
     private static final int COST = 1;
 
-    private static final int DAMAGE = 6;
+    private static final int DAMAGE = 5;
 
     public SnakeHands() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);

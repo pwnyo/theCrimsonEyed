@@ -67,7 +67,7 @@
     "NAME": "Blue Scale",
     "FLAVOR": "A blue snake's scale. Its rouses some part of you otherwise kept shut away.",
     "DESCRIPTIONS": [
-      "Upon pickup, permanently #yIntensify your #yHatred. Gain [E] at the start of your turn."
+      "Whenever you draw a #yCurse, gain [E] ."
     ]
   },
   "crimsonEyed:CherryBlossom": {

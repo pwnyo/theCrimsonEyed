@@ -1,6 +1,7 @@
 package crimsonEyed.cards.common;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.utility.ScryAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -38,15 +39,16 @@ public class SixthSense extends AbstractDynamicCard {
 
     public SixthSense() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = 4;
+        baseMagicNumber = magicNumber = 1;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ScryAction(magicNumber));
-        addToBot(new ApplyPowerAction(p, p, new EnergizedBluePower(p, magicNumber2)));
+        addToBot(new ScryAction(3));
+        addToBot(new DrawCardAction(magicNumber));
+        addToBot(new ApplyPowerAction(p, p, new EnergizedBluePower(p, 1)));
     }
 
     // Upgraded stats.
@@ -54,7 +56,7 @@ public class SixthSense extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeSecondMagicNumber(1);
+            upgradeMagicNumber(1);
             rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }

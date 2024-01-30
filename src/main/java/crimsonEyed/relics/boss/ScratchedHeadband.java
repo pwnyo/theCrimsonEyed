@@ -42,7 +42,7 @@ public class ScratchedHeadband extends CustomRelic {
         }
         for (AbstractCard c : hates) {
             AbstractDungeon.topLevelEffects.add(new PurgeCardEffect(c, (float)Settings.WIDTH / 3.0F + displayCount, (float)Settings.HEIGHT / 3.0F));
-            displayCount += (float)Settings.WIDTH / 6.0F;
+            displayCount += (float)Settings.WIDTH / 3.0F;
             AbstractDungeon.player.masterDeck.removeCard(c);
             AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(hope, (float)Settings.WIDTH / 3.0F + displayCount, (float)Settings.HEIGHT / 3.0F));
         }
