@@ -12,7 +12,6 @@ import crimsonEyed.SasukeMod;
 import crimsonEyed.actions.unique.TsukuyomiAction;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
-import crimsonEyed.patches.MonsterTargetPatch;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
 
@@ -38,49 +37,10 @@ public class Tsukuyomi extends AbstractDynamicCard {
         baseMagicNumber2 = magicNumber2 = 2;
     }
 
-    @Override
-    public void calculateCardDamage(AbstractMonster mo) {
-        super.calculateCardDamage(mo);
-        checkDebuffs();
-    }
-
-    @Override
-    public void applyPowers() {
-        super.applyPowers();
-        checkDebuffs();
-    }
-
-    void checkDebuffs() {
-        AbstractMonster m = MonsterTargetPatch.hoveredMonster;
-        if (m != null) {
-            int count = 0;
-            for (AbstractPower pow : m.powers) {
-                if (pow.type == AbstractPower.PowerType.DEBUFF && !pow.ID.equals("Shackled") && !pow.ID.equals(VulnerablePower.POWER_ID)) {
-                    count++;
-                }
-            }
-            damage = count;
-            rawDescription = cardStrings.DESCRIPTION + (damage == 1 ?
-                    cardStrings.EXTENDED_DESCRIPTION[0] : cardStrings.EXTENDED_DESCRIPTION[1]);
-            initializeDescription();
-        }
-        else {
-            damage = 0;
-            rawDescription = cardStrings.DESCRIPTION;
-            initializeDescription();
-        }
-    }
-
-    public void onMoveToDiscard() {
-        damage = 0;
-        this.rawDescription = cardStrings.DESCRIPTION;
-        this.initializeDescription();
-    }
-
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new LoseHPAction(p, p, 2));
+        addToBot(new LoseHPAction(p, p, 1));
         addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber2, false)));
         addToBot(new TsukuyomiAction(m, magicNumber));
     }

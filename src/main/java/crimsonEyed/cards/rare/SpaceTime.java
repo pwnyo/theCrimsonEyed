@@ -39,7 +39,7 @@ public class SpaceTime extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.POWER;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 1;
+    private static final int COST = 0;
     private AbstractCard cardsToPreview2;
 
     // /STAT DECLARATION/
@@ -49,10 +49,15 @@ public class SpaceTime extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         cardsToPreview = new UniversalPull();
         cardsToPreview2 = new Amenotejikara();
+        checkMaskDesc();
     }
 
     @Override
     public void renderCardPreviewInSingleView(SpriteBatch sb) {
+        if (upgraded) {
+            cardsToPreview.upgrade();
+            cardsToPreview2.upgrade();
+        }
         super.renderCardPreviewInSingleView(sb);
         this.cardsToPreview2.current_x = 490.0F * Settings.scale;
         this.cardsToPreview2.current_y = 290.0F * Settings.scale;
@@ -62,10 +67,13 @@ public class SpaceTime extends AbstractDynamicCard {
 
     @Override
     public void renderCardPreview(SpriteBatch sb) {
-        if (AbstractDungeon.player == null ||
-                (AbstractDungeon.player != null && !AbstractDungeon.player.isDraggingCard)) {
+        if (AbstractDungeon.player == null || !AbstractDungeon.player.isDraggingCard) {
             float tmpScale = this.drawScale * 0.5F;
 
+            if (upgraded) {
+                cardsToPreview.upgrade();
+                cardsToPreview2.upgrade();
+            }
             if (this.current_x > (float)Settings.WIDTH * 0.75F) {
                 this.cardsToPreview.current_x = this.current_x + (IMG_WIDTH / 2.0F + IMG_WIDTH / 2.0F * 0.5F + 16.0F) * this.drawScale;
                 this.cardsToPreview2.current_x = this.current_x + (IMG_WIDTH / 2.0F + IMG_WIDTH / 2.0F * 0.5F + 16.0F) * this.drawScale;
@@ -95,6 +103,11 @@ public class SpaceTime extends AbstractDynamicCard {
             choices.add(new AlmightyPush());
         }
 
+        if (upgraded) {
+            for (AbstractCard c : choices) {
+                c.upgrade();
+            }
+        }
         addToBot(new ChooseOneAction(choices));
     }
     void checkMaskDesc() {
@@ -112,6 +125,9 @@ public class SpaceTime extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeBaseCost(0);
+            cardsToPreview.upgrade();
+            cardsToPreview2.upgrade();
+
             checkMaskDesc();
 
             initializeDescription();

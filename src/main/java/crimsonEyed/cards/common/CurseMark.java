@@ -52,6 +52,7 @@ public class CurseMark extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainEnergyAction(magicNumber));
         addToBot(new IntensifyAction());
+        addToBot(new IntensifyAction());
     }
 
 

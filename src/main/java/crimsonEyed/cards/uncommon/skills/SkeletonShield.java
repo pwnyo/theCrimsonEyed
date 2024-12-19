@@ -32,7 +32,6 @@ public class SkeletonShield extends AbstractDynamicCard {
 
     private static final int COST = 2;
     private static final int BLOCK = 12;
-    private static final int UPGRADE_BLOCK = 4;
     private static final int MAGIC = 2;
 
     // /STAT DECLARATION/
@@ -58,7 +57,8 @@ public class SkeletonShield extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBlock(UPGRADE_BLOCK);
+            upgradeBlock(3);
+            upgradeMagicNumber(1);
             initializeDescription();
         }
     }

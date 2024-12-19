@@ -46,7 +46,6 @@ public class SeeEverythingAction extends AbstractGameAction {
 
             if (effect > 0) {
                 addToBot(new SFXAction(makeID("SHARINGAN")));
-                addToBot(new ScryAction(effect));
                 for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
                     this.addToBot(new ApplyPowerAction(m, p, new LockOnPower(m, effect), effect, true, AbstractGameAction.AttackEffect.NONE));
                     this.addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, effect, false), effect, true, AbstractGameAction.AttackEffect.NONE));

@@ -20,7 +20,7 @@ public class GainEvokeBlock extends AbstractGameAction {
                 isDone = true;
                 return;
             }
-            addToBot(new GainBlockAction(p, p.orbs.get(0).evokeAmount));
+            addToTop(new GainBlockAction(p, p.orbs.get(0).evokeAmount));
         }
 
         this.tickDuration();

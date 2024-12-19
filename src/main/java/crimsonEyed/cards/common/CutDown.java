@@ -1,10 +1,20 @@
 package crimsonEyed.cards.common;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.LockOnPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.actions.unique.CutDownAction;
+import crimsonEyed.actions.unique.DebuffStrengthAction;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
 
@@ -32,7 +42,7 @@ public class CutDown extends AbstractDynamicCard {
     private static final int COST = 2;
 
     private static final int DAMAGE = 15;
-    private static final int MAGIC = 3;
+    private static final int MAGIC = 1;
 
     // /STAT DECLARATION/
 
@@ -47,16 +57,25 @@ public class CutDown extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new CutDownAction(m, new DamageInfo(p, damage), magicNumber));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.SLASH_HEAVY));
+        addToBot(new DebuffStrengthAction(m));
     }
 
+    public void triggerOnGlowCheck() {
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            if (!m.isDeadOrEscaped() && (m.hasPower(VulnerablePower.POWER_ID) || m.hasPower(WeakPower.POWER_ID))) {
+                this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+                break;
+            }
+        }
+    }
     // Upgraded stats.
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(5);
-            upgradeMagicNumber(1);
             initializeDescription();
         }
     }

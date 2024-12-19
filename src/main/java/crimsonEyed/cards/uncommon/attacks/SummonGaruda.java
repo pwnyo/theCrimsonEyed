@@ -61,7 +61,8 @@ public class SummonGaruda extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(4);
+            upgradeDamage(2);
+            upgradeMagicNumber(1);
             initializeDescription();
         }
     }

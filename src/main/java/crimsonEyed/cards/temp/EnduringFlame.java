@@ -47,6 +47,7 @@ public class EnduringFlame extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = block = BLOCK;
         timesUpgraded = upgrades;
+        exhaust = true;
 
         setImg();
     }

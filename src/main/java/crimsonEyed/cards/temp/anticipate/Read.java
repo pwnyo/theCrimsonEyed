@@ -18,7 +18,7 @@ public class Read extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = SasukeMod.makeID(Read.class.getSimpleName());
-    public static final String IMG = makeCardPath("Skill.png");// "public static final String IMG = makeCardPath("Read.png");
+    public static final String IMG = makeCardPath("Read.png");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
@@ -35,14 +35,13 @@ public class Read extends AbstractDynamicCard {
     public static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = -2;
-    private static final int MAGIC = 1;
 
     // /STAT DECLARATION/
 
 
     public Read() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = MAGIC;
+        baseMagicNumber = magicNumber = 1;
     }
 
     @Override
@@ -53,8 +52,7 @@ public class Read extends AbstractDynamicCard {
     @Override
     public void onChoseThisOption() {
         AbstractPlayer p = AbstractDungeon.player;
-        addToBot(new ApplyPowerAction(p, p, new EnergizedBluePower(p, 1)));
-        addToBot(new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p, magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new EnergizedBluePower(p, magicNumber)));
     }
 
     // Upgraded stats.

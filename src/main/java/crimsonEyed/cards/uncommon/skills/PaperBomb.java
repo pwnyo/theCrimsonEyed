@@ -56,7 +56,7 @@ public class PaperBomb extends AbstractDynamicCard {
 
     @Override
     public void triggerOnExhaust() {
-        addToBot(new DamageAllEnemiesAction(AbstractDungeon.player, magicNumber, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.FIRE));
+        addToBot(new DamageAllEnemiesAction(AbstractDungeon.player, magicNumber, DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
     }
 
     // Upgraded stats.

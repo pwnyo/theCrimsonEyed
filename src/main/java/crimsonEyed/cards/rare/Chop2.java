@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.potions.StancePotion;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.cards.temp.chop.Dice;
@@ -45,10 +46,10 @@ public class Chop2 extends AbstractDynamicCard {
 
     public Chop2() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = damage = 20;
-        baseMagicNumber = magicNumber = 15;
-        baseMagicNumber2 = magicNumber2 = 5;
-        exhaust = true;
+        baseDamage = damage = 15;
+        baseMagicNumber = magicNumber = 9;
+        baseMagicNumber2 = magicNumber2 = 3;
+        checkMaskDesc();
     }
 
 
@@ -60,6 +61,11 @@ public class Chop2 extends AbstractDynamicCard {
         stanceChoices.add(new Rend(m));
         if (p.hasRelic(NohMask.ID)) {
             stanceChoices.add(new Dice(m));
+        }
+        if (upgraded) {
+            for (AbstractCard c : stanceChoices) {
+                c.upgrade();
+            }
         }
 
         this.addToBot(new ChooseOneAction(stanceChoices));
@@ -98,7 +104,7 @@ public class Chop2 extends AbstractDynamicCard {
         isMultiDamage = false;
 
         //random damage
-        this.baseDamage = baseMagicNumber;
+        this.baseDamage = baseMagicNumber2;
         super.calculateCardDamage(mo);
         this.magicNumber2 = this.damage;
         this.isMagicNumber2Modified = this.isDamageModified;
@@ -121,16 +127,11 @@ public class Chop2 extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            upgradeDamage(5);
+            upgradeMagicNumber(3);
+            upgradeSecondMagicNumber(1);
             checkMaskDesc();
-            exhaust = false;
             initializeDescription();
         }
-    }
-    @Override
-    public AbstractCard makeCopy() {
-        Chop2 tmp = new Chop2();
-        tmp.checkMaskDesc();
-
-        return tmp;
     }
 }

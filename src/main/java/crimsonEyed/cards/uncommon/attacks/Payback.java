@@ -13,7 +13,6 @@ import crimsonEyed.SasukeMod;
 import crimsonEyed.actions.unique.PaybackAction;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
-import crimsonEyed.patches.MonsterTargetPatch;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
 
@@ -42,43 +41,8 @@ public class Payback extends AbstractDynamicCard {
 
     public Payback() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = damage = 5;
-    }
-    @Override
-    public void calculateCardDamage(AbstractMonster mo) {
-        super.calculateCardDamage(mo);
-        checkDebuffs();
-    }
-    @Override
-    public void applyPowers() {
-        super.applyPowers();
-        checkDebuffs();
-    }
-    void checkDebuffs() {
-        AbstractMonster m = MonsterTargetPatch.hoveredMonster;
-        if (m != null) {
-            int count = 0;
-            for (AbstractPower pow : m.powers) {
-                if (pow.type == AbstractPower.PowerType.DEBUFF && !pow.ID.equals("Shackled") && !pow.ID.equals(VulnerablePower.POWER_ID)) {
-                    count++;
-                }
-            }
-            magicNumber = count;
-            rawDescription = cardStrings.DESCRIPTION + (magicNumber == 1 ?
-                    cardStrings.EXTENDED_DESCRIPTION[0] : cardStrings.EXTENDED_DESCRIPTION[1]);
-            initializeDescription();
-        }
-        else {
-            magicNumber = 0;
-            rawDescription = cardStrings.DESCRIPTION;
-            initializeDescription();
-        }
-    }
-
-    public void onMoveToDiscard() {
-        magicNumber = 0;
-        this.rawDescription = cardStrings.DESCRIPTION;
-        this.initializeDescription();
+        baseDamage = damage = 6;
+        baseMagicNumber = magicNumber = 0;
     }
 
     // Actions the card should do.

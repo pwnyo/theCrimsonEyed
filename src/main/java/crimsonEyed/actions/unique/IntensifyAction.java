@@ -43,8 +43,8 @@ public class IntensifyAction extends AbstractGameAction {
             for (AbstractCard c : p.drawPile.group) {
                 if (hasHope ? (c instanceof EnduringFlame) : (c instanceof Hatred)) {
                     hasEnough = true;
-                    addToBot(new DrawToTopAction(c));
-                    addToBot(new DrawCardAction(1));
+                    addToTop(new DrawCardAction(1));
+                    addToTop(new DrawToTopAction(c));
                 }
             }
         }
@@ -52,8 +52,8 @@ public class IntensifyAction extends AbstractGameAction {
             for (AbstractCard c : p.discardPile.group) {
                 if (hasHope ? (c instanceof EnduringFlame) : (c instanceof Hatred)) {
                     hasEnough = true;
-                    addToBot(new DiscardToTopAction(c));
-                    addToBot(new DrawCardAction(1));
+                    addToTop(new DrawCardAction(1));
+                    addToTop(new DiscardToTopAction(c));
                 }
                 if (c instanceof IOnIntensifyListener) {
                     ((IOnIntensifyListener) c).onIntensify();
@@ -69,7 +69,7 @@ public class IntensifyAction extends AbstractGameAction {
             }
         }
         if (!hasEnough) {
-            addToBot(new MakeTempCardInHandAction(hasHope ? new EnduringFlame() : new Hatred()));
+            addToTop(new MakeTempCardInHandAction(hasHope ? new EnduringFlame() : new Hatred()));
         }
 
         this.tickDuration();

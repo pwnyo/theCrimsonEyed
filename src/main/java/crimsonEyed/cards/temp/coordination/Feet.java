@@ -15,7 +15,7 @@ public class Feet extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = SasukeMod.makeID(Feet.class.getSimpleName());
-    public static final String IMG = makeCardPath("Skill.png");// "public static final String IMG = makeCardPath("Eye.png");
+    public static final String IMG = makeCardPath("Foot.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
 
@@ -39,14 +39,13 @@ public class Feet extends AbstractDynamicCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.onChoseThisOption();// 35
+        this.onChoseThisOption();
     }
 
     public void onChoseThisOption() {
         AbstractPlayer p = AbstractDungeon.player;
         addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber)));
     }
-
 
     // Upgraded stats.
     @Override

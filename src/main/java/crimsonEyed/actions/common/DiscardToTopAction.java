@@ -20,7 +20,7 @@ public class DiscardToTopAction extends AbstractGameAction {
             AbstractPlayer p = AbstractDungeon.player;
             if (!p.discardPile.isEmpty() && p.discardPile.contains(card)) {
                 p.discardPile.removeCard(card);
-                p.hand.moveToDeck(card, false);
+                p.discardPile.moveToDeck(card, false);
             }
         }
 

@@ -3,9 +3,11 @@ package crimsonEyed.relics.boss;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.relics.HoveringKite;
 import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
@@ -23,14 +25,23 @@ public class BlueScale extends CustomRelic {
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("blueScale.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("blueScale.png"));
 
+    private boolean triggeredThisTurn = false;
+
     public BlueScale() {
         super(ID, IMG, OUTLINE, RelicTier.BOSS, LandingSound.CLINK);
     }
 
     @Override
+    public void atTurnStart() {
+        this.triggeredThisTurn = false;
+    }
+
+    @Override
     public void onCardDraw(AbstractCard drawnCard) {
-        if (drawnCard.type == AbstractCard.CardType.CURSE) {
+        if (!this.triggeredThisTurn && (drawnCard.type == AbstractCard.CardType.CURSE || drawnCard.type == AbstractCard.CardType.STATUS)) {
+            this.triggeredThisTurn = true;
             flash();
+            addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             addToBot(new GainEnergyAction(1));
         }
     }

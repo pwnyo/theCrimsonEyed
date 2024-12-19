@@ -35,7 +35,7 @@ public class PlanetaryDevastation extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 3;
+    private static final int COST = 2;
 
     // /STAT DECLARATION/
 
@@ -52,10 +52,7 @@ public class PlanetaryDevastation extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(m, p, new LockOnPower(m, 99)));
-        addToBot(new IncreaseMaxOrbAction(magicNumber2));
-        for (int i = 0; i < magicNumber2; i++) {
-            addToBot(new ChannelAction(new Plasma()));
-        }
+        addToBot(new PlanetaryDevastationAction(m));
     }
 
     // Upgraded stats.
@@ -63,8 +60,7 @@ public class PlanetaryDevastation extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeSecondMagicNumber(1);
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            upgradeBaseCost(1);
             initializeDescription();
         }
     }

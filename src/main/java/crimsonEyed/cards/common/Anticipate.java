@@ -1,5 +1,6 @@
-package crimsonEyed.cards.uncommon.skills;
+package crimsonEyed.cards.common;
 
+import com.megacrit.cardcrawl.actions.utility.ScryAction;
 import com.megacrit.cardcrawl.actions.watcher.ChooseOneAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -31,34 +32,34 @@ public class Anticipate extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
+    private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.NONE;  //   since they don't change much.
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 1;
-    private static final int BLOCK = 7;
     // /STAT DECLARATION/
 
 
     public Anticipate() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseBlock = block = BLOCK;
         baseMagicNumber = magicNumber = 1;
+        baseBlock = block = 6;
+        checkMaskDesc();
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new ScryAction(2));
         ArrayList<AbstractCard> stanceChoices = new ArrayList<>();
-        AbstractCard react = new React();
-        stanceChoices.add(react);
+        stanceChoices.add(new React());
+        stanceChoices.add(new Read());
 
         if (p.hasRelic(NohMask.ID)) {
             stanceChoices.add(new Condition());
         }
-        stanceChoices.add(new Read());
 
         if (upgraded) {
             for (AbstractCard c : stanceChoices) {
@@ -70,7 +71,7 @@ public class Anticipate extends AbstractDynamicCard {
     }
 
     void checkMaskDesc() {
-        if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && AbstractDungeon.player.hasRelic(NohMask.ID)) {
+        if (NohMask.shouldUseMaskDesc()) {
             rawDescription = cardStrings.EXTENDED_DESCRIPTION[upgraded ? 1 : 0];
         }
         else {
@@ -83,20 +84,10 @@ public class Anticipate extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBlock(2);
             upgradeMagicNumber(1);
+            upgradeBlock(3);
             checkMaskDesc();
             initializeDescription();
         }
-    }
-
-    @Override
-    public AbstractCard makeCopy() {
-        Anticipate tmp = new Anticipate();
-        if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && AbstractDungeon.player.hasRelic(NohMask.ID)) {
-            tmp.checkMaskDesc();
-        }
-
-        return tmp;
     }
 }

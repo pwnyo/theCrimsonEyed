@@ -18,7 +18,7 @@ public class BoneBreaker extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = SasukeMod.makeID(BoneBreaker.class.getSimpleName());
-    public static final String IMG = makeCardPath("SkeletonShield.png");
+    public static final String IMG = makeCardPath("BoneBreaker.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
 
@@ -39,8 +39,8 @@ public class BoneBreaker extends AbstractDynamicCard {
 
     public BoneBreaker() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = damage = 9;
-        baseMagicNumber = magicNumber = 1;
+        baseDamage = damage = 8;
+        baseMagicNumber = magicNumber = 2;
     }
 
 
@@ -57,8 +57,7 @@ public class BoneBreaker extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(1);
-            upgradeMagicNumber(1);
+            upgradeDamage(3);
             initializeDescription();
         }
     }

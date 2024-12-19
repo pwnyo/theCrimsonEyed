@@ -17,7 +17,7 @@ public class FromDrawPile extends AbstractDynamicCard {
 
     public static final String ID = SasukeMod.makeID(FromDrawPile.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
 
-    public static final String IMG = makeCardPath("Skill.png");// "public static final String IMG = makeCardPath("FromDrawPile.png");
+    public static final String IMG = makeCardPath("FromDraw.png");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
 

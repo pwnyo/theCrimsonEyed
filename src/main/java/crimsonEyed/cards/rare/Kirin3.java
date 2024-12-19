@@ -85,8 +85,7 @@ public class Kirin3 extends AbstractDynamicCard implements IOnExhaustListenerCar
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
-            upgradeBaseCost(8);
+            upgradeMagicNumber(2);
             initializeDescription();
         }
     }

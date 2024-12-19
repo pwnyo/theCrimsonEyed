@@ -43,6 +43,7 @@ public class SnakeBinding extends AbstractDynamicCard {
     public SnakeBinding() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
+        cardsToPreview = new Slimed();
     }
 
     // Actions the card should do.

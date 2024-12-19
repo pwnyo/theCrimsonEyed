@@ -25,11 +25,12 @@ public class Hatred extends AbstractDynamicCard {
     public static final CardColor COLOR = CardColor.CURSE;
 
     private static final int COST = -2;
-    private static final int MAGIC = 0;
+    private static final int MAGIC = 1;
 
     public Hatred() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
+        exhaust = true;
         SoulboundField.soulbound.set(this, true);
     }
     @Override

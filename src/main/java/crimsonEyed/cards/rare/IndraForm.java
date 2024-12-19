@@ -32,7 +32,7 @@ public class IndraForm extends AbstractDynamicCard {
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 3;
-    private static final int MAGIC = 2;
+    private static final int MAGIC = 3;
 
     // /STAT DECLARATION/
 
@@ -40,6 +40,7 @@ public class IndraForm extends AbstractDynamicCard {
     public IndraForm() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
+        isEthereal = true;
     }
 
 
@@ -55,7 +56,8 @@ public class IndraForm extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
+            isEthereal = false;
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

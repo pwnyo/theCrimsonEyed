@@ -7,8 +7,6 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.LockOnPower;
 
 public class ChidoriAction extends AbstractGameAction {
-    private DamageInfo info;
-
     public ChidoriAction(AbstractCreature target) {
         this.target = target;
     }

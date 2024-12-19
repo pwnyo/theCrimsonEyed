@@ -1,5 +1,7 @@
 package crimsonEyed.cards.common;
 
+import com.evacipated.cardcrawl.mod.stslib.actions.common.FetchAction;
+import com.evacipated.cardcrawl.mod.stslib.actions.common.MoveCardsAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.unique.DiscardPileToTopOfDeckAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -42,20 +44,18 @@ public class PullWires extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
         cardsToPreview = new Shiv();
-        if (upgraded) {
-            cardsToPreview.upgrade();
-        }
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractCard c = new Shiv();
-        if (upgraded) {
-            c.upgrade();
+        AbstractCard shiv = new Shiv();
+        if (upgraded)
+        {
+            shiv.upgrade();
         }
-        addToBot(new MakeTempCardInHandAction(c, magicNumber));
+        addToBot(new MakeTempCardInHandAction(shiv, magicNumber));
         addToBot(new DiscardPileToTopOfDeckAction(p));
     }
 
@@ -64,8 +64,8 @@ public class PullWires extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             cardsToPreview.upgrade();
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

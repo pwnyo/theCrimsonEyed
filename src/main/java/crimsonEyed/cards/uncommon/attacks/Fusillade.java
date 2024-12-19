@@ -1,10 +1,14 @@
 package crimsonEyed.cards.uncommon.attacks;
 
+import basemod.devcommands.draw.Draw;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.blue.Streamline;
+import com.megacrit.cardcrawl.cards.red.Sentinel;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -36,8 +40,8 @@ public class Fusillade extends AbstractDynamicCard {
 
     private static final int COST = 2;  // COST = 1
 
-    private static final int DAMAGE = 6;
-    private static final int UPGRADE_PLUS_DMG = 2;
+    private static final int DAMAGE = 15;
+    private static final int UPGRADE_PLUS_DMG = 5;
 
     // /STAT DECLARATION/
 
@@ -52,12 +56,12 @@ public class Fusillade extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
-        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
-        addToBot(new DrawCardAction(2));
+        addToBot(new DrawCardAction(1));
     }
 
     @Override
     public void triggerOnExhaust() {
+        addToTop(new DrawCardAction(1));
         addToTop(new MakeTempCardInHandAction(this.makeStatEquivalentCopy()));
     }
 

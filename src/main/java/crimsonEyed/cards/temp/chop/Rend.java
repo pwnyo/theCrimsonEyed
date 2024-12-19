@@ -17,7 +17,7 @@ public class Rend extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = SasukeMod.makeID(Rend.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
-    public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("Rend2.png");
+    public static final String IMG = makeCardPath("Rend.png");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
@@ -32,7 +32,7 @@ public class Rend extends AbstractDynamicCard {
     public static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = -2;
-    private static final int DAMAGE = 15;
+    private static final int DAMAGE = 9;
     private AbstractMonster target;
 
     // /STAT DECLARATION/
@@ -41,6 +41,7 @@ public class Rend extends AbstractDynamicCard {
     public Rend() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
+        isMultiDamage = true;
     }
     public Rend(AbstractMonster m) {
         this();
@@ -57,9 +58,16 @@ public class Rend extends AbstractDynamicCard {
     }
     @Override
     public void onChoseThisOption() {
+        damage = baseDamage;
         if (target == null)
             return;
         addToBot(new DamageAllEnemiesAction(AbstractDungeon.player, damage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+    }
+    void recalc() {
+        if (target == null)
+            return;
+        applyPowers();
+        calculateCardDamage(target);
     }
 
     // Upgraded stats.
@@ -67,7 +75,8 @@ public class Rend extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(5);
+            upgradeDamage(3);
+            recalc();
             initializeDescription();
         }
     }

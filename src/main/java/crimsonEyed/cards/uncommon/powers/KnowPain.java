@@ -32,7 +32,7 @@ public class KnowPain extends AbstractDynamicCard {
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
-    private static final int COST = 0;
+    private static final int COST = 1;
     private static final int MAGIC = 1;
 
     // /STAT DECLARATION/

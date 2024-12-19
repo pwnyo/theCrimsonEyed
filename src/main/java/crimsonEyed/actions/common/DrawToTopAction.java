@@ -20,7 +20,7 @@ public class DrawToTopAction extends AbstractGameAction {
             AbstractPlayer p = AbstractDungeon.player;
             if (!p.drawPile.isEmpty() && p.drawPile.contains(card)) {
                 p.drawPile.removeCard(card);
-                p.hand.moveToDeck(card, false);
+                p.drawPile.moveToDeck(card, false);
             }
         }
 

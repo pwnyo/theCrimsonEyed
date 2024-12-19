@@ -37,7 +37,7 @@ public class FindOpenings extends AbstractDynamicCard {
 
     private static final int COST = 1;
 
-    private static final int DAMAGE = 5;
+    private static final int DAMAGE = 7;
     private static final int MAGIC = 1;
 
     // /STAT DECLARATION/

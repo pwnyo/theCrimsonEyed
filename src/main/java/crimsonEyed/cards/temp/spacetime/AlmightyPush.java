@@ -59,7 +59,7 @@ public class AlmightyPush extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(2);
+            upgradeMagicNumber(2);
             initializeDescription();
         }
     }

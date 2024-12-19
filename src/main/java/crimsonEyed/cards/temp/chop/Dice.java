@@ -16,7 +16,7 @@ public class Dice extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = SasukeMod.makeID(Dice.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
-    public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("Dice2.png");
+    public static final String IMG = makeCardPath("Dice.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
 
@@ -39,7 +39,7 @@ public class Dice extends AbstractDynamicCard {
 
     public Dice() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = damage = 5;
+        baseDamage = damage = 3;
         baseMagicNumber = magicNumber = 4;
         isMultiDamage = true;
     }
@@ -58,6 +58,7 @@ public class Dice extends AbstractDynamicCard {
 
     @Override
     public void onChoseThisOption() {
+        damage = baseDamage;
         recalc();
         for (int i = 0; i < magicNumber; i++) {
             addToBot(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, damage), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));

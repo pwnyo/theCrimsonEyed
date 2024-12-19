@@ -29,7 +29,7 @@ public class YasakaMagatama2 extends AbstractDynamicCard {
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 2;
-    private static final int DAMAGE = 5;
+    private static final int DAMAGE = 4;
 
     // /STAT DECLARATION/
 

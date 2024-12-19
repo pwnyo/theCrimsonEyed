@@ -48,7 +48,6 @@ public class LightningSpeed extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(p, p, new LightningSpeedPower(p, magicNumber)));
-        addToBot(new ChannelAction(new Lightning()));
     }
 
 
@@ -57,7 +56,8 @@ public class LightningSpeed extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(0);
+            isInnate = true;
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

@@ -57,8 +57,7 @@ public class OneStepAhead extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            upgradeBlock(3);
             initializeDescription();
         }
     }

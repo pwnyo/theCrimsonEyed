@@ -48,7 +48,10 @@ public class Coordination extends AbstractDynamicCard {
 
     public Coordination() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = 2;
+        baseMagicNumber = magicNumber = 1;
+        baseMagicNumber2 = magicNumber2 = 1;
+        cardsToPreview = new Dazed();
+        checkMaskDesc();
     }
 
 
@@ -57,18 +60,16 @@ public class Coordination extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         ArrayList<AbstractCard> stanceChoices = new ArrayList<>();
         stanceChoices.add(new Hand());
-        stanceChoices.add(new Eye());
         if (p.hasRelic(NohMask.ID)) {
             stanceChoices.add(new Feet());
         }
+        stanceChoices.add(new Eye());
         addToBot(new ChooseOneAction(stanceChoices));
-        addToBot(new MakeTempCardInDiscardAction(new Dazed(), !upgraded ? 2 : 1));
     }
 
     void checkMaskDesc() {
-        if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null &&
-                AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && AbstractDungeon.player.hasRelic(NohMask.ID)) {
-            rawDescription = cardStrings.EXTENDED_DESCRIPTION[0];
+        if (NohMask.shouldUseMaskDesc()) {
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
         }
         else {
             rawDescription = cardStrings.DESCRIPTION;
@@ -80,18 +81,9 @@ public class Coordination extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(-1);
+            upgradeBaseCost(0);
             checkMaskDesc();
             initializeDescription();
         }
-    }
-    @Override
-    public AbstractCard makeCopy() {
-        Coordination tmp = new Coordination();
-        if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && AbstractDungeon.player.hasRelic(NohMask.ID)) {
-            tmp.checkMaskDesc();
-        }
-
-        return tmp;
     }
 }

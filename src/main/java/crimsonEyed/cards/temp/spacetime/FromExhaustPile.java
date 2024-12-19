@@ -17,7 +17,7 @@ public class FromExhaustPile extends AbstractDynamicCard {
 
     public static final String ID = SasukeMod.makeID(FromExhaustPile.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
 
-    public static final String IMG = makeCardPath("Skill.png");// "public static final String IMG = makeCardPath("FromDrawPile.png");
+    public static final String IMG = makeCardPath("FromExhaust.png");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
 

@@ -5,9 +5,11 @@ import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.relics.OnApplyPowerRelic;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.ArtifactPower;
 import crimsonEyed.SasukeMod;
@@ -21,7 +23,6 @@ public class CrowFeather extends CustomRelic implements OnApplyPowerRelic {
 
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("crowFeather.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("crowFeather.png"));
-
     private static final int BLOCK = 2;
 
     public CrowFeather() {
@@ -36,7 +37,7 @@ public class CrowFeather extends CustomRelic implements OnApplyPowerRelic {
     @Override
     public boolean onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
         if (power.type == AbstractPower.PowerType.DEBUFF && !power.ID.equals("Shackled") &&
-                source == power.owner && target != power.owner && target.hasPower(ArtifactPower.POWER_ID)) {
+                source instanceof AbstractPlayer && target instanceof AbstractMonster && !target.hasPower(ArtifactPower.POWER_ID)) {
             flash();
             addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, BLOCK, true));

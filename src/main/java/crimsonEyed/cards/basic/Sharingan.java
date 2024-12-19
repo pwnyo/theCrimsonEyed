@@ -36,14 +36,13 @@ public class Sharingan extends AbstractDynamicCard {
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
     private static final int COST = 0;
-    private static final int MAGIC = 2;
 
     // /STAT DECLARATION/
 
 
     public Sharingan() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = MAGIC;
+        baseMagicNumber = magicNumber = 2;
     }
 
 
@@ -54,9 +53,8 @@ public class Sharingan extends AbstractDynamicCard {
         addToBot(new ApplyPowerAction(m, p, new LockOnPower(m, 2)));
         addToBot(new ScryAction(magicNumber));
         if (upgraded) {
-            addToBot(new DrawCardAction(1));
+            addToBot(new IntensifyAction());
         }
-        addToBot(new IntensifyAction());
     }
 
     // Upgraded stats.
@@ -65,6 +63,7 @@ public class Sharingan extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(1);
+            isInnate = true;
             rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }

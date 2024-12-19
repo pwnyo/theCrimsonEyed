@@ -46,6 +46,7 @@ public class ChidoriStream extends AbstractDynamicCard {
         baseMagicNumber = magicNumber = 2;
         showEvokeValue = true;
         showEvokeOrbCount = 1;
+        exhaust = true;
     }
 
 
@@ -53,9 +54,9 @@ public class ChidoriStream extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new SFXAction(makeID("CHIDORI")));
-        addToBot(new ChannelAction(new Lightning()));
         addToBot(new ApplyPowerAction(p, p, new FocusPower(p, this.magicNumber), this.magicNumber));
         addToBot(new ApplyPowerAction(p, p, new LoseFocusPower(p, this.magicNumber), this.magicNumber));
+        addToBot(new ChannelAction(new Lightning()));
     }
 
 
@@ -64,7 +65,7 @@ public class ChidoriStream extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
+            upgradeBaseCost(0);
             initializeDescription();
         }
     }

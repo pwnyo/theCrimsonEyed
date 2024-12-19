@@ -49,9 +49,10 @@ public class KagutsuchiChidori extends AbstractDynamicCard {
     public KagutsuchiChidori() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
-        isEthereal = true;
         showEvokeValue = true;
         showEvokeOrbCount = 1;
+        exhaust = true;
+        checkMaskDesc();
     }
 
     // Actions the card should do.
@@ -69,11 +70,12 @@ public class KagutsuchiChidori extends AbstractDynamicCard {
     }
 
     void checkMaskDesc() {
-        if (NohMask.shouldUseMaskDesc()) {
-            rawDescription = !upgraded ? cardStrings.EXTENDED_DESCRIPTION[0] : cardStrings.EXTENDED_DESCRIPTION[1];
+        if (NohMask.shouldUseMaskDesc())
+        {
+            rawDescription = upgraded ? cardStrings.EXTENDED_DESCRIPTION[1] : cardStrings.EXTENDED_DESCRIPTION[0];
         }
         else {
-            rawDescription = !upgraded ? cardStrings.DESCRIPTION : cardStrings.UPGRADE_DESCRIPTION;
+            rawDescription = upgraded ? cardStrings.UPGRADE_DESCRIPTION : cardStrings.DESCRIPTION;
         }
     }
 
@@ -81,15 +83,9 @@ public class KagutsuchiChidori extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            isEthereal = false;
             checkMaskDesc();
+            exhaust = false;
             initializeDescription();
         }
-    }
-    @Override
-    public AbstractCard makeCopy() {
-        KagutsuchiChidori tmp = new KagutsuchiChidori();
-        tmp.checkMaskDesc();
-        return tmp;
     }
 }

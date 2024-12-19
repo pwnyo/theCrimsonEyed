@@ -40,7 +40,7 @@ public class IndrasArrow extends AbstractDynamicCard implements IOnChannelListen
 
     private static final int COST = 5;
 
-    private static final int DAMAGE = 32;
+    private static final int DAMAGE = 24;
 
     // /STAT DECLARATION/
 

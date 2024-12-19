@@ -1,9 +1,11 @@
 package crimsonEyed.actions.unique;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.blue.Scrape;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 
@@ -21,6 +23,7 @@ public class HungerFollowUpAction extends AbstractGameAction {
                 if (c.type == AbstractCard.CardType.CURSE || c.type == AbstractCard.CardType.STATUS) {
                     count++;
                     AbstractDungeon.player.hand.moveToExhaustPile(c);
+                    c.triggerOnExhaust();
                 }
             }
             if (count > 0) {

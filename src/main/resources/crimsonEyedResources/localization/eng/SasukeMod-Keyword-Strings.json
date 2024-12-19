@@ -32,7 +32,7 @@
       "Hatred",
       "Hatreds"
     ],
-    "DESCRIPTION": "Hatred is a temporary #yCurse that #yRetains, causing HP loss every turn."
+    "DESCRIPTION": "Hatred is a temporary #yCurse that causes HP loss every turn."
   },
   {
     "PROPER_NAME": "Fate",
@@ -57,7 +57,7 @@
       "intensify",
       "Intensify"
     ],
-    "DESCRIPTION": "Upgrade any #yHatred in your hand. Draw ALL your #yHatred. If you have none, add a copy into your hand."
+    "DESCRIPTION": "Upgrade #yHatreds in your hand. Draw ALL your #yHatreds. If you have none, add a copy into your hand."
   },
   {
     "PROPER_NAME": "Scried",

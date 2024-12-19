@@ -38,7 +38,7 @@ public class Spite2 extends AbstractDynamicCard {
 
     public Spite2() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = damage = 4;
+        baseDamage = damage = 5;
         tags.add(CardTags.HEALING);
         isEthereal = true;
         exhaust = true;
