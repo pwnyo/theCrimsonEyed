@@ -85,17 +85,17 @@ public class TheCrimsonEyed extends CustomPlayer {
     // =============== TEXTURES OF BIG ENERGY ORB ===============
 
     public static final String[] orbTextures = {
-            "crimsonEyedResources/images/char/defaultCharacter/orb/layer1.png",
-            "crimsonEyedResources/images/char/defaultCharacter/orb/layer2.png",
-            "crimsonEyedResources/images/char/defaultCharacter/orb/layer3.png",
-            "crimsonEyedResources/images/char/defaultCharacter/orb/layer4.png",
-            "crimsonEyedResources/images/char/defaultCharacter/orb/layer5.png",
-            "crimsonEyedResources/images/char/defaultCharacter/orb/layer6.png",
-            "crimsonEyedResources/images/char/defaultCharacter/orb/layer1d.png",
-            "crimsonEyedResources/images/char/defaultCharacter/orb/layer2d.png",
-            "crimsonEyedResources/images/char/defaultCharacter/orb/layer3d.png",
-            "crimsonEyedResources/images/char/defaultCharacter/orb/layer4d.png",
-            "crimsonEyedResources/images/char/defaultCharacter/orb/layer5d.png",};
+            "crimsonEyedResources/images/char/sasuke/orb/layer1.png",
+            "crimsonEyedResources/images/char/sasuke/orb/layer2.png",
+            "crimsonEyedResources/images/char/sasuke/orb/layer3.png",
+            "crimsonEyedResources/images/char/sasuke/orb/layer4.png",
+            "crimsonEyedResources/images/char/sasuke/orb/layer5.png",
+            "crimsonEyedResources/images/char/sasuke/orb/layer6.png",
+            "crimsonEyedResources/images/char/sasuke/orb/layer1d.png",
+            "crimsonEyedResources/images/char/sasuke/orb/layer2d.png",
+            "crimsonEyedResources/images/char/sasuke/orb/layer3d.png",
+            "crimsonEyedResources/images/char/sasuke/orb/layer4d.png",
+            "crimsonEyedResources/images/char/sasuke/orb/layer5d.png",};
 
     // =============== /TEXTURES OF BIG ENERGY ORB/ ===============
 
@@ -104,16 +104,16 @@ public class TheCrimsonEyed extends CustomPlayer {
     public TheCrimsonEyed(String name, PlayerClass setClass) {
 
         super(name, setClass, orbTextures,
-                "crimsonEyedResources/images/char/defaultCharacter/orb/vfx.png", null,
-                new SpineAnimation(THE_DEFAULT_SKELETON_ATLAS, THE_DEFAULT_SKELETON_JSON, 1f));
+                "crimsonEyedResources/images/char/sasuke/orb/vfx.png", null,
+                new SpineAnimation(SASUKE_SKELETON_ATLAS, SASUKE_SKELETON_JSON, 1f));
 
         // =============== TEXTURES, ENERGY, LOADOUT =================  
 
         initializeClass(null, // required call to load textures and setup energy/loadout.
                 // I left these in DefaultMod.java (Ctrl+click them to see where they are, Ctrl+hover to see what they read.)
-                THE_DEFAULT_SHOULDER_2, // campfire pose
-                THE_DEFAULT_SHOULDER_1, // another campfire pose
-                THE_DEFAULT_CORPSE, // dead corpse
+                SASUKE_SHOULDER_2, // campfire pose
+                SASUKE_SHOULDER_1, // another campfire pose
+                SASUKE_CORPSE, // dead corpse
                 getLoadout(), 0.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN)); // energy manager
 
         // =============== /TEXTURES, ENERGY, LOADOUT/ =================
@@ -122,8 +122,8 @@ public class TheCrimsonEyed extends CustomPlayer {
         // =============== ANIMATIONS =================  
 
         loadAnimation(
-                THE_DEFAULT_SKELETON_ATLAS,
-                THE_DEFAULT_SKELETON_JSON,
+                SASUKE_SKELETON_ATLAS,
+                SASUKE_SKELETON_JSON,
                 1.2f);
         AnimationState.TrackEntry e = state.setAnimation(0, "idle", true);
         e.setTime(e.getEndTime() * MathUtils.random());

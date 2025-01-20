@@ -21,7 +21,6 @@ import crimsonEyed.cards.AbstractDefaultCard;
 import crimsonEyed.characters.TheCrimsonEyed;
 import crimsonEyed.potions.CoordinationPotion;
 import crimsonEyed.potions.ParalysisPotion;
-import crimsonEyed.potions.ScryPotion;
 import crimsonEyed.potions.YinVessel;
 import crimsonEyed.relics.boss.BlueScale;
 import crimsonEyed.relics.boss.EternalEye;
@@ -133,18 +132,18 @@ public class SasukeMod implements
     private static final String ENERGY_ORB_SASUKE_BLUE_PORTRAIT = "crimsonEyedResources/images/1024/card_sasuke_energy.png";
     
     // Character assets
-    private static final String THE_DEFAULT_BUTTON = "crimsonEyedResources/images/charSelect/sasuke_button.png";
-    private static final String THE_DEFAULT_PORTRAIT = "crimsonEyedResources/images/charSelect/sasuke_big.png";
-    public static final String THE_DEFAULT_SHOULDER_1 = "crimsonEyedResources/images/char/defaultCharacter/sasuke_shoulder.png";
-    public static final String THE_DEFAULT_SHOULDER_2 = "crimsonEyedResources/images/char/defaultCharacter/sasuke_shoulder.png";
-    public static final String THE_DEFAULT_CORPSE = "crimsonEyedResources/images/char/defaultCharacter/sasuke_corpse.png";
+    private static final String SASUKE_BUTTON = "crimsonEyedResources/images/charSelect/sasuke_button.png";
+    private static final String SASUKE_PORTRAIT = "crimsonEyedResources/images/charSelect/sasuke_big.png";
+    public static final String SASUKE_SHOULDER_1 = "crimsonEyedResources/images/char/sasuke/sasuke_shoulder.png";
+    public static final String SASUKE_SHOULDER_2 = "crimsonEyedResources/images/char/sasuke/sasuke_shoulder.png";
+    public static final String SASUKE_CORPSE = "crimsonEyedResources/images/char/sasuke/sasuke_corpse.png";
     
     //Mod Badge - A small icon that appears in the mod settings menu next to your mod.
     public static final String BADGE_IMAGE = "crimsonEyedResources/images/Badge.png";
     
     // Atlas and JSON files for the Animations
-    public static final String THE_DEFAULT_SKELETON_ATLAS = "crimsonEyedResources/images/char/defaultCharacter/DragonBones/sasuke-big.atlas";
-    public static final String THE_DEFAULT_SKELETON_JSON = "crimsonEyedResources/images/char/defaultCharacter/DragonBones/sasuke-big.json";
+    public static final String SASUKE_SKELETON_ATLAS = "crimsonEyedResources/images/char/sasuke/DragonBones/sasuke-big.atlas";
+    public static final String SASUKE_SKELETON_JSON = "crimsonEyedResources/images/char/sasuke/DragonBones/sasuke-big.json";
     
     // =============== MAKE IMAGE PATHS =================
     
@@ -300,7 +299,7 @@ public class SasukeMod implements
         logger.info("Beginning to edit characters. " + "Add " + TheCrimsonEyed.Enums.SASUKE.toString());
         
         BaseMod.addCharacter(new TheCrimsonEyed("Uchiha Sasuke", TheCrimsonEyed.Enums.SASUKE),
-                THE_DEFAULT_BUTTON, THE_DEFAULT_PORTRAIT, TheCrimsonEyed.Enums.SASUKE);
+                SASUKE_BUTTON, SASUKE_PORTRAIT, TheCrimsonEyed.Enums.SASUKE);
         
         receiveEditPotions();
         logger.info("Added " + TheCrimsonEyed.Enums.SASUKE.toString());
@@ -385,7 +384,7 @@ public class SasukeMod implements
         //BaseMod.addPotion(PlaceholderPotion.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, PlaceholderPotion.POTION_ID, TheDefault.Enums.THE_DEFAULT);
         //Color liquidColor, Color hybridColor, Color spotsColor, String potionID, PlayerClass playerClass
 
-        BaseMod.addPotion(CoordinationPotion.class, Color.CYAN, Color.CYAN, null, ScryPotion.POTION_ID, TheCrimsonEyed.Enums.SASUKE);
+        BaseMod.addPotion(CoordinationPotion.class, Color.CYAN, Color.CYAN, null, CoordinationPotion.POTION_ID, TheCrimsonEyed.Enums.SASUKE);
         BaseMod.addPotion(ParalysisPotion.class, Color.BLACK, Color.RED, Color.BLACK, ParalysisPotion.POTION_ID, TheCrimsonEyed.Enums.SASUKE);
         BaseMod.addPotion(YinVessel.class, Color.BLACK, Color.BLACK, null, YinVessel.POTION_ID, TheCrimsonEyed.Enums.SASUKE);
         

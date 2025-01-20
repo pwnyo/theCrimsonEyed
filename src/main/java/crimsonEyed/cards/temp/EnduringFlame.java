@@ -34,8 +34,8 @@ public class EnduringFlame extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = CardColor.COLORLESS;
 
-    private static final int COST = 0;
-    private static final int BLOCK = 6;
+    private static final int COST = 1;
+    private static final int BLOCK = 9;
 
     // /STAT DECLARATION/
 
@@ -47,7 +47,6 @@ public class EnduringFlame extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = block = BLOCK;
         timesUpgraded = upgrades;
-        exhaust = true;
 
         setImg();
     }

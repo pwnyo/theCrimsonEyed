@@ -8,23 +8,17 @@ import com.megacrit.cardcrawl.powers.FocusPower;
 
 public class TomoeAction extends AbstractGameAction {
     AbstractPlayer p;
-    int requiredOrbs;
-    int gain;
 
-    public TomoeAction(int gain, int req) {
+    public TomoeAction(int gain) {
         p = AbstractDungeon.player;
         this.actionType = ActionType.SPECIAL;
-        requiredOrbs = req;
-        this.gain = gain;
-    }
-    public TomoeAction(int gain) {
-        this(gain, AbstractDungeon.player.maxOrbs);
+        this.amount = gain;
     }
 
     public void update() {
         AbstractPlayer p = AbstractDungeon.player;
-        if (!p.orbs.isEmpty() && p.filledOrbCount() >= requiredOrbs) {
-            addToBot(new ApplyPowerAction(p, p, new FocusPower(p, 1)));
+        if (!p.hasEmptyOrb()) {
+            addToTop(new ApplyPowerAction(p, p, new FocusPower(p, 1)));
         }
         this.isDone = true;
     }

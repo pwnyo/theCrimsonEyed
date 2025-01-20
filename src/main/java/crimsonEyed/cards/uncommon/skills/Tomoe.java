@@ -57,7 +57,7 @@ public class Tomoe extends AbstractDynamicCard {
     @Override
     public void triggerOnGlowCheck() {
         AbstractPlayer p = AbstractDungeon.player;
-        if (!p.orbs.isEmpty() && p.filledOrbCount() >= p.maxOrbs) {
+        if (!p.hasEmptyOrb()) {
             glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
         else {
