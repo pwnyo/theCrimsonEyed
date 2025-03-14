@@ -571,7 +571,6 @@ public class SasukeMod implements
         logger.info("adding crimsonEyedResources/audio/" + fileName + ".ogg");
         BaseMod.addAudio(makeID(audioKey), "crimsonEyedResources/audio/" + fileName + ".ogg");
     }
-    // ================ /LOAD THE KEYWORDS/ ===================    
     
     // this adds "ModName:" before the ID of any card/relic/power etc.
     // in order to avoid conflicts if any other mod uses the same ID.

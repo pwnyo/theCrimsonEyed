@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import crimsonEyed.SasukeMod;
+import crimsonEyed.actions.unique.UniversalPullAction;
 import crimsonEyed.cards.AbstractDynamicCard;
 
 import java.util.ArrayList;
@@ -47,17 +48,7 @@ public class UniversalPull extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        ArrayList<AbstractCard> stanceChoices = new ArrayList<>();
-        stanceChoices.add(new FromDrawPile());
-        stanceChoices.add(new FromDiscardPile());
-        stanceChoices.add(new FromExhaustPile());
-        if (this.upgraded) {
-            for (AbstractCard c : stanceChoices) {
-                c.upgrade();
-            }
-        }
-
-        this.addToBot(new ChooseOneAction(stanceChoices));
+        addToBot(new UniversalPullAction(magicNumber));
     }
 
     @Override

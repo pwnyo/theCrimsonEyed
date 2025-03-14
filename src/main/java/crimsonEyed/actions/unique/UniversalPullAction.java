@@ -10,63 +10,69 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import crimsonEyed.powers.UniversalPullPower;
 
-import java.util.ArrayList;
-
 public class UniversalPullAction extends AbstractGameAction {
     public static final String[] TEXT;
-    private AbstractPlayer player;
+    private AbstractPlayer p;
     private int numberOfCards;
-    CardGroup group;
+    int drawCount = 0, discardCount = 0, exhaustCount = 0;
+    CardGroup combined;
 
-    public UniversalPullAction(int numberOfCards, CardGroup.CardGroupType groupType) {
+    public UniversalPullAction(int numberOfCards) {
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
-        this.player = AbstractDungeon.player;
+        this.p = AbstractDungeon.player;
         this.numberOfCards = numberOfCards;
-        if (groupType == CardGroup.CardGroupType.DISCARD_PILE) {
-            group = player.discardPile;
-        }
-        else if (groupType == CardGroup.CardGroupType.EXHAUST_PILE) {
-            group = player.exhaustPile;
-        }
-        else {
-            group = player.drawPile;
-        }
     }
 
     public void update() {
         if (this.duration == this.startDuration) {
-            if (!group.isEmpty() && this.numberOfCards > 0) {
-                if (group.size() <= this.numberOfCards) {// 50
-                    ArrayList<AbstractCard> cardsToMove = new ArrayList<>();// 51
-                    for (AbstractCard c : group.group) {
-                        cardsToMove.add(c);
-                    }
-                    for (AbstractCard c : cardsToMove) {
-                        cardsToMove.add(c);
-                        group.removeCard(c);
-                        addToTop(new ApplyPowerAction(player, player, new UniversalPullPower(player, 1, c)));
-                    }
-
-                    this.isDone = true;// 67
-                } else {
-                    if (this.numberOfCards == 1) {
-                        AbstractDungeon.gridSelectScreen.open(group, this.numberOfCards, TEXT[0], false);
-                    } else {
-                        AbstractDungeon.gridSelectScreen.open(group, this.numberOfCards, TEXT[1] + this.numberOfCards + TEXT[2], false);
-                    }
-
-                    this.tickDuration();
-                }
-            } else {
+            if (numberOfCards == 0 ||
+                    (p.drawPile.isEmpty() && p.discardPile.isEmpty() && p.exhaustPile.isEmpty())) {
                 this.isDone = true;
+            } else {
+                CardGroup sortedDraw = makeSortedGroup(p.drawPile);
+                CardGroup sortedDiscard = makeSortedGroup(p.discardPile);
+                CardGroup sortedExhaust = makeSortedGroup(p.exhaustPile);
+                drawCount = sortedDraw.group.size();
+                discardCount = sortedDiscard.group.size();
+                exhaustCount = sortedExhaust.group.size();
+
+                combined = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+                if (drawCount > 0) {
+                    for (AbstractCard c : sortedDraw.group) {
+                        combined.addToTop(c);
+                    }
+                }
+                if (discardCount > 0) {
+                    for (AbstractCard c : sortedDiscard.group) {
+                        combined.addToTop(c);
+                    }
+                }
+                if (exhaustCount > 0) {
+                    for (AbstractCard c : sortedExhaust.group) {
+                        combined.addToTop(c);
+                    }
+                }
+
+                if (combined.group.size() <= numberOfCards) {
+                    for (int i = 0; i < combined.group.size(); i++) {
+                        pullCardFromIndex(combined.group.get(i), i);
+                    }
+                    isDone = true;
+                    return;
+                }
+                else if (this.numberOfCards == 1) {
+                    AbstractDungeon.gridSelectScreen.open(combined, this.numberOfCards, TEXT[0], false);
+                } else {
+                    AbstractDungeon.gridSelectScreen.open(combined, this.numberOfCards, TEXT[1] + this.numberOfCards + TEXT[2], false);
+                }
+                this.tickDuration();
             }
         } else {
-
             if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
                 for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
-                    group.removeCard(c);
-                    addToTop(new ApplyPowerAction(player, player, new UniversalPullPower(player, 1, c)));
+                    int index = combined.group.indexOf(c);
+                    pullCardFromIndex(c, index);
                 }
 
                 AbstractDungeon.gridSelectScreen.selectedCards.clear();
@@ -74,12 +80,48 @@ public class UniversalPullAction extends AbstractGameAction {
             }
 
             this.tickDuration();
-            if (this.isDone) {
-                for (AbstractCard c : player.hand.group) {
-                    c.applyPowers();
-                }
-            }
         }
+    }
+    public CardGroup makeSortedGroup(CardGroup parentGroup) {
+        CardGroup group  = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+        if (!parentGroup.isEmpty()) {
+            for (AbstractCard c : parentGroup.group) {
+                group.addToTop(c);
+            }
+            group.sortAlphabetically(true);
+            group.sortByRarityPlusStatusCardType(false);
+        }
+
+        return group;
+    }
+
+    void pullCardFromIndex(AbstractCard c, int index) {
+        //considering combined is a grouping of draw-discard-exhaust piles,
+        //we can determine the appropriate pile by adding pile counts until
+        //we get a number higher than the index
+        if (drawCount > index) {
+            pullCard(c, p.drawPile);
+        }
+        else if (drawCount + discardCount > index) {
+            pullCard(c, p.discardPile);
+        }
+        else if (drawCount + discardCount + exhaustCount > index) {
+            pullCard(c, p.exhaustPile);
+        }
+        else {
+            //shouldn't happen...
+        }
+    }
+    void pullCard(AbstractCard c, CardGroup group)
+    {
+        group.removeCard(c);
+        addToTop(new ApplyPowerAction(p, p, new UniversalPullPower(p, 1, c)));
+
+        c.lighten(false);
+        c.unhover();
+
+        p.hand.refreshHandLayout();
+        p.hand.applyPowers();
     }
 
     static {

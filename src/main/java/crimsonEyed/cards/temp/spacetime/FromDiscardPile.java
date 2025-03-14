@@ -1,5 +1,6 @@
 package crimsonEyed.cards.temp.spacetime;
 
+import basemod.AutoAdd;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -11,6 +12,7 @@ import crimsonEyed.cards.AbstractDynamicCard;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
 
+@AutoAdd.Ignore
 public class FromDiscardPile extends AbstractDynamicCard {
 
     // TEXT DECLARATION
@@ -50,7 +52,7 @@ public class FromDiscardPile extends AbstractDynamicCard {
     @Override
     public void onChoseThisOption() {
         //addToBot(new BetterDiscardPileToHandAction(magicNumber));
-        addToBot(new UniversalPullAction(magicNumber, CardGroup.CardGroupType.DISCARD_PILE));
+        //addToBot(new UniversalPullAction(magicNumber, CardGroup.CardGroupType.DISCARD_PILE));
     }
 
     // Upgraded stats.

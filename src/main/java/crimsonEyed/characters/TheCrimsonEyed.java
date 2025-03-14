@@ -114,7 +114,7 @@ public class TheCrimsonEyed extends CustomPlayer {
                 SASUKE_SHOULDER_2, // campfire pose
                 SASUKE_SHOULDER_1, // another campfire pose
                 SASUKE_CORPSE, // dead corpse
-                getLoadout(), 0.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN)); // energy manager
+                getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN)); // energy manager
 
         // =============== /TEXTURES, ENERGY, LOADOUT/ =================
 
@@ -190,15 +190,14 @@ public class TheCrimsonEyed extends CustomPlayer {
     // character Select screen effect
     @Override
     public void doCharSelectScreenSelectEffect() {
-        CardCrawlGame.sound.playA("ATTACK_FIRE", 1.25f); // Sound Effect
-        CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW, ScreenShake.ShakeDur.SHORT,
-                false); // Screen Effect
+        CardCrawlGame.sound.playA(makeID("SHARINGAN"), MathUtils.random(-0.2F, 0.2F)); // Sound Effect
+        CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.MED, ScreenShake.ShakeDur.SHORT, false); // Screen Effect
     }
 
     // character Select on-button-press sound effect
     @Override
     public String getCustomModeCharacterButtonSoundKey() {
-        return "ATTACK_FIRE";
+        return makeID("SHARINGAN");
     }
 
     // Should return how much HP your maximum HP reduces by when starting a run at
