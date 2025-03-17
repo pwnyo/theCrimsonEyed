@@ -38,20 +38,9 @@
       "Scry 2. NL Choose one: NL Next turn, draw !M! cards, gain [E] [E] , or gain !B! Block."
     ]
   },
-  "crimsonEyed:Awakening": {
-    "NAME": "DEPRECATED:Awakening",
-    "DESCRIPTION": "Double your Focus. NL Exhaust."
-  },
   "crimsonEyed:BoneBreaker": {
     "NAME": "Bone Breaker",
     "DESCRIPTION": "Deal !D! damage. NL Gain !M! Plated Armor."
-  },
-  "crimsonEyed:BlazeBarrier": {
-    "NAME": "DEPRECATED:Blaze Barrier",
-    "DESCRIPTION": "Whenever you are Attacked, deal !M! damage back for each Dark Channeled this combat.",
-    "EXTENDED_DESCRIPTION": [
-      " NL (Channeled !crimsonEyed:M2! Dark.)"
-    ]
   },
   "crimsonEyed:BlazeBarrier2": {
     "NAME": "Blaze Barrier",
@@ -79,24 +68,14 @@
     "DESCRIPTION": "Gain !M! Focus. NL At the end of this turn, lose !M! Focus. NL Channel 1 Lightning.",
     "UPGRADE_DESCRIPTION": "Gain !M! Focus. NL At the end of this turn, lose !M! Focus. NL Channel 1 Lightning."
   },
-  "crimsonEyed:Chop": {
-    "NAME": "Chop",
-    "DESCRIPTION": "Deal damage equal to 20% of the enemy's HP. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Deal damage equal to 30% of the enemy's HP. NL Exhaust."
-  },
   "crimsonEyed:Chop2": {
     "NAME": "Chop",
     "DESCRIPTION": "Choose one: Deal !D! damage, or !M! damage to ALL enemies.",
     "UPGRADE_DESCRIPTION": "Choose one: Deal !D! damage, or !M! damage to ALL enemies.",
     "EXTENDED_DESCRIPTION": [
-      "Choose one: Deal !D! damage, !M! damage to ALL enemies, or !crimsonEyed:M2! damage to a random enemy 4 times.",
-      "Choose one: Deal !D! damage, !M! damage to ALL enemies, or !crimsonEyed:M2! damage to a random enemy 5 times."
+      "Choose one: Deal !D! damage, !M! damage to ALL enemies, or !crimsonEyed:M2! damage to a random enemy 3 times.",
+      "Choose one: Deal !D! damage, !M! damage to ALL enemies, or !crimsonEyed:M2! damage to a random enemy 4 times."
     ]
-  },
-  "crimsonEyed:Chop3": {
-    "NAME": "Chop",
-    "DESCRIPTION": "Choose one: Deal !D! damage or deal !M! damage to ALL enemies.",
-    "UPGRADE_DESCRIPTION": "Choose one: Deal !D! damage, deal !M! damage to ALL enemies, or deal 5 damage to a random enemy !crimsoneyed:M2! times."
   },
   "crimsonEyed:Condition": {
     "NAME": "Condition",
@@ -139,7 +118,7 @@
   },
   "crimsonEyed:EnduringFlame": {
     "NAME": "Enduring Flame",
-    "DESCRIPTION": "Lose 1 HP. NL Gain !B! Block. NL Can be Upgraded any number of times. NL Exhaust."
+    "DESCRIPTION": "Lose 1 HP. NL Gain !B! Block. NL Can be Upgraded any number of times."
   },
   "crimsonEyed:Eye": {
     "NAME": "Eye",
@@ -231,10 +210,6 @@
     "NAME": "Izanagi",
     "DESCRIPTION": "Gain !M! Intangible. NL At the end of your turn, shuffle a *Void into your draw pile."
   },
-  "crimsonEyed:Izanami": {
-    "NAME": "DEPRECATED:Izanami",
-    "DESCRIPTION": "Apply !M! crimsoneyed:Fate. NL Gain 1 less [E] at the start of each turn."
-  },
   "crimsonEyed:Jolt": {
     "NAME": "Jolt",
     "DESCRIPTION": "Deal !D! damage. NL Evoke your next Orb. NL Draw 1 card."
@@ -257,19 +232,6 @@
     "NAME": "Killing Intent",
     "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak. NL Apply !M! Vulnerable. NL crimsoneyed:Intensify your crimsoneyed:Hatred.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak. NL Apply !M! Vulnerable."
-  },
-  "crimsonEyed:Kirin": {
-    "NAME": "DEPRECATED:Kirin",
-    "DESCRIPTION": "Channel !M! Lightning for each card Exhausted this turn. NL Evoke all your Orbs. NL End your turn.",
-    "UPGRADE_DESCRIPTION": "Channel !M! Lightning for each card Exhausted this turn. NL Evoke all your Orbs.",
-    "EXTENDED_DESCRIPTION": [
-      " NL (Exhausted !M! cards.)",
-      " NL (Exhausted !M! card.)"
-    ]
-  },
-  "crimsonEyed:Kirin2": {
-    "NAME": "Kirin",
-    "DESCRIPTION": "Channel 1 Lightning. NL Gain 1 temporary Focus for each card in your Exhaust pile. NL Evoke all your Orbs."
   },
   "crimsonEyed:Kirin3": {
     "NAME": "Kirin",
@@ -308,8 +270,7 @@
   },
   "crimsonEyed:OneStepAhead": {
     "NAME": "One Step Ahead",
-    "DESCRIPTION": "Gain !B! Block. NL At the end of this turn, Retain up to !M! card.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL At the end of this turn, Retain up to !M! cards."
+    "DESCRIPTION": "Gain !B! Block. NL At the end of this turn, Retain up to !M! card."
   },
   "crimsonEyed:PaperBomb": {
     "NAME": "Paper Bomb",
@@ -332,10 +293,6 @@
   "crimsonEyed:PeripheralVision": {
     "NAME": "Peripheral Vision",
     "DESCRIPTION": "Gain !B! Block for each enemy in combat."
-  },
-  "crimsonEyed:PhoenixFlower": {
-    "NAME": "DEPRECATED:Phoenix Flower",
-    "DESCRIPTION": "Deal !D! damage to a random enemy !M! times. NL Exhaust a card in your discard pile."
   },
   "crimsonEyed:PhoenixFlower2": {
     "NAME": "Phoenix Flower",
@@ -360,18 +317,10 @@
     "DESCRIPTION": "Next turn, gain [E].",
     "UPGRADE_DESCRIPTION": "Next turn, gain [E] [E]."
   },
-  "crimsonEyed:Reminisce": {
-    "NAME": "DEPRECATED:Reminisce",
-    "DESCRIPTION": "Gain [E] for every NL 3 cards in your Exhaust pile. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain [E] for every NL 3 cards in your Exhaust pile."
-  },
   "crimsonEyed:Rend": {
     "NAME": "Rend",
     "DESCRIPTION": "Deal !D! damage to ALL enemies.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies.",
-    "EXTENDED_DESCRIPTION": [
-      " NL (Deal !D! damage.)"
-    ]
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies."
   },
   "crimsonEyed:Resentment": {
     "NAME": "Resentment",
@@ -391,11 +340,6 @@
     "NAME": "Revolution",
     "DESCRIPTION": "Retain. NL Gain !M! Strength for each Status or Curse card in your hand. NL Exhaust."
   },
-  "crimsonEyed:SecretsOfTheUchiha": {
-    "NAME": "DEPRECATED:Secrets of the Uchiha",
-    "DESCRIPTION": "Exhaust all cards in your hand except one. NL Deal 20 damage. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Channel 1 Lightning. NL Gain 1 temporary Focus for every 2 cards in your Exhaust pile. NL Evoke all your Orbs. NL End your turn."
-  },
   "crimsonEyed:SeeEverything": {
     "NAME": "See Everything",
     "DESCRIPTION": "Apply X Lock-On, Vulnerable, and Weak to ALL enemies. NL Exhaust.",
@@ -407,10 +351,6 @@
     "EXTENDED_DESCRIPTION": [
       " NL (Gain !B! Block.)"
     ]
-  },
-  "crimsonEyed:SeverThePast2": {
-    "NAME": "DEPRECATED:Sever the Past",
-    "DESCRIPTION": "Exhaust cards that enter your discard pile. At the start of your turn, gain 1 [E] and draw 1 additional card."
   },
   "crimsonEyed:ShadowShuriken": {
     "NAME": "Shadow Shuriken",
@@ -429,14 +369,6 @@
     "NAME": "Shed Skin",
     "DESCRIPTION": "At the end of your next 3 turns, Exhaust all Status and Curse cards in your hand and heal !M! HP for each."
   },
-  "crimsonEyed:ShockBlock": {
-    "NAME": "DEPRECATED:Shock Block",
-    "DESCRIPTION": "Evoke your next Orb. NL Gain Block equal to its Evoked amount. Exhaust."
-  },
-  "crimsonEyed:ShockBlock2": {
-    "NAME": "DEPRECATED:Shock Block2",
-    "DESCRIPTION": "Gain !B! Block. NL Gain !M! additional Block for each Channeled Lightning."
-  },
   "crimsonEyed:Shurikenjutsu": {
     "NAME": "Shurikenjutsu",
     "DESCRIPTION": "Fill your hand NL with Shivs. NL Exhaust.",
@@ -450,17 +382,9 @@
     "NAME": "Skeleton Shield",
     "DESCRIPTION": "Gain !B! Block. NL Gain !M! Plated Armor."
   },
-  "crimsonEyed:SkeletonSword": {
-    "NAME": "DEPRECATED:Skeleton Sword",
-    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Strength. NL If Fatal, permanently increase this card's Strength by 1."
-  },
   "crimsonEyed:Slash": {
     "NAME": "Slash",
     "DESCRIPTION": "Deal !D! damage."
-  },
-  "crimsonEyed:Slaughter": {
-    "NAME": "DEPRECATED:Slaughter",
-    "DESCRIPTION": "Deal !D! damage twice. NL If Fatal, permanently increase this card's damage by !M!. NL Exhaust."
   },
   "crimsonEyed:Slither": {
     "NAME": "Slither",
@@ -488,11 +412,6 @@
       "Choose one: NL Add *Universal *Pull+, *Amenotejikara+, or *Almighty *Push+ into your hand."
     ]
   },
-  "crimsonEyed:Spite": {
-    "NAME": "DEPRECATED: Spite",
-    "DESCRIPTION": "Whenever you deal Fatal damage, heal !M! HP, draw 1 card, and gain [E].",
-    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you deal Fatal damage, heal !M! HP, draw 1 card, and gain [E]."
-  },
   "crimsonEyed:Spite2": {
     "NAME": "Spite",
     "DESCRIPTION": "Ethereal. NL Deal !D! damage. Heal HP equal to unblocked damage. NL Exhaust.",
@@ -510,15 +429,6 @@
     "NAME": "Summon: Weapons",
     "DESCRIPTION": "Innate. NL Add !M! Shivs into your hand. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Innate. NL Add !M! Shivs into your hand."
-  },
-  "crimsonEyed:SureFire": {
-    "NAME": "DEPRECATED:Sure-Fire",
-    "DESCRIPTION": "Deal !D! damage twice. NL If the enemy has Lock-On, gain [E] and draw 1 card."
-  },
-  "crimsonEyed:Surveil": {
-    "NAME": "DEPRECATED:Surveil",
-    "DESCRIPTION": "Scry equal to the number of cards in your hand.",
-    "UPGRADE_DESCRIPTION": "Scry equal to the number of cards in your hand +3."
   },
   "crimsonEyed:Susanoo": {
     "NAME": "Susanoo",
@@ -542,14 +452,6 @@
     "DESCRIPTION": "Innate. NL Scry 3. Gain [E]. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Innate. NL Scry 3. Gain [E] [E]. NL Exhaust."
   },
-  "crimsonEyed:Vengeance": {
-    "NAME": "DEPRECATED:Vengeance",
-    "DESCRIPTION": "Ethereal. NL Deal damage equal to your missing HP. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Deal damage equal to your missing HP. NL Exhaust.",
-    "EXTENDED_DESCRIPTION": [
-      " NL (Deals !D! damage.)"
-    ]
-  },
   "crimsonEyed:ViciousStrike": {
     "NAME": "Vicious Strike",
     "DESCRIPTION": "Deal !D! damage. NL Draw 1 card. NL crimsoneyed:Intensify your crimsoneyed:Hatred."
@@ -558,18 +460,9 @@
     "NAME": "Watch Out",
     "DESCRIPTION": "Gain !B! Block. NL Apply !M! Lock-On to ALL enemies."
   },
-  "crimsonEyed:YasakaMagatama": {
-    "NAME": "DEPRECATED:Yasaka Magatama",
-    "DESCRIPTION": "Deal !D! damage to a random enemy !M! times. NL Focus affects this card.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage to a random enemy !M! times. NL Focus affects this card 3 times."
-  },
   "crimsonEyed:YasakaMagatama2": {
     "NAME": "Yasaka Magatama",
     "DESCRIPTION": "Deal !D! damage and apply 1 Weak to a random enemy 3 times. NL Add a *Burn into your discard pile."
-  },
-  "crimsonEyed:ZeroIn": {
-    "NAME": "DEPRECATED:Zero In",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Lock-On."
   },
   "crimsonEyed:LightningChoice": {
     "NAME": "Lightning",

@@ -47,8 +47,8 @@ public class Chop2 extends AbstractDynamicCard {
     public Chop2() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = 15;
-        baseMagicNumber = magicNumber = 9;
-        baseMagicNumber2 = magicNumber2 = 3;
+        baseMagicNumber = magicNumber = 10;
+        baseMagicNumber2 = magicNumber2 = 5;
         checkMaskDesc();
     }
 
@@ -128,7 +128,7 @@ public class Chop2 extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(5);
-            upgradeMagicNumber(3);
+            upgradeMagicNumber(4);
             upgradeSecondMagicNumber(1);
             checkMaskDesc();
             initializeDescription();

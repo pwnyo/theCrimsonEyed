@@ -30,8 +30,6 @@ public class ScratchedHeadband extends CustomRelic {
 
     public void onEquip() {
         ArrayList<AbstractCard> hates = new ArrayList<>();
-        AbstractCard hope = new EnduringFlame();
-        hope.upgrade();
 
         float displayCount = 0.0F;
 
@@ -41,6 +39,9 @@ public class ScratchedHeadband extends CustomRelic {
             }
         }
         for (AbstractCard c : hates) {
+            AbstractCard hope = new EnduringFlame();
+            hope.upgrade();
+
             AbstractDungeon.topLevelEffects.add(new PurgeCardEffect(c, (float)Settings.WIDTH / 3.0F + displayCount, (float)Settings.HEIGHT / 3.0F));
             displayCount += (float)Settings.WIDTH / 3.0F;
             AbstractDungeon.player.masterDeck.removeCard(c);

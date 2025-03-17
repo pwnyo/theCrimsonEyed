@@ -1,0 +1,22 @@
+{
+
+        "crimsonEyed:ParalysisPotion": {
+                "NAME": "麻痹蛇毒",
+                "DESCRIPTIONS": ["敵人失去 #b", " 點力量 ."]
+        },
+        "crimsonEyed:PlaceholderPotion": {
+                "NAME": "Placeholder Potion",
+                "DESCRIPTIONS": ["獲得 ", " 回合结束失去 ", " 點力量 ."]
+        },
+        "crimsonEyed:ScryPotion": {
+                "NAME": "預見藥劑",
+                "DESCRIPTIONS": ["#y預見 #b", ". 下回合額外抽1張牌."]
+        },
+        "crimsonEyed:YinVessel": {
+                "NAME": "六道-陰之力",
+                "DESCRIPTIONS": [
+                        "從 #b5 張随機稀有牌 (每種顏色各一張) 中選 #b1 張加入手牌, 本回合耗能為 #b0 .",
+                        "從 #b5 張随機稀有牌 (每種顏色各一張) 中選 #b1 張和其複制牌加入手牌, 本回合耗能為 #b0 ."
+                ]
+        }
+}

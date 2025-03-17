@@ -1,0 +1,195 @@
+{
+        "crimsonEyed:AmaterasuBarrierPower": {
+                "NAME": "黑炎盾牌",
+                "DESCRIPTIONS": [
+                        "當你受到未被格擋的傷害時, #y生成 #b",
+                        " #y 黑暗 充能球. (你的回合结束時消失)"
+                ]
+        },
+        "crimsonEyed:BlazeBarrierPower": {
+                "NAME": "須佐能乎-御",
+                "DESCRIPTIONS": [
+                        "當 #y 黑暗 充能球觸發其被動能力時, 獲得 #b",
+                        "層 #y火遁-火之壁 ."
+                ]
+        },
+        "crimsonEyed:CommonPower": {
+                "NAME": "Placeholder Power",
+                "DESCRIPTIONS": [
+                        "You applied #b",
+                        " keyword.",
+                        " keywords."
+                ]
+        },
+        "crimsonEyed:ElectrifyPower": {
+                "NAME": "雷遁-天咒千鳥",
+                "DESCRIPTIONS": [
+                        "#y閃電 充能球將攻擊所有敵人,持續 #b",
+                        " 回合.",
+                        "本回合#y閃電 充能球將攻擊所有敵人."
+                ]
+        },
+        "crimsonEyed:ExplosivePower": {
+                "NAME": "炸裂火焰",
+                "DESCRIPTIONS": [
+                        "下一次 #y消耗 牌時,敵人受到 #b",
+                        " 點傷害."
+                ]
+        },
+        "crimsonEyed:ExhaustDamagePower": {
+                "NAME": "鳳仙火之術",
+                "DESCRIPTIONS": [
+                        "#y消耗 牌時, 對随機敵人造成 #b",
+                        " 點傷害."
+                ]
+        },
+        "crimsonEyed:FatePower": {
+                "NAME": "天命",
+                "DESCRIPTIONS": [
+                        "無效接下来的 #b",
+                        " 個負面效果.",
+                        " 個負面效果."
+                ]
+        },
+        "crimsonEyed:GradualFocusLossPower": {
+                "NAME": "咒印反噬",
+                "DESCRIPTIONS": [
+                        "在你的回合结束時, 失去 #b1 點 #y集中 . #y咒印反噬 層數減 #b1 ."
+                ]
+        },
+        "crimsonEyed:GrudgePower": {
+                "NAME": "滔天恨意",
+                "DESCRIPTIONS": [
+                        "回合開始時,將1張 #b",
+                        " #y怨气 加入手牌.",
+                        " #y怨气 加入手牌."
+                ]
+        },
+        "crimsonEyed:IndraFormPower": {
+                "NAME": "因陀羅形態",
+                "DESCRIPTIONS": [
+                        "在你的回合開始時，#y生成 #b",
+                        "個 #y閃電 充能球"
+                ]
+        },
+        "crimsonEyed:KagutsuchiPower": {
+                "NAME": "炎遁-加具土命",
+                "DESCRIPTIONS": [
+                        "本回合,你打出 #y攻擊牌 時, 觸發下一個充能球的被動能力 #b",
+                        " 次.",
+                        " 次."
+                ]
+        },
+        "crimsonEyed:KnowPainPower": {
+                "NAME": "感知痛苦",
+                "DESCRIPTIONS": [
+                        "每當你在戰鬥中失去生命，就在下回合獲得 #b",
+                        " 點 #y格擋 。"
+                ]
+        },
+        "crimsonEyed:LightningSpeedPower": {
+                "NAME": "雷遁-速擊",
+                "DESCRIPTIONS": [
+                        "本回合打出 #b",
+                        " 張 #y攻擊牌 , #y生成 #b",
+                        " #y閃電 充能球.",
+                        " 張 #y攻擊牌 , #y生成 #b"
+                ]
+        },
+        "crimsonEyed:LoseFocusPower": {
+                "NAME": "注意力涣散",
+                "DESCRIPTIONS": [
+                        "回合结束時, 失去 #b",
+                        "層 #y集中 ."
+                ]
+        },
+        "crimsonEyed:MandaPower": {
+                "NAME": "Manda",
+                "DESCRIPTIONS": [
+                        "本場戰鬥,接下来 #b",
+                        " 次受到致命傷害時, 恢復 #b20% 血量並減少 #b1 層 Manda."
+                ]
+        },
+        "crimsonEyed:MangekyouPower": {
+                "NAME": "萬花筒寫輪眼",
+                "DESCRIPTIONS": [
+                        "回合结束時, 失去 #b",
+                        "點生命並獲得 #b",
+                        "層 #y集中 ."
+                ]
+        },
+        "crimsonEyed:MangekyouPower2": {
+                "NAME": "萬花筒寫輪眼",
+                "DESCRIPTIONS": [
+                        "當你因牌的效果而失去生命時, 獲得 #b",
+                        "層 #y集中 ."
+                ]
+        },
+        "crimsonEyed:OneStepAheadPower": {
+                "NAME": "計畫周全",
+                "DESCRIPTIONS": [
+                        "接下来的 #b",
+                        " 回合结束時,可 #y保留 #b1 張牌.",
+                        "本回合结束時,可 #y保留 #b1 張牌."
+                ]
+        },
+        "crimsonEyed:PerceptionPower": {
+                "NAME": "洞察萬物",
+                "DESCRIPTIONS": [
+                        "#y預見 時, 抽 #b",
+                        " 張牌.",
+                        " 張牌."
+                ]
+        },
+        "crimsonEyed:PunishmentPower": {
+                "NAME": "月讀",
+                "DESCRIPTIONS": [
+                        "回合開始時,其每有一個負面效果就失去 #b",
+                        " 點生命."
+                ]
+        },
+        "crimsonEyed:RarePower": {
+                "NAME": "Placeholder Power",
+                "DESCRIPTIONS": [
+                        "At the start of your turn, TOUCH #b",
+                        " enemy.",
+                        " enemies."
+                ]
+        },
+        "crimsonEyed:ResentmentPower": {
+                "NAME": "復仇决意",
+                "DESCRIPTIONS": [
+                        "當你失去生命時, 下回合獲得 #b",
+                        "點 #y格擋 ."
+                ]
+        },
+        "crimsonEyed:RevolutionPower": {
+                "NAME": "革命",
+                "DESCRIPTIONS": [
+                        "抽到#y狀態 牌或 #y詛咒 牌時, 獲得#b",
+                        " 點#y力量 ."
+                ]
+        },
+        "crimsonEyed:SeverThePastPower": {
+                "NAME": "斬斷過往",
+                "DESCRIPTIONS": [
+                        "消耗弃牌堆中所有牌. 在回合開始時, 獲得 #y格擋 等同於 #y消耗堆 牌數."
+                ]
+        },
+        "crimsonEyed:SpitePower": {
+                "NAME": "陰之力",
+                "DESCRIPTIONS": [
+                        "#y斬殺 時,治疗 #b",
+                        " 點生命."
+                ]
+        },
+        "crimsonEyed:SpaceTimePower": {
+                "NAME": "萬象天引",
+                "DESCRIPTIONS": [
+                        "在 #b",
+                        " 回合内, 將 ",
+                        " 加入手牌.",
+                        " 回合内, 將 "
+                ]
+        }
+}

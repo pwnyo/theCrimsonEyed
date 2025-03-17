@@ -1,15 +1,11 @@
 ﻿{
-  "crimsonEyed:Agonize": {
-    "NAME": "Агония",
-    "DESCRIPTION": "Даёт 1 Силы, когда вы берёте Статус или Проклятие."
-  },
   "crimsonEyed:AlmightyPush": {
     "NAME": "Шинра Тенсей",
     "DESCRIPTION": "Вы сбрасываете все карты. NL Наносит по !M! урона ВСЕМ врагам за каждую сброшенную карту."
   },
   "crimsonEyed:Amaterasu": {
     "NAME": "Аматерасу",
-    "DESCRIPTION": "Отнимает !M! ОЗ. NL Наносит !D! урона. NL Заряжает 1 Сферу Тьмы."
+    "DESCRIPTION": "Отнимает !M! ОЗ. NL Наносит !D! урона. NL Заряжает 1 Сферу Тьмы."
   },
   "crimsonEyed:Amenotejikara": {
     "NAME": "Аменотеджикара",
@@ -18,7 +14,7 @@
   },
   "crimsonEyed:AmpUp": {
     "NAME": "Сила Индры",
-    "DESCRIPTION": "Даёт [E] за каждую заряженную Сферу."
+    "DESCRIPTION": "Даёт [E] за каждую заряженную Сферу Молнии."
   },
   "crimsonEyed:Analyze": {
     "NAME": "Анализ",
@@ -26,34 +22,25 @@
   },
   "crimsonEyed:Anticipate": {
     "NAME": "Предвидение",
-    "DESCRIPTION": "Выберите одно: NL Даёт !M! Защиты или Даёт !B! Защиты и вы берёте 2 дополнительные карты в начале следующего хода.",
+    "DESCRIPTION": "Вы Предсказываете 2 карты. NL Выберите одно: В след. ходу вы возьмёте на 1 карту или получите [E].",
+    "UPGRADE_DESCRIPTION": "Вы Предсказываете 2 карты. NL Выберите одно: В след. ходу вы возьмёте на 2 карты или получите [E] [E].",
     "EXTENDED_DESCRIPTION": [
-      "Выберите одно: Даёт 2 *Панциря, Даёт !M! Защиты, или Даёт !B! Защиты и вы берёте 2 дополнительные карты в начале следующего хода.",
-      "Выберите одно: Даёт 3 *Панциря, Даёт !M! Защиты, или Даёт !B! Защиты и вы берёте 2 дополнительные карты в начале следующего хода."
-    ]
-  },
-  "crimsonEyed:Awakening": {
-    "NAME": "---",
-    "DESCRIPTION": "Удваивает ваш Фокус. NL Сжигается."
-  },
-  "crimsonEyed:Blackout": {
-    "NAME": "---",
-    "DESCRIPTION": "Даёт !B! Защиты. NL Заряжает !M! Сферу(ы) Тьмы."
-  },
-  "crimsonEyed:BlazeBarrier": {
-    "NAME": "---",
-    "DESCRIPTION": "Whenever you are Attacked, наносит !M! урона back for each Dark Channeled this combat.",
-    "EXTENDED_DESCRIPTION": [
-      " NL (Channeled !crimsonEyed:M2! Dark.)"
+      "Вы Предсказываете 2 карты. NL Выберите одно: В след. ходу вы возьмёте на 1 карту, получите [E], или получите !B! Защиты.",
+      "Вы Предсказываете 2 карты. NL Выберите одно: В след. ходу вы возьмёте на 2 карты, получите [E] [E], или получите !B! Защиты."
     ]
   },
   "crimsonEyed:BlazeBarrier2": {
     "NAME": "Окружающее Пламя",
-    "DESCRIPTION": "Даёт !B! Защиты. NL Активирует пассивный эффект след. в очереди Сферы Тьмы. NL Если у вас нет таких, заряжает одну."
+    "DESCRIPTION": "Заряжает 1 Сферу Тьмы. NL Даёт Защиту, равную кол-ву мощности след. в очереди Сферу.",
+    "UPGRADE_DESCRIPTION": "Заряжает 1 Сферу Тьмы. NL Активирует пассивный эффект след. в очереди Сферу в очереди и дает Защиту, равную ее мощности."
+  },
+  "crimsonEyed:BoneBreaker": {
+    "NAME": "Костедробитель",
+    "DESCRIPTION": "Наносит !D! урона. NL Даёт !M! Панциря."
   },
   "crimsonEyed:Chidori": {
     "NAME": "Чидори",
-    "DESCRIPTION": "Наносит !D! урона. NL Если след. в очереди Сфера — Молния, Разряжает её. NL Если нет, заряжает одну."
+    "DESCRIPTION": "Наносит !D! урона. NL Заряжает 1 Сферу Молнии. NL Если в этом ходу вас было Предсказание, Разряжает след. в очереди Cферу."
   },
   "crimsonEyed:ChidoriBlade": {
     "NAME": "Катана Чидори",
@@ -62,7 +49,7 @@
   },
   "crimsonEyed:ChidoriSenbon": {
     "NAME": "Иглы Чидори",
-    "DESCRIPTION": "Наносит !D! урона ВСЕМ врагам. NL Активирует пассивный эффект всех cфер."
+    "DESCRIPTION": "Наносит !D! урона ВСЕМ врагам. NL Заряжает 1 Сферу Молнии."
   },
   "crimsonEyed:ChidoriSpear": {
     "NAME": "Копьё Чидори",
@@ -70,25 +57,21 @@
   },
   "crimsonEyed:ChidoriStream": {
     "NAME": "Поток Чидори",
-    "DESCRIPTION": "Заряжает 1 сферу Молнии. NL Сферы Молнии бьют по ВСЕМ врагам в этом ходу."
-  },
-  "crimsonEyed:Chop": {
-    "NAME": "---",
-    "DESCRIPTION": "Наносит урона equal 20% of the enemy's HP. NL Сжигается.",
-    "UPGRADE_DESCRIPTION": "Наносит урона equal 30% of the enemy's HP. NL Сжигается."
+    "DESCRIPTION": "Даёт !M! Фокуса. NL Отнимает !M! Фокуса в конце вашего хода. NL Заряжает 1 Cферу Молнии."
   },
   "crimsonEyed:Chop2": {
     "NAME": "Нарубить",
-    "DESCRIPTION": "Выберите одно: Наносит !D! урона или Наносит урон, равный 15% макс. ОЗ цели. NL Сжигается.",
-    "UPGRADE_DESCRIPTION": "Выберите одно: Наносит !D! урона или Наносит урон, равный 20% макс. ОЗ цели. NL Сжигается.",
+    "DESCRIPTION": "Выберите одно: Наносит !D! урона или !M! урона ВСЕМ врагам.",
+    "UPGRADE_DESCRIPTION": "Выберите одно: Наносит !D! урона или !M! урона ВСЕМ врагам.",
     "EXTENDED_DESCRIPTION": [
-      "Выберите одно: Наносит !D! урона, Наносит урон, равный 15% макс. ОЗ цели, или Наносит !M! урона ВСЕМ врагам 4 раза. NL Сжигается.",
-      "Выберите одно: Наносит !D! урона, Наносит урон, равный 20% макс. ОЗ цели, или Наносит !M! урона ВСЕМ врагам 4 раза. NL Сжигается."
+      "Выберите одно: Наносит !D! урона, !M! урона ВСЕМ врагам, или !crimsonEyed:M2! урона случ. врагу 3 раза.",
+      "Выберите одно: Наносит !D! урона, !M! урона ВСЕМ врагам, или !crimsonEyed:M2! урона случ. врагу 4 раза."
     ]
   },
   "crimsonEyed:Copycat": {
     "NAME": "Подражание",
-    "DESCRIPTION": "Вы Предсказываете !M! карты. NL Добавляет в руку Улучшенную копию карты с верха стопки сброса."
+    "DESCRIPTION": "Вы Предсказываете !M! карты. NL Добавляет в руку копию карты с верха стопки сброса.",
+    "UPGRADE_DESCRIPTION": "Вы Предсказываете !M! карты. NL Добавляет в руку Улучшенную копию карты с верха стопки сброса."
   },
   "crimsonEyed:AbsorbChakra": {
     "NAME": "Поглотить Чакру",
@@ -101,12 +84,12 @@
   },
   "crimsonEyed:CurseMark": {
     "NAME": "Проклятая Печать",
-    "DESCRIPTION": "Даёт [E] [E]. NL crimsoneyed:Обостряет вашу crimsoneyed:Ненависть.",
-    "UPGRADE_DESCRIPTION": "Даёт [E] [E] [E]. NL crimsoneyed:Обостряет вашу crimsoneyed:Ненависть."
+    "DESCRIPTION": "Даёт [E] [E]. NL crimsoneyed:Обостряет вашу crimsoneyed:Ненависть дважды.",
+    "UPGRADE_DESCRIPTION": "Даёт [E] [E] [E]. NL crimsoneyed:Обостряет вашу crimsoneyed:Ненависть дважды."
   },
   "crimsonEyed:CutDown": {
     "NAME": "Подсечь",
-    "DESCRIPTION": "Наносит !D! урона дважды. NL Если это убивает врага, даёт !M! Силы."
+    "DESCRIPTION": "Наносит !D! урона дважды. NL Если на врага наложена Уязвимость или Слабость, даёт !M! Силы."
   },
   "crimsonEyed:Defend": {
     "NAME": "Оборона",
@@ -120,10 +103,6 @@
     "NAME": "Огненный Дракон",
     "DESCRIPTION": "Сжигает все карты в руке кроме Навыков. NL Наносит !D! урона. NL Сжигается."
   },
-  "crimsonEyed:Endure": {
-    "NAME": "---",
-    "DESCRIPTION": "Lose 2 HP. NL Даёт !B! Защиты."
-  },
   "crimsonEyed:EnduringFlame": {
     "NAME": "Вечный Огонь",
     "DESCRIPTION": "Отнимает 1 ОЗ. NL Даёт !B! Защиты. NL Можно Улучшать неограниченное количество раз."
@@ -132,23 +111,17 @@
     "NAME": "Взгляда",
     "DESCRIPTION": "Даёт !M! Фокуса."
   },
-  "crimsonEyed:EyesWideOpen": {
-    "NAME": "---",
-    "DESCRIPTION": "Даёт !M! temporary Фокуса.",
-    "UPGRADE_DESCRIPTION": "Даёт !M! Фокуса. NL Lose 1 Фокуса at the end of your next !M! turns."
-  },
   "crimsonEyed:Feet": {
     "NAME": "Шага",
     "DESCRIPTION": "Даёт !M! Ловкости."
   },
   "crimsonEyed:FindOpenings": {
     "NAME": "Удачный Дебют",
-    "DESCRIPTION": "Наносит !D! урона. NL Вы Предсказываете !M! карты."
+    "DESCRIPTION": "Наносит !D! урона. NL Вы берёте !M! карту, когда вы разыгрываете Атаки в этом ходу."
   },
   "crimsonEyed:Fireball": {
     "NAME": "Огненный Шар",
-    "DESCRIPTION": "Сжигает карту в руке. NL Наносит ВСЕМ врагам урон, равный !M! -кратной цене Сожжёной карты. NL Сжигается.",
-    "UPGRADE_DESCRIPTION": "Сжигает карту в руке. NL Наносит ВСЕМ врагам урон, равный !M! -кратной цене Сожжёной карты."
+    "DESCRIPTION": "Наносит !D! урона ВСЕМ врагам. NL Наносит по !M! доп. урона за каждую Сожжённую карту. NL Сжигает 1 карту."
   },
   "crimsonEyed:FromDiscardPile": {
     "NAME": "Из Сброса",
@@ -167,34 +140,25 @@
   },
   "crimsonEyed:Fusillade": {
     "NAME": "Расстрел",
-    "DESCRIPTION": "Наносит !D! урона. NL Бьёт 1 дополнительный раз за КАЖДЫЙ Расстрел в колоде.",
-    "UPGRADE_DESCRIPTION": "Наносит !D! урона !M! раза. NL Бьёт 1 дополнительный раз за КАЖДЫЙ Расстрел в колоде."
-  },
-  "crimsonEyed:Gaze": {
-    "NAME": "---",
-    "DESCRIPTION": "Даёт !B! Защиты. NL Даёт 1 Orb slot."
+    "DESCRIPTION": "Наносит !D! урона. NL Вы берёте 1 карту. NL Добавляет в руку свою копию и вы берёте 1 карту, когда Сжигается."
   },
   "crimsonEyed:Genjutsu": {
     "NAME": "Гендзюцу",
-    "DESCRIPTION": "Оставляется. NL Враг теряет !M! Силы. Накладывает !crimsonEyed:M2! Уязвимости. NL Сжигается."
+    "DESCRIPTION": "Враг теряет 1 Силы. NL Накладывает !crimsonEyed:M2! Уязвимости. NL Сжигается."
   },
   "crimsonEyed:Grudge": {
     "NAME": "Обида",
-    "DESCRIPTION": "Добавляет карту *Негодование в руку в начале каждого вашего хода.",
-    "UPGRADE_DESCRIPTION": "Начальная. NL Добавляет карту *Негодование в руку в начале каждого вашего хода."
+    "DESCRIPTION": "Сжигает 1 карту в начале каждого вашего хода.",
+    "UPGRADE_DESCRIPTION": "Начальная. NL Сжигает 1 карту в начале каждого вашего хода."
   },
   "crimsonEyed:Coordination": {
     "NAME": "Координация",
-    "DESCRIPTION": "Эфирная. NL Выберите одно: Даёт !M! Силы или !crimsonEyed:M2! Фокуса.",
-    "UPGRADE_DESCRIPTION": "Выберите одно: Даёт !M! Силы или !crimsonEyed:M2! Фокуса.",
-    "EXTENDED_DESCRIPTION": [
-      "Эфирная. NL Выберите одно: Даёт !M! Силы, !crimsonEyed:M2! Ловкости, или !crimsonEyed:M2! Фокуса.",
-      "Выберите одно: Даёт !M! Силы, !crimsonEyed:M2! Ловкости, или !crimsonEyed:M2! Фокуса."
-    ]
+    "DESCRIPTION": "Выберите одно: Даёт !M! Силы или Фокуса и добавляет *Головокружение в стопку добора.",
+    "UPGRADE_DESCRIPTION": "Выберите одно: Даёт !M! Силы, !M! Ловкости, или !M! Фокуса и добавляет *Головокружение в стопку добора."
   },
   "crimsonEyed:Hatred": {
     "NAME": "Ненависть",
-    "DESCRIPTION": "Отнимает !M! ОЗ в конце вашего хода. NL Не может быть убрана из колоды. NL Сжигается."
+    "DESCRIPTION": "Неиграбельная. NL Отнимает !M! ОЗ и Сжигается в конце вашего хода. NL Не может быть убрана из колоды."
   },
   "crimsonEyed:Hand": {
     "NAME": "Удара",
@@ -202,24 +166,23 @@
   },
   "crimsonEyed:Honoikazuchi": {
     "NAME": "Хонойказучи",
-    "DESCRIPTION": "Разряжает след. в очереди Сферу. NL Наносит ВСЕМ врагам урон, равный мощности разряженной Сферы.",
+    "DESCRIPTION": "Наносит !D! урона за каждую Сферу Тьмы, заряженную в этом бою.",
     "EXTENDED_DESCRIPTION": [
-      " NL (Наносит !D! урона.)"
+      " NL (Заряжено !M! Сфер Тьмы.)"
     ]
   },
   "crimsonEyed:HungerForPower": {
     "NAME": "Жажда Силы",
-    "DESCRIPTION": "Вы берёте 1 карту. NL Вы берёте !M! дополнительную карту за каждый Статус и Проклятие в руке.",
-    "UPGRADE_DESCRIPTION": "Вы берёте 1 card. NL Вы берёте !M! дополнительные NL карты за каждый Статус и Проклятие в руке."
+    "DESCRIPTION": "Вы берёте !M! карты. Сжигает те из них, которые являются Статус или Проклятие, затем возьмите столько же."
   },
   "crimsonEyed:IndraForm": {
     "NAME": "Облик Индры",
-    "DESCRIPTION": "Эфирная. NL Заряжает по 2 Сферу Молний начале каждого вашего хода.",
-    "UPGRADE_DESCRIPTION": "Заряжает по 2 Сферу Молний начале каждого вашего хода."
+    "DESCRIPTION": "Эфирная. NL Заряжает по !M! Сферу Молний начале каждого вашего хода.",
+    "UPGRADE_DESCRIPTION": "Заряжает по !M! Сферу Молний начале каждого вашего хода."
   },
   "crimsonEyed:IndrasArrow": {
     "NAME": "Стрела Индры",
-    "DESCRIPTION": "Стоит на 1 [E] меньше за каждую Заряженную Сферу. NL Наносит !D! урона."
+    "DESCRIPTION": "Стоит на 1 [E] меньше за каждую Заряженную в этом бою Сферу Молнии. NL Наносит !D! урона."
   },
   "crimsonEyed:InfernoStyle": {
     "NAME": "Управление Пламенем",
@@ -227,12 +190,8 @@
   },
   "crimsonEyed:Izanagi": {
     "NAME": "Изанаги",
-    "DESCRIPTION": "Даёт !M! Неосязаемости. NL Отнимает 1 [E] в начале каждого вашего хода.",
-    "UPGRADE_DESCRIPTION": "Оставляется. NL Даёт !M! Неосязаемости. NL Отнимает 1 [E] в начале каждого вашего хода."
-  },
-  "crimsonEyed:Izanami": {
-    "NAME": "---",
-    "DESCRIPTION": "Накладывает !M! crimsoneyed:Fate. NL Даёт 1 less [E] at the start of each turn."
+    "DESCRIPTION": "Даёт !M! Неосязаемости. NL Добавляет в стопку добора карту *Бездна в конце каждого вашего хода.",
+    "UPGRADE_DESCRIPTION": "Оставляется. NL Добавляет в стопку добора карту *Бездна в конце каждого вашего хода."
   },
   "crimsonEyed:Jolt": {
     "NAME": "Разряд",
@@ -240,34 +199,31 @@
   },
   "crimsonEyed:Kagutsuchi": {
     "NAME": "Кагуцучи",
-    "DESCRIPTION": "Активирует пассивный эффект след. в очереди Сферы, когда вы разыгрываете Атаки в этом ходу.",
-    "UPGRADE_DESCRIPTION": "Оставляется. NL Активирует пассивный эффект след. в очереди Сферы, когда вы разыгрываете Атаки в этом ходу."
+    "DESCRIPTION": "Отнимает 1 ОЗ. NL Накладывает 1 Захват цели. NL Разряжает след. в очереди Сферу.",
+    "UPGRADE_DESCRIPTION": "Отнимает 1 ОЗ. NL Накладывает 1 Захват цели. NL Разряжает след. в очереди сферу дважды."
   },
   "crimsonEyed:KagutsuchiChidori": {
     "NAME": "Пламенное Чидори",
-    "DESCRIPTION": "Наносит !D! урона. NL Наносит по !M! доп. урона за каждый вид Заряженных Сфер."
+    "DESCRIPTION": "Наносит !D! урона. NL Выберите одно: Заряжает 1 Сферу Молнии или Сферу Тьмы. NL Сжигается.",
+    "UPGRADE_DESCRIPTION": "Наносит !D! урона. NL Выберите одно: Заряжает 1 Сферу Молнии или Сферу Тьмы.",
+    "EXTENDED_DESCRIPTION": [
+      "Наносит !D! урона. NL Выберите одно: Заряжает 1 Сферу Молнии, Сферу Тьмы, Тьмы Сферу Плазмы. NL Сжигается.",
+      "Наносит !D! урона. NL Выберите одно: Заряжает 1 Сферу Молнии, Сферу Тьмы, Тьмы Сферу Плазмы."
+    ]
   },
   "crimsonEyed:KillingIntent": {
     "NAME": "Намерение Убить",
-    "DESCRIPTION": "crimsoneyed:Обостряет вашу crimsoneyed:Ненависть. NL Накладывает !M! Слабости и Уязвимости.",
-    "UPGRADE_DESCRIPTION": "Начальная. NL crimsoneyed:Обостряет вашу crimsoneyed:Ненависть. NL Накладывает !M! Слабости и Уязвимости."
+    "DESCRIPTION": "Наносит !D! урона. NL Накладывает !M! Слабости и Уязвимости. NL crimsoneyed:Обостряет вашу crimsoneyed:Ненависть.",
+    "UPGRADE_DESCRIPTION": "Наносит !D! урона. NL Накладывает !M! Слабости и !M! Уязвимости."
   },
-  "crimsonEyed:Kirin": {
-    "NAME": "---",
-    "DESCRIPTION": "Заряжает !M! Lightning for each card Exhausted this turn. NL Evoke all your Orbs. NL End your turn.",
-    "UPGRADE_DESCRIPTION": "Заряжает !M! Lightning for each card Exhausted this turn. NL Evoke all your Orbs.",
-    "EXTENDED_DESCRIPTION": [
-      " NL (Exhausted !M! cards.)",
-      " NL (Exhausted !M! card.)"
-    ]
-  },
-  "crimsonEyed:Kirin2": {
+  "crimsonEyed:Kirin3": {
     "NAME": "Кирин",
-    "DESCRIPTION": "Заряжает 1 Сферу Молнии. NL Даёт 1 временного Фокуса за каждую Сожжённую карту. NL Разряжает ВСЕ Сферы."
+    "DESCRIPTION": "Стоит на 1 [E] меньше за каждую Сожжённую карту. NL Заряжает !M! Сферы Молнии. NL Разряжает ВСЕ Сферы. NL Сжигается."
   },
   "crimsonEyed:KnowPain": {
     "NAME": "знать боль",
-    "DESCRIPTION": "Даёт по !M! Защиты в след. ходу за каждую потерю ОЗ."
+    "DESCRIPTION": "Вы crimsoneyed:Обостряет вашу crimsoneyed:Ненависть и берёте 1 карту в начале вашего хода.",
+    "UPGRADE_DESCRIPTION": "Начальная. NL Вы crimsoneyed:Обостряет вашу crimsoneyed:Ненависть и берёте 1 карту в начале вашего хода."
   },
   "crimsonEyed:LionsBarrage": {
     "NAME": "Львиное Комбо",
@@ -275,50 +231,39 @@
   },
   "crimsonEyed:LightningSpeed": {
     "NAME": "Мгновение",
-    "DESCRIPTION": "Заряжет 1 Сферу Молнии, когда вы разыгрываете !M! Атаки в одном ходу."
-  },
-  "crimsonEyed:Mangekyou": {
-    "NAME": "---",
-    "DESCRIPTION": "Отнимает !M! ОЗ и даёт !M! Фокуса в конце каждого вашего хода."
+    "DESCRIPTION": "Даёт !M! Защиты, когда заряжаете Сферу молний.",
+    "UPGRADE_DESCRIPTION": "Начальная. NL Даёт !M! Защиты, когда заряжаете Сферу молний."
   },
   "crimsonEyed:Mangekyou2": {
     "NAME": "Мангекё",
     "DESCRIPTION": "Даёт !M! Фокуса, когда вы теряете ОЗ от карты."
   },
-  "crimsonEyed:MindControl": {
-    "NAME": "---",
-    "DESCRIPTION": "Начальная. NL If the enemy intends to Attack, накладывает !M! Слабости. NL If not, накладывает !M! Уязвимости. NL Сжигается."
-  },
   "crimsonEyed:MindGames": {
     "NAME": "Игры Разума",
-    "DESCRIPTION": "Наносит !D! урона. NL Даёт 1 Силы.",
+    "DESCRIPTION": "Даёт !B! Защиты. NL Если в этом ходу вас было Предсказание, вы получаете !M! Силы.",
     "UPGRADE_DESCRIPTION": "Наносит !D! урона. NL Даёт 1 Силы. NL Возвращается в руку из Стопки сброса после того, как вы Предсказываете."
   },
   "crimsonEyed:OneStepAhead": {
     "NAME": "На Шаг Впереди",
-    "DESCRIPTION": "Наносит !D! урона. NL Вы оставляете до !M! карты в руке в конце этого хода.",
-    "UPGRADE_DESCRIPTION": "Наносит !D! урона. NL Вы оставляете до !M! карты в руке в конце следующих ваших двух ходов."
+    "DESCRIPTION": "Даёт !B! Защиты. NL Вы оставляете до !M! карты в руке в конце этого хода."
   },
   "crimsonEyed:PaperBomb": {
     "NAME": "Взрывная Печать",
-    "DESCRIPTION": "Наносит !D! урона. NL Наносит !M! урона ВСЕМ врагам, когда Сжигается."
+    "DESCRIPTION": "Добавляет в руку !M! *Заточку. NL Наносит !M! урона ВСЕМ врагам, когда Сжигается.",
+    "UPGRADE_DESCRIPTION": "Добавляет в руку !M! *Заточками. NL Наносит !M! урона ВСЕМ врагам, когда Сжигается."
   },
   "crimsonEyed:Parry": {
     "NAME": "Парирование",
-    "DESCRIPTION": "Даёт !B! Защиты. NL Накладывает !M! Слабости, если выбранный враг собирается атаковать."
+    "DESCRIPTION": "Даёт !B! Защиты. NL Накладывает !M! Слабости."
   },
   "crimsonEyed:Perception": {
     "NAME": "Восприятие",
-    "DESCRIPTION": "Начальная. NL Вы берёте !M! карту, когда вы Предсказывате.",
+    "DESCRIPTION": "Вы берёте !M! карту, когда вы Предсказывате.",
     "UPGRADE_DESCRIPTION": "Начальная. NL Вы берёте !M! карты, когда вы Предсказывате."
   },
   "crimsonEyed:PeripheralVision": {
     "NAME": "Переферийное Зрение",
     "DESCRIPTION": "Даёт !B! Защиты за каждого врага в бою."
-  },
-  "crimsonEyed:PhoenixFlower": {
-    "NAME": "---",
-    "DESCRIPTION": "Наносит !D! урона случ. enemy !M! раза. NL Exhaust card в your сбрасывает pile."
   },
   "crimsonEyed:PhoenixFlower2": {
     "NAME": "Цветы Феникса",
@@ -326,16 +271,12 @@
   },
   "crimsonEyed:PlanetaryDevastation": {
     "NAME": "Планетарное Опустошение",
-    "DESCRIPTION": "Даёт 1 Слот для Сфер за каждый уникальный дебафф на врагах. NL Заряжает 1 Сферу Плазмы. NL Сжигается.",
-    "EXTENDED_DESCRIPTION": [
-      "(Даёт !M! Слот для Сфер.) NL ",
-      "(Даёт !M! Слота для Сфер.) NL "
-    ]
+    "DESCRIPTION": "Накладывает !M! Захват цели. NL Добавляет !M! слота для cфер. NL Заряжает 1 Сферу Плазмы. NL Сжигается."
   },
   "crimsonEyed:PullWires": {
     "NAME": "Тянуть за Леску",
-    "DESCRIPTION": "Добавляет в руку !M! *Заточку. NL Вы кладёте выбранную карту из стопки сброса наверх стопки добора.",
-    "UPGRADE_DESCRIPTION": "Добавляет в руку !M! *Заточками. NL Вы кладёте выбранную карту из стопки сброса наверх стопки добора."
+    "DESCRIPTION": "Добавляет в руку !M! *Заточками. NL Вы кладёте выбранную карту из стопки сброса наверх стопки добора.",
+    "UPGRADE_DESCRIPTION": "Добавляет в руку !M! Улучшенную *Заточками. NL Вы кладёте выбранную карту из стопки сброса наверх стопки добора."
   },
   "crimsonEyed:React": {
     "NAME": "Отреагировать",
@@ -370,13 +311,7 @@
   },
   "crimsonEyed:Payback": {
     "NAME": "Расплата",
-    "DESCRIPTION": "Наносит !D! урона. NL Даёт [E] , если вы теряли ОЗ в прошлом ходу.",
-    "UPGRADE_DESCRIPTION": "Наносит !D! урона. NL Даёт [E] [E] , если вы теряли ОЗ в прошлом ходу."
-  },
-  "crimsonEyed:SecretsOfTheUchiha": {
-    "NAME": "---",
-    "DESCRIPTION": "Exhaust all cards в your hand except one. NL Наносит 20 урона. NL Сжигается.",
-    "UPGRADE_DESCRIPTION": "Заряжает 1 Lightning. NL Даёт 1 temporary Фокуса for every 2 cards в your Exhaust pile. NL Evoke all your Orbs. NL End your turn."
+    "DESCRIPTION": "Наносит !D! урона. NL Даёт [E] за каждый дебафф на выбранный враг."
   },
   "crimsonEyed:SeeEverything": {
     "NAME": "Увидеть Всё",
@@ -389,8 +324,8 @@
   },
   "crimsonEyed:Sharingan": {
     "NAME": "Шаринган",
-    "DESCRIPTION": "Накладывает 2 Захват цели. NL Вы Предсказываете !M! карты. NL Вы берёте 1 карту.",
-    "UPGRADE_DESCRIPTION": "Начальная. NL Накладывает 2 Захват цели. NL Вы Предсказываете !M! карты. NL Вы берёте 1 карту."
+    "DESCRIPTION": "Накладывает 2 Захват цели. NL Вы Предсказываете !M! карты.",
+    "UPGRADE_DESCRIPTION": "Начальная. NL Накладывает 2 Захват цели. NL Вы Предсказываете !M! карты. NL crimsoneyed:Обостряет вашу crimsoneyed:Ненависть."
   },
   "crimsonEyed:Shurikenjutsu": {
     "NAME": "Сюрикендзцу",
@@ -399,62 +334,39 @@
   },
   "crimsonEyed:SeverThePast": {
     "NAME": "Отринуть Прошлое",
-    "DESCRIPTION": "Сжигает выбранную карту из стопки сброса.. NL Даёт !M! Защиты каждую Сожжённую карту.",
+    "DESCRIPTION": "Даёт !M! Защиты за каждую Сожжённую карту. NL Сжигает выбранную карту из стопки сброса.",
     "EXTENDED_DESCRIPTION": [
       " NL (Даёт !B! Защиты.)"
     ]
   },
-  "crimsonEyed:SeverThePast2": {
-    "NAME": "---",
-    "DESCRIPTION": "Exhaust cards that перейти в your сбрасывает pile. At the start of your turn, даёт 1 [E] и вы берёте 1 additional card."
-  },
   "crimsonEyed:ShedSkin": {
     "NAME": "Сбросить Кожу",
-    "DESCRIPTION": "Сжигает 1 карту. NL Если это был Статус или Проклятие, даёт [E] [E] !M! и *Регенерации. NL Сжигается."
-  },
-  "crimsonEyed:ShockBlock": {
-    "NAME": "---",
-    "DESCRIPTION": "Даёт !B! Защиты. NL Даёт !M! additional Защиты for each Channeled Lightning."
+    "DESCRIPTION": "Если это был Статус или Проклятие, даёт !M! *Регенерации и Сжигается."
   },
   "crimsonEyed:SixthSense": {
     "NAME": "Шестое Чувство",
-    "DESCRIPTION": "Вы Предсказываете 5 карт. NL Вы берёте !M! карту.",
-    "UPGRADE_DESCRIPTION": "Вы Предсказываете 5 карт. NL Вы берёте !M! карты."
+    "DESCRIPTION": "Даёт !B! Защиты. NL Возвращается в руку из Стопки сброса после того, как вы Предсказываете.",
+    "UPGRADE_DESCRIPTION": "Даёт !B! Защиты. NL Возвращается в руку из Стопки сброса после того, как вы Предсказываете."
   },
   "crimsonEyed:SkeletonShield": {
     "NAME": "Скелет Сусаноо",
     "DESCRIPTION": "Даёт !B! Защиты. NL Даёт !M! Панциря."
   },
-  "crimsonEyed:SkeletonSword": {
-    "NAME": "---",
-    "DESCRIPTION": "Наносит !D! урона. NL Даёт !M! Силы. NL If Fatal, permanently increase this card's Силы by 1."
-  },
   "crimsonEyed:Slash": {
     "NAME": "Рассечь",
     "DESCRIPTION": "Наносит !D! урона."
   },
-  "crimsonEyed:Slaughter": {
-    "NAME": "---",
-    "DESCRIPTION": "Наносит !D! урона twice. NL If Fatal, permanently increase this card's урона by !M!. NL Сжигается."
-  },
   "crimsonEyed:Slither": {
     "NAME": "Скользить",
-    "DESCRIPTION": "Вы берёте !M! карты. NL Добавляет в руку 2 *В *Слизи."
+    "DESCRIPTION": "Вы берёте !M! карты. NL Вы кладёте 2 *В *Cлизи на верх стопки добора."
   },
   "crimsonEyed:SnakeBinding": {
     "NAME": "Змеиный Захват",
-    "DESCRIPTION": "ВСЕ враги теряют !M! Силы до конца своего хода  за каждый ваш Статус и Проклятие. NL Сжигается.",
-    "EXTENDED_DESCRIPTION": [
-      " NL (Они потеряют !crimsonEyed:M2! Силы.)"
-    ]
+    "DESCRIPTION": "ВСЕ враги теряют !M! Силы до конца своего хода. NL Добавляет карту *В *Cлизи в руку."
   },
   "crimsonEyed:SnakeHands": {
     "NAME": "Змеиные Руки",
-    "DESCRIPTION": "Наносит !D! урона за каждый ваш Статус и Проклятие.",
-    "EXTENDED_DESCRIPTION": [
-      " NL (Бьёт !M! раз.)",
-      " NL (Бьёт !M! раза.)"
-    ]
+    "DESCRIPTION": "Наносит !D! урона. NL Бьёт 3 раза, если в вашей руке есть Статус или Проклятье."
   },
   "crimsonEyed:SnakeBite": {
     "NAME": "Змеиный Укус",
@@ -471,8 +383,8 @@
   },
   "crimsonEyed:Spite": {
     "NAME": "Озлобленность",
-    "DESCRIPTION": "Восполняет !M! ОЗ, даёт [E] , и вы берёте 1 карту, когда Казните врага.",
-    "UPGRADE_DESCRIPTION": "Начальная. NL Восполняет !M! ОЗ, даёт [E] , и вы берёте 1 карту, когда Казните врага."
+    "DESCRIPTION": "Эфирная. NL Наносит !D! урона. NL Восполняет ОЗ за весь урон по ОЗ врагов. NL Сжигается.",
+    "UPGRADE_DESCRIPTION": "Наносит !D! урона. NL Восполняет ОЗ за весь урон по ОЗ врагов. NL Сжигается."
   },
   "crimsonEyed:Strike": {
     "NAME": "Удар",
@@ -484,16 +396,12 @@
   },
   "crimsonEyed:SummonWeapons": {
     "NAME": "Призыв: Сюрикены",
-    "DESCRIPTION": "Начальная. NL Добавляет в руку !M! *Заточек. NL Сжигается."
+    "DESCRIPTION": "Начальная. NL Добавляет в руку !M! *Заточек. NL Сжигается.",
+    "UPGRADE_DESCRIPTION": "Начальная. NL Добавляет в руку !M! *Заточек."
   },
   "crimsonEyed:SureFire": {
     "NAME": "Выстрел Наверняка",
     "DESCRIPTION": "Наносит !D! урона. NL Если на врага наложена Захват цели, то вы получаете [E] и берёте 1 карту."
-  },
-  "crimsonEyed:Surveil": {
-    "NAME": "---",
-    "DESCRIPTION": "Scry equal to the number of cards в your hand.",
-    "UPGRADE_DESCRIPTION": "Scry equal to the number of cards в your hand +3."
   },
   "crimsonEyed:Susanoo": {
     "NAME": "Сусаноо",
@@ -501,12 +409,12 @@
   },
   "crimsonEyed:Tomoe": {
     "NAME": "Томое",
-    "DESCRIPTION": "Даёт 1 Слот для Сфер. NL Добавляет *Головокружение в стопку сброса.",
-    "UPGRADE_DESCRIPTION": "Даёт 1 Слот для Сфер. NL Заряжает случ. Сферу. NL Добавляет *Головокружение в стопку сброса."
+    "DESCRIPTION": "Вы Предсказываете !M! карт. NL Даёт 1 Фокуса, если есть нет пустые слоты для сфер.",
+    "UPGRADE_DESCRIPTION": "Вы Предсказываете !M! карт. NL Даёт 1 Фокуса, если есть нет пустые слоты для сфер."
   },
   "crimsonEyed:Tsukuyomi": {
     "NAME": "Цукуёми",
-    "DESCRIPTION": "Отнимает 2 ОЗ. NL Враг теряет !M! ОЗ за каждый дебафф на нём."
+    "DESCRIPTION": "Отнимает 2 ОЗ. NL Накладывает !crimsonEyed:M2! Уязвимости. NL Враг теряет !M! ОЗ за каждый дебафф на нём."
   },
   "crimsonEyed:UniversalPull": {
     "NAME": "Баншоо Тенъин",
@@ -515,38 +423,31 @@
   },
   "crimsonEyed:Vantage": {
     "NAME": "Преимущество",
-    "DESCRIPTION": "Начальная. NL Вы Предсказываете !M! карты. Даёт !B! Защиты сброшенную при этом карту."
-  },
-  "crimsonEyed:Vengeance": {
-    "NAME": "---",
-    "DESCRIPTION": "Эфирная. NL Наносит урона equal your missing HP. NL Сжигается.",
-    "UPGRADE_DESCRIPTION": "Наносит урона equal your missing HP. NL Сжигается.",
-    "EXTENDED_DESCRIPTION": [
-      " NL (Deals !D! damage.)"
-    ]
+    "DESCRIPTION": "Начальная. NL Вы Предсказываете !M! карт. NL Даёт [E]. NL Сжигается.",
+    "UPGRADE_DESCRIPTION": "Начальная. NL Вы Предсказываете !M! карт. NL Даёт [E] [E]. NL Сжигается."
   },
   "crimsonEyed:ViciousStrike": {
     "NAME": "Беспощадный Удар",
-    "DESCRIPTION": "Наносит !D! урона. NL crimsoneyed:Обостряет вашу crimsoneyed:Ненависть."
+    "DESCRIPTION": "Наносит !D! урона. NL Вы берёте 1 карту. NL crimsoneyed:Обостряет вашу crimsoneyed:Ненависть."
   },
   "crimsonEyed:WatchOut": {
     "NAME": "Бдительность",
     "DESCRIPTION": "Даёт !B! Защиты. NL Накладывает !M! Захват цели на ВСЕХ врагов."
   },
-  "crimsonEyed:YasakaMagatama": {
-    "NAME": "---",
-    "DESCRIPTION": "Наносит !D! урона случ. enemy !M! раза. NL Фокуса affects this card.",
-    "UPGRADE_DESCRIPTION": "Наносит !D! урона случ. enemy !M! раза. NL Фокуса affects this card 3 раза."
-  },
   "crimsonEyed:YasakaMagatama2": {
     "NAME": "Ясака но Магатама",
-    "DESCRIPTION": "Наносит !D! урона за каждую Сферу Тьмы, заряженную в этом бою.",
-    "EXTENDED_DESCRIPTION": [
-      " NL (Заряжено !M! Сфер Тьмы.)"
-    ]
+    "DESCRIPTION": "Наносит !D! урона и накладывает !M! Слабости случ. врагу 3 раза. NL Добавляет *Ожог в стопку сброса."
   },
-  "crimsonEyed:ZeroIn": {
-    "NAME": "Zero In",
-    "DESCRIPTION": "Наносит !D! урона. NL Накладывает !M! Lock-On."
+  "crimsonEyed:LightningChoice": {
+    "NAME": "Lightning",
+    "DESCRIPTION": "Channel 1 Lightning."
+  },
+  "crimsonEyed:DarkChoice": {
+    "NAME": "Dark",
+    "DESCRIPTION": "Channel 1 Dark."
+  },
+  "crimsonEyed:PlasmaChoice": {
+    "NAME": "Plasma",
+    "DESCRIPTION": "Channel 1 Plasma."
   }
 }

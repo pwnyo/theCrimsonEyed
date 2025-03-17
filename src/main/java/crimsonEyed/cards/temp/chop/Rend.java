@@ -19,8 +19,6 @@ public class Rend extends AbstractDynamicCard {
     public static final String ID = SasukeMod.makeID(Rend.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
     public static final String IMG = makeCardPath("Rend.png");
 
-    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-
     // /TEXT DECLARATION/
 
 
@@ -32,7 +30,7 @@ public class Rend extends AbstractDynamicCard {
     public static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = -2;
-    private static final int DAMAGE = 9;
+    private static final int DAMAGE = 10;
     private AbstractMonster target;
 
     // /STAT DECLARATION/
@@ -75,7 +73,7 @@ public class Rend extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(3);
+            upgradeDamage(4);
             recalc();
             initializeDescription();
         }

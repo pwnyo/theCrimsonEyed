@@ -1,11 +1,4 @@
 {
-        "crimsonEyed:AmaterasuBarrierPower": {
-                "NAME": "DEPRECATED:Amaterasu Barrier",
-                "DESCRIPTIONS": [
-                        "Whenever you take unblocked Attack damage, #yChannel #b",
-                        " #yDark. (Wears off at the end of your turn.)"
-                ]
-        },
         "crimsonEyed:BlazeBarrierPower": {
                 "NAME": "Blaze Barrier",
                 "DESCRIPTIONS": [
@@ -21,14 +14,6 @@
                         "At the end of your turn, shuffle a #yVoid into your draw pile."
                 ]
         },
-        "crimsonEyed:CommonPower": {
-                "NAME": "DEPRECATED:Placeholder Power",
-                "DESCRIPTIONS": [
-                        "You applied #b",
-                        " keyword.",
-                        " keywords."
-                ]
-        },
         "crimsonEyed:ElectrifyPower": {
                 "NAME": "Electrify",
                 "DESCRIPTIONS": [
@@ -37,26 +22,11 @@
                         "#yLightning hits ALL enemies this turn."
                 ]
         },
-        "crimsonEyed:ExplosivePower": {
-                "NAME": "DEPRECATED:Explosive",
-                "DESCRIPTIONS": [
-                        "The next time you #yExhaust a card, enemy takes #b",
-                        " damage."
-                ]
-        },
         "crimsonEyed:ExhaustDamagePower": {
                 "NAME": "Phoenix Flower",
                 "DESCRIPTIONS": [
                         "Whenever you #yExhaust a card, deal #b",
                         " damage to a random enemy."
-                ]
-        },
-        "crimsonEyed:FatePower": {
-                "NAME": "DEPRECATED:Fate",
-                "DESCRIPTIONS": [
-                        "Negates #b",
-                        " buff.",
-                        " buffs."
                 ]
         },
         "crimsonEyed:FindOpeningsPower": {
@@ -67,26 +37,12 @@
                         " cards."
                 ]
         },
-        "crimsonEyed:GradualFocusLossPower": {
-                "NAME": "DEPRECATED:Strain",
-                "DESCRIPTIONS": [
-                        "At the end of your turn, lose #b1 #yFocus and reduce #yStrain by #b1."
-                ]
-        },
         "crimsonEyed:GrudgePower": {
                 "NAME": "Grudge",
                 "DESCRIPTIONS": [
                         "At the start of your turn, #yExhaust #b",
                         " card.",
                         " cards."
-                ]
-        },
-        "crimsonEyed:GrudgePower2": {
-                "NAME": "Grudge",
-                "DESCRIPTIONS": [
-                        "At the start of your turn, #yExhaust the top card of your draw pile.",
-                        "At the start of your turn, #yExhaust the top #b",
-                        " cards of your draw pile."
                 ]
         },
         "crimsonEyed:IndraFormPower": {
@@ -118,21 +74,6 @@
                         " #yFocus."
                 ]
         },
-        "crimsonEyed:MandaPower": {
-                "NAME": "DEPRECATED:Manda",
-                "DESCRIPTIONS": [
-                        "The next #b",
-                        " times you would die this combat, heal to #b20% HP instead and lose #b1 Manda."
-                ]
-        },
-        "crimsonEyed:MangekyouPower": {
-                "NAME": "DEPRECATED:Mangekyou",
-                "DESCRIPTIONS": [
-                        "At the end of your turn, lose #b",
-                        " HP and gain #b",
-                        " #yFocus."
-                ]
-        },
         "crimsonEyed:MangekyouPower2": {
                 "NAME": "Mangekyou",
                 "DESCRIPTIONS": [
@@ -156,21 +97,6 @@
                         " cards."
                 ]
         },
-        "crimsonEyed:PunishmentPower": {
-                "NAME": "DEPRECATED:Tsukuyomi",
-                "DESCRIPTIONS": [
-                        "At the start of its turn, loses #b",
-                        " HP for each of its debuffs."
-                ]
-        },
-        "crimsonEyed:RarePower": {
-                "NAME": "DEPRECATED:Placeholder Power",
-                "DESCRIPTIONS": [
-                        "At the start of your turn, TOUCH #b",
-                        " enemy.",
-                        " enemies."
-                ]
-        },
         "crimsonEyed:KnowPainPower": {
                 "NAME": "Know Pain",
                 "DESCRIPTIONS": [
@@ -184,19 +110,6 @@
                 "DESCRIPTIONS": [
                         "Whenever you draw a #yStatus or #yCurse card, gain #b",
                         " #yStrength."
-                ]
-        },
-        "crimsonEyed:RevolutionPower2": {
-                "NAME": "Revolution",
-                "DESCRIPTIONS": [
-                        "Whenever you #yIntensify your #yHatred, gain #b",
-                        " #yStrength."
-                ]
-        },
-        "crimsonEyed:SeverThePastPower": {
-                "NAME": "Sever the Past",
-                "DESCRIPTIONS": [
-                        "Exhaust any card that enters your discard pile. At the start of your turn, gain #yBlock equal to the number of cards in your #yExhaust pile."
                 ]
         },
         "crimsonEyed:SpitePower": {

@@ -1,11 +1,4 @@
 ﻿{
-        "crimsonEyed:AmaterasuBarrierPower": {
-                "NAME": "Amaterasu Barrier",
-                "DESCRIPTIONS": [
-                        "Whenever you take unblocked Attack damage, #yChannel #b",
-                        " #yDark. (Wears off at the end of your turn.)"
-                ]
-        },
         "crimsonEyed:BlazeBarrierPower": {
                 "NAME": "Окружающее Пламя",
                 "DESCRIPTIONS": [
@@ -13,12 +6,12 @@
                         " #yОгненного #yБарьера, когда активируется пассивный эффект #yСферы #yТьмы."
                 ]
         },
-        "crimsonEyed:CommonPower": {
-                "NAME": "Placeholder Power",
+        "crimsonEyed:BlindedPower": {
+                "NAME": "Ослепленный",
                 "DESCRIPTIONS": [
-                        "You applied #b",
-                        " keyword.",
-                        " keywords."
+                        "Добавляет #b",
+                        " карту #yБездна в стопку добора в конце вашего хода.",
+                        " карты #yБездна в стопку добора в конце вашего хода."
                 ]
         },
         "crimsonEyed:ElectrifyPower": {
@@ -43,26 +36,20 @@
                         " урона случаному врагу, когда вы #yСжигаете Карту."
                 ]
         },
-        "crimsonEyed:FatePower": {
-                "NAME": "Fate",
+        "crimsonEyed:FindOpeningsPower": {
+                "NAME": "Find Openings",
                 "DESCRIPTIONS": [
-                        "Negates #b",
-                        " buff.",
-                        " buffs."
-                ]
-        },
-        "crimsonEyed:GradualFocusLossPower": {
-                "NAME": "Strain",
-                "DESCRIPTIONS": [
-                        "At the end of your turn, lose #b1 #yFocus and reduce #yStrain by #b1."
+                        "Даёт #b",
+                        " карту, когда вы разыгрываете #yАтаки в этом ходу.",
+                        " карты, когда вы разыгрываете #yАтаки в этом ходу."
                 ]
         },
         "crimsonEyed:GrudgePower": {
                 "NAME": "Grudge",
                 "DESCRIPTIONS": [
-                        "At the start of your turn, add a #b",
-                        " #yResentments into your hand.",
-                        " #yResentment into your hand."
+                        "Сжигает #b",
+                        " карту в начале каждого вашего хода.",
+                        " карты в начале каждого вашего хода."
                 ]
         },
         "crimsonEyed:IndraFormPower": {
@@ -83,17 +70,16 @@
         "crimsonEyed:KnowPainPower": {
                 "NAME": "знать боль",
                 "DESCRIPTIONS": [
-                        "Даёт по #b",
-                        " #yЗащиты в след. ходу за каждую потерю ОЗ."
+                        "Вы #yОбостряет вашу #yНенависть и берёте #b",
+                        " карту в начале вашего хода.",
+                        " карты в начале вашего хода."
                 ]
         },
         "crimsonEyed:LightningSpeedPower": {
                 "NAME": "Мгновение",
                 "DESCRIPTIONS": [
-                        "Если вы сыграете ещё #b",
-                        " #yАтаки в этом ходу, #yЗаряжает #b",
-                        " #yСферу(ы) #yМолнии.",
-                        " #yАтаку в этом ходу, #yЗаряжает #b"
+                        "Даёт #b",
+                        " #yЗащиты, когда заряжаете #yСферуNBSPмолний."
                 ]
         },
         "crimsonEyed:LoseFocusPower": {
@@ -101,21 +87,6 @@
                 "DESCRIPTIONS": [
                         "Отнимает #b",
                         " #yФокуса в конце этого хода."
-                ]
-        },
-        "crimsonEyed:MandaPower": {
-                "NAME": "Manda",
-                "DESCRIPTIONS": [
-                        "The next #b",
-                        " times you would die this combat, heal to #b20% HP instead and lose #b1 Manda."
-                ]
-        },
-        "crimsonEyed:MangekyouPower": {
-                "NAME": "Mangekyou",
-                "DESCRIPTIONS": [
-                        "At the end of your turn, lose #b",
-                        " HP and gain #b",
-                        " #yFocus."
                 ]
         },
         "crimsonEyed:MangekyouPower2": {
@@ -128,9 +99,9 @@
         "crimsonEyed:OneStepAheadPower": {
                 "NAME": "На Шаг Впереди",
                 "DESCRIPTIONS": [
-                        "Вы #yОставляете до #b1 карты в конце следующих #b",
-                        " ходов.",
-                        "Вы #yОставляете до #b1 карты в конце этого хода."
+                        "Вы #yОставляете до #b",
+                        " карту в конце этого хода.",
+                        " карты в конце этого хода."
                 ]
         },
         "crimsonEyed:PerceptionPower": {
@@ -148,32 +119,11 @@
                         " ОЗ за каждый дебафф в начале своего хода."
                 ]
         },
-        "crimsonEyed:RarePower": {
-                "NAME": "Placeholder Power",
-                "DESCRIPTIONS": [
-                        "At the start of your turn, TOUCH #b",
-                        " enemy.",
-                        " enemies."
-                ]
-        },
-        "crimsonEyed:ResentmentPower": {
-                "NAME": "Resentment",
-                "DESCRIPTIONS": [
-                        "Whenever you lose HP, gain #b",
-                        " #yBlock next turn."
-                ]
-        },
         "crimsonEyed:RevolutionPower": {
                 "NAME": "Революция!",
                 "DESCRIPTIONS": [
                         "Даёт #b",
                         " #yСилы, когда вы берёте #yСтатус или #yПроклятье."
-                ]
-        },
-        "crimsonEyed:SeverThePastPower": {
-                "NAME": "Sever the Past",
-                "DESCRIPTIONS": [
-                        "Exhaust any card that enters your discard pile. At the start of your turn, gain #yBlock equal to the number of cards in your #yExhaust pile."
                 ]
         },
         "crimsonEyed:SpitePower": {
@@ -184,12 +134,12 @@
                 ]
         },
         "crimsonEyed:SpaceTimePower": {
-                "NAME": "Universal Pull",
+                "NAME": "Баншоо Тенъин",
                 "DESCRIPTIONS": [
-                        "In #b",
-                        " turn, add ",
-                        " into your hand.",
-                        " turns, add "
+                        "Через #b",
+                        " ход кладёте ",
+                        " в руку.",
+                        " хода кладёте "
                 ]
         }
 }

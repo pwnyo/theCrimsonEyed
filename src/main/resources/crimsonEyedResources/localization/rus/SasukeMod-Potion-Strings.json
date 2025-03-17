@@ -1,12 +1,12 @@
 ﻿{
 
+        "crimsonEyed:CoordinationPotion": {
+                "NAME": "Зелье Координация",
+                "DESCRIPTIONS": ["Даёт #b"," #yСилы и #yФокуса."]
+        },
         "crimsonEyed:ParalysisPotion": {
                 "NAME": "Зелье Паралича",
                 "DESCRIPTIONS": ["Отнимает у врага #b", " Силы."]
-        },
-        "crimsonEyed:PlaceholderPotion": {
-                "NAME": "Placeholder Potion",
-                "DESCRIPTIONS": ["Gain ", " At the end of your turn, lose ", " Strength."]
         },
         "crimsonEyed:ScryPotion": {
                 "NAME": "Зелье Предсказания",
