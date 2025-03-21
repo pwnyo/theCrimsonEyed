@@ -1,134 +1,86 @@
 {
-  "crimsonEyed:PlaceholderRelic": {
-    "NAME": "萬蛇",
-    "FLAVOR": "通靈獸伙伴.",
-    "DESCRIPTIONS": [
-      "獲得 #b1 [E] ."
-    ]
-  },
-  "crimsonEyed:PlaceholderRelic2": {
-    "NAME": "天之咒印",
-    "FLAVOR": "力量正在湧现.",
-    "DESCRIPTIONS": [
-      "每場戰鬥開始, 獲得 #b1 點 #y力量 ."
-    ]
-  },
-  "crimsonEyed:DefaultClickableRelic": {
-    "NAME": "寫輪眼-開眼",
-    "FLAVOR": "右擊,發動寫輪眼!",
-    "DESCRIPTIONS": [
-      "[#2aecd7]每 [#2aecd7]回合 [#2aecd7]可用 [#2aecd7]一次.[] NL #y激發 最右側的充能球.",
-      "你是我的了!"
-    ]
-  },
-  "crimsonEyed:BottledPlaceholderRelic": {
-    "NAME": "瓶裝忍術",
-    "FLAVOR": "這是甚麼忍術?",
-    "DESCRIPTIONS": [
-      "選擇一張牌. 打出任意牌時, 抽取該牌.",
-      "打出任意牌時, 抽取該牌",
-      ".",
-      "選擇一張牌裝入 "
-    ]
-  },
-  "crimsonEyed:CrimsonEye": {
-    "NAME": "寫輪眼",
-    "FLAVOR": "那隻眼.閃爍着血红色.",
-    "DESCRIPTIONS": [
-      "每場戰鬥開始, 對所有敵人施加 #b1 層 #y跟踪鎖定 ."
-    ]
-  },
   "crimsonEyed:CrimsonEye2": {
     "NAME": "寫輪眼",
-    "FLAVOR": "仇恨遮蔽了你的雙眼. 你卻仍能洞察一切真實與虛妄.",
+    "FLAVOR": "仇恨遮蔽了你的雙眼。 你卻仍能洞察一切真實與虛妄。",
     "DESCRIPTIONS": [
-      "當你的血量低於 #b50%, 獲得 #b",
-      " 層額外 #y集中 ."
+      "當你的血量低於 #b50%， 獲得 #b",
+      " 層額外 #y集中 和 #y力量 。"
     ]
   },
   "crimsonEyed:CrowFeather": {
     "NAME": "鴉羽",
     "FLAVOR": "你的手心能感受到它的温度, 可這就是真實吗?",
     "DESCRIPTIONS": [
-      "當你對敵人施加負面效果, 獲得 #b",
-      "點 #y格擋."
+      "當你對敵人施加負面效果， 獲得 #b",
+      "點 #y格擋 。"
     ]
   },
   "crimsonEyed:EternalEye": {
     "NAME": "輪回眼",
-    "FLAVOR": "沖破黑暗,覺醒輪回眼.",
+    "FLAVOR": "沖破黑暗,覺醒輪回眼。",
     "DESCRIPTIONS": [
-      "替换 #y寫輪眼 . 每場戰鬥開始獲得 #b",
-      "層 #y集中 ."
+      "替换 #y寫輪眼 。 當你的血量低於 #b50%， 獲得 #b",
+      " 層額外 #y集中 和 #y力量 。"
     ]
   },
   "crimsonEyed:BlueScale": {
     "NAME": "藍色印记",
-    "FLAVOR": "藍蛇印记. 它喚醒了你的某些部分，而其他力量卻被掩埋.",
+    "FLAVOR": "藍蛇印记。 它喚醒了你的某些部分，而其他力量卻被掩埋。",
     "DESCRIPTIONS": [
-      "如果牌组中有 #b",
-      " 張及以上的 #r詛咒 , 每回合開始獲得 [E] ."
+      "每回合第一次狀態 或 詛咒 牌時，獲得 [E] 。"
     ]
   },
   "crimsonEyed:CherryBlossom": {
     "NAME": "樱花綻放",
-    "FLAVOR": "PLACEHOLDER.",
+    "FLAVOR": "綻放。",
     "DESCRIPTIONS": [
-      "#y消耗 #b",
-      " 牌時,獲得 #b1 充能球欄位和 #b1 點 #y力量 ."
+      "每回合第一次 #y消耗 #b",
+      " 牌時，回復 #b",
+      " 點生命。"
     ]
   },
   "crimsonEyed:NohMask": {
     "NAME": "能面",
-    "FLAVOR": "死神的面具. 戴上它的人,將在生與死之間游走.",
+    "FLAVOR": "死神的面具。 戴上它的人,將在生與死之間游走。",
     "DESCRIPTIONS": [
-      "带有'選擇'的牌將有 #b3 種選擇."
+      "带有'選擇'的牌將有 #b3 種選擇。"
     ]
   },
   "crimsonEyed:PaperSnek": {
     "NAME": "紙蛇",
-    "FLAVOR": "褶皺的曲線勾勒出某種扭動生物的輪廓.",
+    "FLAVOR": "褶皺的曲線勾勒出某種扭動生物的輪廓。",
     "DESCRIPTIONS": [
-      "带有#y跟踪鎖定 的敵人將承受 #b75% 額外傷害."
+      "带有#y跟踪鎖定 的敵人將承受 #b75% 額外傷害。"
     ]
   },
   "crimsonEyed:Kaleidoscope": {
     "NAME": "永恒萬花筒寫輪眼",
-    "FLAVOR": "無窮無盡的色彩.",
+    "FLAVOR": "無窮無盡的色彩。",
     "DESCRIPTIONS": [
       "戰鬥開始時, 對所有敵人施加 #b",
-      " 層 #y跟踪鎖定 ."
+      " 層 #y跟踪鎖定 。"
     ]
   },
   "crimsonEyed:ScratchedHeadband": {
     "NAME": "叛忍護額",
-    "FLAVOR": "羈絆與情誼曾經扭曲, 卻從未斷裂. 你緊握住它,終有一日再戴上.",
+    "FLAVOR": "羈絆與情誼曾經扭曲, 卻從未斷裂。 你緊握住它,終有一日再戴上。",
     "DESCRIPTIONS": [
-      "將所有#y仇恨 轉化為 #y不息烈火 . #y激化咒印 改為增益 #y不息烈火 ."
+      "將所有#y仇恨 轉化為 #y不息烈火+ 。 #y激化咒印 改為增益 #y不息烈火 。"
     ]
   },
   "crimsonEyed:StoneTablet": {
     "NAME": "石碑",
-    "FLAVOR": "碑上的預言是一種你從未見過的語言.可不知為何,你卻能理解它....",
+    "FLAVOR": "碑上的預言是一種你從未見過的語言。可不知為何,你卻能理解它……",
     "DESCRIPTIONS": [
-      "如果你上回合失去了生命, 本回合 #y預見 #b",
-      " 張牌."
-    ]
-  },
-  "crimsonEyed:StoneTabletOLD": {
-    "NAME": "Stone Tablet",
-    "FLAVOR": "A prophecy is inscribed in a language you've never seen before. Somehow, you can read it.",
-    "DESCRIPTIONS": [
-      "Every time you #yScry #b",
-      " times, deal #b",
-      " damage to ALL enemies."
+      "如果你上回合失去了生命， 本回合 #y預見 #b",
+      " 張牌。"
     ]
   },
   "crimsonEyed:Uchiwa": {
     "NAME": "團扇",
-    "FLAVOR": "一個紙扇.曾用於指挥士兵.",
+    "FLAVOR": "一個紙扇。曾用於指挥士兵。",
     "DESCRIPTIONS": [
-      "戰鬥開始時, 每有一張#y固有 牌,就抽 #b1 張牌."
+      "戰鬥開始時， 每有一張 #y固有 牌，就抽 #b1 張牌。"
     ]
   }
 }

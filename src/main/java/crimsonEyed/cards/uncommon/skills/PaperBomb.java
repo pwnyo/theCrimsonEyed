@@ -45,6 +45,7 @@ public class PaperBomb extends AbstractDynamicCard {
         baseMagicNumber = magicNumber = 12;
         baseMagicNumber2 = magicNumber2 = 1;
         isMultiDamage = true;
+        cardsToPreview = new Shiv();
     }
 
 

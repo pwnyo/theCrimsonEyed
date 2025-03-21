@@ -1,23 +1,5 @@
 [
   {
-    "NAMES": [
-      "keyword",
-      "keywords"
-    ],
-    "DESCRIPTION": "打出牌后，本回合获得1敏捷 (不叠加)."
-  },
-  {
-    "PROPER_NAME": "Multiword Keyword",
-    "NAMES": [
-      "Multiword Keyword",
-      "multiword_keyword",
-      "multiword_keywords",
-      "multikey",
-      "multikeyword"
-    ],
-    "DESCRIPTION": "Make sure the first element in the NAMES is the same as your PROPER_NAME. The rest is to match keywords like the single word keyword."
-  },
-  {
     "PROPER_NAME": "炸裂火焰",
     "NAMES": [
       "炸裂火焰"

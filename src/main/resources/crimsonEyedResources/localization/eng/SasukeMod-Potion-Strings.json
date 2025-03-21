@@ -7,10 +7,6 @@
                 "NAME": "Paralysis Potion",
                 "DESCRIPTIONS": ["Enemy loses #b", " Strength."]
         },
-        "crimsonEyed:PlaceholderPotion": {
-                "NAME": "DEPRECATED:Placeholder Potion",
-                "DESCRIPTIONS": ["Gain ", " At the end of your turn, lose ", " Strength."]
-        },
         "crimsonEyed:ScryPotion": {
                 "NAME": "Scry Potion",
                 "DESCRIPTIONS": ["#yScry #b", ". Draw 1 additional card next turn."]

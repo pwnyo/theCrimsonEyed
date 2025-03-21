@@ -1,23 +1,5 @@
 [
   {
-    "NAMES": [
-      "keyword",
-      "keywords"
-    ],
-    "DESCRIPTION": "打出牌後,本回合獲得1敏捷 (不疊加)."
-  },
-  {
-    "PROPER_NAME": "Multiword Keyword",
-    "NAMES": [
-      "Multiword Keyword",
-      "multiword_keyword",
-      "multiword_keywords",
-      "multikey",
-      "multikeyword"
-    ],
-    "DESCRIPTION": "Make sure the first element in the NAMES is the same as your PROPER_NAME. The rest is to match keywords like the single word keyword."
-  },
-  {
     "PROPER_NAME": "炸裂火焰",
     "NAMES": [
       "炸裂火焰"
@@ -51,6 +33,6 @@
     "NAMES": [
       "激化咒印"
     ],
-    "DESCRIPTION": "將所有 #y憎恨 加入手牌並升級. 如果你没有憎恨,則生成一張加入手牌."
+    "DESCRIPTION": "升級 所有手 #y憎恨 . 抽所有 #y憎恨 . 如果你没有憎恨,則生成一張加入手牌."
   }
 ]

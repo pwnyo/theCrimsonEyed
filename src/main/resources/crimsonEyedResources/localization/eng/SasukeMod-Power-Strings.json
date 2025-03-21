@@ -119,13 +119,6 @@
                         " HP."
                 ]
         },
-        "crimsonEyed:SpitePower2": {
-                "NAME": "Spite",
-                "DESCRIPTIONS": [
-                        "Whenever you attack this enemy this turn, heal #b",
-                        " HP."
-                ]
-        },
         "crimsonEyed:SpaceTimePower": {
                 "NAME": "Universal Pull",
                 "DESCRIPTIONS": [
