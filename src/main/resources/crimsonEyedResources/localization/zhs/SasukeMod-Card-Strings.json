@@ -117,7 +117,7 @@
   },
   "crimsonEyed:Eye": {
     "NAME": "开眼",
-    "DESCRIPTION": "获得 !M! 层 集中 。 将一张 *晕眩 放入你的抽牌堆中。"
+    "DESCRIPTION": "获得 !M! 层 集中 。 NL 将一张 *晕眩 放入你的抽牌堆中。"
   },
   "crimsonEyed:Feet": {
     "NAME": "迅捷",
@@ -396,7 +396,7 @@
   },
   "crimsonEyed:SpaceTime": {
     "NAME": "轮回眼·时空间之术",
-    "DESCRIPTION": " 保留 。 NL 选择：NL 将 *万象天引 或 *天手力 加入手牌。",
+    "DESCRIPTION": " 保留 。 NL 选择： NL 将 *万象天引 或 *天手力 加入手牌。",
     "UPGRADE_DESCRIPTION": " 保留 。 NL 选择：NL 将 *万象天引+ 或 *天手力+ 加入手牌。",
     "EXTENDED_DESCRIPTION": [
       " 保留 。 NL 选择：NL 将 *万象天引 或 *天手力 或*神罗天征 加入手牌。",

@@ -113,7 +113,7 @@
   },
   "crimsonEyed:Eye": {
     "NAME": "開眼",
-    "DESCRIPTION": "獲得 !M! 集中 。 點傷害 NL 將1張 *暈眩 放入抽牌堆。"
+    "DESCRIPTION": "獲得 !M! 集中 。 NL 點傷害 將1張 *暈眩 放入抽牌堆。"
   },
   "crimsonEyed:Feet": {
     "NAME": "迅捷",
