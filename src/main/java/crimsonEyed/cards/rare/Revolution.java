@@ -9,7 +9,6 @@ import crimsonEyed.SasukeMod;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
 import crimsonEyed.powers.RevolutionPower;
-import crimsonEyed.powers.RevolutionPower2;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
 

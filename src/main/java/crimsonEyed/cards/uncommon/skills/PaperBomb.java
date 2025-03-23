@@ -1,6 +1,5 @@
 package crimsonEyed.cards.uncommon.skills;
 
-import basemod.patches.whatmod.CardView;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;

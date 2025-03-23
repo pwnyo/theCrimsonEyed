@@ -347,7 +347,7 @@
   },
   "crimsonEyed:Sharingan": {
     "NAME": "写轮眼",
-    "DESCRIPTION": "施加2层 跟踪锁定。 NL 预见 !M!。 NL 抽1张牌。",
+    "DESCRIPTION": "施加2层 跟踪锁定。 NL 预见 !M!。",
     "UPGRADE_DESCRIPTION": " 固有 。 NL 施加2层 跟踪锁定。 NL 预见 !M!。 NL crimsoneyed:激化咒印 所有 crimsoneyed:仇恨 。"
   },
   "crimsonEyed:Shurikenjutsu": {
