@@ -48,7 +48,7 @@ public class Slither extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DrawCardAction(magicNumber));
-        addToBot(new MakeTempCardAtTopOfDeckAction(new Slimed(), 2));
+        addToBot(new MakeTempCardAtTopOfDeckAction(new Slimed(), 1));
     }
 
     // Upgraded stats.

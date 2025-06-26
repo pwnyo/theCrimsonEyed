@@ -44,8 +44,8 @@ public class Kagutsuchi extends AbstractDynamicCard {
 
     public Kagutsuchi() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        baseMagicNumber = magicNumber = 1;
         showEvokeValue = true;
-        showEvokeOrbCount = 1;
     }
 
 

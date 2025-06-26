@@ -14,7 +14,7 @@
                 ]
         },
         "crimsonEyed:BlindedPower": {
-                "NAME": "Blinded",
+                "NAME": "失明",
                 "DESCRIPTIONS": [
                         "在你的回合结束时，在你的抽牌堆中加入 #b",
                         " 张 #y虚空。",
@@ -54,7 +54,7 @@
         "crimsonEyed:GrudgePower": {
                 "NAME": "滔天恨意",
                 "DESCRIPTIONS": [
-                        "回合开始时，消耗 #b",
+                        "在你的回合结束时，消耗 #b",
                         " 张牌。",
                         " 张牌。"
                 ]

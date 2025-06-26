@@ -1,4 +1,4 @@
-package crimsonEyed.cards.unused;
+package crimsonEyed.cards.temp;
 
 import basemod.AutoAdd;
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;

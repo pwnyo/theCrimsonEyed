@@ -39,8 +39,8 @@ public class CrowFeather extends CustomRelic implements OnApplyPowerRelic {
         if (power.type == AbstractPower.PowerType.DEBUFF && !power.ID.equals("Shackled") &&
                 source instanceof AbstractPlayer && target instanceof AbstractMonster && !target.hasPower(ArtifactPower.POWER_ID)) {
             flash();
-            addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-            addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, BLOCK, true));
+            addToTop(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, BLOCK, true));
+            addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
         }
         return true;
     }

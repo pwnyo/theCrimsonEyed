@@ -49,7 +49,7 @@ public class PlanetaryDevastation extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(m, p, new LockOnPower(m, 99)));
-        addToBot(new PlanetaryDevastationAction(m));
+        addToBot(new PlanetaryDevastationAction(m, magicNumber2));
     }
 
     // Upgraded stats.

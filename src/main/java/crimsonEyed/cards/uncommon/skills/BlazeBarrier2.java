@@ -1,6 +1,5 @@
 package crimsonEyed.cards.uncommon.skills;
 
-import com.evacipated.cardcrawl.mod.stslib.actions.defect.TriggerPassiveAction;
 import com.megacrit.cardcrawl.actions.defect.AnimateOrbAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -9,7 +8,8 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.Dark;
 import crimsonEyed.SasukeMod;
-import crimsonEyed.actions.common.GainEvokeBlock;
+import crimsonEyed.actions.common.GainEvokeBlockAction;
+import crimsonEyed.actions.common.WaitTriggerPassiveAction;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
 
@@ -42,7 +42,6 @@ public class BlazeBarrier2 extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = 1;
         showEvokeValue = true;
-        showEvokeOrbCount = 1;
     }
 
     // Actions the card should do.
@@ -51,9 +50,9 @@ public class BlazeBarrier2 extends AbstractDynamicCard {
         addToBot(new ChannelAction(new Dark()));
         if (upgraded) {
             addToBot(new AnimateOrbAction(1));
-            addToBot(new TriggerPassiveAction(1));
+            addToBot(new WaitTriggerPassiveAction(1));
         }
-        addToBot(new GainEvokeBlock());
+        addToBot(new GainEvokeBlockAction());
     }
 
     // Upgraded stats.

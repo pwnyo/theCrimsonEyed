@@ -71,7 +71,7 @@ public class Rend extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(4);
+            upgradeDamage(5);
             recalc();
             initializeDescription();
         }

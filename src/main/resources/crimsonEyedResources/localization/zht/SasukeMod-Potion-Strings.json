@@ -2,11 +2,11 @@
 
         "crimsonEyed:CoordinationPotion": {
                 "NAME": "戰術協同藥水",
-                "DESCRIPTIONS": ["獲得 #b", "點 力量 和 層 集中 。"]
+                "DESCRIPTIONS": ["獲得 #b", " 點 #y力量 、 #y敏捷 、 和 #y集中 。"]
         },
         "crimsonEyed:ParalysisPotion": {
                 "NAME": "麻痹蛇毒",
-                "DESCRIPTIONS": ["敵人失去 #b", " 點力量 。"]
+                "DESCRIPTIONS": ["敵人失去 #b", " 點 #y力量 。"]
         },
         "crimsonEyed:ScryPotion": {
                 "NAME": "預見藥劑",

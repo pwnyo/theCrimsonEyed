@@ -1,6 +1,6 @@
 package crimsonEyed.cards.common;
 
-import com.megacrit.cardcrawl.actions.utility.ScryAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.watcher.ChooseOneAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -50,7 +50,7 @@ public class Anticipate extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ScryAction(2));
+        addToBot(new GainBlockAction(p, block));
         ArrayList<AbstractCard> stanceChoices = new ArrayList<>();
         stanceChoices.add(new React());
         stanceChoices.add(new Read());
@@ -59,22 +59,11 @@ public class Anticipate extends AbstractDynamicCard {
             stanceChoices.add(new Condition());
         }
 
-        if (upgraded) {
-            for (AbstractCard c : stanceChoices) {
-                c.upgrade();
-            }
-        }
-
         this.addToBot(new ChooseOneAction(stanceChoices));
     }
 
     void checkMaskDesc() {
-        if (NohMask.shouldUseMaskDesc()) {
-            rawDescription = cardStrings.EXTENDED_DESCRIPTION[upgraded ? 1 : 0];
-        }
-        else {
-            rawDescription = upgraded ? cardStrings.UPGRADE_DESCRIPTION : cardStrings.DESCRIPTION;
-        }
+        rawDescription = NohMask.shouldUseMaskDesc() ? cardStrings.UPGRADE_DESCRIPTION : cardStrings.DESCRIPTION;
     }
 
     // Upgraded stats.
@@ -82,7 +71,6 @@ public class Anticipate extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
             upgradeBlock(3);
             checkMaskDesc();
             initializeDescription();

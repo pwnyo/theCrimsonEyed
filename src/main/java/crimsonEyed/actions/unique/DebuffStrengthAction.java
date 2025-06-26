@@ -10,14 +10,15 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
 public class DebuffStrengthAction extends AbstractGameAction {
-    public DebuffStrengthAction(AbstractCreature target) {
+    public DebuffStrengthAction(AbstractCreature target, int amount) {
         this.target = target;
+        this.amount = amount;
     }
 
     public void update() {
         if (this.target != null && (this.target.hasPower(WeakPower.POWER_ID) || this.target.hasPower(VulnerablePower.POWER_ID))) {
             AbstractPlayer p = AbstractDungeon.player;
-            addToTop(new ApplyPowerAction(p, p, new StrengthPower(p, 1)));
+            addToTop(new ApplyPowerAction(p, p, new StrengthPower(p, amount)));
         }
         this.isDone = true;
     }

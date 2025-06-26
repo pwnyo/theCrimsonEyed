@@ -6,9 +6,9 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class SeverThePastBlockAction extends AbstractGameAction {
-    public SeverThePastBlockAction(int block) {
-        this.actionType = AbstractGameAction.ActionType.EXHAUST;
-        this.amount = block;
+    public SeverThePastBlockAction(int amount) {
+        this.actionType = ActionType.BLOCK;
+        this.amount = amount;
     }
 
     public void update() {

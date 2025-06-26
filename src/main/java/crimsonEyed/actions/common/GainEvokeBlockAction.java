@@ -7,8 +7,8 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 
-public class GainEvokeBlock extends AbstractGameAction {
-    public GainEvokeBlock() {
+public class GainEvokeBlockAction extends AbstractGameAction {
+    public GainEvokeBlockAction() {
         this.duration = Settings.ACTION_DUR_FASTER;
     }
 

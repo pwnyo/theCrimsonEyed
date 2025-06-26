@@ -40,7 +40,7 @@
         "crimsonEyed:GrudgePower": {
                 "NAME": "Grudge",
                 "DESCRIPTIONS": [
-                        "At the start of your turn, #yExhaust #b",
+                        "At the end of your turn, Exhaust #b",
                         " card.",
                         " cards."
                 ]

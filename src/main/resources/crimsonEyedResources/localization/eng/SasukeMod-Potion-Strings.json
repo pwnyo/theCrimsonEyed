@@ -1,11 +1,11 @@
 {
         "crimsonEyed:CoordinationPotion": {
                 "NAME": "Coordination Potion",
-                "DESCRIPTIONS": ["Gain #b", " Strength and Focus."]
+                "DESCRIPTIONS": ["Gain #b", " #yStrength, #yDexterity, and #yFocus."]
         },
         "crimsonEyed:ParalysisPotion": {
                 "NAME": "Paralysis Potion",
-                "DESCRIPTIONS": ["Enemy loses #b", " Strength."]
+                "DESCRIPTIONS": ["Enemy loses #b", " #yStrength."]
         },
         "crimsonEyed:ScryPotion": {
                 "NAME": "Scry Potion",

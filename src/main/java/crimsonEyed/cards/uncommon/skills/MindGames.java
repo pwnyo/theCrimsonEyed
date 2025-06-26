@@ -33,15 +33,15 @@ public class MindGames extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 0;
+    private static final int COST = 1;
 
     // /STAT DECLARATION/
 
 
     public MindGames() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        baseBlock = block = 7;
         baseMagicNumber = magicNumber = 1;
-        baseBlock = block = 4;
     }
 
 

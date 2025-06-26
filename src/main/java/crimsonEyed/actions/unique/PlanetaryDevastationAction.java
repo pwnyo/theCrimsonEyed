@@ -10,10 +10,11 @@ import com.megacrit.cardcrawl.orbs.Plasma;
 import com.megacrit.cardcrawl.vfx.combat.WeightyImpactEffect;
 
 public class PlanetaryDevastationAction extends AbstractGameAction {
-    public PlanetaryDevastationAction(AbstractMonster target) {
+    public PlanetaryDevastationAction(AbstractMonster target, int amount) {
         this.actionType = AbstractGameAction.ActionType.POWER;
         this.duration = Settings.ACTION_DUR_FAST;
         this.target = target;
+        this.amount = amount;
     }
 
     public void update() {
@@ -25,8 +26,10 @@ public class PlanetaryDevastationAction extends AbstractGameAction {
         this.isDone = true;
     }
     void applyPlanet(AbstractMonster m) {
-        addToBot(new VFXAction(new WeightyImpactEffect(m.hb.cX, m.hb.cY), 0.1f));
-        addToBot(new IncreaseMaxOrbAction(1));
-        addToBot(new ChannelAction(new Plasma()));
+        for (int i = 0; i < amount; i++) {
+            addToTop(new ChannelAction(new Plasma()));
+        }
+        addToTop(new IncreaseMaxOrbAction(amount));
+        addToTop(new VFXAction(new WeightyImpactEffect(m.hb.cX, m.hb.cY), 0.1f));
     }
 }

@@ -4,8 +4,6 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.orbs.AbstractOrb;
-import com.megacrit.cardcrawl.orbs.Lightning;
 
 public class AmpUpAction extends AbstractGameAction {
     public AmpUpAction() {
@@ -15,14 +13,8 @@ public class AmpUpAction extends AbstractGameAction {
 
     public void update() {
         if (this.duration == Settings.ACTION_DUR_FAST) {
-            int count = 0;
 
-            for (AbstractOrb o : AbstractDungeon.player.orbs) {
-                if (o instanceof Lightning) {
-                    count++;
-                }
-            }
-
+            int count = AbstractDungeon.player.filledOrbCount();
             if (count > 0) {
                 addToBot(new GainEnergyAction(count));
             }

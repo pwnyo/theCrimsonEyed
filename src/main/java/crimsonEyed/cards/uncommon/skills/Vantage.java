@@ -47,8 +47,8 @@ public class Vantage extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ScryAction(3));
-        addToBot(new GainEnergyAction(magicNumber));
+        addToBot(new ScryAction(magicNumber));
+        addToBot(new GainEnergyAction(1));
     }
 
     // Upgraded stats.
@@ -56,7 +56,7 @@ public class Vantage extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
+            exhaust = false;
             rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }

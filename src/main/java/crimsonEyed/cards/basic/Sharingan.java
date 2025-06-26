@@ -1,6 +1,7 @@
 package crimsonEyed.cards.basic;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.actions.utility.ScryAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -52,6 +53,7 @@ public class Sharingan extends AbstractDynamicCard {
         addToBot(new ApplyPowerAction(m, p, new LockOnPower(m, 2)));
         addToBot(new ScryAction(magicNumber));
         if (upgraded) {
+            addToBot(new DrawCardAction(1));
             addToBot(new IntensifyAction());
         }
     }
@@ -62,7 +64,6 @@ public class Sharingan extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(1);
-            isInnate = true;
             rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }

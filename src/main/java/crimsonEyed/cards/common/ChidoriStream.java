@@ -46,7 +46,6 @@ public class ChidoriStream extends AbstractDynamicCard {
         baseMagicNumber = magicNumber = 2;
         showEvokeValue = true;
         showEvokeOrbCount = 1;
-        exhaust = true;
     }
 
 
@@ -65,7 +64,7 @@ public class ChidoriStream extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(0);
+            upgradeMagicNumber(1);
             initializeDescription();
         }
     }

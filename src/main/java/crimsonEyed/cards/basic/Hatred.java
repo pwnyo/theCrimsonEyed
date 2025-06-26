@@ -30,15 +30,14 @@ public class Hatred extends AbstractDynamicCard {
     public Hatred() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
-        exhaust = true;
         SoulboundField.soulbound.set(this, true);
+        isEthereal = true;
+        exhaust = true;
     }
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (this.dontTriggerOnUseCard) {
-            if (magicNumber > 0) {
-                addToTop(new LoseHPAction(p, p, magicNumber));
-            }
+        if (this.dontTriggerOnUseCard && magicNumber > 0) {
+            addToTop(new LoseHPAction(p, p, magicNumber));
         }
     }
 
@@ -51,7 +50,7 @@ public class Hatred extends AbstractDynamicCard {
         ++this.timesUpgraded;
         this.upgraded = true;
         upgradeMagicNumber(1);
-        this.name = cardStrings.NAME + "+" + this.timesUpgraded;// 52
+        this.name = cardStrings.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
     }
 }

@@ -14,7 +14,8 @@
   },
   "crimsonEyed:AmpUp": {
     "NAME": "電能激增",
-    "DESCRIPTION": "每擁有1個 閃電 充能球 ，獲得1點 [E] 。"
+    "DESCRIPTION": "每擁有1個 充能球 ，獲得1點 [E] 。",
+    "UPGRADE_DESCRIPTION": "每擁有1個 充能球 ，獲得1點 [E] 。"
   },
   "crimsonEyed:Analyze": {
     "NAME": "寫輪眼·洞察",
@@ -22,12 +23,8 @@
   },
   "crimsonEyed:Anticipate": {
     "NAME": "預判",
-    "DESCRIPTION": "預見 2。 NL 選擇： 下回合，抽 !M! 張牌 或 獲得 [E] 。",
-    "UPGRADE_DESCRIPTION": "預見 2。 NL 選擇： 下回合，抽 !M! 張牌 或 獲得 [E] [E] 。",
-    "EXTENDED_DESCRIPTION": [
-      "預見 2。 NL 選擇： 下回合， 抽 !M! 張牌、 獲得 [E] 、 或 獲得 !B! 點 格擋 。",
-      "預見 2。 NL 選擇： 下回合， 抽 !M! 張牌、 獲得 [E] [E] 、 或 獲得 !B! 點 格擋 。"
-    ]
+    "DESCRIPTION": "獲得 !B! 點 格擋。 NL 選擇： 下回合，抽 !M! 張牌 或 獲得 [E] 。",
+    "UPGRADE_DESCRIPTION": "獲得 !B! 點 格擋。 NL 選擇： 下回合，抽 !M! 張牌、 獲得 [E] 、 或 獲得 !B! 點 格擋 。"
   },
    "crimsonEyed:BoneBreaker": {
      "NAME": "碎骨機",
@@ -64,8 +61,8 @@
     "DESCRIPTION": "選擇： 造成 !D! 點傷害或對所有敵人造成 !M! 點傷害。",
     "UPGRADE_DESCRIPTION": "選擇： 造成 !D! 點傷害或對所有敵人造成 !M! 點傷害。",
     "EXTENDED_DESCRIPTION": [
-      "選擇： 造成 !D! 點傷害、對所有敵人造成 !M! 點傷害、或對所有敵人造成 !crimsonEyed:M2! 點傷害3次。",
-      "選擇： 造成 !D! 點傷害、對所有敵人造成 !M! 點傷害、或對所有敵人造成 !crimsonEyed:M2! 點傷害4次。"
+      "選擇： 造成 !D! 點傷害、對所有敵人造成 !M! 點傷害、或對所有敵人造成 !crimsonEyed:M2! 點傷害5次。",
+      "選擇： 造成 !D! 點傷害、對所有敵人造成 !M! 點傷害、或對所有敵人造成 !crimsonEyed:M2! 點傷害5次。"
     ]
   },
   "crimsonEyed:Copycat": {
@@ -84,8 +81,8 @@
   },
   "crimsonEyed:CurseMark": {
     "NAME": "咒印",
-    "DESCRIPTION": "獲得 [E] [E] 。 NL crimsoneyed:激化咒印 所有 crimsoneyed:仇恨 2次。",
-    "UPGRADE_DESCRIPTION": "獲得 [E] [E] [E] 。 NL crimsoneyed:激化咒印 所有 crimsoneyed:仇恨 2次。"
+    "DESCRIPTION": "獲得 [E] [E] 。 NL crimsoneyed:激化咒印 所有 crimsoneyed:仇恨 。",
+    "UPGRADE_DESCRIPTION": "獲得 [E] [E] [E] 。 NL crimsoneyed:激化咒印 所有 crimsoneyed:仇恨 。"
   },
   "crimsonEyed:CutDown": {
     "NAME": "砍倒",
@@ -144,8 +141,7 @@
   },
   "crimsonEyed:Fusillade": {
     "NAME": "須佐能乎-貫",
-    "DESCRIPTION": "造成 !D! 點傷害。 NL 抽 1 張牌。 NL 被 消耗 時：複製 1 張此牌到手牌 和 抽 1 張牌。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 點傷害。 NL 抽 1 張牌。 NL 被 消耗 時：複製 1 張此牌到手牌 和 抽 1 張牌。"
+    "DESCRIPTION": "造成 !D! 點傷害。 NL 被 消耗 時：將該牌複製2張加入手牌。"
   },
   "crimsonEyed:Genjutsu": {
     "NAME": "幻術·輪回眼",
@@ -153,8 +149,8 @@
   },
   "crimsonEyed:Grudge": {
     "NAME": "滔天恨意",
-    "DESCRIPTION": "回合開始時， 消耗 1張牌。",
-    "UPGRADE_DESCRIPTION": " 固有 。 NL 回合開始時， 消耗 1張牌。"
+    "DESCRIPTION": "在你的回合結束時， 消耗 1張牌。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 在你的回合結束時， 消耗 1張牌。"
   },
   "crimsonEyed:Coordination": {
     "NAME": "戰術協同",
@@ -163,7 +159,7 @@
   },
   "crimsonEyed:Hatred": {
     "NAME": "仇恨 ",
-    "DESCRIPTION": " 無法打出 。 NL 回合结束時，失去 !M! 點生命 和 消耗 。"
+    "DESCRIPTION": " 無法打出 。 虛無 。 NL 回合结束時，失去 !M! 點生命 和 消耗 。"
   },
   "crimsonEyed:Hand": {
     "NAME": "查克拉",
@@ -236,8 +232,8 @@
   },
   "crimsonEyed:LightningSpeed": {
     "NAME": "雷遁-速擊",
-    "DESCRIPTION": "每當生成 1 個 閃電 充能球，都獲得 !M! 點 格擋 。",
-    "UPGRADE_DESCRIPTION": " 固有 。 NL 每當生成 1 個 閃電 充能球，都獲得 !M! 點 格擋 。"
+    "DESCRIPTION": "每當生成 1 個 閃電 充能球，都獲得 !M! 點 格擋 。 NL 生成 1 個 閃電 充能球 。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 每當生成 1 個 閃電 充能球，都獲得 !M! 點 格擋 。 NL 生成 1 個 閃電 充能球 。"
   },
   "crimsonEyed:Mangekyou": {
     "NAME": "萬花筒寫輪眼",
@@ -254,7 +250,7 @@
   },
   "crimsonEyed:OneStepAhead": {
     "NAME": "計畫周全",
-    "DESCRIPTION": "獲得 !B! 點 格擋 。 NL 本回合结束，可 保留 1張牌。"
+    "DESCRIPTION": "抽 !M! 張牌 。 NL 預見 1。"
   },
   "crimsonEyed:PaperBomb": {
     "NAME": "起爆符",
@@ -322,7 +318,8 @@
   },
   "crimsonEyed:Payback": {
     "NAME": "血債血償",
-    "DESCRIPTION": "造成 !D! 點傷害。 NL 敵人每有負面效果，你就會獲得 [E] 。"
+    "DESCRIPTION": "造成 !D! 點傷害。 NL 若敵人有 易傷 狀態 或 虛弱 狀態， NL 獲得 [E] [E] 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 點傷害。 NL 若敵人有 易傷 狀態 或 虛弱 狀態， NL 獲得 [E] [E] [E] 。"
   },
   "crimsonEyed:SeeEverything": {
     "NAME": "萬花筒寫輪眼",
@@ -335,8 +332,8 @@
   },
   "crimsonEyed:Sharingan": {
     "NAME": "寫輪眼",
-    "DESCRIPTION": "施加2層 跟踪鎖定。 NL 預見 !M!。",
-    "UPGRADE_DESCRIPTION": " 固有 。 NL 施加2層 跟踪鎖定。 NL 預見 !M!。 NL crimsoneyed:激化咒印 所有 crimsoneyed:仇恨 。"
+    "DESCRIPTION": "施加2層 跟踪鎖定 。 NL 預見 !M!。",
+    "UPGRADE_DESCRIPTION": "施加2層 跟踪鎖定 。 NL 預見 !M!。 NL 抽 1 張牌。 NL crimsoneyed:激化咒印 所有 crimsoneyed:仇恨 。"
   },
   "crimsonEyed:Shurikenjutsu": {
     "NAME": "手裏劍影分身之術",
@@ -356,7 +353,7 @@
   },
   "crimsonEyed:SixthSense": {
     "NAME": "忍者直感",
-    "DESCRIPTION": "獲得 !B! 點 格擋 。 NL 預見 時：將此牌從棄牌堆返回手牌。"
+    "DESCRIPTION": "獲得 !B! 點 格擋 。 NL 你每次 預見 時，將這張牌從棄牌堆中放入手牌。"
   },
   "crimsonEyed:SkeletonShield": {
     "NAME": "須佐能乎-甲",
@@ -368,7 +365,7 @@
   },
   "crimsonEyed:Slither": {
     "NAME": "邪蛇蜿蜒",
-    "DESCRIPTION": "抽 !M! 張牌。 NL 增加2張 *黏液 抽牌堆頂部。"
+    "DESCRIPTION": "抽 !M! 張牌。 NL 增加1張 *黏液 抽牌堆頂部。"
   },
   "crimsonEyed:SnakeBinding": {
     "NAME": "通靈·蛇睨咒縛",
@@ -384,11 +381,11 @@
   },
   "crimsonEyed:SpaceTime": {
     "NAME": "輪回眼·時空間之術",
-    "DESCRIPTION": " 保留 。 NL 選擇： 將 *萬象天引 或 NL *天手力 加入手牌。",
-    "UPGRADE_DESCRIPTION": " 保留 。 選擇： NL 將 *萬象天引+ 或 NL *天手力+ 加入手牌。",
+    "DESCRIPTION": "選擇： 將 *萬象天引 或 NL *天手力 加入手牌。",
+    "UPGRADE_DESCRIPTION": "選擇： NL 將 *萬象天引+ 或 NL *天手力+ 加入手牌。",
     "EXTENDED_DESCRIPTION": [
-      " 保留 。 NL 選擇： NL 將 *萬象天引 或 *天手力 或*神羅天征 加入手牌。",
-      " 保留 。 NL 選擇： NL 將 *萬象天引+ 或 *天手力+ 或*神羅天征+ 加入手牌。"
+      "選擇： NL 將 *萬象天引 或 *天手力 或*神羅天征 加入手牌。",
+      "選擇： NL 將 *萬象天引+ 或 *天手力+ 或*神羅天征+ 加入手牌。"
     ]
   },
   "crimsonEyed:Spite2": {
@@ -427,12 +424,13 @@
   },
   "crimsonEyed:UniversalPull": {
     "NAME": "萬象天引",
-    "DESCRIPTION": "下回合，將 !M! 張牌從任意位置 加入手牌。"
+    "DESCRIPTION": "下回合，將 !M! 張牌從任意位置 加入手牌。",
+    "UPGRADE_DESCRIPTION": "下回合，將 !M! 張牌從任意位置 加入手牌。"
   },
   "crimsonEyed:Vantage": {
     "NAME": "寫輪眼·洞悉",
-    "DESCRIPTION": " 固有 。 NL 預見 3。 NL 獲得 [E] 。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": " 固有 。 NL 預見 3。 NL 獲得 [E] [E] 。 NL 消耗 。"
+    "DESCRIPTION": " 固有 。 NL 獲得 [E] 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 獲得 [E] 。"
   },
   "crimsonEyed:ViciousStrike": {
     "NAME": "惡毒襲擊",
@@ -440,7 +438,7 @@
   },
   "crimsonEyed:WatchOut": {
     "NAME": "提防",
-    "DESCRIPTION": "獲得 !B! 點 格擋 。 NL 對所有敵人施加 !M! 層 跟踪鎖定。"
+    "DESCRIPTION": "獲得 !B! 點 格擋 。 NL 對所有敵人施加 !M! 層 跟踪鎖定 。"
   },
   "crimsonEyed:YasakaMagatama2": {
     "NAME": "須佐能乎-十拳劍",

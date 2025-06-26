@@ -2,7 +2,7 @@ package crimsonEyed.cards.uncommon.attacks;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -34,31 +34,27 @@ public class Fusillade extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 2;  // COST = 1
-
-    private static final int DAMAGE = 15;
-    private static final int UPGRADE_PLUS_DMG = 5;
+    private static final int COST = 0;
 
     // /STAT DECLARATION/
 
 
     public Fusillade() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = damage = DAMAGE;
+        baseDamage = damage = 5;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new GainBlockAction(p, block));
         addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
-        addToBot(new DrawCardAction(1));
     }
 
     @Override
     public void triggerOnExhaust() {
-        addToTop(new DrawCardAction(1));
-        addToTop(new MakeTempCardInHandAction(this.makeStatEquivalentCopy()));
+        addToTop(new MakeTempCardInHandAction(this.makeStatEquivalentCopy(), 2));
     }
 
     // Upgraded stats.
@@ -66,7 +62,7 @@ public class Fusillade extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_PLUS_DMG);
+            upgradeDamage(3);
             initializeDescription();
         }
     }

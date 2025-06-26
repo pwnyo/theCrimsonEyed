@@ -33,9 +33,11 @@ public class GrudgePower extends AbstractPower {
     }
 
     @Override
-    public void atStartOfTurnPostDraw() {
-        flash();
-        addToBot(new ExhaustAction(1, false));
+    public void atEndOfTurnPreEndTurnCards(boolean isPlayer) {
+        if (isPlayer) {
+            flash();
+            addToBot(new ExhaustAction(amount, false));
+        }
     }
 
     public void stackPower(int stackAmount) {

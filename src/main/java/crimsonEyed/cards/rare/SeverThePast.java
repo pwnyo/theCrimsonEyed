@@ -1,5 +1,6 @@
 package crimsonEyed.cards.rare;
 
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -7,7 +8,6 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.actions.common.ExhaustFromDiscardAction;
-import crimsonEyed.actions.common.SeverThePastBlockAction;
 import crimsonEyed.cards.AbstractDynamicCard;
 import crimsonEyed.characters.TheCrimsonEyed;
 
@@ -46,13 +46,14 @@ public class SeverThePast extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new SeverThePastBlockAction(magicNumber));
+        addToBot(new GainBlockAction(p, block));
         addToBot(new ExhaustFromDiscardAction(1, false));
     }
 
-    public void applyPowersToBlock() {
+    @Override
+    public void applyPowers() {
         baseBlock = AbstractDungeon.player.exhaustPile.size() * magicNumber;
-        super.applyPowersToBlock();
+        super.applyPowers();
         this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
         this.initializeDescription();
     }

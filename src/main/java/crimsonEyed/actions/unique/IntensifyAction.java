@@ -1,15 +1,14 @@
 package crimsonEyed.actions.unique;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import crimsonEyed.actions.common.DiscardToTopAction;
-import crimsonEyed.actions.common.DrawToTopAction;
+import crimsonEyed.actions.common.DrawToHandAction;
 import crimsonEyed.cards.basic.Hatred;
 import crimsonEyed.cards.temp.EnduringFlame;
 import crimsonEyed.patches.interfaces.IOnIntensifyListener;
@@ -30,14 +29,26 @@ public class IntensifyAction extends AbstractGameAction {
                 ((IOnIntensifyListener) pow).onIntensify();
             }
         }
+
         boolean hasEnough = false;
         boolean hasHope = p.hasRelic(ScratchedHeadband.ID);
+
+        if (p.hand.size() > 0) {
+            for (AbstractCard c : p.hand.group) {
+                if (hasHope ? (c instanceof EnduringFlame) : (c instanceof Hatred)) {
+                    hasEnough = true;
+                    c.upgrade();
+                    c.superFlash();
+                    c.applyPowers();
+                }
+            }
+        }
+
         if (p.drawPile.size() > 0) {
             for (AbstractCard c : p.drawPile.group) {
                 if (hasHope ? (c instanceof EnduringFlame) : (c instanceof Hatred)) {
                     hasEnough = true;
-                    addToTop(new DrawCardAction(1));
-                    addToTop(new DrawToTopAction(c));
+                    addToTop(new DrawToHandAction(c));
                 }
             }
         }
@@ -45,22 +56,14 @@ public class IntensifyAction extends AbstractGameAction {
             for (AbstractCard c : p.discardPile.group) {
                 if (hasHope ? (c instanceof EnduringFlame) : (c instanceof Hatred)) {
                     hasEnough = true;
-                    addToTop(new DrawCardAction(1));
-                    addToTop(new DiscardToTopAction(c));
+                    addToTop(new DiscardToHandAction(c));
                 }
                 if (c instanceof IOnIntensifyListener) {
                     ((IOnIntensifyListener) c).onIntensify();
                 }
             }
         }
-        if (p.hand.size() > 0) {
-            for (AbstractCard c : p.hand.group) {
-                if (hasHope ? (c instanceof EnduringFlame) : (c instanceof Hatred)) {
-                    hasEnough = true;
-                    c.upgrade();
-                }
-            }
-        }
+
         if (!hasEnough) {
             addToTop(new MakeTempCardInHandAction(hasHope ? new EnduringFlame() : new Hatred()));
         }

@@ -39,8 +39,8 @@ public class Dice extends AbstractDynamicCard {
 
     public Dice() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = damage = 5;
-        baseMagicNumber = magicNumber = 3;
+        baseDamage = damage = 3;
+        baseMagicNumber = magicNumber = 5;
         isMultiDamage = true;
     }
     public Dice(AbstractMonster m) {
@@ -76,7 +76,7 @@ public class Dice extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
+            upgradeDamage(1);
             recalc();
             initializeDescription();
         }

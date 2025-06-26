@@ -4,7 +4,7 @@
     "NAMES": [
       "炸裂火焰"
     ],
-    "DESCRIPTION": "#y消耗 牌時, 敵人受到傷害."
+    "DESCRIPTION": "#y消耗 牌時，敵人受到傷害。"
   },
   {
     "PROPER_NAME": "仇恨",
@@ -12,27 +12,27 @@
       "憎恨",
       "仇恨"
     ],
-    "DESCRIPTION": "憎恨是一張臨時 #y詛咒 : #y保留 , 回合末失去 #b1 生命值."
+    "DESCRIPTION": "憎恨是一張臨時 #y詛咒 : 回合末失去 #b1 生命值。"
   },
   {
     "PROPER_NAME": "天命",
     "NAMES": [
       "天命"
     ],
-    "DESCRIPTION": "無效下一個受到的負面效果. 由 #y人工制品 發動."
+    "DESCRIPTION": "無效下一個受到的負面效果。 由 #y人工制品 發動。"
   },
   {
     "PROPER_NAME": "火焰屏障",
     "NAMES": [
       "火焰屏障"
     ],
-    "DESCRIPTION": "被攻擊時,回敬傷害."
+    "DESCRIPTION": "被攻擊時，回敬傷害。"
   },
   {
     "PROPER_NAME": "激化咒印",
     "NAMES": [
       "激化咒印"
     ],
-    "DESCRIPTION": "升級 所有手 #y憎恨 . 抽所有 #y憎恨 . 如果你没有憎恨,則生成一張加入手牌."
+    "DESCRIPTION": "升级所有手牌中的 #y憎恨 。 將所有 #y憎恨 加入手牌 。 如果你没有憎恨，則生成一張加入手牌。"
   }
 ]

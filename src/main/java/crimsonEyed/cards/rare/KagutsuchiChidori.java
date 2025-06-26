@@ -50,7 +50,6 @@ public class KagutsuchiChidori extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
         showEvokeValue = true;
-        showEvokeOrbCount = 1;
         exhaust = true;
         checkMaskDesc();
     }

@@ -1,31 +1,25 @@
 package crimsonEyed.cards.uncommon.attacks;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
-import com.megacrit.cardcrawl.powers.WeakPower;
 import crimsonEyed.SasukeMod;
 import crimsonEyed.actions.unique.IntensifyAction;
 import crimsonEyed.cards.AbstractDynamicCard;
+import crimsonEyed.cards.basic.Hatred;
 import crimsonEyed.characters.TheCrimsonEyed;
 
 import static crimsonEyed.SasukeMod.makeCardPath;
-import static crimsonEyed.SasukeMod.makeID;
 
-public class KillingIntent extends AbstractDynamicCard {
+public class ViciousStrike extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = SasukeMod.makeID(KillingIntent.class.getSimpleName());
-    public static final String IMG = makeCardPath("KillingIntent.png");
-    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+    public static final String ID = SasukeMod.makeID(ViciousStrike.class.getSimpleName());
+    public static final String IMG = makeCardPath("ViciousStrike.png");
 
 
     // /TEXT DECLARATION/
@@ -40,23 +34,24 @@ public class KillingIntent extends AbstractDynamicCard {
 
     private static final int COST = 1;
 
+    private static final int DAMAGE = 12;
+    private static final int UPGRADE_PLUS_DMG = 4;
+
     // /STAT DECLARATION/
 
 
-    public KillingIntent() {
+    public ViciousStrike() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = damage = 7;
-        baseMagicNumber = magicNumber = 1;
+        baseDamage = damage = DAMAGE;
+        cardsToPreview = new Hatred();
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new SFXAction(makeID("GENJUTSU")));
-        addToBot(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.SLASH_HEAVY));
-        addToBot(new ApplyPowerAction(m, p, new WeakPower(m, magicNumber, false)));
-        addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false)));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        addToBot(new DrawCardAction(1));
         addToBot(new IntensifyAction());
     }
 
@@ -66,7 +61,7 @@ public class KillingIntent extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(0);
+            upgradeDamage(UPGRADE_PLUS_DMG);
             initializeDescription();
         }
     }

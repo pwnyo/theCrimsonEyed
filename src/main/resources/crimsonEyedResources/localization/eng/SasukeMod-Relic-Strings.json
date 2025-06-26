@@ -8,10 +8,10 @@
   },
   "crimsonEyed:CrimsonEye2": {
     "NAME": "Crimson Eye",
-    "FLAVOR": "Your eye, steeped in Hatred. Perceives the truth and fabricates illusion.",
+    "FLAVOR": "Your eye, steeped in #yHatred. Perceives the truth and fabricates illusion.",
     "DESCRIPTIONS": [
       "While your HP is at or below #b50%, you have #b",
-      " additional #yStrength and #yFocus."
+      " additional #yStrength, #yDexterity, and #yFocus."
     ]
   },
   "crimsonEyed:CrowFeather": {
@@ -26,8 +26,8 @@
     "NAME": "Eternal Eye",
     "FLAVOR": "Awakened from out of darkness.",
     "DESCRIPTIONS": [
-      "Replaces #yCrimson #yEye. While your HP is at or below #b50%, you have #b",
-      " additional #yStrength and #yFocus."
+      "Replaces #yCrimson #yEye. Start combats with #b",
+      " additional #yStrength, #yDexterity, and #yFocus."
     ]
   },
   "crimsonEyed:BlueScale": {
@@ -96,7 +96,7 @@
     "NAME": "Uchiwa",
     "FLAVOR": "A paper fan. It may have been used to lead soldiers in battle.",
     "DESCRIPTIONS": [
-      "At the start of each combat, draw #b1 card for each #yInnate card in your hand."
+      "Whenever you draw an #yInnate card, draw #b1 card."
     ]
   }
 }

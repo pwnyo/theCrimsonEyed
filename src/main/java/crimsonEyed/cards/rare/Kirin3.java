@@ -48,7 +48,6 @@ public class Kirin3 extends AbstractDynamicCard implements IOnExhaustListenerCar
     public Kirin3() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         showEvokeValue = true;
-        showEvokeOrbCount = 4;
         baseMagicNumber = magicNumber = 4;
         exhaust = true;
         if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null &&

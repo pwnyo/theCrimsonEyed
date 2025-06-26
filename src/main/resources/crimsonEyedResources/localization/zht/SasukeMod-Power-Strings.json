@@ -47,7 +47,7 @@
         "crimsonEyed:GrudgePower": {
                 "NAME": "滔天恨意",
                 "DESCRIPTIONS": [
-                        "回合開始時， 消耗 #b",
+                        "在你的回合結束時， 消耗 #b",
                         " 張牌。",
                         " 張牌。"
                 ]

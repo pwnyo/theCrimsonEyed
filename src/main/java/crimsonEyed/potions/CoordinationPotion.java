@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
+import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.FocusPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -37,6 +38,7 @@ public class CoordinationPotion extends CustomPotion {
         if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
             AbstractPlayer p = AbstractDungeon.player;
             addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, potency)));
+            addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, potency)));
             addToBot(new ApplyPowerAction(p, p, new FocusPower(p, potency)));
         }
     }

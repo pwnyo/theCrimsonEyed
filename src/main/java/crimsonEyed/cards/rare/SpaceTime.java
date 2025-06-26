@@ -124,7 +124,6 @@ public class SpaceTime extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(0);
             cardsToPreview.upgrade();
             cardsToPreview2.upgrade();
 

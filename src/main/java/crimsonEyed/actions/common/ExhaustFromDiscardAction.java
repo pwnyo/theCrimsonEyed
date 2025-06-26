@@ -51,6 +51,7 @@ public class ExhaustFromDiscardAction extends AbstractGameAction {
 
                     this.isDone = true;// 67
                 } else {
+                    ///TODO: These UI strings don't work correctly
                     if (amount == 1) {// 70
                         if (this.optional) {// 71
                             AbstractDungeon.gridSelectScreen.open(p.discardPile, amount, true, TEXT[0]);// 72

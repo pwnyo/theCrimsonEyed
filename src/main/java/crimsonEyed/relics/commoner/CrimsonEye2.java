@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.FocusPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -37,6 +38,7 @@ public class CrimsonEye2 extends CustomRelic {
                     CrimsonEye2.this.flash();
                     CrimsonEye2.this.pulse = true;
                     AbstractDungeon.player.addPower(new StrengthPower(AbstractDungeon.player, AMT));
+                    AbstractDungeon.player.addPower(new DexterityPower(AbstractDungeon.player, AMT));
                     AbstractDungeon.player.addPower(new FocusPower(AbstractDungeon.player, AMT));
                     this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, CrimsonEye2.this));
                     CrimsonEye2.this.isActive = true;
@@ -54,6 +56,7 @@ public class CrimsonEye2 extends CustomRelic {
         if (!this.isActive && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
             AbstractPlayer p = AbstractDungeon.player;
             this.addToTop(new ApplyPowerAction(p, p, new FocusPower(p, AMT)));
+            this.addToTop(new ApplyPowerAction(p, p, new DexterityPower(p, AMT)));
             this.addToTop(new ApplyPowerAction(p, p, new StrengthPower(p, AMT)));
             this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             this.isActive = true;
@@ -65,8 +68,9 @@ public class CrimsonEye2 extends CustomRelic {
     public void onNotBloodied() {
         if (this.isActive && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
             AbstractPlayer p = AbstractDungeon.player;
-            this.addToTop(new ApplyPowerAction(p, p, new StrengthPower(p, -AMT)));
             this.addToTop(new ApplyPowerAction(p, p, new FocusPower(p, -AMT)));
+            this.addToTop(new ApplyPowerAction(p, p, new DexterityPower(p, -AMT)));
+            this.addToTop(new ApplyPowerAction(p, p, new StrengthPower(p, -AMT)));
         }
 
         this.stopPulse();

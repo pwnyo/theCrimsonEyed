@@ -53,7 +53,6 @@ public class Chidori extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         showEvokeValue = true;
-        showEvokeOrbCount = 1;
     }
 
 

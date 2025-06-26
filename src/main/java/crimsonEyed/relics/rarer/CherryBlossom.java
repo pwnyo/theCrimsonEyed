@@ -46,8 +46,8 @@ public class CherryBlossom extends CustomRelic {
         if (counter == 0) {
             this.flash();
             AbstractPlayer p = AbstractDungeon.player;
-            addToBot(new RelicAboveCreatureAction(p, this));
-            addToBot(new HealAction(p, p, HEAL));
+            addToTop(new HealAction(p, p, HEAL));
+            addToTop(new RelicAboveCreatureAction(p, this));
             this.pulse = false;
             usedThisCombat = true;
             this.grayscale = true;

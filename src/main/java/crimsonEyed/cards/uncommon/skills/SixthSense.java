@@ -30,16 +30,15 @@ public class SixthSense extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
 
-    private static final int COST = 1;
+    private static final int COST = 0;
 
     // /STAT DECLARATION/
 
 
     public SixthSense() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseBlock = block = 6;
+        baseBlock = block = 4;
     }
-
 
     // Actions the card should do.
     @Override
@@ -57,7 +56,7 @@ public class SixthSense extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBlock(3);
+            upgradeBlock(2);
             initializeDescription();
         }
     }

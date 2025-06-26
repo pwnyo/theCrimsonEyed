@@ -1,4 +1,4 @@
-package crimsonEyed.cards.common;
+package crimsonEyed.cards.uncommon.skills;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -25,7 +25,7 @@ public class Analyze extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
+    private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.SELF;  //   since they don't change much.
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheCrimsonEyed.Enums.SASUKE_BLUE;
@@ -52,6 +52,7 @@ public class Analyze extends AbstractDynamicCard {
 
     @Override
     protected void applyPowersToBlock() {
+        super.applyPowersToBlock();
         this.isBlockModified = false;
         float tmp = (float)this.baseBlock;
 

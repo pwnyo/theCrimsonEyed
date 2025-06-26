@@ -40,14 +40,14 @@ public class Payback extends AbstractDynamicCard {
     public Payback() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = 6;
-        baseMagicNumber = magicNumber = 0;
+        baseMagicNumber = magicNumber = 2;
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_HEAVY));
-        addToBot(new PaybackAction(m));
+        addToBot(new PaybackAction(m, magicNumber));
     }
 
     // Upgraded stats.
@@ -55,7 +55,8 @@ public class Payback extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(3);
+            upgradeMagicNumber(1);
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

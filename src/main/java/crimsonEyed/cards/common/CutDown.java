@@ -38,7 +38,7 @@ public class CutDown extends AbstractDynamicCard {
     private static final int COST = 2;
 
     private static final int DAMAGE = 15;
-    private static final int MAGIC = 1;
+    private static final int MAGIC = 2;
 
     // /STAT DECLARATION/
 
@@ -54,7 +54,7 @@ public class CutDown extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.SLASH_HEAVY));
-        addToBot(new DebuffStrengthAction(m));
+        addToBot(new DebuffStrengthAction(m, magicNumber));
     }
 
     public void triggerOnGlowCheck() {

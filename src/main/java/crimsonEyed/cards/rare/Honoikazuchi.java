@@ -43,8 +43,6 @@ public class Honoikazuchi extends AbstractDynamicCard {
     public Honoikazuchi() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
-        showEvokeValue = true;
-        showEvokeOrbCount = 1;
     }
 
 

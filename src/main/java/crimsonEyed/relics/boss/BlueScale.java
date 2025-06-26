@@ -35,8 +35,8 @@ public class BlueScale extends CustomRelic {
         if (!this.triggeredThisTurn && (drawnCard.type == AbstractCard.CardType.CURSE || drawnCard.type == AbstractCard.CardType.STATUS)) {
             this.triggeredThisTurn = true;
             flash();
-            addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-            addToBot(new GainEnergyAction(1));
+            addToTop(new GainEnergyAction(1));
+            addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
         }
     }
 
